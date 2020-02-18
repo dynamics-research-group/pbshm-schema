@@ -1,0 +1,30 @@
+{
+    "bsonType": "object",
+    "title": "PBSHM Data Schema: Structure Data",
+    "description": "A JSON Schema for Population-based Structural Health Monitoring Data",
+    "required": [
+        "name",
+        "population",
+        "timestamp"
+    ],
+    "properties": {
+        "name": {
+            "bsonType": "string",
+            "title": "Structure Name",
+            "description": "This should be a unique name for your structure within the population",
+            "minLength": 1
+        },
+        "population": {
+            "bsonType": "string",
+            "title": "Population Name",
+            "description": "This should be the unique name for your Population of structures",
+            "minLength": 8,
+            "maxLength": 64
+        },
+        "timestamp": {
+            "bsonType": "date",
+            "title": "Data Timestamp",
+            "description": "This is the timestamp of when the data was recorded in ISO 8601 format"
+        }
+    }
+}
