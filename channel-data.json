@@ -1,0 +1,1224 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "https://github.com/dynamics-research-group/pbshm-schema/channel-data.json",
+    "definitions": {
+        "channelBaseObject": {
+            "bsonType": "object",
+            "required": [
+                "name",
+                "type",
+                "value"
+            ],
+            "properties": {
+                "name": {
+                    "bsonType": "string",
+                    "title": "channel name",
+                    "description": "the unique channel name within the structure",
+                    "minLength": 1
+                },
+                "type": {
+                    "bsonType": "string",
+                    "title": "channel type",
+                    "description": "the channel type (see https://github.com/dynamics-research-group/pbshm-schema#channel-types for more information)"
+                },
+                "value": {
+                    "description": "the channel value (see https://github.com/dynamics-research-group/pbshm-schema#value-types for more information)"
+                }
+            }
+        },
+        "channelUnitObject": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/channelBaseObject"
+                },
+                {
+                    "required": [
+                        "unit"
+                    ],
+                    "properties": {
+                        "unit": {
+                            "bsonType": "string",
+                            "title": "channel unit",
+                            "description": "the channel unit assosiated with the channel type (see https://github.com/dynamics-research-group/pbshm-schema#channel-types for more information)"
+                        },
+                        "value": {
+                            "oneOf": [
+                                {
+                                    "bsonType": "double",
+                                    "title": "channel value double"
+                                },
+                                {
+                                    "bsonType": "object",
+                                    "title": "channel value object",
+                                    "description": "the minimum, maximum, mean and standard deviation values for the channel over the observed time period",
+                                    "additionalProperties": false,
+                                    "minProperties": 1,
+                                    "properties": {
+                                        "min": {
+                                            "bsonType": "double",
+                                            "title": "minimum value",
+                                            "description": "minimum channel value over the observed time period"
+                                        },
+                                        "max": {
+                                            "bsonType": "double",
+                                            "title": "maximum value",
+                                            "description": "maximum channel value over the observed time period"
+                                        },
+                                        "mean": {
+                                            "bsonType": "double",
+                                            "title": "mean value",
+                                            "description": "mean channel value over the observed time period"
+                                        },
+                                        "std": {
+                                            "bsonType": "double",
+                                            "title": "standard deviation value",
+                                            "description": "standard deviation channel value over the observed time period"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "bsonType": "array",
+    "title": "channel data array",
+    "description": "this is the array of channel data for this structure at the given timestamp",
+    "items": {
+        "oneOf": [
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "acceleration channel",
+                        "description": "acceleration channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "acceleration"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "(m/s)^2",
+                                    "g",
+                                    "v",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "velocity channel",
+                        "description": "velocity channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "velocity"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "m/s",
+                                    "v",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "displacement channel",
+                        "description": "displacement channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "displacement"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "mm",
+                                    "cm",
+                                    "m",
+                                    "km",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "angular acceleration channel",
+                        "description": "angular acceleration channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "angularAcceleration"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "(degrees/s)^2",
+                                    "(radians/s)^2",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "angular velocity channel",
+                        "description": "angular velocity channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "angularVelocity"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "degrees/s",
+                                    "radians/s",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "angular displacement channel",
+                        "description": "angular displacement channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "angularDisplacement"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "degrees",
+                                    "radians",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "tilt channel",
+                        "description": "tilt channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "tilt"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "degrees",
+                                    "radians",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "strain channel",
+                        "description": "strain channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "strain"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "nd",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "tension channel",
+                        "description": "tension channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "tension"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "fN",
+                                    "pN",
+                                    "nN",
+                                    "μN",
+                                    "mN",
+                                    "cN",
+                                    "dN",
+                                    "N",
+                                    "daN",
+                                    "hN",
+                                    "kN",
+                                    "MN",
+                                    "GN",
+                                    "TN",
+                                    "PN",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "structural potential hydrogen channel",
+                        "description": "structural potential hydrogen channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "structuralPotentialHydrogen"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "pH",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "temperature channel",
+                        "description": "temperature channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "temperature"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "C",
+                                    "F",
+                                    "K",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "Humidity channel",
+                        "description": "Humidity channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "humidity"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "%",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "speed channel",
+                        "description": "speed channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "speed"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "mph",
+                                    "ft/s",
+                                    "km/h",
+                                    "m/s",
+                                    "kn",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "direction channel",
+                        "description": "direction channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "direction"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "degrees",
+                                    "radians",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "pressure channel",
+                        "description": "pressure channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "pressure"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "fPa",
+                                    "pPa",
+                                    "nPa",
+                                    "µPa",
+                                    "mPa",
+                                    "cPa",
+                                    "dPa",
+                                    "Pa",
+                                    "daPa",
+                                    "hPa",
+                                    "kPa",
+                                    "MPa",
+                                    "GPa",
+                                    "TPa",
+                                    "PPa",
+                                    "at",
+                                    "atm",
+                                    "bar",
+                                    "psi",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "altitude channel",
+                        "description": "altitude channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "altitude"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "mm",
+                                    "cm",
+                                    "m",
+                                    "km",
+                                    "feet",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "pitch channel",
+                        "description": "pitch channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "pitch"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "degrees",
+                                    "radians",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "yaw channel",
+                        "description": "yaw channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "yaw"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "degrees",
+                                    "radians",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "roll channel",
+                        "description": "roll channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "roll"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "degrees",
+                                    "radians",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "pitch rate channel",
+                        "description": "pitch rate channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "pitchRate"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "degrees/s",
+                                    "radians/s",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "yaw rate channel",
+                        "description": "yaw rate channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "yawRate"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "degrees/s",
+                                    "radians/s",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "roll rate channel",
+                        "description": "roll rate channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "rollRate"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "degrees/s",
+                                    "radians/s",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "load channel",
+                        "description": "load channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "load"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "fg",
+                                    "pg",
+                                    "ng",
+                                    "µg",
+                                    "mg",
+                                    "cg",
+                                    "dg",
+                                    "g",
+                                    "dag",
+                                    "hg",
+                                    "kg",
+                                    "Mg",
+                                    "Gg",
+                                    "Tg",
+                                    "Pg",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "current channel",
+                        "description": "current channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "current"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "fA",
+                                    "pA",
+                                    "nA",
+                                    "µA",
+                                    "mA",
+                                    "cA",
+                                    "dA",
+                                    "A",
+                                    "daA",
+                                    "hA",
+                                    "kA",
+                                    "MA",
+                                    "GA",
+                                    "TA",
+                                    "PA",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "charge channel",
+                        "description": "charge channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "charge"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "fC",
+                                    "pC",
+                                    "nC",
+                                    "µC",
+                                    "mC",
+                                    "cC",
+                                    "dC",
+                                    "C",
+                                    "daC",
+                                    "hC",
+                                    "kC",
+                                    "MC",
+                                    "GC",
+                                    "TC",
+                                    "PC",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "power channel",
+                        "description": "power channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "power"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "fW",
+                                    "pW",
+                                    "nW",
+                                    "µW",
+                                    "mW",
+                                    "cW",
+                                    "dW",
+                                    "W",
+                                    "daW",
+                                    "hW",
+                                    "kW",
+                                    "MW",
+                                    "GW",
+                                    "TW",
+                                    "PW",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "voltage channel",
+                        "description": "voltage channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "voltage"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "fV",
+                                    "pV",
+                                    "nV",
+                                    "µV",
+                                    "mV",
+                                    "cV",
+                                    "dV",
+                                    "V",
+                                    "daV",
+                                    "hV",
+                                    "kV",
+                                    "MV",
+                                    "GV",
+                                    "TV",
+                                    "PV",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "resistance channel",
+                        "description": "resistance channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "resistance"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "fΩ",
+                                    "pΩ",
+                                    "nΩ",
+                                    "µΩ",
+                                    "mΩ",
+                                    "cΩ",
+                                    "dΩ",
+                                    "Ω",
+                                    "daΩ",
+                                    "hΩ",
+                                    "kΩ",
+                                    "MΩ",
+                                    "GΩ",
+                                    "TΩ",
+                                    "PΩ",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "capacitance channel",
+                        "description": "capacitance channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "capacitance"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "fF",
+                                    "pF",
+                                    "nF",
+                                    "µF",
+                                    "mF",
+                                    "cF",
+                                    "dF",
+                                    "F",
+                                    "daF",
+                                    "hF",
+                                    "kF",
+                                    "MF",
+                                    "GF",
+                                    "TF",
+                                    "PF",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "inductance channel",
+                        "description": "inductance channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "inductance"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "fH",
+                                    "pH",
+                                    "nH",
+                                    "µH",
+                                    "mH",
+                                    "cH",
+                                    "dH",
+                                    "H",
+                                    "daH",
+                                    "hH",
+                                    "kH",
+                                    "MH",
+                                    "GH",
+                                    "TH",
+                                    "PH",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "frequency channel",
+                        "description": "frequency channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "frequency"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "fHz",
+                                    "pHz",
+                                    "nHz",
+                                    "µHz",
+                                    "mHz",
+                                    "cHz",
+                                    "dHz",
+                                    "Hz",
+                                    "daHz",
+                                    "hHz",
+                                    "kHz",
+                                    "MHz",
+                                    "GHz",
+                                    "THz",
+                                    "PHz",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "conductance channel",
+                        "description": "conductance channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "conductance"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "fS",
+                                    "pS",
+                                    "nS",
+                                    "µS",
+                                    "mS",
+                                    "cS",
+                                    "dS",
+                                    "S",
+                                    "daS",
+                                    "hS",
+                                    "kS",
+                                    "MS",
+                                    "GS",
+                                    "TS",
+                                    "PS",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "magnetic flux channel",
+                        "description": "magnetic flux channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "magneticFlux"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "fWb",
+                                    "pWb",
+                                    "nWb",
+                                    "µWb",
+                                    "mWb",
+                                    "cWb",
+                                    "dWb",
+                                    "Wb",
+                                    "daWb",
+                                    "hWb",
+                                    "kWb",
+                                    "MWb",
+                                    "GWb",
+                                    "TWb",
+                                    "PWb",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "magnetic field strength channel",
+                        "description": "magnetic field strength channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "magneticFieldStrength"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "fT",
+                                    "pT",
+                                    "nT",
+                                    "µT",
+                                    "mT",
+                                    "cT",
+                                    "dT",
+                                    "T",
+                                    "daT",
+                                    "hT",
+                                    "kT",
+                                    "MT",
+                                    "GT",
+                                    "TT",
+                                    "PT",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelBaseObject"
+                    },
+                    {
+                        "title":"integer channel",
+                        "description": "generic integer channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "integer"
+                                ]
+                            },
+                            "value": {
+                                "bsonType": "int",
+                                "title": "channel value integer"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelBaseObject"
+                    },
+                    {
+                        "title":"double channel",
+                        "description": "generic double channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "double"
+                                ]
+                            },
+                            "value": {
+                                "bsonType": "double",
+                                "title": "channel value double"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelBaseObject"
+                    },
+                    {
+                        "title":"text channel",
+                        "description": "generic text channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "text"
+                                ]
+                            },
+                            "value": {
+                                "bsonType": "string",
+                                "title": "channel value text"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelBaseObject"
+                    },
+                    {
+                        "title":"date channel",
+                        "description": "generic date channel data - UTC nanoseconds since UNIX epoch",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "date"
+                                ]
+                            },
+                            "value": {
+                                "bsonType": "long",
+                                "title": "channel value date"
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
