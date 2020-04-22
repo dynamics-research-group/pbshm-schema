@@ -1,7 +1,9 @@
 {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id":"https://github.com/dynamics-research-group/pbshm-schema/structure-data.json",
     "bsonType": "object",
-    "title": "PBSHM Data Schema: Structure Data",
-    "description": "A JSON Schema for Population-based Structural Health Monitoring Data",
+    "title": "PBSHM Schema: base structure",
+    "description": "a JSON schema for population-based structural health monitoring data",
     "required": [
         "name",
         "population",
@@ -10,21 +12,21 @@
     "properties": {
         "name": {
             "bsonType": "string",
-            "title": "Structure Name",
-            "description": "This should be a unique name for your structure within the population",
+            "title": "structure name",
+            "description": "the unique structure name within the population",
             "minLength": 1
         },
         "population": {
             "bsonType": "string",
-            "title": "Population Name",
-            "description": "This should be the unique name for your Population of structures",
+            "title": "population name",
+            "description": "the unique name of the population of structures",
             "minLength": 8,
             "maxLength": 64
         },
         "timestamp": {
-            "bsonType": "date",
-            "title": "Data Timestamp",
-            "description": "This is the timestamp of when the data was recorded in ISO 8601 format"
+            "bsonType": "long",
+            "title": "UTC date",
+            "description": "the timestamp of when the data was recorded, stored in nanoseconds since UNIX epoch"
         },
         "channels": {
             "$ref":"channel-data.json"
