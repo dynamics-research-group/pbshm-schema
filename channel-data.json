@@ -22,7 +22,8 @@
                     "description": "the channel type (see https://github.com/dynamics-research-group/pbshm-schema#channel-types for more information)"
                 },
                 "value": {
-                    "description": "the channel value (see https://github.com/dynamics-research-group/pbshm-schema#value-types for more information)"
+                    "title": "channel value",
+                    "description": "the channel value over the observed time period (see https://github.com/dynamics-research-group/pbshm-schema#value-types for more information)"
                 }
             }
         },
@@ -44,33 +45,65 @@
                         "value": {
                             "oneOf": [
                                 {
-                                    "bsonType": "double",
-                                    "title": "channel value double"
+                                    "oneOf": [
+                                        {
+                                            "bsonType": "int"
+                                        },
+                                        {
+                                            "bsonType": "double"
+                                        }
+                                    ]
                                 },
                                 {
                                     "bsonType": "object",
-                                    "title": "channel value object",
-                                    "description": "the minimum, maximum, mean and standard deviation values for the channel over the observed time period",
                                     "additionalProperties": false,
                                     "minProperties": 1,
                                     "properties": {
                                         "min": {
-                                            "bsonType": "double",
+                                            "oneOf": [
+                                                {
+                                                    "bsonType": "int"
+                                                },
+                                                {
+                                                    "bsonType": "double"
+                                                }
+                                            ],
                                             "title": "minimum value",
                                             "description": "minimum channel value over the observed time period"
                                         },
                                         "max": {
-                                            "bsonType": "double",
+                                            "oneOf": [
+                                                {
+                                                    "bsonType": "int"
+                                                },
+                                                {
+                                                    "bsonType": "double"
+                                                }
+                                            ],
                                             "title": "maximum value",
                                             "description": "maximum channel value over the observed time period"
                                         },
                                         "mean": {
-                                            "bsonType": "double",
+                                            "oneOf": [
+                                                {
+                                                    "bsonType": "int"
+                                                },
+                                                {
+                                                    "bsonType": "double"
+                                                }
+                                            ],
                                             "title": "mean value",
                                             "description": "mean channel value over the observed time period"
                                         },
                                         "std": {
-                                            "bsonType": "double",
+                                            "oneOf": [
+                                                {
+                                                    "bsonType": "int"
+                                                },
+                                                {
+                                                    "bsonType": "double"
+                                                }
+                                            ],
                                             "title": "standard deviation value",
                                             "description": "standard deviation channel value over the observed time period"
                                         }
@@ -1137,7 +1170,7 @@
                         "$ref": "#/definitions/channelBaseObject"
                     },
                     {
-                        "title":"integer channel",
+                        "title": "integer channel",
                         "description": "generic integer channel data",
                         "properties": {
                             "type": {
@@ -1146,8 +1179,7 @@
                                 ]
                             },
                             "value": {
-                                "bsonType": "int",
-                                "title": "channel value integer"
+                                "bsonType": "int"
                             }
                         }
                     }
@@ -1159,7 +1191,7 @@
                         "$ref": "#/definitions/channelBaseObject"
                     },
                     {
-                        "title":"double channel",
+                        "title": "double channel",
                         "description": "generic double channel data",
                         "properties": {
                             "type": {
@@ -1168,8 +1200,7 @@
                                 ]
                             },
                             "value": {
-                                "bsonType": "double",
-                                "title": "channel value double"
+                                "bsonType": "double"
                             }
                         }
                     }
@@ -1181,7 +1212,7 @@
                         "$ref": "#/definitions/channelBaseObject"
                     },
                     {
-                        "title":"text channel",
+                        "title": "text channel",
                         "description": "generic text channel data",
                         "properties": {
                             "type": {
@@ -1190,8 +1221,7 @@
                                 ]
                             },
                             "value": {
-                                "bsonType": "string",
-                                "title": "channel value text"
+                                "bsonType": "string"
                             }
                         }
                     }
@@ -1203,7 +1233,7 @@
                         "$ref": "#/definitions/channelBaseObject"
                     },
                     {
-                        "title":"date channel",
+                        "title": "date channel",
                         "description": "generic date channel data - UTC nanoseconds since UNIX epoch",
                         "properties": {
                             "type": {
@@ -1212,8 +1242,7 @@
                                 ]
                             },
                             "value": {
-                                "bsonType": "long",
-                                "title": "channel value date"
+                                "bsonType": "long"
                             }
                         }
                     }
