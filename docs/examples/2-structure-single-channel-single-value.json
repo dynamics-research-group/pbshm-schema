@@ -1,0 +1,13 @@
+{
+    "name": "test-structure",
+    "population": "test-population",
+    "timestamp": 1588007837000000000,
+    "channels": [
+        {
+            "name": "test-channel-1",
+            "type": "acceleration",
+            "unit": "g",
+            "value": 10.50
+        }
+    ]
+}

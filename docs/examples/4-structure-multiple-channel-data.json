@@ -1,0 +1,29 @@
+{
+    "name": "test-structure",
+    "population": "test-population",
+    "timestamp": 1588007839000000000,
+    "channels": [
+        {
+            "name": "test-channel-1",
+            "type": "acceleration",
+            "unit": "g",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 10
+            }
+        },
+        {
+            "name": "test-channel-2",
+            "type": "tilt",
+            "unit": "radians",
+            "value": 22
+        },
+        {
+            "name": "test-channel-3",
+            "type": "text",
+            "value": "this is some text based context"
+        }
+    ]
+}
