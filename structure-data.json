@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "id":"https://github.com/dynamics-research-group/pbshm-schema/structure-data.json",
+    "id": "https://github.com/dynamics-research-group/pbshm-schema/structure-data.json",
     "bsonType": "object",
     "title": "PBSHM Schema: base structure",
     "description": "a JSON schema for population-based structural health monitoring data",
@@ -29,7 +29,7 @@
             "description": "the timestamp of when the data was recorded, stored in nanoseconds since UNIX epoch"
         },
         "channels": {
-            "$ref":"channel-data.json"
+            "$ref": "channel-data.json"
         }
     }
 }
