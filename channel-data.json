@@ -45,14 +45,10 @@
                         "value": {
                             "oneOf": [
                                 {
-                                    "oneOf": [
-                                        {
-                                            "bsonType": "int"
-                                        },
-                                        {
-                                            "bsonType": "double"
-                                        }
-                                    ]
+                                    "bsonType": "int"
+                                },
+                                {
+                                    "bsonType": "double"
                                 },
                                 {
                                     "bsonType": "object",
