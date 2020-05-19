@@ -413,8 +413,8 @@
                         "$ref": "#/definitions/channelUnitObject"
                     },
                     {
-                        "title": "Humidity channel",
-                        "description": "Humidity channel data",
+                        "title": "humidity channel",
+                        "description": "humidity channel data",
                         "properties": {
                             "type": {
                                 "enum": [
