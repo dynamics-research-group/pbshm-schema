@@ -1,71 +1,21 @@
-# PBSHM Data Schema: Structure Data
-A JSON Schema for Population-based Structural Health Monitoring Data
-## [Schema Properties](#schema-properties)
-|Name|Description|Type|Validation|
-|---|---|---|---|
-|`name`|Structure Name|`string`|Min Length: 1|
-|`population`|Population Name|`string`|Min Length: 8, Max Length: 64|
-|`timestamp`|Data Timestamp|`date`|Format: ISO 8601|
-|`channels`|Data Channel Array|`array`|Array of [Channel Objects](#channel-objects)|
-## [Channel Objects](#channel-objects)
-A timepoint can have mutliple types of channel objects stored within it. Below is a list of the currently supported channel types.
-### [Channel Types](#channel-types)
-|Name|Accepted Type Property|Accepted Unit Property|Accepted Value Property|Required Properties|
-|---|---|---|---|---|
-|Acceleration Channel|`acceleration`|`(m/s)^2`, `g`, `v`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Velocity Channel|`velocity`|`m/s`, `v`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Displacement Channel|`displacement`|`mm`, `cm`, `m`, `km`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Angular Acceleration Channel|`angularAcceleration`|`(degrees/s)^2`, `(radians/s)^2`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Angular Velocity Channel|`angularVelocity`|`degrees/s`, `radians/s`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Angular Displacement Channel|`angularDisplacement`|`degrees`, `radians`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Tilt Channel|`tilt`|`degrees`, `radians`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Strain Channel|`strain`|`nd`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Tension Channel|`tension`|`fN`, `pN`, `nN`, `μN`, `mN`, `cN`, `dN`, `N`, `daN`, `hN`, `kN`, `MN`, `GN`, `TN`, `PN`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Structural Potential Hydrogen Channel|`structuralPotentialHydrogen`|`pH`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Temperature Channel|`temperature`|`C`, `F`, `K`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Humidity Channel|`humidity`|`%`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Speed Channel|`speed`|`mph`, `ft/s`, `km/h`, `m/s`, `kn`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Direction Channel|`direction`|`degrees`, `radians`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Pressure Channel|`pressure`|`fPa`, `pPa`, `nPa`, `µPa`, `mPa`, `cPa`, `dPa`, `Pa`, `daPa`, `hPa`, `kPa`, `MPa`, `GPa`, `TPa`, `PPa`, `at`, `atm`, `bar`, `psi`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Altitude Channel|`altitude`|`mm`, `cm`, `m`, `km`, `feet`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Pitch Channel|`pitch`|`degrees`, `radians`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Yaw Channel|`yaw`|`degrees`, `radians`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Roll Channel|`roll`|`degrees`, `radians`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Pitch Rate Channel|`pitchRate`|`degrees/s`, `radians/s`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Yaw Rate Channel|`yawRate`|`degrees/s`, `radians/s`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Roll Rate Channel|`rollRate`|`degrees/s`, `radians/s`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Load Channel|`load`|`fg`, `pg`, `ng`, `µg`, `mg`, `cg`, `dg`, `g`, `dag`, `hg`, `kg`, `Mg`, `Gg`, `Tg`, `Pg`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Current Channel|`current`|`fA`, `pA`, `nA`, `µA`, `mA`, `cA`, `dA`, `A`, `daA`, `hA`, `kA`, `MA`, `GA`, `TA`, `PA`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Charge Channel|`charge`|`fC`, `pC`, `nC`, `µC`, `mC`, `cC`, `dC`, `C`, `daC`, `hC`, `kC`, `MC`, `GC`, `TC`, `PC`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Power Channel|`power`|`fW`, `pW`, `nW`, `µW`, `mW`, `cW`, `dW`, `W`, `daW`, `hW`, `kW`, `MW`, `GW`, `TW`, `PW`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Voltage Channel|`voltage`|`fV`, `pV`, `nV`, `µV`, `mV`, `cV`, `dV`, `V`, `daV`, `hV`, `kV`, `MV`, `GV`, `TV`, `PV`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Resistance Channel|`resistance`|`fΩ`, `pΩ`, `nΩ`, `µΩ`, `mΩ`, `cΩ`, `dΩ`, `Ω`, `daΩ`, `hΩ`, `kΩ`, `MΩ`, `GΩ`, `TΩ`, `PΩ`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Capacitance Channel|`capacitance`|`fF`, `pF`, `nF`, `µF`, `mF`, `cF`, `dF`, `F`, `daF`, `hF`, `kF`, `MF`, `GF`, `TF`, `PF`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Inductance Channel|`inductance`|`fH`, `pH`, `nH`, `µH`, `mH`, `cH`, `dH`, `H`, `daH`, `hH`, `kH`, `MH`, `GH`, `TH`, `PH`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Frequency Channel|`frequency`|`fHz`, `pHz`, `nHz`, `µHz`, `mHz`, `cHz`, `dHz`, `Hz`, `daHz`, `hHz`, `kHz`, `MHz`, `GHz`, `THz`, `PHz`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Conductance Channel|`conductance`|`fS`, `pS`, `nS`, `µS`, `mS`, `cS`, `dS`, `S`, `daS`, `hS`, `kS`, `MS`, `GS`, `TS`, `PS`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Magnetic Flux Channel|`magneticFlux`|`fWb`, `pWb`, `nWb`, `µWb`, `mWb`, `cWb`, `dWb`, `Wb`, `daWb`, `hWb`, `kWb`, `MWb`, `GWb`, `TWb`, `PWb`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Magnetic Field Strength Channel|`magneticFieldStrength`|`fT`, `pT`, `nT`, `µT`, `mT`, `cT`, `dT`, `T`, `daT`, `hT`, `kT`, `MT`, `GT`, `TT`, `PT`, `other`|`double`, `object`|`name`, `type`, `unit`, `value`|
-|Date Channel|`date`||`date`|`name`, `type`, `value`|
-|Text Channel|`text`||`string`|`name`, `type`, `value`|
-### [Channel Properties](#channel-properties)
-|Name|Description|Type|Validation|
-|---|---|---|---|
-|`name`|Channel Name|`string`|Min Length: 1|
-|`type`|Channel Type|`string`|Available Type|
-|`unit`|Channel Unit|`string`|Available Unit|
-|`value`|Channel Value|`double`, `object`, `date`, `string`||
-### [Value Types](#value-types)
-|Type|Description|
-|---|---|
-|`double`|This is the single value for your channel|
-|`object`|This is the minimum, maximum, mean and standard deviation value for your channel over the observed period|
-|`date`|This is the single value for your channel|
-|`string`|This is the single value for your channel|
-#### [Value Properties](#value-properties)
-|Name|Description|Type|
-|---|---|---|
-|`min`|Minimum Channel Value|double|
-|`max`|Maximum Channel Value|double|
-|`mean`|Mean Channel Value|double|
-|`std`|Standard Deviation Channel Value|double|
+# PBSHM Schema
+PBSHM Schema is a JSON Schema for the storage of Population-based Structure Health Monitoring Data. The PBSHM Schema is designed for validation of JSON documents as well as schema validation within a MongoDB database.
+
+Each document represents knowledge on a single structure at a given point in time. As such, information within the document follows a hierarchical approach with [structure information](#structure) at the root of the document and additional [section information](#section) being represented through nested entities under a defined property.
+
+## [Structure](#structure)
+A structure object must contain the [properties](#structure-properties) required to identify which structure the data within the document belongs to; `name`, `population` and `timestamp`. The structure object may then have additional properties containing the nested [section information](#section) as defined.
+
+### [Structure Properties](#structure-properties)
+|Property|Description|Type|
+|---|-----|---|
+|`name`|Name of the structure, must be unique within the population (length greater than 1 character)|`string`|
+|`population`|Name of the population that the structure is part of, must be unique within the PBSHM database (length between 1 and 64 characters)|`string`|
+|`timestamp`|Timestamp of when the associated monitoring data was recorded, stored in UTC nanoseconds since UNIX epoch|`long`|
+
+## [Section](#section)
+Each section of information within the PBSHM Schema is separated out into both a dedicated property within the [structure object](#structure) and a separate schema file. Below is the list of currently supported sections and their associated properties and information.
+
+|Property|Description|Type|Details|
+|---|-----|---|---|
+|`channels`|Raw sensor data information|`array`|[channel-data](channel-data.md)|
