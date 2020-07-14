@@ -19,11 +19,11 @@
                 "type": {
                     "bsonType": "string",
                     "title": "channel type",
-                    "description": "the channel type (see https://github.com/dynamics-research-group/pbshm-schema#channel-types for more information)"
+                    "description": "the channel type (see https://github.com/dynamics-research-group/pbshm-schema/blob/master/channel-data.md#channel-types for more information)"
                 },
                 "value": {
                     "title": "channel value",
-                    "description": "the channel value over the observed time period (see https://github.com/dynamics-research-group/pbshm-schema#value-types for more information)"
+                    "description": "the channel value over the observed time period (see https://github.com/dynamics-research-group/pbshm-schema/blob/master/channel-data.md#channel-types for more information)"
                 }
             }
         },
@@ -40,7 +40,7 @@
                         "unit": {
                             "bsonType": "string",
                             "title": "channel unit",
-                            "description": "the channel unit assosiated with the channel type (see https://github.com/dynamics-research-group/pbshm-schema#channel-types for more information)"
+                            "description": "the channel unit assosiated with the channel type (see https://github.com/dynamics-research-group/pbshm-schema/blob/master/channel-data.md#channel-types for more information)"
                         },
                         "value": {
                             "oneOf": [
