@@ -12,15 +12,16 @@ A channel object contains the [properties](#channel-properties) required to repr
 ## [Channel Types](#channel-types)
 |Type|Units|Values|
 |---|-----|---|
-|`acceleration`|`(m/s)^2`, `g`, `v`, `other`|`int`, `double`, `object`|
+|`acceleration`|`m/s^2`, `g`, `v`, `other`|`int`, `double`, `object`|
 |`velocity`|`m/s`, `v`, `other`|`int`, `double`, `object`|
 |`displacement`|`mm`, `cm`, `m`, `km`, `other`|`int`, `double`, `object`|
-|`angularAcceleration`|`(degrees/s)^2`, `(radians/s)^2`, `other`|`int`, `double`, `object`|
+|`angularAcceleration`|`degrees/s^2`, `radians/s^2`, `other`|`int`, `double`, `object`|
 |`angularVelocity`|`degrees/s`, `radians/s`, `other`|`int`, `double`, `object`|
 |`angularDisplacement`|`degrees`, `radians`, `other`|`int`, `double`, `object`|
 |`tilt`|`degrees`, `radians`, `other`|`int`, `double`, `object`|
 |`strain`|`nd`, `other`|`int`, `double`, `object`|
 |`tension`|`fN`, `pN`, `nN`, `μN`, `mN`, `cN`, `dN`, `N`, `daN`, `hN`, `kN`, `MN`, `GN`, `TN`, `PN`, `other`|`int`, `double`, `object`|
+|`load`|`fN`, `pN`, `nN`, `μN`, `mN`, `cN`, `dN`, `N`, `daN`, `hN`, `kN`, `MN`, `GN`, `TN`, `PN`, `other`|`int`, `double`, `object`|
 |`structuralPotentialHydrogen`|`pH`, `other`|`int`, `double`, `object`|
 |`temperature`|`C`, `F`, `K`, `other`|`int`, `double`, `object`|
 |`humidity`|`%`, `other`|`int`, `double`, `object`|
@@ -34,7 +35,6 @@ A channel object contains the [properties](#channel-properties) required to repr
 |`pitchRate`|`degrees/s`, `radians/s`, `other`|`int`, `double`, `object`|
 |`yawRate`|`degrees/s`, `radians/s`, `other`|`int`, `double`, `object`|
 |`rollRate`|`degrees/s`, `radians/s`, `other`|`int`, `double`, `object`|
-|`load`|`fg`, `pg`, `ng`, `µg`, `mg`, `cg`, `dg`, `g`, `dag`, `hg`, `kg`, `Mg`, `Gg`, `Tg`, `Pg`, `other`|`int`, `double`, `object`|
 |`current`|`fA`, `pA`, `nA`, `µA`, `mA`, `cA`, `dA`, `A`, `daA`, `hA`, `kA`, `MA`, `GA`, `TA`, `PA`, `other`|`int`, `double`, `object`|
 |`charge`|`fC`, `pC`, `nC`, `µC`, `mC`, `cC`, `dC`, `C`, `daC`, `hC`, `kC`, `MC`, `GC`, `TC`, `PC`, `other`|`int`, `double`, `object`|
 |`power`|`fW`, `pW`, `nW`, `µW`, `mW`, `cW`, `dW`, `W`, `daW`, `hW`, `kW`, `MW`, `GW`, `TW`, `PW`, `other`|`int`, `double`, `object`|
