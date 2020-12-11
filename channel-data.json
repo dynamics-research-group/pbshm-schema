@@ -133,7 +133,7 @@
                             },
                             "unit": {
                                 "enum": [
-                                    "(m/s)^2",
+                                    "m/s^2",
                                     "g",
                                     "v",
                                     "other"
@@ -211,8 +211,8 @@
                             },
                             "unit": {
                                 "enum": [
-                                    "(degrees/s)^2",
-                                    "(radians/s)^2",
+                                    "degrees/s^2",
+                                    "radians/s^2",
                                     "other"
                                 ]
                             }
@@ -331,6 +331,44 @@
                             "type": {
                                 "enum": [
                                     "tension"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "fN",
+                                    "pN",
+                                    "nN",
+                                    "μN",
+                                    "mN",
+                                    "cN",
+                                    "dN",
+                                    "N",
+                                    "daN",
+                                    "hN",
+                                    "kN",
+                                    "MN",
+                                    "GN",
+                                    "TN",
+                                    "PN",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "load channel",
+                        "description": "load channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "load"
                                 ]
                             },
                             "unit": {
@@ -697,44 +735,6 @@
                                 "enum": [
                                     "degrees/s",
                                     "radians/s",
-                                    "other"
-                                ]
-                            }
-                        }
-                    }
-                ]
-            },
-            {
-                "allOf": [
-                    {
-                        "$ref": "#/definitions/channelUnitObject"
-                    },
-                    {
-                        "title": "load channel",
-                        "description": "load channel data",
-                        "properties": {
-                            "type": {
-                                "enum": [
-                                    "load"
-                                ]
-                            },
-                            "unit": {
-                                "enum": [
-                                    "fg",
-                                    "pg",
-                                    "ng",
-                                    "µg",
-                                    "mg",
-                                    "cg",
-                                    "dg",
-                                    "g",
-                                    "dag",
-                                    "hg",
-                                    "kg",
-                                    "Mg",
-                                    "Gg",
-                                    "Tg",
-                                    "Pg",
                                     "other"
                                 ]
                             }
