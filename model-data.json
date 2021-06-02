@@ -4,6 +4,10 @@
     "bsonType": "object",
     "title": "model data object",
     "description": "these are the models available of the structure at the given timestamp",
-    "properties": {},
+    "properties": {
+        "irreducibleElement": {
+            "$ref": "model-irreducible-element-data.json"
+        }
+    },
     "additionalProperties": false
 }

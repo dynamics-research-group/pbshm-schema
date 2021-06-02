@@ -1,0 +1,358 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "https://github.com/dynamics-research-group/pbshm-schema/model-irreducible-element-data.json",
+    "definitions": {
+        "model": {
+            "bsonType": "object",
+            "required": [
+                "type",
+                "elements"
+            ],
+            "properties": {
+                "type": {
+                    "bsonType": "string",
+                    "title": "model type",
+                    "description": "the type of the model"
+                },
+                "elements": {
+                    "bsonType": "array",
+                    "title": "element array",
+                    "description": "this is the array of elements within the irreducible element model"
+                }
+            },
+            "additionalProperties": false
+        },
+        "element": {
+            "bsonType": "object",
+            "required": [
+                "name",
+                "type"
+            ],
+            "properties": {
+                "name": {
+                    "bsonType": "string",
+                    "title": "element name",
+                    "description": "the unique element name within the model"
+                },
+                "description": {
+                    "bsonType": "string",
+                    "title": "element description",
+                    "description": "additional information about the element"
+                },
+                "type": {
+                    "bsonType": "string",
+                    "title": "element type",
+                    "description": "the element type (see URL)"
+                }
+            }
+        },
+        "number": {
+            "properties": {
+                "value": {
+                    "oneOf": [
+                        {
+                            "bsonType": "int"
+                        },
+                        {
+                            "bsonType": "double"
+                        }
+                    ]
+                }
+            }
+        },
+        "axis": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/number"
+                },
+                {
+                    "bsonType": "object",
+                    "required": [
+                        "unit",
+                        "value"
+                    ],
+                    "properties": {
+                        "unit": {
+                            "title": "unit",
+                            "description": "the unit that the value is based in"
+                        },
+                        "value": {
+                            "title": "value",
+                            "description": "the value for the axis"
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            ]
+        },
+        "linear": {
+            "properties": {
+                "unit": {
+                    "bsonType": "string",
+                    "enum": [
+                        "mm",
+                        "cm",
+                        "m",
+                        "km",
+                        "other"
+                    ]
+                }
+            }
+        },
+        "translation": {
+            "bsonType": "object",
+            "required": [
+                "x",
+                "y",
+                "z"
+            ],
+            "properties": {
+                "x": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/axis"
+                        },
+                        {
+                            "$ref": "#/definitions/linear"
+                        },
+                        {
+                            "title": "x",
+                            "description": "the x translation value within the coordinate space"
+                        }
+                    ]
+                },
+                "y": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/axis"
+                        },
+                        {
+                            "$ref": "#/definitions/linear"
+                        },
+                        {
+                            "title": "y",
+                            "description": "the y translation value within the coordinate space"
+                        }
+                    ]
+                },
+                "z": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/axis"
+                        },
+                        {
+                            "$ref": "#/definitions/linear"
+                        },
+                        {
+                            "title": "z",
+                            "description": "the z translation value within the coordinate space"
+                        }
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "angular": {
+            "properties": {
+                "unit": {
+                    "bsonType": "string",
+                    "enum": [
+                        "degrees",
+                        "radians",
+                        "other"
+                    ]
+                }
+            }
+        },
+        "rotation": {
+            "bsonType": "object",
+            "required": [
+                "alpha",
+                "beta",
+                "gamma"
+            ],
+            "properties": {
+                "alpha": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/axis"
+                        },
+                        {
+                            "$ref": "#/definitions/angular"
+                        },
+                        {
+                            "title": "alpha",
+                            "description": "the alpha rotation value within the corrdinate space"
+                        }
+                    ]
+                },
+                "beta": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/axis"
+                        },
+                        {
+                            "$ref": "#/definitions/angular"
+                        },
+                        {
+                            "title": "beta",
+                            "description": "the beta rotation value within the corrdinate space"
+                        }
+                    ]
+                },
+                "gamma": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/axis"
+                        },
+                        {
+                            "$ref": "#/definitions/angular"
+                        },
+                        {
+                            "title": "gamma",
+                            "description": "the gamma rotation value within the corrdinate space"
+                        }
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "regular": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/element"
+                },
+                {
+                    "title": "regular element",
+                    "description": "a regular element represents a standard element within the model",
+                    "required": [
+                        "coordinates"
+                    ],
+                    "properties": {
+                        "type": {
+                            "enum": [
+                                "regular"
+                            ]
+                        },
+                        "coordinates": {
+                            "bsonType": "object",
+                            "title": "coordinates",
+                            "description": "the coordinates of the element",
+                            "required": [
+                                "global"
+                            ],
+                            "properties": {
+                                "global": {
+                                    "bsonType": "object",
+                                    "title": "global coordinates",
+                                    "description": "translational and rotational movements within the coordinate space",
+                                    "required": [
+                                        "translational"
+                                    ],
+                                    "properties": {
+                                        "translational": {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#/definitions/translation"
+                                                },
+                                                {
+                                                    "title": "global translation",
+                                                    "description": "values for the x, y and z translations within the coordinate space"
+                                                }
+                                            ]
+                                        },
+                                        "rotational": {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#/definitions/rotation"
+                                                },
+                                                {
+                                                    "title": "global rotation",
+                                                    "description": "values for the alpha, beta and gamma rotations within the coordinate space"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            ]
+        }
+    },
+    "oneOf": [
+        {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/model"
+                },
+                {
+                    "title": "free irreducible element model",
+                    "description": "a free irreducible element model is free from any ground elements",
+                    "properties": {
+                        "type": {
+                            "enum": [
+                                "free"
+                            ]
+                        },
+                        "elements": {
+                            "items": {
+                                "$ref": "#/definitions/regular"
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/model"
+                },
+                {
+                    "title": "grounded irreducible element model",
+                    "description": "a grounded irreducible element model is contrained by ground elements",
+                    "properties": {
+                        "type": {
+                            "enum": [
+                                "grounded"
+                            ]
+                        },
+                        "elements": {
+                            "items": {
+                                "oneOf": [
+                                    {
+                                        "$ref": "#/definitions/regular"
+                                    },
+                                    {
+                                        "allOf": [
+                                            {
+                                                "$ref": "#/definitions/element"
+                                            },
+                                            {
+                                                "title": "ground element",
+                                                "description": "a ground element represents the point at which the model interacts with an outside element",
+                                                "properties": {
+                                                    "type": {
+                                                        "enum": [
+                                                            "ground"
+                                                        ]
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
