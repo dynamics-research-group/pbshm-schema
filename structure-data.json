@@ -30,6 +30,9 @@
         },
         "channels": {
             "$ref": "channel-data.json"
+        },
+        "models": {
+            "$ref": "model-data.json"
         }
     }
 }
