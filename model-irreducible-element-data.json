@@ -226,7 +226,8 @@
                     "title": "regular element",
                     "description": "a regular element represents a standard element within the model",
                     "required": [
-                        "coordinates"
+                        "coordinates",
+                        "contextual"
                     ],
                     "properties": {
                         "type": {
@@ -277,6 +278,9 @@
                                 }
                             },
                             "additionalProperties": false
+                        },
+                        "contextual": {
+                            "$ref": "model-irreducible-element-contextual-data.json"
                         }
                     },
                     "additionalProperties": false
