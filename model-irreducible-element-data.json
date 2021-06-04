@@ -281,6 +281,9 @@
                         },
                         "contextual": {
                             "$ref": "model-irreducible-element-contextual-data.json"
+                        },
+                        "geometry": {
+                            "$ref": "model-irreducible-element-geometry-data.json"
                         }
                     },
                     "additionalProperties": false
