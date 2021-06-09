@@ -284,6 +284,9 @@
                         },
                         "geometry": {
                             "$ref": "model-irreducible-element-geometry-data.json"
+                        },
+                        "material": {
+                            "$ref": "model-irreducible-element-material-data.json"
                         }
                     },
                     "additionalProperties": false
