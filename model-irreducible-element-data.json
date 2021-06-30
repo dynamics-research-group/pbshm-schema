@@ -6,7 +6,8 @@
             "bsonType": "object",
             "required": [
                 "type",
-                "elements"
+                "elements",
+                "relationships"
             ],
             "properties": {
                 "type": {
@@ -18,6 +19,11 @@
                     "bsonType": "array",
                     "title": "element array",
                     "description": "this is the array of elements within the irreducible element model"
+                },
+                "relationships": {
+                    "bsonType": "array",
+                    "title": "relationships",
+                    "description": "this is the array of relationships within the irreducible element model"
                 }
             },
             "additionalProperties": false
@@ -47,43 +53,39 @@
             }
         },
         "number": {
-            "properties": {
-                "value": {
-                    "oneOf": [
-                        {
-                            "bsonType": "int"
-                        },
-                        {
-                            "bsonType": "double"
-                        }
-                    ]
-                }
-            }
-        },
-        "axis": {
-            "allOf": [
+            "oneOf": [
                 {
-                    "$ref": "#/definitions/number"
+                    "bsonType": "int"
                 },
                 {
-                    "bsonType": "object",
-                    "required": [
-                        "unit",
-                        "value"
-                    ],
-                    "properties": {
-                        "unit": {
-                            "title": "unit",
-                            "description": "the unit that the value is based in"
+                    "bsonType": "double"
+                }
+            ]
+        },
+        "axis": {
+            "bsonType": "object",
+            "required": [
+                "unit",
+                "value"
+            ],
+            "properties": {
+                "unit": {
+                    "title": "unit",
+                    "description": "the unit that the value is based in"
+                },
+                "value": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/number"
                         },
-                        "value": {
+                        {
                             "title": "value",
                             "description": "the value for the axis"
                         }
-                    },
-                    "additionalProperties": false
+                    ]
                 }
-            ]
+            },
+            "additionalProperties": false
         },
         "linear": {
             "properties": {
@@ -292,6 +294,508 @@
                     "additionalProperties": false
                 }
             ]
+        },
+        "position": {
+            "bsonType": "object",
+            "title": "coordinates",
+            "description": "the coordinates of the relationship",
+            "required": [
+                "global"
+            ],
+            "properties": {
+                "global": {
+                    "bsonType": "object",
+                    "title": "global coordinates",
+                    "description": "translational movements within the coordinate space",
+                    "required": [
+                        "translational"
+                    ],
+                    "properties": {
+                        "translational": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/translation"
+                                },
+                                {
+                                    "title": "global translation",
+                                    "description": "values for the x, y and z translations within the coordinate space"
+                                }
+                            ]
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false
+        },
+        "relationship": {
+            "bsonType": "object",
+            "required": [
+                "name",
+                "type",
+                "elements"
+            ],
+            "properties": {
+                "name": {
+                    "bsonType": "string",
+                    "title": "name",
+                    "description": "the unique name of the relationship within the irreducible element model"
+                },
+                "description": {
+                    "bsonType": "string",
+                    "title": "description",
+                    "description": "additional information on the relationship"
+                },
+                "type": {
+                    "bsonType": "string",
+                    "title": "type",
+                    "description": "the type of relationship"
+                },
+                "elements": {
+                    "bsonType": "array",
+                    "title": "elements",
+                    "description": "the elements involved in the relationship",
+                    "items": {
+                        "bsonType": "object",
+                        "title": "element",
+                        "description": "details on the element involved in the relationship",
+                        "required": [
+                            "name"
+                        ],
+                        "properties": {
+                            "name": {
+                                "bsonType": "string",
+                                "title": "name",
+                                "description": "the name of the element within the irreducible element model"
+                            }
+                        }
+                    },
+                    "minItems": 2
+                }
+            }
+        },
+        "nature": {
+            "bsonType": "object",
+            "title": "nature",
+            "description": "the nature of the relationship to the element",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "bsonType": "string",
+                    "title": "name",
+                    "description": "the name of the nature"
+                }
+            }
+        },
+        "degreeOfFreedom": {
+            "bsonType": "object",
+            "required": [
+                "minimum",
+                "maximum",
+                "unit"
+            ],
+            "properties": {
+                "minimum": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/number"
+                        },
+                        {
+                            "title": "minimum",
+                            "description": "the minimum value for the degree of freedom"
+                        }
+                    ]
+                },
+                "maximum": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/number"
+                        },
+                        {
+                            "title": "maximum",
+                            "description": "the maximum value for the degree of freedom"
+                        }
+                    ]
+                },
+                "unit": {
+                    "title": "unit",
+                    "description": "the unit that the minimm and maximum are based in"
+                }
+            }
+        },
+        "perfect": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/relationship"
+                },
+                {
+                    "title": "pefect relationship",
+                    "description": "a perfect relationship demarks where two elements can be considered as a larger concatenated element",
+                    "required": [
+                        "coordinates"
+                    ],
+                    "properties": {
+                        "type": {
+                            "enum": [
+                                "perfect"
+                            ]
+                        },
+                        "coordinates": {
+                            "$ref": "#/definitions/position"
+                        },
+                        "elements": {
+                            "items": {
+                                "additionalProperties": false
+                            },
+                            "maxItems": 2
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            ]
+        },
+        "connection": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/relationship"
+                },
+                {
+                    "title": "connection releationship",
+                    "description": "a connection relationship represents where multiple elements are held in a rigid relationship within the coordinate space by an unknown element",
+                    "properties": {
+                        "type": {
+                            "enum": [
+                                "connection"
+                            ]
+                        },
+                        "elements": {
+                            "items": {
+                                "required": [
+                                    "nature",
+                                    "coordinates"
+                                ],
+                                "properties": {
+                                    "nature": {
+                                        "allOf": [
+                                            {
+                                                "$ref": "#/definitions/nature"
+                                            },
+                                            {
+                                                "required": [
+                                                    "nature"
+                                                ],
+                                                "properties": {
+                                                    "name": {
+                                                        "enum": [
+                                                            "static"
+                                                        ]
+                                                    },
+                                                    "nature": {
+                                                        "allOf": [
+                                                            {
+                                                                "$ref": "#/definitions/nature"
+                                                            },
+                                                            {
+                                                                "properties": {
+                                                                    "name": {
+                                                                        "enum": [
+                                                                            "bolted",
+                                                                            "welded",
+                                                                            "adhesive",
+                                                                            "other"
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                "additionalProperties": false
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            }
+                                        ]
+                                    },
+                                    "coordinates": {
+                                        "$ref": "#/definitions/position"
+                                    }
+                                },
+                                "additionalProperties": false
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            ]
+        },
+        "joint": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/relationship"
+                },
+                {
+                    "title": "joint relationship",
+                    "description": "a joint relationship denotes where physical properties are present as part of the relationship between the two elements",
+                    "required": [
+                        "nature"
+                    ],
+                    "properties": {
+                        "type": {
+                            "enum": [
+                                "joint"
+                            ]
+                        },
+                        "nature": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/nature"
+                                },
+                                {
+                                    "required": [
+                                        "nature"
+                                    ],
+                                    "properties": {
+                                        "nature": {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#/definitions/nature"
+                                                },
+                                                {
+                                                    "additionalProperties": false
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            ]
+                        },
+                        "elements": {
+                            "items": {
+                                "required": [
+                                    "coordinates"
+                                ],
+                                "properties": {
+                                    "coordinates": {
+                                        "$ref": "#/definitions/position"
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            "maxItems": 2
+                        }
+                    }
+                }
+            ]
+        },
+        "articulation": {
+            "oneOf": [
+                {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/joint"
+                        },
+                        {
+                            "properties": {
+                                "nature": {
+                                    "properties": {
+                                        "name": {
+                                            "enum": [
+                                                "static"
+                                            ]
+                                        },
+                                        "nature": {
+                                            "properties": {
+                                                "name": {
+                                                    "enum": [
+                                                        "bolted",
+                                                        "welded",
+                                                        "adhesive",
+                                                        "other"
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    ]
+                },
+                {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/joint"
+                        },
+                        {
+                            "required": [
+                                "degreesOfFreedom"
+                            ],
+                            "properties": {
+                                "nature": {
+                                    "properties": {
+                                        "name": {
+                                            "enum": [
+                                                "dynamic"
+                                            ]
+                                        },
+                                        "nature": {
+                                            "properties": {
+                                                "name": {
+                                                    "enum": [
+                                                        "hinge",
+                                                        "ballAndSocket",
+                                                        "pinned",
+                                                        "expansion",
+                                                        "ballBearing",
+                                                        "other"
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "degreesOfFreedom": {
+                                    "bsonType": "object",
+                                    "title": "degrees of freedom",
+                                    "description": "the degrees of freedom within the relationship",
+                                    "required": [
+                                        "global"
+                                    ],
+                                    "properties": {
+                                        "global": {
+                                            "bsonType": "object",
+                                            "title": "global",
+                                            "description": "the degrees of freedom in the global coordinate space",
+                                            "required": [
+                                                "translational",
+                                                "rotational"
+                                            ],
+                                            "properties": {
+                                                "translational": {
+                                                    "bsonType": "object",
+                                                    "title": "translational",
+                                                    "description": "the x, y and z values for translational degrees of freedom",
+                                                    "required": [
+                                                        "x",
+                                                        "y",
+                                                        "z"
+                                                    ],
+                                                    "properties": {
+                                                        "x": {
+                                                            "allOf": [
+                                                                {
+                                                                    "$ref": "#/definitions/degreeOfFreedom"
+                                                                },
+                                                                {
+                                                                    "$ref": "#/definitions/linear"
+                                                                },
+                                                                {
+                                                                    "title": "x",
+                                                                    "description": "the x translation value within the coordinate space"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "y": {
+                                                            "allOf": [
+                                                                {
+                                                                    "$ref": "#/definitions/degreeOfFreedom"
+                                                                },
+                                                                {
+                                                                    "$ref": "#/definitions/linear"
+                                                                },
+                                                                {
+                                                                    "title": "y",
+                                                                    "description": "the y translation value within the coordinate space"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "z": {
+                                                            "allOf": [
+                                                                {
+                                                                    "$ref": "#/definitions/degreeOfFreedom"
+                                                                },
+                                                                {
+                                                                    "$ref": "#/definitions/linear"
+                                                                },
+                                                                {
+                                                                    "title": "z",
+                                                                    "description": "the z translation value within the coordinate space"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "additionalProperties": false
+                                                },
+                                                "rotational": {
+                                                    "bsonType": "object",
+                                                    "title": "rotational",
+                                                    "description": "the alpha, beta and gamma values for the rotational degrees of freedom",
+                                                    "required": [
+                                                        "alpha",
+                                                        "beta",
+                                                        "gamma"
+                                                    ],
+                                                    "properties": {
+                                                        "alpha": {
+                                                            "allOf": [
+                                                                {
+                                                                    "$ref": "#/definitions/degreeOfFreedom"
+                                                                },
+                                                                {
+                                                                    "$ref": "#/definitions/angular"
+                                                                },
+                                                                {
+                                                                    "title": "alpha",
+                                                                    "description": "the alpha rotation value within the corrdinate space"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "beta": {
+                                                            "allOf": [
+                                                                {
+                                                                    "$ref": "#/definitions/degreeOfFreedom"
+                                                                },
+                                                                {
+                                                                    "$ref": "#/definitions/angular"
+                                                                },
+                                                                {
+                                                                    "title": "beta",
+                                                                    "description": "the beta rotation value within the corrdinate space"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "gamma": {
+                                                            "allOf": [
+                                                                {
+                                                                    "$ref": "#/definitions/degreeOfFreedom"
+                                                                },
+                                                                {
+                                                                    "$ref": "#/definitions/angular"
+                                                                },
+                                                                {
+                                                                    "title": "gamma",
+                                                                    "description": "the gamma rotation value within the corrdinate space"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "additionalProperties": false
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    ]
+                }
+            ]
         }
     },
     "oneOf": [
@@ -312,6 +816,21 @@
                         "elements": {
                             "items": {
                                 "$ref": "#/definitions/regular"
+                            }
+                        },
+                        "relationships": {
+                            "items": {
+                                "oneOf": [
+                                    {
+                                        "$ref": "#/definitions/perfect"
+                                    },
+                                    {
+                                        "$ref": "#/definitions/connection"
+                                    },
+                                    {
+                                        "$ref": "#/definitions/articulation"
+                                    }
+                                ]
                             }
                         }
                     }
@@ -351,6 +870,52 @@
                                                         "enum": [
                                                             "ground"
                                                         ]
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        "relationships": {
+                            "items": {
+                                "oneOf": [
+                                    {
+                                        "$ref": "#/definitions/perfect"
+                                    },
+                                    {
+                                        "$ref": "#/definitions/connection"
+                                    },
+                                    {
+                                        "$ref": "#/definitions/articulation"
+                                    },
+                                    {
+                                        "allOf": [
+                                            {
+                                                "$ref": "#/definitions/relationship"
+                                            },
+                                            {
+                                                "title": "boundary relationship",
+                                                "description": "a boundary relatioship indicates where a regular element meets a ground element",
+                                                "required": [
+                                                    "coordinates"
+                                                ],
+                                                "properties": {
+                                                    "type": {
+                                                        "enum": [
+                                                            "boundary"
+                                                        ]
+                                                    },
+                                                    "coordinates": {
+                                                        "$ref": "#/definitions/position"
+                                                    },
+                                                    "elements": {
+                                                        "items": {
+                                                            "additionalProperties": false
+                                                        },
+                                                        "maxItems": 2
                                                     }
                                                 },
                                                 "additionalProperties": false
