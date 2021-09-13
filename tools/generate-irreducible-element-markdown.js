@@ -645,7 +645,7 @@ fs.readFile("./release/structure-data-compiled-mongodb.min.json", "utf8", (readE
                     }
                 }
             }
-            //Display Property Line
+            //Calculate Accepted Values
             var acceptedValues = "";
             if (types.length == 0) acceptedValues = calculateAcceptedValues(json["properties"]["models"]["properties"]["irreducibleElement"]["oneOf"][modelIndex]["properties"][property]);
             else {
@@ -653,12 +653,23 @@ fs.readFile("./release/structure-data-compiled-mongodb.min.json", "utf8", (readE
                     acceptedValues += ((acceptedValues.length > 0) ? ", " : "") + "[`" + types[typeIndex] + "`](#" + types[typeIndex] + "-" + ((property === "elements") ? "element" : ((property === "relationships") ? "relationship" : "unkown")) + ")";
                 }
             }
+            //Calculate Required
+            var required = "";
+            if (typeof (json["properties"]["models"]["properties"]["irreducibleElement"]["oneOf"][modelIndex]["required"]) !== typeof (undefined)) required = (json["properties"]["models"]["properties"]["irreducibleElement"]["oneOf"][modelIndex]["required"].indexOf(property) > -1) ? "yes" : "no";
+            else if (typeof (json["properties"]["models"]["properties"]["irreducibleElement"]["oneOf"][modelIndex]["anyOf"]) === typeof (undefined)) required = "no";
+            else {
+                if (property == "type") required = "yes";
+                else if (property == "elements") required = "yes, if no `relationships`";
+                else if (property == "relationships") required = "yes, if no `elements`";
+                else required = "no";
+            }
+            //Display Property Line
             markdown.push(
                 "|`" + property + "`|"
                 + json["properties"]["models"]["properties"]["irreducibleElement"]["oneOf"][modelIndex]["properties"][property]["description"] + "|"
                 + "`" + json["properties"]["models"]["properties"]["irreducibleElement"]["oneOf"][modelIndex]["properties"][property]["bsonType"] + "`|"
                 + acceptedValues + "|"
-                + ((json["properties"]["models"]["properties"]["irreducibleElement"]["oneOf"][modelIndex]["required"].indexOf(property) > -1) ? "yes" : "no") + "|"
+                + required + "|"
             );
         }
     }
@@ -1047,7 +1058,7 @@ function acquireBaseProperties(json) {
         if (bsonType == "" && typeof (description) === typeof (undefined)) continue;
         //Append Property
         properties[property] = {
-            description: description,
+            description: (typeof (description) !== typeof (undefined)) ? description : "",
             type: (bsonType == "") ? "*" : "`" + bsonType + "`",
             values: (bsonType === "object") ? bsonType : calculateAcceptedValues(json["properties"][property]),
             required: (typeof (json["required"]) !== typeof (undefined) && json["required"].indexOf(property) > -1) ? "yes" : "no",
@@ -1067,7 +1078,7 @@ function acquireBaseProperties(json) {
         }
         //Append Property
         properties["_"] = {
-            description: json["additionalProperties"]["description"],
+            description: (typeof (json["additionalProperties"]["description"]) !== typeof (undefined)) ? json["additionalProperties"]["description"] : "",
             type: (bsonType == "") ? "*" : "`" + bsonType + "`",
             values: (bsonType === "object") ? bsonType : calculateAcceptedValues(json["additionalProperties"]),
             required: "no",
@@ -1351,7 +1362,7 @@ function markdownGenerationCallback(stage, container, tree, json, overrides) {
             return false;
         }
         else if (tree.length == 3 && tree[0] == "material" && tree[1] == "element" && tree[2] == "symmetry") {
-            overrides.required = "yes, if properties provided";
+            overrides.required = "yes, if `properties` provided";
             return false;
         }
         else if (
@@ -1367,7 +1378,7 @@ function markdownGenerationCallback(stage, container, tree, json, overrides) {
             (tree.length == 5 && tree[0] == "property" && tree[1] == "material" && tree[2] == "conditional" && tree[3] == "vickersHardness" && tree[4] == "environmental") ||
             (tree.length == 5 && tree[0] == "property" && tree[1] == "material" && tree[2] == "conditional" && tree[3] == "brinellHardness" && tree[4] == "environmental")
         ) {
-            overrides.required = "yes, if parameters not provided";
+            overrides.required = "yes, if no `parameters`";
             return false;
         }
         else if (
@@ -1375,7 +1386,7 @@ function markdownGenerationCallback(stage, container, tree, json, overrides) {
             (tree.length == 5 && tree[0] == "property" && tree[1] == "material" && tree[2] == "conditional" && tree[3] == "vickersHardness" && tree[4] == "parameters") ||
             (tree.length == 5 && tree[0] == "property" && tree[1] == "material" && tree[2] == "conditional" && tree[3] == "brinellHardness" && tree[4] == "parameters")
         ) {
-            overrides.required = "yes, if environmental not provided";
+            overrides.required = "yes, if no `environmental`";
             return false;
         }
     } else if (stage == "recursion") {
@@ -1474,7 +1485,7 @@ function generateRecursieObjectProperties(json) {
         if (bsonType == "" && typeof (description) === typeof (undefined) && acceptedValues == "Unknown" && object == {}) continue;
         //Append Property
         baseProperties[property] = {
-            description: typeof (description) !== typeof (undefined) ? description : "",
+            description: (typeof (description) !== typeof (undefined)) ? description : "",
             type: (bsonType == "") ? "*" : "`" + bsonType + "`",
             values: acceptedValues,
             required: (typeof (json["required"]) !== typeof (undefined) && json["required"].indexOf(property) > -1) ? "yes" : "no",
@@ -1497,7 +1508,7 @@ function generateRecursieObjectProperties(json) {
         else if (bsonType == "array" && typeof (json["additionalProperties"]["items"]) != typeof (undefined)) object = generateRecursieObjectProperties(json["additionalProperties"]["items"]);
         //Append Property
         baseProperties["_"] = {
-            description: json["additionalProperties"]["description"],
+            description: (typeof (json["additionalProperties"]["description"]) !== typeof (undefined)) ? json["additionalProperties"]["description"] : "",
             type: (bsonType == "") ? "*" : "`" + bsonType + "`",
             values: (bsonType === "object") ? bsonType : calculateAcceptedValues(json["additionalProperties"]),
             required: "no",
@@ -1782,13 +1793,17 @@ function calculateMappedLink(branch, tree) {
 function calculateAcceptedValues(json) {
     //Catch String first
     if (json["bsonType"] === "string" || (typeof (json["bsonType"]) === typeof (undefined) && typeof (json["enum"]) !== typeof (undefined))) {
-        if (typeof (json["enum"]) === typeof (undefined)) return "*";
-        else {
+        if (typeof (json["enum"]) !== typeof (undefined)) {
             var values = "";
             for (var index in json["enum"]) {
                 values += ((values.length > 0) ? ", " : "") + "`" + json["enum"][index] + "`";
             }
             return values;
+        } else {
+            var parameters = "";
+            if (typeof (json["minLength"]) !== typeof (undefined)) parameters += (parameters.length > 0 ? ", " : "") + "Minimum Length: " + json["minLength"];
+            if (typeof (json["maxLength"]) !== typeof (undefined)) parameters += (parameters.length > 0 ? ", " : "") + "Maximum Length: " + json["maxLength"];
+            return parameters.length > 0 ? parameters : "*";
         }
     } else if (typeof (json["bsonType"]) === typeof (undefined)) {
         if (typeof (json["oneOf"]) === typeof (undefined)) return "Unknown";
