@@ -4,10 +4,19 @@
     "definitions": {
         "model": {
             "bsonType": "object",
-            "required": [
-                "type",
-                "elements",
-                "relationships"
+            "anyOf": [
+                {
+                    "required": [
+                        "type",
+                        "elements"
+                    ]
+                },
+                {
+                    "required": [
+                        "type",
+                        "relationships"
+                    ]
+                }
             ],
             "properties": {
                 "type": {
