@@ -752,7 +752,7 @@
                                                             "properties": {
                                                                 "name": {
                                                                     "enum": [
-                                                                        "translate and scale"
+                                                                        "translateAndScale"
                                                                     ]
                                                                 }
                                                             }

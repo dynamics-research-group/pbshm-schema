@@ -224,7 +224,7 @@
                                                     "properties": {
                                                         "name": {
                                                             "enum": [
-                                                                "ferrous alloy"
+                                                                "ferrousAlloy"
                                                             ]
                                                         },
                                                         "type": {
@@ -259,10 +259,10 @@
                                                     "properties": {
                                                         "name": {
                                                             "enum": [
-                                                                "aluminium alloy",
-                                                                "nickel alloy",
-                                                                "copper alloy",
-                                                                "titanium alloy"
+                                                                "aluminiumAlloy",
+                                                                "nickelAlloy",
+                                                                "copperAlloy",
+                                                                "titaniumAlloy"
                                                             ]
                                                         }
                                                     },
@@ -292,11 +292,11 @@
                                                 "name": {
                                                     "enum": [
                                                         "glass",
-                                                        "clay product",
+                                                        "clayProduct",
                                                         "refractory",
                                                         "abrasive",
                                                         "cement",
-                                                        "advanced ceramic"
+                                                        "advancedCeramic"
                                                     ]
                                                 }
                                             },
