@@ -13,7 +13,7 @@ fs.readFile("./structure-data.json", "utf8", (readErr, schema) => {
     var json = JSON.parse(schema);
     json = mergeAllOfElements(removeUnsupportedKeys(dereferenceTree(json, json)));
     //Ensure Release Folder
-    if(!fs.existsSync("./release")){
+    if (!fs.existsSync("./release")) {
         fs.mkdirSync("./release");
     }
     //Output Minified JSON
@@ -123,6 +123,17 @@ function mergeAllOfElements(parent) {
         }
         //Find "allOf" properties
         if (key === "allOf" && typeof (parent[key]) === "object") {
+            //Determine if merge is possible
+            var oneOfCount = 0;
+            for (var i in parent[key]) {
+                for (var childKey in parent[key][i]) {
+                    if (childKey === "oneOf" && typeof (parent[key][i][childKey]) === "object") {
+                        oneOfCount++;
+                        break;
+                    }
+                }
+            }
+            if (oneOfCount > 1) continue;
             //Merge objects and clone properties into parent
             var mergedObject = mergeObjects(parent[key]);
             for (var mergedNodeKey in mergedObject) {
