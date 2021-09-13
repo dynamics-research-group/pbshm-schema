@@ -41,7 +41,7 @@
                 "axis": {
                     "bsonType": "string",
                     "title": "axis",
-                    "description": "the axis that the measurment corresponds to",
+                    "description": "the axis that the measurement corresponds to",
                     "enum": [
                         "x",
                         "y",

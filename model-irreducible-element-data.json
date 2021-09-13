@@ -184,7 +184,7 @@
                         },
                         {
                             "title": "alpha",
-                            "description": "the alpha rotation value within the corrdinate space"
+                            "description": "the alpha rotation value within the coordinate space"
                         }
                     ]
                 },
@@ -198,7 +198,7 @@
                         },
                         {
                             "title": "beta",
-                            "description": "the beta rotation value within the corrdinate space"
+                            "description": "the beta rotation value within the coordinate space"
                         }
                     ]
                 },
@@ -212,7 +212,7 @@
                         },
                         {
                             "title": "gamma",
-                            "description": "the gamma rotation value within the corrdinate space"
+                            "description": "the gamma rotation value within the coordinate space"
                         }
                     ]
                 }
@@ -421,7 +421,7 @@
                 },
                 "unit": {
                     "title": "unit",
-                    "description": "the unit that the minimm and maximum are based in"
+                    "description": "the unit that the minimum and maximum are based in"
                 }
             }
         },
@@ -749,7 +749,7 @@
                                                                 },
                                                                 {
                                                                     "title": "alpha",
-                                                                    "description": "the alpha rotation value within the corrdinate space"
+                                                                    "description": "the alpha rotation value within the coordinate space"
                                                                 }
                                                             ]
                                                         },
@@ -763,7 +763,7 @@
                                                                 },
                                                                 {
                                                                     "title": "beta",
-                                                                    "description": "the beta rotation value within the corrdinate space"
+                                                                    "description": "the beta rotation value within the coordinate space"
                                                                 }
                                                             ]
                                                         },
@@ -777,7 +777,7 @@
                                                                 },
                                                                 {
                                                                     "title": "gamma",
-                                                                    "description": "the gamma rotation value within the corrdinate space"
+                                                                    "description": "the gamma rotation value within the coordinate space"
                                                                 }
                                                             ]
                                                         }
