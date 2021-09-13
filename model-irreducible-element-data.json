@@ -38,7 +38,9 @@
                 "name": {
                     "bsonType": "string",
                     "title": "element name",
-                    "description": "the unique element name within the model"
+                    "description": "the unique element name within the model",
+                    "minLength": 1,
+                    "maxLength": 64
                 },
                 "description": {
                     "bsonType": "string",
@@ -339,7 +341,9 @@
                 "name": {
                     "bsonType": "string",
                     "title": "name",
-                    "description": "the unique name of the relationship within the irreducible element model"
+                    "description": "the unique name of the relationship within the irreducible element model",
+                    "minLength": 1,
+                    "maxLength": 64
                 },
                 "description": {
                     "bsonType": "string",
@@ -366,7 +370,9 @@
                             "name": {
                                 "bsonType": "string",
                                 "title": "name",
-                                "description": "the name of the element within the irreducible element model"
+                                "description": "the name of the element within the irreducible element model",
+                                "minLength": 1,
+                                "maxLength": 64
                             }
                         }
                     },
