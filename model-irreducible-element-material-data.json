@@ -364,6 +364,16 @@
                                 }
                             },
                             "additionalProperties": false
+                        },
+                        {
+                            "properties": {
+                                "name": {
+                                    "enum": [
+                                        "other"
+                                    ]
+                                }
+                            },
+                            "additionalProperties": false
                         }
                     ]
                 }
