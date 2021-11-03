@@ -239,8 +239,9 @@
                     "title": "regular element",
                     "description": "a regular element represents a standard element within the model",
                     "required": [
-                        "coordinates",
-                        "contextual"
+                        "contextual",
+                        "geometry",
+                        "material"
                     ],
                     "properties": {
                         "type": {
