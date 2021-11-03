@@ -733,6 +733,40 @@
                                                             }
                                                         }
                                                     }
+                                                },
+                                                {
+                                                    "properties": {
+                                                        "type": {
+                                                            "properties": {
+                                                                "type": {
+                                                                    "properties": {
+                                                                        "type": {
+                                                                            "properties": {
+                                                                                "name": {
+                                                                                    "enum": [
+                                                                                        "other"
+                                                                                    ]
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "dimensions": {
+                                                            "additionalProperties": {
+                                                                "oneOf": [
+                                                                    {
+                                                                        "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                                    },
+                                                                    {
+                                                                        "$ref": "model-irreducible-element-data.json#/definitions/angular"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "minProperties": 2
+                                                        }
+                                                    }
                                                 }
                                             ]
                                         }
@@ -741,10 +775,6 @@
                                 {
                                     "allOf": [
                                         {
-                                            "required": [
-                                                "bounding",
-                                                "faces"
-                                            ],
                                             "properties": {
                                                 "type": {
                                                     "properties": {
@@ -786,6 +816,18 @@
                                                         }
                                                     }
                                                 }
+                                            },
+                                            "dependencies": {
+                                                "bounding": [
+                                                    "faces"
+                                                ],
+                                                "faces": [
+                                                    "bounding"
+                                                ],
+                                                "dimensions": [
+                                                    "bounding",
+                                                    "faces"
+                                                ]
                                             }
                                         },
                                         {
@@ -959,6 +1001,65 @@
                                                                                     "$ref": "model-irreducible-element-data.json#/definitions/linear"
                                                                                 }
                                                                             }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "properties": {
+                                                        "type": {
+                                                            "properties": {
+                                                                "type": {
+                                                                    "properties": {
+                                                                        "type": {
+                                                                            "properties": {
+                                                                                "name": {
+                                                                                    "enum": [
+                                                                                        "other"
+                                                                                    ]
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "faces": {
+                                                            "properties": {
+                                                                "left": {
+                                                                    "properties": {
+                                                                        "dimensions": {
+                                                                            "additionalProperties": {
+                                                                                "oneOf": [
+                                                                                    {
+                                                                                        "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                                                    },
+                                                                                    {
+                                                                                        "$ref": "model-irreducible-element-data.json#/definitions/angular"
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            "minProperties": 2
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "right": {
+                                                                    "properties": {
+                                                                        "dimensions": {
+                                                                            "additionalProperties": {
+                                                                                "oneOf": [
+                                                                                    {
+                                                                                        "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                                                    },
+                                                                                    {
+                                                                                        "$ref": "model-irreducible-element-data.json#/definitions/angular"
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            "minProperties": 2
                                                                         }
                                                                     }
                                                                 }
