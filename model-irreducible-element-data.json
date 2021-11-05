@@ -646,9 +646,6 @@
                             "$ref": "#/definitions/joint"
                         },
                         {
-                            "required": [
-                                "degreesOfFreedom"
-                            ],
                             "properties": {
                                 "nature": {
                                     "properties": {
@@ -685,20 +682,11 @@
                                             "bsonType": "object",
                                             "title": "global",
                                             "description": "the degrees of freedom in the global coordinate space",
-                                            "required": [
-                                                "translational",
-                                                "rotational"
-                                            ],
                                             "properties": {
                                                 "translational": {
                                                     "bsonType": "object",
                                                     "title": "translational",
                                                     "description": "the x, y and z values for translational degrees of freedom",
-                                                    "required": [
-                                                        "x",
-                                                        "y",
-                                                        "z"
-                                                    ],
                                                     "properties": {
                                                         "x": {
                                                             "allOf": [
@@ -743,17 +731,13 @@
                                                             ]
                                                         }
                                                     },
+                                                    "minProperties": 1,
                                                     "additionalProperties": false
                                                 },
                                                 "rotational": {
                                                     "bsonType": "object",
                                                     "title": "rotational",
                                                     "description": "the alpha, beta and gamma values for the rotational degrees of freedom",
-                                                    "required": [
-                                                        "alpha",
-                                                        "beta",
-                                                        "gamma"
-                                                    ],
                                                     "properties": {
                                                         "alpha": {
                                                             "allOf": [
@@ -798,9 +782,11 @@
                                                             ]
                                                         }
                                                     },
+                                                    "minProperties": 1,
                                                     "additionalProperties": false
                                                 }
                                             },
+                                            "minProperties": 1,
                                             "additionalProperties": false
                                         }
                                     },
