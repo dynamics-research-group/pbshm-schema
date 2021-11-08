@@ -449,9 +449,6 @@
                 {
                     "title": "pefect relationship",
                     "description": "a perfect relationship demarks where two elements can be considered as a larger concatenated element",
-                    "required": [
-                        "coordinates"
-                    ],
                     "properties": {
                         "type": {
                             "enum": [
@@ -489,8 +486,7 @@
                         "elements": {
                             "items": {
                                 "required": [
-                                    "nature",
-                                    "coordinates"
+                                    "nature"
                                 ],
                                 "properties": {
                                     "nature": {
@@ -589,9 +585,6 @@
                         },
                         "elements": {
                             "items": {
-                                "required": [
-                                    "coordinates"
-                                ],
                                 "properties": {
                                     "coordinates": {
                                         "$ref": "#/definitions/position"
@@ -901,9 +894,6 @@
                                             {
                                                 "title": "boundary relationship",
                                                 "description": "a boundary relatioship indicates where a regular element meets a ground element",
-                                                "required": [
-                                                    "coordinates"
-                                                ],
                                                 "properties": {
                                                     "type": {
                                                         "enum": [
