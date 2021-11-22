@@ -23,10 +23,10 @@
 |`name`|the unique element name within the model|`string`|Minimum Length: 1, Maximum Length: 64|yes|
 |`description`|additional information about the element|`string`|*|no|
 |`type`|the element type (see URL)|`string`|`regular`|yes|
-|`coordinates`|the coordinates of the element|`object`|[`elementCoordinates`](#element-coordinates)|yes|
+|`coordinates`|the coordinates of the element|`object`|[`elementCoordinates`](#element-coordinates)|no|
 |`contextual`|additional contextual information on the element|`object`|[`elementContextual`](#element-contextual)|yes|
-|`geometry`|geometrical description of the element|`object`|[`elementGeometry`](#element-geometry)|no|
-|`material`|material properties of the element|`object`|[`elementMaterial`](#element-material)|no|
+|`geometry`|geometrical description of the element|`object`|[`elementGeometry`](#element-geometry)|yes|
+|`material`|material properties of the element|`object`|[`elementMaterial`](#element-material)|yes|
 
 ### [Element Coordinates](#element-coordinates)
 |Property|Description|Type|Values|Required|
@@ -302,13 +302,50 @@
 |`radius`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
 |`length`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
 
+#### [Solid Translate Other Element Geometry](#solid-translate-other-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`type`|type of geometrical element|`object`|[`typeSolidTranslateOtherElementGeometry`](#type-solid-translate-other-element-geometry)|yes|
+|`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|no|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsSolidTranslateOtherElementGeometry`](#dimensions-solid-translate-other-element-geometry)|no|
+
+##### [Type Solid Translate Other Element Geometry](#type-solid-translate-other-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`name`|name of the geometrical type|`string`|`solid` -> `translate` -> `other`|yes|
+
+##### [Dimensions Solid Translate Other Element Geometry](#dimensions-solid-translate-other-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
+|`*`|the axis, source, unit and value of the measurement|`object`|[`angularDimension`](#angular-dimension)|-|
+
+#### [Shell Translate Other Element Geometry](#shell-translate-other-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`type`|type of geometrical element|`object`|[`typeShellTranslateOtherElementGeometry`](#type-shell-translate-other-element-geometry)|yes|
+|`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|no|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsShellTranslateOtherElementGeometry`](#dimensions-shell-translate-other-element-geometry)|no|
+
+##### [Type Shell Translate Other Element Geometry](#type-shell-translate-other-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`name`|name of the geometrical type|`string`|`shell` -> `translate` -> `other`|yes|
+
+##### [Dimensions Shell Translate Other Element Geometry](#dimensions-shell-translate-other-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
+|`thickness`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+|`*`|the axis, source, unit and value of the measurement|`object`|[`angularDimension`](#angular-dimension)|-|
+
 #### [Solid Translate And Scale Cuboid Element Geometry](#solid-translate-and-scale-cuboid-element-geometry)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`type`|type of geometrical element|`object`|[`typeSolidTranslateAndScaleCuboidElementGeometry`](#type-solid-translate-and-scale-cuboid-element-geometry)|yes|
-|`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|yes|
+|`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|yes, if `faces` or `dimensions` provided|
 |`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsSolidTranslateAndScaleCuboidElementGeometry`](#dimensions-solid-translate-and-scale-cuboid-element-geometry)|no|
-|`faces`|the faces that describe the translate and scale operations within the bounding|`object`|[`facesSolidTranslateAndScaleCuboidElementGeometry`](#faces-solid-translate-and-scale-cuboid-element-geometry)|yes|
+|`faces`|the faces that describe the translate and scale operations within the bounding|`object`|[`facesSolidTranslateAndScaleCuboidElementGeometry`](#faces-solid-translate-and-scale-cuboid-element-geometry)|yes, if `bounding` or `dimensions` provided|
 
 ##### [Type Solid Translate And Scale Cuboid Element Geometry](#type-solid-translate-and-scale-cuboid-element-geometry)
 |Property|Description|Type|Values|Required|
@@ -344,9 +381,9 @@
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`type`|type of geometrical element|`object`|[`typeShellTranslateAndScaleCuboidElementGeometry`](#type-shell-translate-and-scale-cuboid-element-geometry)|yes|
-|`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|yes|
+|`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|yes, if `faces` or `dimensions` provided|
 |`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsShellTranslateAndScaleCuboidElementGeometry`](#dimensions-shell-translate-and-scale-cuboid-element-geometry)|no|
-|`faces`|the faces that describe the translate and scale operations within the bounding|`object`|[`facesShellTranslateAndScaleCuboidElementGeometry`](#faces-shell-translate-and-scale-cuboid-element-geometry)|yes|
+|`faces`|the faces that describe the translate and scale operations within the bounding|`object`|[`facesShellTranslateAndScaleCuboidElementGeometry`](#faces-shell-translate-and-scale-cuboid-element-geometry)|yes, if `bounding` or `dimensions` provided|
 
 ##### [Type Shell Translate And Scale Cuboid Element Geometry](#type-shell-translate-and-scale-cuboid-element-geometry)
 |Property|Description|Type|Values|Required|
@@ -383,9 +420,9 @@
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`type`|type of geometrical element|`object`|[`typeSolidTranslateAndScaleCylinderElementGeometry`](#type-solid-translate-and-scale-cylinder-element-geometry)|yes|
-|`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|yes|
+|`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|yes, if `faces` or `dimensions` provided|
 |`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsSolidTranslateAndScaleCylinderElementGeometry`](#dimensions-solid-translate-and-scale-cylinder-element-geometry)|no|
-|`faces`|the faces that describe the translate and scale operations within the bounding|`object`|[`facesSolidTranslateAndScaleCylinderElementGeometry`](#faces-solid-translate-and-scale-cylinder-element-geometry)|yes|
+|`faces`|the faces that describe the translate and scale operations within the bounding|`object`|[`facesSolidTranslateAndScaleCylinderElementGeometry`](#faces-solid-translate-and-scale-cylinder-element-geometry)|yes, if `bounding` or `dimensions` provided|
 
 ##### [Type Solid Translate And Scale Cylinder Element Geometry](#type-solid-translate-and-scale-cylinder-element-geometry)
 |Property|Description|Type|Values|Required|
@@ -420,9 +457,9 @@
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`type`|type of geometrical element|`object`|[`typeShellTranslateAndScaleCylinderElementGeometry`](#type-shell-translate-and-scale-cylinder-element-geometry)|yes|
-|`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|yes|
+|`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|yes, if `faces` or `dimensions` provided|
 |`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsShellTranslateAndScaleCylinderElementGeometry`](#dimensions-shell-translate-and-scale-cylinder-element-geometry)|no|
-|`faces`|the faces that describe the translate and scale operations within the bounding|`object`|[`facesShellTranslateAndScaleCylinderElementGeometry`](#faces-shell-translate-and-scale-cylinder-element-geometry)|yes|
+|`faces`|the faces that describe the translate and scale operations within the bounding|`object`|[`facesShellTranslateAndScaleCylinderElementGeometry`](#faces-shell-translate-and-scale-cylinder-element-geometry)|yes, if `bounding` or `dimensions` provided|
 
 ##### [Type Shell Translate And Scale Cylinder Element Geometry](#type-shell-translate-and-scale-cylinder-element-geometry)
 |Property|Description|Type|Values|Required|
@@ -453,6 +490,79 @@
 |`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
 |`thickness`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
 |`radius`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+
+#### [Solid Translate And Scale Other Element Geometry](#solid-translate-and-scale-other-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`type`|type of geometrical element|`object`|[`typeSolidTranslateAndScaleOtherElementGeometry`](#type-solid-translate-and-scale-other-element-geometry)|yes|
+|`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|yes, if `faces` or `dimensions` provided|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsSolidTranslateAndScaleOtherElementGeometry`](#dimensions-solid-translate-and-scale-other-element-geometry)|no|
+|`faces`|the faces that describe the translate and scale operations within the bounding|`object`|[`facesSolidTranslateAndScaleOtherElementGeometry`](#faces-solid-translate-and-scale-other-element-geometry)|yes, if `bounding` or `dimensions` provided|
+
+##### [Type Solid Translate And Scale Other Element Geometry](#type-solid-translate-and-scale-other-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`name`|name of the geometrical type|`string`|`solid` -> `translateAndScale` -> `other`|yes|
+
+##### [Dimensions Solid Translate And Scale Other Element Geometry](#dimensions-solid-translate-and-scale-other-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
+|`length`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+
+##### [Faces Solid Translate And Scale Other Element Geometry](#faces-solid-translate-and-scale-other-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`left`|the face of an element within the bounding|`object`|[`faceSolidTranslateAndScaleOtherElementGeometry`](#face-solid-translate-and-scale-other-element-geometry)|yes|
+|`right`|the face of an element within the bounding|`object`|[`faceSolidTranslateAndScaleOtherElementGeometry`](#face-solid-translate-and-scale-other-element-geometry)|yes|
+
+##### [Face Solid Translate And Scale Other Element Geometry](#face-solid-translate-and-scale-other-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsFaceSolidTranslateAndScaleOtherElementGeometry`](#dimensions-face-solid-translate-and-scale-other-element-geometry)|yes|
+|`translational`|values for the y and z translations within the coordinate space|`object`|[`faceTranslation`](#face-translation)|yes|
+
+###### [Dimensions Face Solid Translate And Scale Other Element Geometry](#dimensions-face-solid-translate-and-scale-other-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
+
+#### [Shell Translate And Scale Other Element Geometry](#shell-translate-and-scale-other-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`type`|type of geometrical element|`object`|[`typeShellTranslateAndScaleOtherElementGeometry`](#type-shell-translate-and-scale-other-element-geometry)|yes|
+|`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|yes, if `faces` or `dimensions` provided|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsShellTranslateAndScaleOtherElementGeometry`](#dimensions-shell-translate-and-scale-other-element-geometry)|no|
+|`faces`|the faces that describe the translate and scale operations within the bounding|`object`|[`facesShellTranslateAndScaleOtherElementGeometry`](#faces-shell-translate-and-scale-other-element-geometry)|yes, if `bounding` or `dimensions` provided|
+
+##### [Type Shell Translate And Scale Other Element Geometry](#type-shell-translate-and-scale-other-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`name`|name of the geometrical type|`string`|`shell` -> `translateAndScale` -> `other`|yes|
+
+##### [Dimensions Shell Translate And Scale Other Element Geometry](#dimensions-shell-translate-and-scale-other-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
+|`length`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+
+##### [Faces Shell Translate And Scale Other Element Geometry](#faces-shell-translate-and-scale-other-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`left`|the face of an element within the bounding|`object`|[`faceShellTranslateAndScaleOtherElementGeometry`](#face-shell-translate-and-scale-other-element-geometry)|yes|
+|`right`|the face of an element within the bounding|`object`|[`faceShellTranslateAndScaleOtherElementGeometry`](#face-shell-translate-and-scale-other-element-geometry)|yes|
+
+##### [Face Shell Translate And Scale Other Element Geometry](#face-shell-translate-and-scale-other-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsFaceShellTranslateAndScaleOtherElementGeometry`](#dimensions-face-shell-translate-and-scale-other-element-geometry)|yes|
+|`translational`|values for the y and z translations within the coordinate space|`object`|[`faceTranslation`](#face-translation)|yes|
+
+###### [Dimensions Face Shell Translate And Scale Other Element Geometry](#dimensions-face-shell-translate-and-scale-other-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
+|`thickness`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
 
 ### [Element Material](#element-material)
 |Property|Description|Type|Values|Required|
@@ -487,6 +597,11 @@
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`name`|name of the material type|`string`|`composite` -> `particle-reinforced`, `fibre-reinforced`, `structural`|yes|
+
+##### [`other` Type Element Material](#other-type-element-material)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`name`|name of the material type|`string`|`other`|yes|
 
 #### [Properties Element Material](#properties-element-material)
 
@@ -676,7 +791,7 @@
 |`description`|additional information on the relationship|`string`|*|no|
 |`type`|the type of relationship|`string`|`perfect`|yes|
 |`elements`|the elements involved in the relationship|`array`|[`namedRelationshipElement`](#named-relationship-element)|yes|
-|`coordinates`|the coordinates of the relationship|`object`|[`relationshipCoordinates`](#relationship-coordinates)|yes|
+|`coordinates`|the coordinates of the relationship|`object`|[`relationshipCoordinates`](#relationship-coordinates)|no|
 
 ## [Connection Relationship](#connection-relationship)
 |Property|Description|Type|Values|Required|
@@ -691,7 +806,7 @@
 |---|-----|---|---|---|
 |`name`|the name of the element within the irreducible element model|`string`|Minimum Length: 1, Maximum Length: 64|yes|
 |`nature`|the nature of the relationship to the element|`object`|[`staticNature`](#static-nature)|yes|
-|`coordinates`|the coordinates of the relationship|`object`|[`relationshipCoordinates`](#relationship-coordinates)|yes|
+|`coordinates`|the coordinates of the relationship|`object`|[`relationshipCoordinates`](#relationship-coordinates)|no|
 
 ## [Joint Relationship](#joint-relationship)
 
@@ -712,7 +827,7 @@
 |`type`|the type of relationship|`string`|`joint`|yes|
 |`elements`|the elements involved in the relationship|`array`|[`positionedRelationshipElement`](#positioned-relationship-element)|yes|
 |`nature`|the nature of the relationship to the element|`object`|[`dynamicNature`](#dynamic-nature)|yes|
-|`degreesOfFreedom`|the degrees of freedom within the relationship|`object`|[`dynamicJointRelationshipDegreesOfFreedom`](#dynamic-joint-relationship-degrees-of-freedom)|yes|
+|`degreesOfFreedom`|the degrees of freedom within the relationship|`object`|[`dynamicJointRelationshipDegreesOfFreedom`](#dynamic-joint-relationship-degrees-of-freedom)|no|
 
 ##### [Dynamic Joint Relationship Degrees Of Freedom](#dynamic-joint-relationship-degrees-of-freedom)
 |Property|Description|Type|Values|Required|
@@ -722,8 +837,8 @@
 ###### [Global Dynamic Joint Relationship Degrees Of Freedom](#global-dynamic-joint-relationship-degrees-of-freedom)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`translational`|the x, y and z values for translational degrees of freedom|`object`|[`boundedTranslationalCoordinates`](#bounded-translational-coordinates)|yes|
-|`rotational`|the alpha, beta and gamma values for the rotational degrees of freedom|`object`|[`boundedRotationalCoordinates`](#bounded-rotational-coordinates)|yes|
+|`translational`|the x, y and z values for translational degrees of freedom|`object`|[`boundedTranslationalCoordinates`](#bounded-translational-coordinates)|no|
+|`rotational`|the alpha, beta and gamma values for the rotational degrees of freedom|`object`|[`boundedRotationalCoordinates`](#bounded-rotational-coordinates)|no|
 
 ## [Boundary Relationship](#boundary-relationship)
 |Property|Description|Type|Values|Required|
@@ -732,7 +847,7 @@
 |`description`|additional information on the relationship|`string`|*|no|
 |`type`|the type of relationship|`string`|`boundary`|yes|
 |`elements`|the elements involved in the relationship|`array`|[`namedRelationshipElement`](#named-relationship-element)|yes|
-|`coordinates`|the coordinates of the relationship|`object`|[`relationshipCoordinates`](#relationship-coordinates)|yes|
+|`coordinates`|the coordinates of the relationship|`object`|[`relationshipCoordinates`](#relationship-coordinates)|no|
 
 ## [Relationship Shared Objects](#relationship-objects)
 
@@ -766,7 +881,7 @@
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`name`|the name of the element within the irreducible element model|`string`|Minimum Length: 1, Maximum Length: 64|yes|
-|`coordinates`|the coordinates of the relationship|`object`|[`relationshipCoordinates`](#relationship-coordinates)|yes|
+|`coordinates`|the coordinates of the relationship|`object`|[`relationshipCoordinates`](#relationship-coordinates)|no|
 
 ### [Dynamic Nature](#dynamic-nature)
 |Property|Description|Type|Values|Required|
@@ -822,16 +937,16 @@
 ### [Bounded Translational Coordinates](#bounded-translational-coordinates)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`x`|the x translation value within the coordinate space|`object`|[`boundedLinearValue`](#bounded-linear-value)|yes|
-|`y`|the y translation value within the coordinate space|`object`|[`boundedLinearValue`](#bounded-linear-value)|yes|
-|`z`|the z translation value within the coordinate space|`object`|[`boundedLinearValue`](#bounded-linear-value)|yes|
+|`x`|the x translation value within the coordinate space|`object`|[`boundedLinearValue`](#bounded-linear-value)|no|
+|`y`|the y translation value within the coordinate space|`object`|[`boundedLinearValue`](#bounded-linear-value)|no|
+|`z`|the z translation value within the coordinate space|`object`|[`boundedLinearValue`](#bounded-linear-value)|no|
 
 ### [Bounded Rotational Coordinates](#bounded-rotational-coordinates)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`alpha`|the alpha rotation value within the coordinate space|`object`|[`boundedAngularValue`](#bounded-angular-value)|yes|
-|`beta`|the beta rotation value within the coordinate space|`object`|[`boundedAngularValue`](#bounded-angular-value)|yes|
-|`gamma`|the gamma rotation value within the coordinate space|`object`|[`boundedAngularValue`](#bounded-angular-value)|yes|
+|`alpha`|the alpha rotation value within the coordinate space|`object`|[`boundedAngularValue`](#bounded-angular-value)|no|
+|`beta`|the beta rotation value within the coordinate space|`object`|[`boundedAngularValue`](#bounded-angular-value)|no|
+|`gamma`|the gamma rotation value within the coordinate space|`object`|[`boundedAngularValue`](#bounded-angular-value)|no|
 
 # [Global Value Objects](#value-objects)
 
