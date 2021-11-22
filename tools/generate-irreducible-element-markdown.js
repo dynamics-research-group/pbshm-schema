@@ -101,10 +101,14 @@ var mappings = [
             ["geometry", "element", "shell translate sphere", "bounding"],
             ["geometry", "element", "solid translate cylinder", "bounding"],
             ["geometry", "element", "shell translate cylinder", "bounding"],
+            ["geometry", "element", "solid translate other", "bounding"],
+            ["geometry", "element", "shell translate other", "bounding"],
             ["geometry", "element", "solid translateAndScale cuboid", "bounding"],
             ["geometry", "element", "shell translateAndScale cuboid", "bounding"],
             ["geometry", "element", "solid translateAndScale cylinder", "bounding"],
-            ["geometry", "element", "shell translateAndScale cylinder", "bounding"]
+            ["geometry", "element", "shell translateAndScale cylinder", "bounding"],
+            ["geometry", "element", "solid translateAndScale other", "bounding"],
+            ["geometry", "element", "shell translateAndScale other", "bounding"]
         ],
         destination: {
             container: "elementShared",
@@ -116,7 +120,9 @@ var mappings = [
             ["geometry", "element", "solid translateAndScale cuboid", "face", "translational"],
             ["geometry", "element", "shell translateAndScale cuboid", "face", "translational"],
             ["geometry", "element", "solid translateAndScale cylinder", "face", "translational"],
-            ["geometry", "element", "shell translateAndScale cylinder", "face", "translational"]
+            ["geometry", "element", "shell translateAndScale cylinder", "face", "translational"],
+            ["geometry", "element", "solid translateAndScale other", "face", "translational"],
+            ["geometry", "element", "shell translateAndScale other", "face", "translational"]
         ],
         destination: {
             container: "elementShared",
@@ -162,6 +168,7 @@ var mappings = [
             ["geometry", "element", "shell translate cylinder", "dimensions", "thickness"],//Geometry -> Shell -> Translate -> Cylinder -> Dimensions
             ["geometry", "element", "shell translate cylinder", "dimensions", "radius"],
             ["geometry", "element", "shell translate cylinder", "dimensions", "length"],
+            ["geometry", "element", "shell translate other", "dimensions", "thickness"],//Geometry -> Shell -> Translate -> Other -> Dimensions
             ["geometry", "element", "solid translateAndScale cuboid", "dimensions", "length"],//Geometry -> Solid -> Translate And Scale -> Cuboid -> Dimensions
             ["geometry", "element", "solid translateAndScale cuboid", "face", "dimensions", "width"],
             ["geometry", "element", "solid translateAndScale cuboid", "face", "dimensions", "height"],
@@ -174,6 +181,9 @@ var mappings = [
             ["geometry", "element", "shell translateAndScale cylinder", "dimensions", "length"],//Geometry -> Shell -> Translate And Scale -> Cylinder -> Dimensions
             ["geometry", "element", "shell translateAndScale cylinder", "face", "dimensions", "thickness"],
             ["geometry", "element", "shell translateAndScale cylinder", "face", "dimensions", "radius"],
+            ["geometry", "element", "solid translateAndScale other", "dimensions", "length"],//Geometry -> Solid -> Translate And Scale -> Other -> Dimensions
+            ["geometry", "element", "shell translateAndScale other", "dimensions", "length"],//Geometry -> Shell -> Translate And Scale -> Other -> Dimensions
+            ["geometry", "element", "shell translateAndScale other", "face", "dimensions", "thickness"]
         ],
         destination: {
             container: "shared",
@@ -183,7 +193,9 @@ var mappings = [
     {//Group Geometry -> Elements -> N -> Dimensions -> * to Angular Dimension
         source: [
             ["geometry", "element", "beam other", "dimensions", "*"],
-            ["geometry", "element", "plate other", "dimensions", "*"]
+            ["geometry", "element", "plate other", "dimensions", "*"],
+            ["geometry", "element", "solid translate other", "dimensions", "*"],
+            ["geometry", "element", "shell translate other", "dimensions", "*"]
         ],
         destination: {
             container: "shared",
@@ -205,6 +217,8 @@ var mappings = [
             ["geometry", "element", "shell translate sphere", "dimensions", "_"],
             ["geometry", "element", "solid translate cylinder", "dimensions", "_"],
             ["geometry", "element", "shell translate cylinder", "dimensions", "_"],
+            ["geometry", "element", "solid translate other", "dimensions", "_"],
+            ["geometry", "element", "shell translate other", "dimensions", "_"],
             ["geometry", "element", "solid translateAndScale cuboid", "dimensions", "_"],
             ["geometry", "element", "solid translateAndScale cuboid", "face", "dimensions", "_"],
             ["geometry", "element", "shell translateAndScale cuboid", "dimensions", "_"],
@@ -212,7 +226,11 @@ var mappings = [
             ["geometry", "element", "solid translateAndScale cylinder", "dimensions", "_"],
             ["geometry", "element", "solid translateAndScale cylinder", "face", "dimensions", "_"],
             ["geometry", "element", "shell translateAndScale cylinder", "dimensions", "_"],
-            ["geometry", "element", "shell translateAndScale cylinder", "face", "dimensions", "_"]
+            ["geometry", "element", "shell translateAndScale cylinder", "face", "dimensions", "_"],
+            ["geometry", "element", "solid translateAndScale other", "dimensions", "_"],
+            ["geometry", "element", "solid translateAndScale other", "face", "dimensions", "_"],
+            ["geometry", "element", "shell translateAndScale other", "dimensions", "_"],
+            ["geometry", "element", "shell translateAndScale other", "face", "dimensions", "_"]
         ],
         destination: {
             container: "shared",
@@ -253,6 +271,24 @@ var mappings = [
         ],
         destination: {
             tree: ["geometry", "element", "shell translateAndScale cylinder", "face"]
+        }
+    },
+    {//Group Geometry -> Element -> Solid Translate And Scale Other -> Faces -> Left, Right to Geometry -> Element -> Solid Translate And Scale Other -> Faces -> Face
+        source: [
+            ["geometry", "element", "solid translateAndScale other", "faces", "left"],
+            ["geometry", "element", "solid translateAndScale other", "faces", "right"]
+        ],
+        destination: {
+            tree: ["geometry", "element", "solid translateAndScale other", "face"]
+        }
+    },
+    {//Group Geometry -> Element -> Shell Translate And Scale Other -> Faces -> Left, Right to Geometry -> Element -> Shell Translate And Scale Other -> Faces -> Face
+        source: [
+            ["geometry", "element", "shell translateAndScale other", "faces", "left"],
+            ["geometry", "element", "shell translateAndScale other", "faces", "right"]
+        ],
+        destination: {
+            tree: ["geometry", "element", "shell translateAndScale other", "face"]
         }
     },
     {//Rename Material -> Element -> Properties -> Density Numerical to Material -> Element -> Property -> Density Numerical for Display Purposes
@@ -1357,6 +1393,28 @@ function markdownGenerationCallback(stage, container, tree, json, overrides) {
             overrides.values = "any value";
             return false;
         }
+        else if (tree.length == 4 && (
+            (tree[0] == "geometry" && tree[1] == "element" && tree[2] == "solid translateAndScale cuboid" && tree[3] == "bounding")
+            || (tree[0] == "geometry" && tree[1] == "element" && tree[2] == "shell translateAndScale cuboid" && tree[3] == "bounding")
+            || (tree[0] == "geometry" && tree[1] == "element" && tree[2] == "solid translateAndScale cylinder" && tree[3] == "bounding")
+            || (tree[0] == "geometry" && tree[1] == "element" && tree[2] == "shell translateAndScale cylinder" && tree[3] == "bounding")
+            || (tree[0] == "geometry" && tree[1] == "element" && tree[2] == "solid translateAndScale other" && tree[3] == "bounding")
+            || (tree[0] == "geometry" && tree[1] == "element" && tree[2] == "shell translateAndScale other" && tree[3] == "bounding")
+        )) {
+            overrides.required = "yes, if `faces` or `dimensions` provided";
+            return false;
+        }
+        else if (tree.length == 4 && (
+            (tree[0] == "geometry" && tree[1] == "element" && tree[2] == "solid translateAndScale cuboid" && tree[3] == "faces")
+            || (tree[0] == "geometry" && tree[1] == "element" && tree[2] == "shell translateAndScale cuboid" && tree[3] == "faces")
+            || (tree[0] == "geometry" && tree[1] == "element" && tree[2] == "solid translateAndScale cylinder" && tree[3] == "faces")
+            || (tree[0] == "geometry" && tree[1] == "element" && tree[2] == "shell translateAndScale cylinder" && tree[3] == "faces")
+            || (tree[0] == "geometry" && tree[1] == "element" && tree[2] == "solid translateAndScale other" && tree[3] == "faces")
+            || (tree[0] == "geometry" && tree[1] == "element" && tree[2] == "shell translateAndScale other" && tree[3] == "faces")
+        )) {
+            overrides.required = "yes, if `bounding` or `dimensions` provided";
+            return false;
+        }
         else if (tree.length == 3 && tree[0] == "material" && tree[1] == "element" && tree[2] == "properties") {
             overrides.values = calculateMappedLink("properties", [tree[0], tree[1]]);
             return false;
@@ -1930,7 +1988,7 @@ function generateRecursiveObjectMarkdown(container, tree, json, callback) {
             + json["properties"][property]["description"] + "|"
             + ((typeof (overrides.type) !== typeof (undefined)) ? overrides.type : "`" + bsonType + "`") + "|"
             + ((typeof (overrides.values) !== typeof (undefined)) ? overrides.values : ((bsonType === "object" || bsonType === "array") ? calculateMappedLink(property, (mapping[0] == true) ? mapping[3] : tree) : calculateAcceptedValues(json["properties"][property]))) + "|"
-            + ((typeof (overrides.required) !== typeof (undefined)) ? overrides.required : ((typeof(json["required"]) !== typeof(undefined) && json["required"].indexOf(property) > -1) ? "yes" : "no")) + "|"
+            + ((typeof (overrides.required) !== typeof (undefined)) ? overrides.required : ((typeof (json["required"]) !== typeof (undefined) && json["required"].indexOf(property) > -1) ? "yes" : "no")) + "|"
         );
     }
     //Enumerate through 'object' Properties
