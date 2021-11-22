@@ -1,0 +1,33 @@
+{
+    "version": "1.1.0",
+    "name": "test-structure",
+    "population": "ie-population",
+    "timestamp": 1588007840000000000,
+    "models": {
+        "irreducibleElement": {
+            "type": "free",
+            "elements": [
+                {
+                    "name": "first-element",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "beam"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "beam",
+                            "type": {
+                                "name": "rectangular"
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
