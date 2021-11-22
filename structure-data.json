@@ -5,11 +5,20 @@
     "title": "PBSHM Schema: base structure",
     "description": "a JSON schema for population-based structural health monitoring data",
     "required": [
+        "version",
         "name",
         "population",
         "timestamp"
     ],
     "properties": {
+        "version": {
+            "bsonType": "string",
+            "title": "version number",
+            "description": "the version of the schema that the document is compliant to",
+            "enum": [
+                "1.1.0"
+            ]
+        },
         "name": {
             "bsonType": "string",
             "title": "structure name",
