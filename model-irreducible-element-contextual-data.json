@@ -1,0 +1,34 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "https://github.com/dynamics-research-group/pbshm-schema/model-irreducible-element-contextual-data.json",
+    "bsonType": "object",
+    "title": "contextual",
+    "description": "additional contextual information on the element",
+    "required": [
+        "type"
+    ],
+    "properties": {
+        "type": {
+            "bsonType": "string",
+            "title": "type",
+            "description": "the type of the element",
+            "enum": [
+                "wall",
+                "slab",
+                "beam",
+                "cable",
+                "block",
+                "plate",
+                "column",
+                "deck",
+                "aerofoil",
+                "wing",
+                "fuselage",
+                "tower",
+                "wheel",
+                "other"
+            ]
+        }
+    },
+    "additionalProperties": false
+}

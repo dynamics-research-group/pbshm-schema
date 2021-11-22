@@ -19,3 +19,4 @@ Each section of information within the PBSHM Schema is separated out into both a
 |Property|Description|Type|Details|
 |---|-----|---|---|
 |`channels`|Raw sensor data information|`array`|[channel-data](channel-data.md)|
+|`models`|Model data information|`object`|[model-data](model-data.md)|

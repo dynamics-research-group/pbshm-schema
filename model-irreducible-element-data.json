@@ -1,0 +1,925 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "https://github.com/dynamics-research-group/pbshm-schema/model-irreducible-element-data.json",
+    "definitions": {
+        "model": {
+            "bsonType": "object",
+            "anyOf": [
+                {
+                    "required": [
+                        "type",
+                        "elements"
+                    ]
+                },
+                {
+                    "required": [
+                        "type",
+                        "relationships"
+                    ]
+                }
+            ],
+            "properties": {
+                "type": {
+                    "bsonType": "string",
+                    "title": "model type",
+                    "description": "the type of the model"
+                },
+                "elements": {
+                    "bsonType": "array",
+                    "title": "element array",
+                    "description": "this is the array of elements within the irreducible element model"
+                },
+                "relationships": {
+                    "bsonType": "array",
+                    "title": "relationships",
+                    "description": "this is the array of relationships within the irreducible element model"
+                }
+            },
+            "additionalProperties": false
+        },
+        "element": {
+            "bsonType": "object",
+            "required": [
+                "name",
+                "type"
+            ],
+            "properties": {
+                "name": {
+                    "bsonType": "string",
+                    "title": "element name",
+                    "description": "the unique element name within the model",
+                    "minLength": 1,
+                    "maxLength": 64
+                },
+                "description": {
+                    "bsonType": "string",
+                    "title": "element description",
+                    "description": "additional information about the element"
+                },
+                "type": {
+                    "bsonType": "string",
+                    "title": "element type",
+                    "description": "the element type (see URL)"
+                }
+            }
+        },
+        "number": {
+            "oneOf": [
+                {
+                    "bsonType": "int"
+                },
+                {
+                    "bsonType": "double"
+                }
+            ]
+        },
+        "axis": {
+            "bsonType": "object",
+            "required": [
+                "unit",
+                "value"
+            ],
+            "properties": {
+                "unit": {
+                    "title": "unit",
+                    "description": "the unit that the value is based in"
+                },
+                "value": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/number"
+                        },
+                        {
+                            "title": "value",
+                            "description": "the value for the axis"
+                        }
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "linear": {
+            "properties": {
+                "unit": {
+                    "bsonType": "string",
+                    "enum": [
+                        "mm",
+                        "cm",
+                        "m",
+                        "km",
+                        "other"
+                    ]
+                }
+            }
+        },
+        "translation": {
+            "bsonType": "object",
+            "required": [
+                "x",
+                "y",
+                "z"
+            ],
+            "properties": {
+                "x": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/axis"
+                        },
+                        {
+                            "$ref": "#/definitions/linear"
+                        },
+                        {
+                            "title": "x",
+                            "description": "the x translation value within the coordinate space"
+                        }
+                    ]
+                },
+                "y": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/axis"
+                        },
+                        {
+                            "$ref": "#/definitions/linear"
+                        },
+                        {
+                            "title": "y",
+                            "description": "the y translation value within the coordinate space"
+                        }
+                    ]
+                },
+                "z": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/axis"
+                        },
+                        {
+                            "$ref": "#/definitions/linear"
+                        },
+                        {
+                            "title": "z",
+                            "description": "the z translation value within the coordinate space"
+                        }
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "angular": {
+            "properties": {
+                "unit": {
+                    "bsonType": "string",
+                    "enum": [
+                        "degrees",
+                        "radians",
+                        "other"
+                    ]
+                }
+            }
+        },
+        "rotation": {
+            "bsonType": "object",
+            "required": [
+                "alpha",
+                "beta",
+                "gamma"
+            ],
+            "properties": {
+                "alpha": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/axis"
+                        },
+                        {
+                            "$ref": "#/definitions/angular"
+                        },
+                        {
+                            "title": "alpha",
+                            "description": "the alpha rotation value within the coordinate space"
+                        }
+                    ]
+                },
+                "beta": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/axis"
+                        },
+                        {
+                            "$ref": "#/definitions/angular"
+                        },
+                        {
+                            "title": "beta",
+                            "description": "the beta rotation value within the coordinate space"
+                        }
+                    ]
+                },
+                "gamma": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/axis"
+                        },
+                        {
+                            "$ref": "#/definitions/angular"
+                        },
+                        {
+                            "title": "gamma",
+                            "description": "the gamma rotation value within the coordinate space"
+                        }
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "regular": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/element"
+                },
+                {
+                    "title": "regular element",
+                    "description": "a regular element represents a standard element within the model",
+                    "required": [
+                        "contextual",
+                        "geometry",
+                        "material"
+                    ],
+                    "properties": {
+                        "type": {
+                            "enum": [
+                                "regular"
+                            ]
+                        },
+                        "coordinates": {
+                            "bsonType": "object",
+                            "title": "coordinates",
+                            "description": "the coordinates of the element",
+                            "required": [
+                                "global"
+                            ],
+                            "properties": {
+                                "global": {
+                                    "bsonType": "object",
+                                    "title": "global coordinates",
+                                    "description": "translational and rotational movements within the coordinate space",
+                                    "required": [
+                                        "translational"
+                                    ],
+                                    "properties": {
+                                        "translational": {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#/definitions/translation"
+                                                },
+                                                {
+                                                    "title": "global translation",
+                                                    "description": "values for the x, y and z translations within the coordinate space"
+                                                }
+                                            ]
+                                        },
+                                        "rotational": {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#/definitions/rotation"
+                                                },
+                                                {
+                                                    "title": "global rotation",
+                                                    "description": "values for the alpha, beta and gamma rotations within the coordinate space"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            },
+                            "additionalProperties": false
+                        },
+                        "contextual": {
+                            "$ref": "model-irreducible-element-contextual-data.json"
+                        },
+                        "geometry": {
+                            "$ref": "model-irreducible-element-geometry-data.json"
+                        },
+                        "material": {
+                            "$ref": "model-irreducible-element-material-data.json"
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            ]
+        },
+        "position": {
+            "bsonType": "object",
+            "title": "coordinates",
+            "description": "the coordinates of the relationship",
+            "required": [
+                "global"
+            ],
+            "properties": {
+                "global": {
+                    "bsonType": "object",
+                    "title": "global coordinates",
+                    "description": "translational movements within the coordinate space",
+                    "required": [
+                        "translational"
+                    ],
+                    "properties": {
+                        "translational": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/translation"
+                                },
+                                {
+                                    "title": "global translation",
+                                    "description": "values for the x, y and z translations within the coordinate space"
+                                }
+                            ]
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false
+        },
+        "relationship": {
+            "bsonType": "object",
+            "required": [
+                "name",
+                "type",
+                "elements"
+            ],
+            "properties": {
+                "name": {
+                    "bsonType": "string",
+                    "title": "name",
+                    "description": "the unique name of the relationship within the irreducible element model",
+                    "minLength": 1,
+                    "maxLength": 64
+                },
+                "description": {
+                    "bsonType": "string",
+                    "title": "description",
+                    "description": "additional information on the relationship"
+                },
+                "type": {
+                    "bsonType": "string",
+                    "title": "type",
+                    "description": "the type of relationship"
+                },
+                "elements": {
+                    "bsonType": "array",
+                    "title": "elements",
+                    "description": "the elements involved in the relationship",
+                    "items": {
+                        "bsonType": "object",
+                        "title": "element",
+                        "description": "details on the element involved in the relationship",
+                        "required": [
+                            "name"
+                        ],
+                        "properties": {
+                            "name": {
+                                "bsonType": "string",
+                                "title": "name",
+                                "description": "the name of the element within the irreducible element model",
+                                "minLength": 1,
+                                "maxLength": 64
+                            }
+                        }
+                    },
+                    "minItems": 2
+                }
+            }
+        },
+        "nature": {
+            "bsonType": "object",
+            "title": "nature",
+            "description": "the nature of the relationship to the element",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "bsonType": "string",
+                    "title": "name",
+                    "description": "the name of the nature"
+                }
+            }
+        },
+        "degreeOfFreedom": {
+            "bsonType": "object",
+            "required": [
+                "minimum",
+                "maximum",
+                "unit"
+            ],
+            "properties": {
+                "minimum": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/number"
+                        },
+                        {
+                            "title": "minimum",
+                            "description": "the minimum value for the degree of freedom"
+                        }
+                    ]
+                },
+                "maximum": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/number"
+                        },
+                        {
+                            "title": "maximum",
+                            "description": "the maximum value for the degree of freedom"
+                        }
+                    ]
+                },
+                "unit": {
+                    "title": "unit",
+                    "description": "the unit that the minimum and maximum are based in"
+                }
+            }
+        },
+        "perfect": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/relationship"
+                },
+                {
+                    "title": "pefect relationship",
+                    "description": "a perfect relationship demarks where two elements can be considered as a larger concatenated element",
+                    "properties": {
+                        "type": {
+                            "enum": [
+                                "perfect"
+                            ]
+                        },
+                        "coordinates": {
+                            "$ref": "#/definitions/position"
+                        },
+                        "elements": {
+                            "items": {
+                                "additionalProperties": false
+                            },
+                            "maxItems": 2
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            ]
+        },
+        "connection": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/relationship"
+                },
+                {
+                    "title": "connection releationship",
+                    "description": "a connection relationship represents where multiple elements are held in a rigid relationship within the coordinate space by an unknown element",
+                    "properties": {
+                        "type": {
+                            "enum": [
+                                "connection"
+                            ]
+                        },
+                        "elements": {
+                            "items": {
+                                "required": [
+                                    "nature"
+                                ],
+                                "properties": {
+                                    "nature": {
+                                        "allOf": [
+                                            {
+                                                "$ref": "#/definitions/nature"
+                                            },
+                                            {
+                                                "required": [
+                                                    "nature"
+                                                ],
+                                                "properties": {
+                                                    "name": {
+                                                        "enum": [
+                                                            "static"
+                                                        ]
+                                                    },
+                                                    "nature": {
+                                                        "allOf": [
+                                                            {
+                                                                "$ref": "#/definitions/nature"
+                                                            },
+                                                            {
+                                                                "properties": {
+                                                                    "name": {
+                                                                        "enum": [
+                                                                            "bolted",
+                                                                            "welded",
+                                                                            "adhesive",
+                                                                            "other"
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                "additionalProperties": false
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            }
+                                        ]
+                                    },
+                                    "coordinates": {
+                                        "$ref": "#/definitions/position"
+                                    }
+                                },
+                                "additionalProperties": false
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            ]
+        },
+        "joint": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/relationship"
+                },
+                {
+                    "title": "joint relationship",
+                    "description": "a joint relationship denotes where physical properties are present as part of the relationship between the two elements",
+                    "required": [
+                        "nature"
+                    ],
+                    "properties": {
+                        "type": {
+                            "enum": [
+                                "joint"
+                            ]
+                        },
+                        "nature": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/nature"
+                                },
+                                {
+                                    "required": [
+                                        "nature"
+                                    ],
+                                    "properties": {
+                                        "nature": {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#/definitions/nature"
+                                                },
+                                                {
+                                                    "additionalProperties": false
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            ]
+                        },
+                        "elements": {
+                            "items": {
+                                "properties": {
+                                    "coordinates": {
+                                        "$ref": "#/definitions/position"
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            "maxItems": 2
+                        }
+                    }
+                }
+            ]
+        },
+        "articulation": {
+            "oneOf": [
+                {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/joint"
+                        },
+                        {
+                            "properties": {
+                                "nature": {
+                                    "properties": {
+                                        "name": {
+                                            "enum": [
+                                                "static"
+                                            ]
+                                        },
+                                        "nature": {
+                                            "properties": {
+                                                "name": {
+                                                    "enum": [
+                                                        "bolted",
+                                                        "welded",
+                                                        "adhesive",
+                                                        "other"
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    ]
+                },
+                {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/joint"
+                        },
+                        {
+                            "properties": {
+                                "nature": {
+                                    "properties": {
+                                        "name": {
+                                            "enum": [
+                                                "dynamic"
+                                            ]
+                                        },
+                                        "nature": {
+                                            "properties": {
+                                                "name": {
+                                                    "enum": [
+                                                        "hinge",
+                                                        "ballAndSocket",
+                                                        "pinned",
+                                                        "expansion",
+                                                        "ballBearing",
+                                                        "other"
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "degreesOfFreedom": {
+                                    "bsonType": "object",
+                                    "title": "degrees of freedom",
+                                    "description": "the degrees of freedom within the relationship",
+                                    "required": [
+                                        "global"
+                                    ],
+                                    "properties": {
+                                        "global": {
+                                            "bsonType": "object",
+                                            "title": "global",
+                                            "description": "the degrees of freedom in the global coordinate space",
+                                            "properties": {
+                                                "translational": {
+                                                    "bsonType": "object",
+                                                    "title": "translational",
+                                                    "description": "the x, y and z values for translational degrees of freedom",
+                                                    "properties": {
+                                                        "x": {
+                                                            "allOf": [
+                                                                {
+                                                                    "$ref": "#/definitions/degreeOfFreedom"
+                                                                },
+                                                                {
+                                                                    "$ref": "#/definitions/linear"
+                                                                },
+                                                                {
+                                                                    "title": "x",
+                                                                    "description": "the x translation value within the coordinate space"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "y": {
+                                                            "allOf": [
+                                                                {
+                                                                    "$ref": "#/definitions/degreeOfFreedom"
+                                                                },
+                                                                {
+                                                                    "$ref": "#/definitions/linear"
+                                                                },
+                                                                {
+                                                                    "title": "y",
+                                                                    "description": "the y translation value within the coordinate space"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "z": {
+                                                            "allOf": [
+                                                                {
+                                                                    "$ref": "#/definitions/degreeOfFreedom"
+                                                                },
+                                                                {
+                                                                    "$ref": "#/definitions/linear"
+                                                                },
+                                                                {
+                                                                    "title": "z",
+                                                                    "description": "the z translation value within the coordinate space"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "minProperties": 1,
+                                                    "additionalProperties": false
+                                                },
+                                                "rotational": {
+                                                    "bsonType": "object",
+                                                    "title": "rotational",
+                                                    "description": "the alpha, beta and gamma values for the rotational degrees of freedom",
+                                                    "properties": {
+                                                        "alpha": {
+                                                            "allOf": [
+                                                                {
+                                                                    "$ref": "#/definitions/degreeOfFreedom"
+                                                                },
+                                                                {
+                                                                    "$ref": "#/definitions/angular"
+                                                                },
+                                                                {
+                                                                    "title": "alpha",
+                                                                    "description": "the alpha rotation value within the coordinate space"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "beta": {
+                                                            "allOf": [
+                                                                {
+                                                                    "$ref": "#/definitions/degreeOfFreedom"
+                                                                },
+                                                                {
+                                                                    "$ref": "#/definitions/angular"
+                                                                },
+                                                                {
+                                                                    "title": "beta",
+                                                                    "description": "the beta rotation value within the coordinate space"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "gamma": {
+                                                            "allOf": [
+                                                                {
+                                                                    "$ref": "#/definitions/degreeOfFreedom"
+                                                                },
+                                                                {
+                                                                    "$ref": "#/definitions/angular"
+                                                                },
+                                                                {
+                                                                    "title": "gamma",
+                                                                    "description": "the gamma rotation value within the coordinate space"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "minProperties": 1,
+                                                    "additionalProperties": false
+                                                }
+                                            },
+                                            "minProperties": 1,
+                                            "additionalProperties": false
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "oneOf": [
+        {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/model"
+                },
+                {
+                    "title": "free irreducible element model",
+                    "description": "a free irreducible element model is free from any ground elements",
+                    "properties": {
+                        "type": {
+                            "enum": [
+                                "free"
+                            ]
+                        },
+                        "elements": {
+                            "items": {
+                                "$ref": "#/definitions/regular"
+                            }
+                        },
+                        "relationships": {
+                            "items": {
+                                "oneOf": [
+                                    {
+                                        "$ref": "#/definitions/perfect"
+                                    },
+                                    {
+                                        "$ref": "#/definitions/connection"
+                                    },
+                                    {
+                                        "$ref": "#/definitions/articulation"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/model"
+                },
+                {
+                    "title": "grounded irreducible element model",
+                    "description": "a grounded irreducible element model is contrained by ground elements",
+                    "properties": {
+                        "type": {
+                            "enum": [
+                                "grounded"
+                            ]
+                        },
+                        "elements": {
+                            "items": {
+                                "oneOf": [
+                                    {
+                                        "$ref": "#/definitions/regular"
+                                    },
+                                    {
+                                        "allOf": [
+                                            {
+                                                "$ref": "#/definitions/element"
+                                            },
+                                            {
+                                                "title": "ground element",
+                                                "description": "a ground element represents the point at which the model interacts with an outside element",
+                                                "properties": {
+                                                    "type": {
+                                                        "enum": [
+                                                            "ground"
+                                                        ]
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        "relationships": {
+                            "items": {
+                                "oneOf": [
+                                    {
+                                        "$ref": "#/definitions/perfect"
+                                    },
+                                    {
+                                        "$ref": "#/definitions/connection"
+                                    },
+                                    {
+                                        "$ref": "#/definitions/articulation"
+                                    },
+                                    {
+                                        "allOf": [
+                                            {
+                                                "$ref": "#/definitions/relationship"
+                                            },
+                                            {
+                                                "title": "boundary relationship",
+                                                "description": "a boundary relatioship indicates where a regular element meets a ground element",
+                                                "properties": {
+                                                    "type": {
+                                                        "enum": [
+                                                            "boundary"
+                                                        ]
+                                                    },
+                                                    "coordinates": {
+                                                        "$ref": "#/definitions/position"
+                                                    },
+                                                    "elements": {
+                                                        "items": {
+                                                            "additionalProperties": false
+                                                        },
+                                                        "maxItems": 2
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

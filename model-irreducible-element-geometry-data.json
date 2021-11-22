@@ -1,0 +1,1081 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "https://github.com/dynamics-research-group/pbshm-schema/model-irreducible-element-geometry-data.json",
+    "definitions": {
+        "type": {
+            "bsonType": "object",
+            "title": "type",
+            "description": "type of geometrical element",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "bsonType": "string",
+                    "title": "name",
+                    "description": "name of the geometrical type"
+                }
+            }
+        },
+        "number": {
+            "oneOf": [
+                {
+                    "bsonType": "int"
+                },
+                {
+                    "bsonType": "double"
+                }
+            ]
+        },
+        "measurement": {
+            "bsonType": "object",
+            "title": "measurement",
+            "description": "the axis, source, unit and value of the measurement",
+            "required": [
+                "axis",
+                "source",
+                "unit",
+                "value"
+            ],
+            "properties": {
+                "axis": {
+                    "bsonType": "string",
+                    "title": "axis",
+                    "description": "the axis that the measurement corresponds to",
+                    "enum": [
+                        "x",
+                        "y",
+                        "z",
+                        "xy",
+                        "xz",
+                        "yz"
+                    ]
+                },
+                "source": {
+                    "bsonType": "string",
+                    "title": "source",
+                    "description": "the source of where the measured value came from",
+                    "enum": [
+                        "measured",
+                        "nominal"
+                    ]
+                },
+                "unit": {
+                    "title": "unit",
+                    "description": "the unit that the value is based in"
+                },
+                "value": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/number"
+                        },
+                        {
+                            "title": "value",
+                            "description": "the value for the measurement"
+                        }
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "dimension": {
+            "bsonType": "object",
+            "title": "dimensions",
+            "description": "dimension values to represent the shape of the element",
+            "additionalProperties": {
+                "$ref": "#/definitions/measurement"
+            }
+        },
+        "face": {
+            "bsonType": "object",
+            "title": "face",
+            "description": "the face of an element within the bounding",
+            "required": [
+                "dimensions",
+                "translational"
+            ],
+            "properties": {
+                "dimensions": {
+                    "$ref": "#/definitions/dimension"
+                },
+                "translational": {
+                    "bsonType": "object",
+                    "title": "face translation",
+                    "description": "values for the y and z translations within the coordinate space",
+                    "required": [
+                        "y",
+                        "z"
+                    ],
+                    "properties": {
+                        "y": {
+                            "allOf": [
+                                {
+                                    "$ref": "model-irreducible-element-data.json#/definitions/axis"
+                                },
+                                {
+                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                },
+                                {
+                                    "title": "y",
+                                    "description": "the y translation value within the coordinate space"
+                                }
+                            ]
+                        },
+                        "z": {
+                            "allOf": [
+                                {
+                                    "$ref": "model-irreducible-element-data.json#/definitions/axis"
+                                },
+                                {
+                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                },
+                                {
+                                    "title": "z",
+                                    "description": "the z translation value within the coordinate space"
+                                }
+                            ]
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            }
+        }
+    },
+    "allOf": [
+        {
+            "bsonType": "object",
+            "title": "geometry",
+            "description": "geometrical description of the element",
+            "required": [
+                "type"
+            ],
+            "properties": {
+                "type": {
+                    "$ref": "#/definitions/type"
+                },
+                "bounding": {
+                    "bsonType": "object",
+                    "title": "bounding",
+                    "description": "measurement value to represent the bounding the element resides within",
+                    "required": [
+                        "type",
+                        "length",
+                        "width",
+                        "height"
+                    ],
+                    "properties": {
+                        "type": {
+                            "bsonType": "string",
+                            "title": "type",
+                            "description": "type of the bounding",
+                            "enum": [
+                                "cuboid"
+                            ]
+                        },
+                        "length": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/measurement"
+                                },
+                                {
+                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                }
+                            ]
+                        },
+                        "width": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/measurement"
+                                },
+                                {
+                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                }
+                            ]
+                        },
+                        "height": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/measurement"
+                                },
+                                {
+                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                }
+                            ]
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "dimensions": {
+                    "$ref": "#/definitions/dimension"
+                }
+            }
+        },
+        {
+            "oneOf": [
+                {
+                    "allOf": [
+                        {
+                            "properties": {
+                                "type": {
+                                    "required": [
+                                        "type"
+                                    ],
+                                    "properties": {
+                                        "name": {
+                                            "enum": [
+                                                "beam"
+                                            ]
+                                        },
+                                        "type": {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#/definitions/type"
+                                                },
+                                                {
+                                                    "additionalProperties": false
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                "dimensions": {
+                                    "required": [
+                                        "length"
+                                    ],
+                                    "properties": {
+                                        "length": {
+                                            "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "oneOf": [
+                                {
+                                    "properties": {
+                                        "type": {
+                                            "properties": {
+                                                "type": {
+                                                    "properties": {
+                                                        "name": {
+                                                            "enum": [
+                                                                "rectangular"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "dimensions": {
+                                            "required": [
+                                                "width",
+                                                "height"
+                                            ],
+                                            "properties": {
+                                                "width": {
+                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                },
+                                                "height": {
+                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                {
+                                    "properties": {
+                                        "type": {
+                                            "properties": {
+                                                "type": {
+                                                    "properties": {
+                                                        "name": {
+                                                            "enum": [
+                                                                "circular"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "dimensions": {
+                                            "required": [
+                                                "radius"
+                                            ],
+                                            "properties": {
+                                                "radius": {
+                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                {
+                                    "properties": {
+                                        "type": {
+                                            "properties": {
+                                                "type": {
+                                                    "properties": {
+                                                        "name": {
+                                                            "enum": [
+                                                                "i-beam"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "dimensions": {
+                                            "required": [
+                                                "d",
+                                                "h",
+                                                "s",
+                                                "b",
+                                                "t"
+                                            ],
+                                            "properties": {
+                                                "d": {
+                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                },
+                                                "h": {
+                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                },
+                                                "s": {
+                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                },
+                                                "b": {
+                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                },
+                                                "t": {
+                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                {
+                                    "properties": {
+                                        "type": {
+                                            "properties": {
+                                                "type": {
+                                                    "properties": {
+                                                        "name": {
+                                                            "enum": [
+                                                                "other"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "dimensions": {
+                                            "additionalProperties": {
+                                                "oneOf": [
+                                                    {
+                                                        "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                    },
+                                                    {
+                                                        "$ref": "model-irreducible-element-data.json#/definitions/angular"
+                                                    }
+                                                ]
+                                            },
+                                            "minProperties": 2
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "allOf": [
+                        {
+                            "properties": {
+                                "type": {
+                                    "required": [
+                                        "type"
+                                    ],
+                                    "properties": {
+                                        "name": {
+                                            "enum": [
+                                                "plate"
+                                            ]
+                                        },
+                                        "type": {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#/definitions/type"
+                                                },
+                                                {
+                                                    "additionalProperties": false
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                "dimensions": {
+                                    "required": [
+                                        "thickness"
+                                    ],
+                                    "properties": {
+                                        "thickness": {
+                                            "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "oneOf": [
+                                {
+                                    "properties": {
+                                        "type": {
+                                            "properties": {
+                                                "type": {
+                                                    "properties": {
+                                                        "name": {
+                                                            "enum": [
+                                                                "rectangular"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "dimensions": {
+                                            "required": [
+                                                "width",
+                                                "length"
+                                            ],
+                                            "properties": {
+                                                "width": {
+                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                },
+                                                "length": {
+                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                {
+                                    "properties": {
+                                        "type": {
+                                            "properties": {
+                                                "type": {
+                                                    "properties": {
+                                                        "name": {
+                                                            "enum": [
+                                                                "circular"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "dimensions": {
+                                            "required": [
+                                                "radius"
+                                            ],
+                                            "properties": {
+                                                "radius": {
+                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                {
+                                    "properties": {
+                                        "type": {
+                                            "properties": {
+                                                "type": {
+                                                    "properties": {
+                                                        "name": {
+                                                            "enum": [
+                                                                "other"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "dimensions": {
+                                            "additionalProperties": {
+                                                "oneOf": [
+                                                    {
+                                                        "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                    },
+                                                    {
+                                                        "$ref": "model-irreducible-element-data.json#/definitions/angular"
+                                                    }
+                                                ]
+                                            },
+                                            "minProperties": 2
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "allOf": [
+                        {
+                            "properties": {
+                                "type": {
+                                    "required": [
+                                        "type"
+                                    ],
+                                    "properties": {
+                                        "type": {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#/definitions/type"
+                                                },
+                                                {
+                                                    "required": [
+                                                        "type"
+                                                    ],
+                                                    "properties": {
+                                                        "type": {
+                                                            "allOf": [
+                                                                {
+                                                                    "$ref": "#/definitions/type"
+                                                                },
+                                                                {
+                                                                    "additionalProperties": false
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "additionalProperties": false
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "oneOf": [
+                                {
+                                    "allOf": [
+                                        {
+                                            "properties": {
+                                                "type": {
+                                                    "properties": {
+                                                        "type": {
+                                                            "properties": {
+                                                                "name": {
+                                                                    "enum": [
+                                                                        "translate"
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "oneOf": [
+                                                {
+                                                    "properties": {
+                                                        "type": {
+                                                            "properties": {
+                                                                "name": {
+                                                                    "enum": [
+                                                                        "solid"
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "properties": {
+                                                        "type": {
+                                                            "properties": {
+                                                                "name": {
+                                                                    "enum": [
+                                                                        "shell"
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "dimensions": {
+                                                            "required": [
+                                                                "thickness"
+                                                            ],
+                                                            "properties": {
+                                                                "thickness": {
+                                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "oneOf": [
+                                                {
+                                                    "properties": {
+                                                        "type": {
+                                                            "properties": {
+                                                                "type": {
+                                                                    "properties": {
+                                                                        "type": {
+                                                                            "properties": {
+                                                                                "name": {
+                                                                                    "enum": [
+                                                                                        "cuboid"
+                                                                                    ]
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "dimensions": {
+                                                            "required": [
+                                                                "length",
+                                                                "width",
+                                                                "height"
+                                                            ],
+                                                            "properties": {
+                                                                "length": {
+                                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                                },
+                                                                "width": {
+                                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                                },
+                                                                "height": {
+                                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "properties": {
+                                                        "type": {
+                                                            "properties": {
+                                                                "type": {
+                                                                    "properties": {
+                                                                        "type": {
+                                                                            "properties": {
+                                                                                "name": {
+                                                                                    "enum": [
+                                                                                        "sphere"
+                                                                                    ]
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "dimensions": {
+                                                            "required": [
+                                                                "radius"
+                                                            ],
+                                                            "properties": {
+                                                                "radius": {
+                                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "properties": {
+                                                        "type": {
+                                                            "properties": {
+                                                                "type": {
+                                                                    "properties": {
+                                                                        "type": {
+                                                                            "properties": {
+                                                                                "name": {
+                                                                                    "enum": [
+                                                                                        "cylinder"
+                                                                                    ]
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "dimensions": {
+                                                            "required": [
+                                                                "radius",
+                                                                "length"
+                                                            ],
+                                                            "properties": {
+                                                                "radius": {
+                                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                                },
+                                                                "length": {
+                                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "properties": {
+                                                        "type": {
+                                                            "properties": {
+                                                                "type": {
+                                                                    "properties": {
+                                                                        "type": {
+                                                                            "properties": {
+                                                                                "name": {
+                                                                                    "enum": [
+                                                                                        "other"
+                                                                                    ]
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "dimensions": {
+                                                            "additionalProperties": {
+                                                                "oneOf": [
+                                                                    {
+                                                                        "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                                    },
+                                                                    {
+                                                                        "$ref": "model-irreducible-element-data.json#/definitions/angular"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "minProperties": 2
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "allOf": [
+                                        {
+                                            "properties": {
+                                                "type": {
+                                                    "properties": {
+                                                        "type": {
+                                                            "properties": {
+                                                                "name": {
+                                                                    "enum": [
+                                                                        "translateAndScale"
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "faces": {
+                                                    "bsonType": "object",
+                                                    "title": "faces",
+                                                    "description": "the faces that describe the translate and scale operations within the bounding",
+                                                    "required": [
+                                                        "left",
+                                                        "right"
+                                                    ],
+                                                    "properties": {
+                                                        "left": {
+                                                            "$ref": "#/definitions/face"
+                                                        },
+                                                        "right": {
+                                                            "$ref": "#/definitions/face"
+                                                        }
+                                                    }
+                                                },
+                                                "dimensions": {
+                                                    "required": [
+                                                        "length"
+                                                    ],
+                                                    "properties": {
+                                                        "length": {
+                                                            "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "dependencies": {
+                                                "bounding": [
+                                                    "faces"
+                                                ],
+                                                "faces": [
+                                                    "bounding"
+                                                ],
+                                                "dimensions": [
+                                                    "bounding",
+                                                    "faces"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "oneOf": [
+                                                {
+                                                    "properties": {
+                                                        "type": {
+                                                            "properties": {
+                                                                "name": {
+                                                                    "enum": [
+                                                                        "solid"
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "properties": {
+                                                        "type": {
+                                                            "properties": {
+                                                                "name": {
+                                                                    "enum": [
+                                                                        "shell"
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "faces": {
+                                                            "properties": {
+                                                                "left": {
+                                                                    "properties": {
+                                                                        "dimensions": {
+                                                                            "required": [
+                                                                                "thickness"
+                                                                            ],
+                                                                            "properties": {
+                                                                                "thickness": {
+                                                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "right": {
+                                                                    "properties": {
+                                                                        "dimensions": {
+                                                                            "required": [
+                                                                                "thickness"
+                                                                            ],
+                                                                            "properties": {
+                                                                                "thickness": {
+                                                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "oneOf": [
+                                                {
+                                                    "properties": {
+                                                        "type": {
+                                                            "properties": {
+                                                                "type": {
+                                                                    "properties": {
+                                                                        "type": {
+                                                                            "properties": {
+                                                                                "name": {
+                                                                                    "enum": [
+                                                                                        "cuboid"
+                                                                                    ]
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "faces": {
+                                                            "properties": {
+                                                                "left": {
+                                                                    "properties": {
+                                                                        "dimensions": {
+                                                                            "required": [
+                                                                                "width",
+                                                                                "height"
+                                                                            ],
+                                                                            "properties": {
+                                                                                "width": {
+                                                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                                                },
+                                                                                "height": {
+                                                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "right": {
+                                                                    "properties": {
+                                                                        "dimensions": {
+                                                                            "required": [
+                                                                                "width",
+                                                                                "height"
+                                                                            ],
+                                                                            "properties": {
+                                                                                "width": {
+                                                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                                                },
+                                                                                "height": {
+                                                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "properties": {
+                                                        "type": {
+                                                            "properties": {
+                                                                "type": {
+                                                                    "properties": {
+                                                                        "type": {
+                                                                            "properties": {
+                                                                                "name": {
+                                                                                    "enum": [
+                                                                                        "cylinder"
+                                                                                    ]
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "faces": {
+                                                            "properties": {
+                                                                "left": {
+                                                                    "properties": {
+                                                                        "dimensions": {
+                                                                            "required": [
+                                                                                "radius"
+                                                                            ],
+                                                                            "properties": {
+                                                                                "radius": {
+                                                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "right": {
+                                                                    "properties": {
+                                                                        "dimensions": {
+                                                                            "required": [
+                                                                                "radius"
+                                                                            ],
+                                                                            "properties": {
+                                                                                "radius": {
+                                                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "properties": {
+                                                        "type": {
+                                                            "properties": {
+                                                                "type": {
+                                                                    "properties": {
+                                                                        "type": {
+                                                                            "properties": {
+                                                                                "name": {
+                                                                                    "enum": [
+                                                                                        "other"
+                                                                                    ]
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "faces": {
+                                                            "properties": {
+                                                                "left": {
+                                                                    "properties": {
+                                                                        "dimensions": {
+                                                                            "additionalProperties": {
+                                                                                "oneOf": [
+                                                                                    {
+                                                                                        "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                                                    },
+                                                                                    {
+                                                                                        "$ref": "model-irreducible-element-data.json#/definitions/angular"
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            "minProperties": 2
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "right": {
+                                                                    "properties": {
+                                                                        "dimensions": {
+                                                                            "additionalProperties": {
+                                                                                "oneOf": [
+                                                                                    {
+                                                                                        "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                                                                    },
+                                                                                    {
+                                                                                        "$ref": "model-irreducible-element-data.json#/definitions/angular"
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            "minProperties": 2
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

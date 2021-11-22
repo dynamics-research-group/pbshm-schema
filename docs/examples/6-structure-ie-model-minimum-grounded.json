@@ -1,0 +1,51 @@
+{
+    "version": "1.1.0",
+    "name": "test-structure",
+    "population": "ie-population",
+    "timestamp": 1588007841000000000,
+    "models": {
+        "irreducibleElement": {
+            "type": "grounded",
+            "elements": [
+                {
+                    "name": "ground-element",
+                    "type": "ground"
+                },
+                {
+                    "name": "regular-element",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "beam"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "beam",
+                            "type": {
+                                "name": "rectangular"
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "name": "relationship",
+                    "type": "boundary",
+                    "elements": [
+                        {
+                            "name": "ground-element"
+                        },
+                        {
+                            "name": "regular-element"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

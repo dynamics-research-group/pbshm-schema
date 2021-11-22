@@ -1,0 +1,685 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "https://github.com/dynamics-research-group/pbshm-schema/model-irreducible-element-material-data.json",
+    "definitions": {
+        "type": {
+            "bsonType": "object",
+            "title": "type",
+            "description": "material type of element",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "bsonType": "string",
+                    "title": "name",
+                    "description": "name of the material type"
+                }
+            }
+        },
+        "number": {
+            "oneOf": [
+                {
+                    "bsonType": "int"
+                },
+                {
+                    "bsonType": "double"
+                }
+            ]
+        },
+        "condition": {
+            "bsonType": "object",
+            "required": [
+                "unit",
+                "value"
+            ],
+            "properties": {
+                "unit": {
+                    "bsonType": "string",
+                    "title": "unit",
+                    "description": "unit that the value of the material property is based in"
+                },
+                "value": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/number"
+                        },
+                        {
+                            "title": "value",
+                            "description": "value of the material property based in the selected unit"
+                        }
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "unit": {
+            "required": [
+                "unit"
+            ],
+            "properties": {
+                "unit": {
+                    "bsonType": "string",
+                    "title": "unit",
+                    "description": "unit that the value of the material property is based in"
+                }
+            }
+        },
+        "single": {
+            "properties": {
+                "value": {
+                    "$ref": "#/definitions/number"
+                }
+            }
+        },
+        "multiple": {
+            "properties": {
+                "value": {
+                    "bsonType": "array",
+                    "items": {
+                        "bsonType": "object",
+                        "title": "value",
+                        "description": "value of the material property given the stated environmental and parameter conditions",
+                        "anyOf": [
+                            {
+                                "required": [
+                                    "value",
+                                    "environmental"
+                                ]
+                            },
+                            {
+                                "required": [
+                                    "value",
+                                    "parameters"
+                                ]
+                            }
+                        ],
+                        "properties": {
+                            "environmental": {
+                                "bsonType": "object",
+                                "title": "environmental",
+                                "description": "environmental conditions for the given material property value",
+                                "properties": {
+                                    "temperature": {
+                                        "allOf": [
+                                            {
+                                                "$ref": "#/definitions/condition"
+                                            },
+                                            {
+                                                "title": "temperature",
+                                                "description": "temperature that the test was conducted at",
+                                                "properties": {
+                                                    "unit": {
+                                                        "enum": [
+                                                            "C",
+                                                            "F",
+                                                            "K",
+                                                            "other"
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "humidity": {
+                                        "allOf": [
+                                            {
+                                                "$ref": "#/definitions/condition"
+                                            },
+                                            {
+                                                "title": "humidity",
+                                                "description": "humidity that the test was conducted at",
+                                                "properties": {
+                                                    "unit": {
+                                                        "enum": [
+                                                            "%"
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                "additionalProperties": {
+                                    "$ref": "#/definitions/condition"
+                                },
+                                "minProperties": 1
+                            },
+                            "parameters": {
+                                "bsonType": "object",
+                                "title": "parameters",
+                                "description": "parameters conditions for the given material property value",
+                                "additionalProperties": {
+                                    "$ref": "#/definitions/condition"
+                                },
+                                "minProperties": 1
+                            },
+                            "value": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/number"
+                                    },
+                                    {
+                                        "title": "value",
+                                        "description": "value of the material property with the given conditions"
+                                    }
+                                ]
+                            }
+                        },
+                        "additionalProperties": false
+                    }
+                }
+            }
+        },
+        "property": {
+            "bsonType": "object",
+            "title": "property",
+            "description": "material property of element",
+            "required": [
+                "type",
+                "value"
+            ],
+            "properties": {
+                "type": {
+                    "bsonType": "string",
+                    "title": "type",
+                    "description": "type of the material property"
+                },
+                "value": {
+                    "title": "value",
+                    "description": "value of the material property"
+                }
+            }
+        }
+    },
+    "bsonType": "object",
+    "title": "material",
+    "description": "material properties of the element",
+    "required": [
+        "type"
+    ],
+    "properties": {
+        "type": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/type"
+                },
+                {
+                    "oneOf": [
+                        {
+                            "properties": {
+                                "name": {
+                                    "enum": [
+                                        "metal"
+                                    ]
+                                },
+                                "type": {
+                                    "oneOf": [
+                                        {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#/definitions/type"
+                                                },
+                                                {
+                                                    "properties": {
+                                                        "name": {
+                                                            "enum": [
+                                                                "ferrousAlloy"
+                                                            ]
+                                                        },
+                                                        "type": {
+                                                            "allOf": [
+                                                                {
+                                                                    "$ref": "#/definitions/type"
+                                                                },
+                                                                {
+                                                                    "properties": {
+                                                                        "name": {
+                                                                            "enum": [
+                                                                                "steel",
+                                                                                "iron"
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    "additionalProperties": false
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "additionalProperties": false
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#/definitions/type"
+                                                },
+                                                {
+                                                    "properties": {
+                                                        "name": {
+                                                            "enum": [
+                                                                "aluminiumAlloy",
+                                                                "nickelAlloy",
+                                                                "copperAlloy",
+                                                                "titaniumAlloy"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "additionalProperties": false
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            "additionalProperties": false
+                        },
+                        {
+                            "properties": {
+                                "name": {
+                                    "enum": [
+                                        "ceramic"
+                                    ]
+                                },
+                                "type": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/definitions/type"
+                                        },
+                                        {
+                                            "properties": {
+                                                "name": {
+                                                    "enum": [
+                                                        "glass",
+                                                        "clayProduct",
+                                                        "refractory",
+                                                        "abrasive",
+                                                        "cement",
+                                                        "advancedCeramic"
+                                                    ]
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                }
+                            },
+                            "additionalProperties": false
+                        },
+                        {
+                            "properties": {
+                                "name": {
+                                    "enum": [
+                                        "polymer"
+                                    ]
+                                },
+                                "type": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/definitions/type"
+                                        },
+                                        {
+                                            "properties": {
+                                                "name": {
+                                                    "enum": [
+                                                        "thermoplastic",
+                                                        "thermoset",
+                                                        "elastomer"
+                                                    ]
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                }
+                            },
+                            "additionalProperties": false
+                        },
+                        {
+                            "properties": {
+                                "name": {
+                                    "enum": [
+                                        "composite"
+                                    ]
+                                },
+                                "type": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/definitions/type"
+                                        },
+                                        {
+                                            "properties": {
+                                                "name": {
+                                                    "enum": [
+                                                        "particle-reinforced",
+                                                        "fibre-reinforced",
+                                                        "structural"
+                                                    ]
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                }
+                            },
+                            "additionalProperties": false
+                        },
+                        {
+                            "properties": {
+                                "name": {
+                                    "enum": [
+                                        "other"
+                                    ]
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    ]
+                }
+            ]
+        },
+        "symmetry": {
+            "bsonType": "string",
+            "title": "symmetry",
+            "description": "symmetry of the material",
+            "enum": [
+                "isotropic"
+            ]
+        },
+        "properties": {
+            "bsonType": "array",
+            "title": "properties",
+            "description": "array of material properties",
+            "items": {
+                "oneOf": [
+                    {
+                        "allOf": [
+                            {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/property"
+                                    },
+                                    {
+                                        "$ref": "#/definitions/unit"
+                                    },
+                                    {
+                                        "additionalProperties": false
+                                    }
+                                ]
+                            },
+                            {
+                                "oneOf": [
+                                    {
+                                        "$ref": "#/definitions/single"
+                                    },
+                                    {
+                                        "$ref": "#/definitions/multiple"
+                                    }
+                                ]
+                            },
+                            {
+                                "oneOf": [
+                                    {
+                                        "properties": {
+                                            "type": {
+                                                "enum": [
+                                                    "density"
+                                                ]
+                                            },
+                                            "unit": {
+                                                "enum": [
+                                                    "kg/m^3",
+                                                    "g/cm^3",
+                                                    "kg/L",
+                                                    "g/mL",
+                                                    "t/m^3",
+                                                    "kg/dm^3",
+                                                    "oz/cu in",
+                                                    "other"
+                                                ]
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "properties": {
+                                            "type": {
+                                                "enum": [
+                                                    "linearThermalExpansionCoefficient",
+                                                    "volumetricThermalExpansionCoefficient"
+                                                ]
+                                            },
+                                            "unit": {
+                                                "enum": [
+                                                    "K^-1",
+                                                    "C^-1",
+                                                    "F^-1",
+                                                    "other"
+                                                ]
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "properties": {
+                                            "type": {
+                                                "enum": [
+                                                    "youngsModulus",
+                                                    "shearModulus",
+                                                    "compressiveStrength",
+                                                    "shearStrength",
+                                                    "ultimateTensileStrength",
+                                                    "yieldStrength",
+                                                    "0.1%ProofStress",
+                                                    "fatigueStrengthCoefficient"
+                                                ]
+                                            },
+                                            "unit": {
+                                                "enum": [
+                                                    "GPa",
+                                                    "MPa",
+                                                    "kPa",
+                                                    "Pa",
+                                                    "Mpsi",
+                                                    "ksi",
+                                                    "psi",
+                                                    "other"
+                                                ]
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "properties": {
+                                            "type": {
+                                                "enum": [
+                                                    "tensileToughness"
+                                                ]
+                                            },
+                                            "unit": {
+                                                "enum": [
+                                                    "GJ/m^3",
+                                                    "MJ/m^3",
+                                                    "kJ/m^3",
+                                                    "J/m^3",
+                                                    "ibf/in^3",
+                                                    "other"
+                                                ]
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "properties": {
+                                            "type": {
+                                                "enum": [
+                                                    "fractureToughness"
+                                                ]
+                                            },
+                                            "unit": {
+                                                "enum": [
+                                                    "TPa/m^(1/2)",
+                                                    "GPa/m^(1/2)",
+                                                    "MPa/m^(1/2)",
+                                                    "kPa/m^(1/2)",
+                                                    "Pa/m^(1/2)",
+                                                    "psi/in^(1/2)",
+                                                    "other"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/property"
+                            },
+                            {
+                                "oneOf": [
+                                    {
+                                        "$ref": "#/definitions/single"
+                                    },
+                                    {
+                                        "$ref": "#/definitions/multiple"
+                                    }
+                                ],
+                                "properties": {
+                                    "type": {
+                                        "enum": [
+                                            "poissonsRatio",
+                                            "elongation",
+                                            "reductionInArea",
+                                            "fatigueStrengthExponent",
+                                            "fatigueDuctilityCoefficient",
+                                            "fatigueDuctilityExponent"
+                                        ]
+                                    }
+                                },
+                                "additionalProperties": false
+                            }
+                        ]
+                    },
+                    {
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/property"
+                            },
+                            {
+                                "$ref": "#/definitions/multiple"
+                            },
+                            {
+                                "oneOf": [
+                                    {
+                                        "properties": {
+                                            "type": {
+                                                "enum": [
+                                                    "vickersHardness"
+                                                ]
+                                            },
+                                            "value": {
+                                                "items": {
+                                                    "properties": {
+                                                        "parameters": {
+                                                            "required": [
+                                                                "load",
+                                                                "duration"
+                                                            ],
+                                                            "properties": {
+                                                                "load": {
+                                                                    "properties": {
+                                                                        "unit": {
+                                                                            "enum": [
+                                                                                "kgf"
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "duration": {
+                                                                    "properties": {
+                                                                        "unit": {
+                                                                            "enum": [
+                                                                                "s"
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "properties": {
+                                            "type": {
+                                                "enum": [
+                                                    "brinellHardness"
+                                                ]
+                                            },
+                                            "value": {
+                                                "items": {
+                                                    "properties": {
+                                                        "parameters": {
+                                                            "required": [
+                                                                "diameter",
+                                                                "ball",
+                                                                "force"
+                                                            ],
+                                                            "properties": {
+                                                                "diameter": {
+                                                                    "properties": {
+                                                                        "unit": {
+                                                                            "enum": [
+                                                                                "mm"
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "ball": {
+                                                                    "properties": {
+                                                                        "unit": {
+                                                                            "enum": [
+                                                                                "W",
+                                                                                "S"
+                                                                            ]
+                                                                        },
+                                                                        "value": {
+                                                                            "minimum": 0,
+                                                                            "maximum": 0
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "force": {
+                                                                    "properties": {
+                                                                        "unit": {
+                                                                            "enum": [
+                                                                                "kgf"
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "minItems": 1
+        }
+    },
+    "dependencies": {
+        "properties": [
+            "symmetry"
+        ]
+    },
+    "additionalProperties": false
+}
