@@ -1930,7 +1930,7 @@ function generateRecursiveObjectMarkdown(container, tree, json, callback) {
             + json["properties"][property]["description"] + "|"
             + ((typeof (overrides.type) !== typeof (undefined)) ? overrides.type : "`" + bsonType + "`") + "|"
             + ((typeof (overrides.values) !== typeof (undefined)) ? overrides.values : ((bsonType === "object" || bsonType === "array") ? calculateMappedLink(property, (mapping[0] == true) ? mapping[3] : tree) : calculateAcceptedValues(json["properties"][property]))) + "|"
-            + ((typeof (overrides.required) !== typeof (undefined)) ? overrides.required : ((json["required"].indexOf(property) > -1) ? "yes" : "no")) + "|"
+            + ((typeof (overrides.required) !== typeof (undefined)) ? overrides.required : ((typeof(json["required"]) !== typeof(undefined) && json["required"].indexOf(property) > -1) ? "yes" : "no")) + "|"
         );
     }
     //Enumerate through 'object' Properties
