@@ -238,6 +238,7 @@
                                 "enum": [
                                     "degrees/s",
                                     "radians/s",
+                                    "rpm",
                                     "other"
                                 ]
                             }
