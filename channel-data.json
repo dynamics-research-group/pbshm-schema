@@ -238,6 +238,7 @@
                                 "enum": [
                                     "degrees/s",
                                     "radians/s",
+                                    "rpm",
                                     "other"
                                 ]
                             }
@@ -849,6 +850,44 @@
                                     "GW",
                                     "TW",
                                     "PW",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/channelUnitObject"
+                    },
+                    {
+                        "title": "reactive power channel",
+                        "description": "reactive power channel data",
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "reactivePower"
+                                ]
+                            },
+                            "unit": {
+                                "enum": [
+                                    "fVAr",
+                                    "pVAr",
+                                    "nVAr",
+                                    "µVAr",
+                                    "mVAr",
+                                    "cVAr",
+                                    "dVAr",
+                                    "VAr",
+                                    "daVAr",
+                                    "hVAr",
+                                    "kVAr",
+                                    "MVAr",
+                                    "GVAr",
+                                    "TVAr",
+                                    "PVAr",
                                     "other"
                                 ]
                             }

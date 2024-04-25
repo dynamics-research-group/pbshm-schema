@@ -16,7 +16,7 @@ A channel object contains the [properties](#channel-properties) required to repr
 |`velocity`|`m/s`, `v`, `other`|`int`, `double`, `object`|
 |`displacement`|`mm`, `cm`, `m`, `km`, `other`|`int`, `double`, `object`|
 |`angularAcceleration`|`degrees/s^2`, `radians/s^2`, `other`|`int`, `double`, `object`|
-|`angularVelocity`|`degrees/s`, `radians/s`, `other`|`int`, `double`, `object`|
+|`angularVelocity`|`degrees/s`, `radians/s`, `rpm`, `other`|`int`, `double`, `object`|
 |`angularDisplacement`|`degrees`, `radians`, `other`|`int`, `double`, `object`|
 |`tilt`|`degrees`, `radians`, `other`|`int`, `double`, `object`|
 |`strain`|`nd`, `other`|`int`, `double`, `object`|
@@ -38,6 +38,7 @@ A channel object contains the [properties](#channel-properties) required to repr
 |`current`|`fA`, `pA`, `nA`, `µA`, `mA`, `cA`, `dA`, `A`, `daA`, `hA`, `kA`, `MA`, `GA`, `TA`, `PA`, `other`|`int`, `double`, `object`|
 |`charge`|`fC`, `pC`, `nC`, `µC`, `mC`, `cC`, `dC`, `C`, `daC`, `hC`, `kC`, `MC`, `GC`, `TC`, `PC`, `other`|`int`, `double`, `object`|
 |`power`|`fW`, `pW`, `nW`, `µW`, `mW`, `cW`, `dW`, `W`, `daW`, `hW`, `kW`, `MW`, `GW`, `TW`, `PW`, `other`|`int`, `double`, `object`|
+|`reactivePower`|`fVAr`, `pVAr`, `nVAr`, `µVAr`, `mVAr`, `cVAr`, `dVAr`, `VAr`, `daVAr`, `hVAr`, `kVAr`, `MVAr`, `GVAr`, `TVAr`, `PVAr`, `other`|`int`, `double`, `object`|
 |`voltage`|`fV`, `pV`, `nV`, `µV`, `mV`, `cV`, `dV`, `V`, `daV`, `hV`, `kV`, `MV`, `GV`, `TV`, `PV`, `other`|`int`, `double`, `object`|
 |`resistance`|`fΩ`, `pΩ`, `nΩ`, `µΩ`, `mΩ`, `cΩ`, `dΩ`, `Ω`, `daΩ`, `hΩ`, `kΩ`, `MΩ`, `GΩ`, `TΩ`, `PΩ`, `other`|`int`, `double`, `object`|
 |`capacitance`|`fF`, `pF`, `nF`, `µF`, `mF`, `cF`, `dF`, `F`, `daF`, `hF`, `kF`, `MF`, `GF`, `TF`, `PF`, `other`|`int`, `double`, `object`|
