@@ -190,204 +190,8 @@
                     "description": "value of the material property"
                 }
             }
-        }
-    },
-    "bsonType": "object",
-    "title": "material",
-    "description": "material properties of the element",
-    "required": [
-        "type"
-    ],
-    "properties": {
-        "type": {
-            "allOf": [
-                {
-                    "$ref": "#/definitions/type"
-                },
-                {
-                    "oneOf": [
-                        {
-                            "properties": {
-                                "name": {
-                                    "enum": [
-                                        "metal"
-                                    ]
-                                },
-                                "type": {
-                                    "oneOf": [
-                                        {
-                                            "allOf": [
-                                                {
-                                                    "$ref": "#/definitions/type"
-                                                },
-                                                {
-                                                    "properties": {
-                                                        "name": {
-                                                            "enum": [
-                                                                "ferrousAlloy"
-                                                            ]
-                                                        },
-                                                        "type": {
-                                                            "allOf": [
-                                                                {
-                                                                    "$ref": "#/definitions/type"
-                                                                },
-                                                                {
-                                                                    "properties": {
-                                                                        "name": {
-                                                                            "enum": [
-                                                                                "steel",
-                                                                                "iron"
-                                                                            ]
-                                                                        }
-                                                                    },
-                                                                    "additionalProperties": false
-                                                                }
-                                                            ]
-                                                        }
-                                                    },
-                                                    "additionalProperties": false
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "allOf": [
-                                                {
-                                                    "$ref": "#/definitions/type"
-                                                },
-                                                {
-                                                    "properties": {
-                                                        "name": {
-                                                            "enum": [
-                                                                "aluminiumAlloy",
-                                                                "nickelAlloy",
-                                                                "copperAlloy",
-                                                                "titaniumAlloy"
-                                                            ]
-                                                        }
-                                                    },
-                                                    "additionalProperties": false
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            },
-                            "additionalProperties": false
-                        },
-                        {
-                            "properties": {
-                                "name": {
-                                    "enum": [
-                                        "ceramic"
-                                    ]
-                                },
-                                "type": {
-                                    "allOf": [
-                                        {
-                                            "$ref": "#/definitions/type"
-                                        },
-                                        {
-                                            "properties": {
-                                                "name": {
-                                                    "enum": [
-                                                        "glass",
-                                                        "clayProduct",
-                                                        "refractory",
-                                                        "abrasive",
-                                                        "cement",
-                                                        "advancedCeramic"
-                                                    ]
-                                                }
-                                            },
-                                            "additionalProperties": false
-                                        }
-                                    ]
-                                }
-                            },
-                            "additionalProperties": false
-                        },
-                        {
-                            "properties": {
-                                "name": {
-                                    "enum": [
-                                        "polymer"
-                                    ]
-                                },
-                                "type": {
-                                    "allOf": [
-                                        {
-                                            "$ref": "#/definitions/type"
-                                        },
-                                        {
-                                            "properties": {
-                                                "name": {
-                                                    "enum": [
-                                                        "thermoplastic",
-                                                        "thermoset",
-                                                        "elastomer"
-                                                    ]
-                                                }
-                                            },
-                                            "additionalProperties": false
-                                        }
-                                    ]
-                                }
-                            },
-                            "additionalProperties": false
-                        },
-                        {
-                            "properties": {
-                                "name": {
-                                    "enum": [
-                                        "composite"
-                                    ]
-                                },
-                                "type": {
-                                    "allOf": [
-                                        {
-                                            "$ref": "#/definitions/type"
-                                        },
-                                        {
-                                            "properties": {
-                                                "name": {
-                                                    "enum": [
-                                                        "particle-reinforced",
-                                                        "fibre-reinforced",
-                                                        "structural"
-                                                    ]
-                                                }
-                                            },
-                                            "additionalProperties": false
-                                        }
-                                    ]
-                                }
-                            },
-                            "additionalProperties": false
-                        },
-                        {
-                            "properties": {
-                                "name": {
-                                    "enum": [
-                                        "other"
-                                    ]
-                                }
-                            },
-                            "additionalProperties": false
-                        }
-                    ]
-                }
-            ]
         },
-        "symmetry": {
-            "bsonType": "string",
-            "title": "symmetry",
-            "description": "symmetry of the material",
-            "enum": [
-                "isotropic"
-            ]
-        },
-        "properties": {
+        "characteristics": {
             "bsonType": "array",
             "title": "properties",
             "description": "array of material properties",
@@ -674,12 +478,273 @@
                 ]
             },
             "minItems": 1
+        },
+        "reference": {
+            "bsonType": "object",
+            "title": "reference material",
+            "description": "reference material properties of the element",
+            "required": [
+                "type"
+            ],
+            "properties": {
+                "type": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/type"
+                        },
+                        {
+                            "oneOf": [
+                                {
+                                    "properties": {
+                                        "name": {
+                                            "enum": [
+                                                "metal"
+                                            ]
+                                        },
+                                        "type": {
+                                            "oneOf": [
+                                                {
+                                                    "allOf": [
+                                                        {
+                                                            "$ref": "#/definitions/type"
+                                                        },
+                                                        {
+                                                            "properties": {
+                                                                "name": {
+                                                                    "enum": [
+                                                                        "ferrousAlloy"
+                                                                    ]
+                                                                },
+                                                                "type": {
+                                                                    "allOf": [
+                                                                        {
+                                                                            "$ref": "#/definitions/type"
+                                                                        },
+                                                                        {
+                                                                            "properties": {
+                                                                                "name": {
+                                                                                    "enum": [
+                                                                                        "steel",
+                                                                                        "iron"
+                                                                                    ]
+                                                                                }
+                                                                            },
+                                                                            "additionalProperties": false
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "additionalProperties": false
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "allOf": [
+                                                        {
+                                                            "$ref": "#/definitions/type"
+                                                        },
+                                                        {
+                                                            "properties": {
+                                                                "name": {
+                                                                    "enum": [
+                                                                        "aluminiumAlloy",
+                                                                        "nickelAlloy",
+                                                                        "copperAlloy",
+                                                                        "titaniumAlloy"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "additionalProperties": false
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                {
+                                    "properties": {
+                                        "name": {
+                                            "enum": [
+                                                "ceramic"
+                                            ]
+                                        },
+                                        "type": {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#/definitions/type"
+                                                },
+                                                {
+                                                    "properties": {
+                                                        "name": {
+                                                            "enum": [
+                                                                "glass",
+                                                                "clayProduct",
+                                                                "refractory",
+                                                                "abrasive",
+                                                                "cement",
+                                                                "advancedCeramic"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "additionalProperties": false
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                {
+                                    "properties": {
+                                        "name": {
+                                            "enum": [
+                                                "polymer"
+                                            ]
+                                        },
+                                        "type": {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#/definitions/type"
+                                                },
+                                                {
+                                                    "properties": {
+                                                        "name": {
+                                                            "enum": [
+                                                                "thermoplastic",
+                                                                "thermoset",
+                                                                "elastomer"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "additionalProperties": false
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                {
+                                    "properties": {
+                                        "name": {
+                                            "enum": [
+                                                "other"
+                                            ]
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "symmetry": {
+                    "bsonType": "string",
+                    "title": "symmetry",
+                    "description": "symmetry of the material",
+                    "enum": [
+                        "isotropic"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/characteristics"
+                }
+            },
+            "dependencies": {
+                "properties": [
+                    "symmetry"
+                ]
+            }
         }
     },
-    "dependencies": {
-        "properties": [
-            "symmetry"
-        ]
-    },
-    "additionalProperties": false
+    "oneOf": [
+        {
+            "$ref": "#/definitions/reference"
+        },
+        {
+            "bsonType": "object",
+            "title": "composite material",
+            "description": "composite material properties of the element",
+            "required": [
+                "type",
+                "matrix"
+            ],
+            "properties": {
+                "type": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/type"
+                        },
+                        {
+                            "properties": {
+                                "name": {
+                                    "enum": [
+                                        "composite"
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                },
+                "matrix": {
+                    "bsonType": "object",
+                    "title": "composite material matrix",
+                    "description": "matrix of reference materials to form composite material",
+                    "required": [
+                        "base",
+                        "embedded"
+                    ],
+                    "properties": {
+                        "base": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/reference"
+                                },
+                                {
+                                    "additionalProperties": false
+                                }
+                            ]
+                        },
+                        "embedded": {
+                            "bsonType": "array",
+                            "title": "embedded reference materials",
+                            "description": "reference materials embedded within the base material to form the composite material",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/reference"
+                                    },
+                                    {
+                                        "required": [
+                                            "method"
+                                        ],
+                                        "properties": {
+                                            "method": {
+                                                "bsonType": "string",
+                                                "title": "embedding method",
+                                                "description": "method for embedding the reference material within the base material",
+                                                "enum": [
+                                                    "fibre",
+                                                    "particle",
+                                                    "woven",
+                                                    "bar"
+                                                ]
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    }
+                                ]
+                            },
+                            "minItems": 1
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "properties": {
+                    "$ref": "#/definitions/characteristics"
+                }
+            },
+            "additionalProperties": false
+        }
+    ]
 }
