@@ -88,13 +88,24 @@ var mappings = [
     },
     {//Group Geometry -> Elements -> N -> Bounding to Shared, Cuboid -> Bounding
         source: [
-            ["geometry", "element", "beam rectangular", "bounding"],
-            ["geometry", "element", "beam circular", "bounding"],
-            ["geometry", "element", "beam i-beam", "bounding"],
-            ["geometry", "element", "beam other", "bounding"],
-            ["geometry", "element", "plate rectangular", "bounding"],
-            ["geometry", "element", "plate circular", "bounding"],
-            ["geometry", "element", "plate other", "bounding"],
+            ["geometry", "element", "solid beam rectangular", "bounding"],
+            ["geometry", "element", "shell beam rectangular", "bounding"],
+            ["geometry", "element", "solid beam circular", "bounding"],
+            ["geometry", "element", "shell beam circular", "bounding"],
+            ["geometry", "element", "solid beam i-beam", "bounding"],
+            ["geometry", "element", "solid beam t-beam", "bounding"],
+            ["geometry", "element", "solid beam c-beam", "bounding"],
+            ["geometry", "element", "solid beam l-beam", "bounding"],
+            ["geometry", "element", "solid beam y-beam", "bounding"],
+            ["geometry", "element", "solid beam ye-beam", "bounding"],
+            ["geometry", "element", "solid beam m-beam", "bounding"],
+            ["geometry", "element", "solid beam u-beam", "bounding"],
+            ["geometry", "element", "solid beam um-beam", "bounding"],
+            ["geometry", "element", "solid beam other", "bounding"],
+            ["geometry", "element", "shell beam other", "bounding"],
+            ["geometry", "element", "solid plate rectangular", "bounding"],
+            ["geometry", "element", "solid plate circular", "bounding"],
+            ["geometry", "element", "solid plate other", "bounding"],
             ["geometry", "element", "solid translate cuboid", "bounding"],
             ["geometry", "element", "shell translate cuboid", "bounding"],
             ["geometry", "element", "solid translate sphere", "bounding"],
@@ -135,24 +146,68 @@ var mappings = [
             ["bounding", "cuboid", "length"],//Bounding
             ["bounding", "cuboid", "width"],
             ["bounding", "cuboid", "height"],
-            ["geometry", "element", "beam rectangular", "dimensions", "length"],//Geometry -> Beam -> Rectangular -> Dimensions
-            ["geometry", "element", "beam rectangular", "dimensions", "width"],
-            ["geometry", "element", "beam rectangular", "dimensions", "height"],
-            ["geometry", "element", "beam circular", "dimensions", "length"],//Geometry -> Beam -> Circular -> Dimensions
-            ["geometry", "element", "beam circular", "dimensions", "radius"],
-            ["geometry", "element", "beam i-beam", "dimensions", "length"],//Geometry -> Beam -> I-Beam -> Dimensions
-            ["geometry", "element", "beam i-beam", "dimensions", "d"],
-            ["geometry", "element", "beam i-beam", "dimensions", "h"],
-            ["geometry", "element", "beam i-beam", "dimensions", "s"],
-            ["geometry", "element", "beam i-beam", "dimensions", "b"],
-            ["geometry", "element", "beam i-beam", "dimensions", "t"],
-            ["geometry", "element", "beam other", "dimensions", "length"],//Geometry -> Beam -> Other -> Dimensions
-            ["geometry", "element", "plate rectangular", "dimensions", "thickness"],//Geometry -> Plate -> Rectangular -> Dimensions
-            ["geometry", "element", "plate rectangular", "dimensions", "width"],
-            ["geometry", "element", "plate rectangular", "dimensions", "length"],
-            ["geometry", "element", "plate circular", "dimensions", "thickness"],//Geometry -> Plate -> Circular -> Dimensions
-            ["geometry", "element", "plate circular", "dimensions", "radius"],
-            ["geometry", "element", "plate other", "dimensions", "thickness"],//Geometry -> Plate -> Other -> Dimensions
+            ["geometry", "element", "solid beam rectangular", "dimensions", "length"],//Geometry -> Solid -> Beam -> Rectangular -> Dimensions
+            ["geometry", "element", "solid beam rectangular", "dimensions", "width"],
+            ["geometry", "element", "solid beam rectangular", "dimensions", "height"],
+            ["geometry", "element", "shell beam rectangular", "dimensions", "length"],//Geometry -> Shell -> Beam -> Rectangular -> Dimensions
+            ["geometry", "element", "shell beam rectangular", "dimensions", "width"],
+            ["geometry", "element", "shell beam rectangular", "dimensions", "height"],
+            ["geometry", "element", "shell beam rectangular", "dimensions", "thickness"],
+            ["geometry", "element", "solid beam circular", "dimensions", "length"],//Geometry -> Solid -> Beam -> Circular -> Dimensions
+            ["geometry", "element", "solid beam circular", "dimensions", "radius"],
+            ["geometry", "element", "shell beam circular", "dimensions", "length"],//Geometry -> Shell -> Beam -> Circular -> Dimensions
+            ["geometry", "element", "shell beam circular", "dimensions", "radius"],
+            ["geometry", "element", "shell beam circular", "dimensions", "thickness"],
+            ["geometry", "element", "solid beam i-beam", "dimensions", "length"],//Geometry -> Solid -> Beam -> I-Beam -> Dimensions
+            ["geometry", "element", "solid beam i-beam", "dimensions", "width"],
+            ["geometry", "element", "solid beam i-beam", "dimensions", "height"],
+            ["geometry", "element", "solid beam i-beam", "dimensions", "webThickness"],
+            ["geometry", "element", "solid beam i-beam", "dimensions", "flangeThickness"],
+            ["geometry", "element", "solid beam t-beam", "dimensions", "length"],//Geometry -> Solid -> Beam -> T-Beam -> Dimensions
+            ["geometry", "element", "solid beam t-beam", "dimensions", "width"],
+            ["geometry", "element", "solid beam t-beam", "dimensions", "height"],
+            ["geometry", "element", "solid beam t-beam", "dimensions", "webThickness"],
+            ["geometry", "element", "solid beam t-beam", "dimensions", "flangeThickness"],
+            ["geometry", "element", "solid beam c-beam", "dimensions", "length"],//Geometry -> Solid -> Beam -> C-Beam -> Dimensions
+            ["geometry", "element", "solid beam c-beam", "dimensions", "width"],
+            ["geometry", "element", "solid beam c-beam", "dimensions", "height"],
+            ["geometry", "element", "solid beam c-beam", "dimensions", "webThickness"],
+            ["geometry", "element", "solid beam c-beam", "dimensions", "flangeThickness"],
+            ["geometry", "element", "solid beam l-beam", "dimensions", "length"],//Geometry -> Solid -> Beam -> L-Beam -> Dimensions
+            ["geometry", "element", "solid beam l-beam", "dimensions", "width"],
+            ["geometry", "element", "solid beam l-beam", "dimensions", "height"],
+            ["geometry", "element", "solid beam l-beam", "dimensions", "thickness"],
+            ["geometry", "element", "solid beam y-beam", "dimensions", "length"],//Geometry -> Solid -> Beam -> Y-Beam -> Dimensions
+            ["geometry", "element", "solid beam y-beam", "dimensions", "height"],
+            ["geometry", "element", "solid beam y-beam", "dimensions", "baseWidth"],
+            ["geometry", "element", "solid beam y-beam", "dimensions", "topWidth"],
+            ["geometry", "element", "solid beam ye-beam", "dimensions", "length"],//Geometry -> Solid -> Beam -> YE-Beam -> Dimensions
+            ["geometry", "element", "solid beam ye-beam", "dimensions", "height"],
+            ["geometry", "element", "solid beam ye-beam", "dimensions", "baseWidth"],
+            ["geometry", "element", "solid beam ye-beam", "dimensions", "topWidth"],
+            ["geometry", "element", "solid beam m-beam", "dimensions", "length"],//Geometry -> Solid -> Beam -> M-Beam -> Dimensions
+            ["geometry", "element", "solid beam m-beam", "dimensions", "height"],
+            ["geometry", "element", "solid beam m-beam", "dimensions", "baseWidth"],
+            ["geometry", "element", "solid beam m-beam", "dimensions", "topWidth"],
+            ["geometry", "element", "solid beam u-beam", "dimensions", "length"],//Geometry -> Solid -> Beam -> U-Beam -> Dimensions
+            ["geometry", "element", "solid beam u-beam", "dimensions", "height"],
+            ["geometry", "element", "solid beam u-beam", "dimensions", "baseWidth"],
+            ["geometry", "element", "solid beam u-beam", "dimensions", "topWidth"],
+            ["geometry", "element", "solid beam u-beam", "dimensions", "openingWidth"],
+            ["geometry", "element", "solid beam um-beam", "dimensions", "length"],//Geometry -> Solid -> Beam -> UM-Beam -> Dimensions
+            ["geometry", "element", "solid beam um-beam", "dimensions", "height"],
+            ["geometry", "element", "solid beam um-beam", "dimensions", "baseWidth"],
+            ["geometry", "element", "solid beam um-beam", "dimensions", "topWidth"],
+            ["geometry", "element", "solid beam um-beam", "dimensions", "openingWidth"],
+            ["geometry", "element", "solid beam other", "dimensions", "length"],//Geometry -> Solid -> Beam -> Other -> Dimensions
+            ["geometry", "element", "shell beam other", "dimensions", "length"],//Geometry -> Shell -> Beam -> Other -> Dimensions
+            ["geometry", "element", "shell beam other", "dimensions", "thickness"],
+            ["geometry", "element", "solid plate rectangular", "dimensions", "thickness"],//Geometry -> Solid -> Plate -> Rectangular -> Dimensions
+            ["geometry", "element", "solid plate rectangular", "dimensions", "width"],
+            ["geometry", "element", "solid plate rectangular", "dimensions", "length"],
+            ["geometry", "element", "solid plate circular", "dimensions", "thickness"],//Geometry -> Solid -> Plate -> Circular -> Dimensions
+            ["geometry", "element", "solid plate circular", "dimensions", "radius"],
+            ["geometry", "element", "solid plate other", "dimensions", "thickness"],//Geometry -> Solid -> Plate -> Other -> Dimensions
             ["geometry", "element", "solid translate cuboid", "dimensions", "length"],//Geometry -> Solid -> Translate -> Cuboid -> Dimensions
             ["geometry", "element", "solid translate cuboid", "dimensions", "width"],
             ["geometry", "element", "solid translate cuboid", "dimensions", "height"],
@@ -192,8 +247,10 @@ var mappings = [
     },
     {//Group Geometry -> Elements -> N -> Dimensions -> * to Angular Dimension
         source: [
-            ["geometry", "element", "beam other", "dimensions", "*"],
-            ["geometry", "element", "plate other", "dimensions", "*"],
+            ["geometry", "element", "solid beam other", "dimensions", "*"],
+            ["geometry", "element", "shell beam other", "dimensions", "*"],
+            ["geometry", "element", "solid beam l-beam", "dimensions", "angle"],
+            ["geometry", "element", "solid plate other", "dimensions", "*"],
             ["geometry", "element", "solid translate other", "dimensions", "*"],
             ["geometry", "element", "shell translate other", "dimensions", "*"]
         ],
@@ -204,13 +261,24 @@ var mappings = [
     },
     {//Group Geometry -> Elements -> N -> Dimensions -> _ to Wildcard Dimension
         source: [
-            ["geometry", "element", "beam rectangular", "dimensions", "_"],
-            ["geometry", "element", "beam circular", "dimensions", "_"],
-            ["geometry", "element", "beam i-beam", "dimensions", "_"],
-            ["geometry", "element", "beam other", "dimensions", "_"],
-            ["geometry", "element", "plate rectangular", "dimensions", "_"],
-            ["geometry", "element", "plate circular", "dimensions", "_"],
-            ["geometry", "element", "plate other", "dimensions", "_"],
+            ["geometry", "element", "solid beam rectangular", "dimensions", "_"],
+            ["geometry", "element", "shell beam rectangular", "dimensions", "_"],
+            ["geometry", "element", "solid beam circular", "dimensions", "_"],
+            ["geometry", "element", "shell beam circular", "dimensions", "_"],
+            ["geometry", "element", "solid beam i-beam", "dimensions", "_"],
+            ["geometry", "element", "solid beam t-beam", "dimensions", "_"],
+            ["geometry", "element", "solid beam c-beam", "dimensions", "_"],
+            ["geometry", "element", "solid beam l-beam", "dimensions", "_"],
+            ["geometry", "element", "solid beam y-beam", "dimensions", "_"],
+            ["geometry", "element", "solid beam ye-beam", "dimensions", "_"],
+            ["geometry", "element", "solid beam m-beam", "dimensions", "_"],
+            ["geometry", "element", "solid beam u-beam", "dimensions", "_"],
+            ["geometry", "element", "solid beam um-beam", "dimensions", "_"],
+            ["geometry", "element", "solid beam other", "dimensions", "_"],
+            ["geometry", "element", "shell beam other", "dimensions", "_"],
+            ["geometry", "element", "solid plate rectangular", "dimensions", "_"],
+            ["geometry", "element", "solid plate circular", "dimensions", "_"],
+            ["geometry", "element", "solid plate other", "dimensions", "_"],
             ["geometry", "element", "solid translate cuboid", "dimensions", "_"],
             ["geometry", "element", "shell translate cuboid", "dimensions", "_"],
             ["geometry", "element", "solid translate sphere", "dimensions", "_"],
@@ -1167,6 +1235,7 @@ function mergeGeometryAttributesIntoProperties(geometryObject) {
     if (geometryObject["types"].length > 0 && typeof (geometryObject["properties"]["type"]) === typeof (undefined)) console.log("Error:Geometry Object has types but no type to merge");
     else if (typeof (geometryObject["properties"]["type"]["object"]) === typeof (undefined) || typeof (geometryObject["properties"]["type"]["object"]["name"]) === typeof (undefined)) console.log("Error: Missing type property declaration");
     else clonedObject["type"]["object"]["name"]["values"] = flatternTypeStack(geometryObject["types"]);
+    delete clonedObject["type"]["object"]["type"];
     //Merge in Dimensions
     if (geometryObject["dimensions"].length > 0 && typeof (geometryObject["properties"]["dimensions"]) === typeof (undefined)) console.log("Error:Geometry Object has dimensions but no additional property to merge");
     else if (typeof (geometryObject["properties"]["dimensions"]["object"]) === typeof (undefined) || typeof (geometryObject["properties"]["dimensions"]["object"]["_"]) === typeof (undefined)) console.log("Error: Missing additional property declaration");
