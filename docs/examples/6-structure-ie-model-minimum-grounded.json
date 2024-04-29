@@ -1,5 +1,5 @@
 {
-    "version": "1.1.0",
+    "version": "1.2.0",
     "name": "test-structure",
     "population": "ie-population",
     "timestamp": 1588007841000000000,
@@ -19,9 +19,12 @@
                     },
                     "geometry": {
                         "type": {
-                            "name": "beam",
+                            "name": "shell",
                             "type": {
-                                "name": "rectangular"
+                                "name": "beam",
+                                "type": {
+                                    "name": "rectangular"
+                                }
                             }
                         }
                     },
