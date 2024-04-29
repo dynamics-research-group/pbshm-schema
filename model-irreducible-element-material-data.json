@@ -613,12 +613,84 @@
                                                             "enum": [
                                                                 "thermoplastic",
                                                                 "thermoset",
-                                                                "elastomer"
+                                                                "elastomer",
+                                                                "resin",
+                                                                "carbon"
                                                             ]
                                                         }
                                                     },
                                                     "additionalProperties": false
                                                 }
+                                            ]
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                {
+                                    "properties": {
+                                        "name": {
+                                            "enum": [
+                                                "wood"
+                                            ]
+                                        },
+                                        "type": {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#/definitions/type"
+                                                },
+                                                {
+                                                    "properties": {
+                                                        "name": {
+                                                            "enum": [
+                                                                "ash",
+                                                                "oak",
+                                                                "maple",
+                                                                "birch",
+                                                                "pine"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "additionalProperties": false
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                {
+                                    "properties": {
+                                        "name": {
+                                            "enum": [
+                                                "rock"
+                                            ]
+                                        },
+                                        "type": {
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#/definitions/type"
+                                                },
+                                                {
+                                                    "properties": {
+                                                        "name": {
+                                                            "enum": [
+                                                                "basalt",
+                                                                "marble",
+                                                                "granite"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "additionalProperties": false
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                {
+                                    "properties": {
+                                        "name": {
+                                            "enum": [
+                                                "concrete"
                                             ]
                                         }
                                     },
