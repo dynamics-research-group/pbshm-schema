@@ -16,7 +16,7 @@
             "title": "version number",
             "description": "the version of the schema that the document is compliant to",
             "enum": [
-                "1.2.0"
+                "1.2.1"
             ]
         },
         "name": {
