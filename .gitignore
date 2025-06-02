@@ -1,2 +1,4 @@
 #Release
 [Rr]elease/
+#Python env
+.env/
