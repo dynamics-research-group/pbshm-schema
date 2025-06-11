@@ -698,7 +698,9 @@
                                     },
                                     {
                                         "title": "damping ratio",
-                                        "description": "the damping ratio of the eigen mode"
+                                        "description": "the damping ratio of the eigen mode",
+                                        "minimum": -1,
+                                        "maximum": 1
                                     }
                                 ]
                             }
