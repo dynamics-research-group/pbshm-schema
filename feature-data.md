@@ -41,7 +41,7 @@ There are currently five supported feature types: eigen mode, statistical, spect
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`name`|Name of the feature, must be unique within the structure|`string`|Minimum Length: 1, Maximum Length: 64|yes|
-|`type`|Root `type` of this feature.<br>Type Tree: `spatial` -> `displacement`, `strain`, `influenceLine`|`object`|[`rootTypes`](#root-types)|yes|
+|`type`|Root `type` of this feature.<br>Type Tree: `spatial` -> `displacement`, `strain`, `reaction`, `influence`|`object`|[`rootTypes`](#root-types)|yes|
 |`variant`|Variant of the spatial feature|`string`|`static`, `dynamic`|yes|
 |`timestamp`|Timestamp of dynamic spatial feature|`long`|nanoseconds since epoch| only if `variant` set to dynamic|
 |`coordinates`|Coordinates of the spatial feature|`object`|[`coordinates`](#coordinates) with [`vector`](#vector) of `int`, `long`, `double` values|yes|
