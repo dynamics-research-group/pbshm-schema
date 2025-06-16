@@ -76,7 +76,7 @@ Each area of knowledge within the PBSHM Schema resides within a data domain. The
 ###### [Software Parameters](#software-parameters)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`*`|Parameter for the software|`string`, `int`, `double`|any valid value|yes|
+|`*`|Parameter for the software|`string`, `int`, `double`, `array` of `string`, `int`, `double`|any valid value|yes|
 
 ##### [Environment](#environment)
 |Property|Description|Type|Values|Required|
