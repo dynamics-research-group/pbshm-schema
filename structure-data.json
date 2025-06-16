@@ -156,6 +156,23 @@
                                                 },
                                                 {
                                                     "bsonType": "double"
+                                                },
+                                                {
+                                                    "bsonType": "array",
+                                                    "items": {
+                                                        "oneOf": [
+                                                            {
+                                                                "bsonType": "string"
+                                                            },
+                                                            {
+                                                                "bsonType": "int"
+                                                            },
+                                                            {
+                                                                "bsonType": "double"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "minItems":1
                                                 }
                                             ]
                                         },
