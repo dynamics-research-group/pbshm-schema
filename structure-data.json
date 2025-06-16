@@ -7,8 +7,7 @@
     "required": [
         "version",
         "name",
-        "population",
-        "timestamp"
+        "population"
     ],
     "properties": {
         "version": {
@@ -16,7 +15,7 @@
             "title": "version number",
             "description": "the version of the schema that the document is compliant to",
             "enum": [
-                "1.2.1"
+                "1.3.0"
             ]
         },
         "name": {
@@ -31,17 +30,326 @@
             "description": "the unique name of the population of structures",
             "minLength": 8,
             "maxLength": 64
-        },
-        "timestamp": {
-            "bsonType": "long",
-            "title": "UTC date",
-            "description": "the timestamp of when the data was recorded, stored in nanoseconds since UNIX epoch"
-        },
-        "channels": {
-            "$ref": "channel-data.json"
-        },
-        "models": {
-            "$ref": "model-data.json"
         }
-    }
+    },
+    "minProperties": 5,
+    "oneOf": [
+        {
+            "properties": {
+                "timestamp": {
+                    "bsonType": "long",
+                    "title": "UTC date",
+                    "description": "the timestamp of when the data was recorded, stored in nanoseconds since UNIX epoch"
+                },
+                "channels": {
+                    "$ref": "channel-data.json"
+                },
+                "models": {
+                    "$ref": "model-data.json"
+                }
+            },
+            "oneOf": [
+                {
+                    "required": [
+                        "timestamp",
+                        "channels"
+                    ]
+                },
+                {
+                    "required": [
+                        "timestamp",
+                        "models"
+                    ]
+                }
+            ]
+        },
+        {
+            "required": [
+                "source",
+                "features"
+            ],
+            "properties": {
+                "source": {
+                    "bsonType": "object",
+                    "title": "source",
+                    "description": "details on the sources used to generate the associated data",
+                    "required": [
+                        "timestamp",
+                        "selection",
+                        "environment"
+                    ],
+                    "properties": {
+                        "timestamp": {
+                            "bsonType": "object",
+                            "title": "timestamp",
+                            "description": "the associated timestamps of the data",
+                            "required": [
+                                "stored"
+                            ],
+                            "properties": {
+                                "generated": {
+                                    "bsonType": "long",
+                                    "title": "generated timestamp",
+                                    "description": "the timestamp of when the data was generated in nanoseconds since epoch"
+                                },
+                                "stored": {
+                                    "bsonType": "long",
+                                    "title": "stored timestamp",
+                                    "description": "the timestamp of when the data was stored in nanoseconds since epoch"
+                                }
+                            },
+                            "additionalProperties": false
+                        },
+                        "selection": {
+                            "bsonType": "array",
+                            "title": "selection",
+                            "description": "array of selection objects",
+                            "items": {
+                                "bsonType": "object"
+                            },
+                            "minItems": 1
+                        },
+                        "software": {
+                            "bsonType": "array",
+                            "title": "software list",
+                            "description": "list of the software used in descending order",
+                            "items": {
+                                "bsonType": "object",
+                                "title": "software",
+                                "description": "details of the software used",
+                                "required": [
+                                    "name",
+                                    "version"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "bsonType": "string",
+                                        "title": "name",
+                                        "description": "name of the software used",
+                                        "minLength": 1
+                                    },
+                                    "version": {
+                                        "bsonType": "string",
+                                        "title": "version",
+                                        "description": "version of the software used",
+                                        "minLength": 1
+                                    },
+                                    "source": {
+                                        "bsonType": "string",
+                                        "title": "source code url",
+                                        "description": "the URL to access to source code of the software",
+                                        "minLength": 1
+                                    },
+                                    "parameters": {
+                                        "bsonType": "object",
+                                        "title": "parameters dictionary",
+                                        "description": "dictionary of software parameters used",
+                                        "additionalProperties": {
+                                            "title": "software parameter",
+                                            "description": "a parameter for the software",
+                                            "oneOf": [
+                                                {
+                                                    "bsonType": "string"
+                                                },
+                                                {
+                                                    "bsonType": "int"
+                                                },
+                                                {
+                                                    "bsonType": "double"
+                                                },
+                                                {
+                                                    "bsonType": "array",
+                                                    "items": {
+                                                        "oneOf": [
+                                                            {
+                                                                "bsonType": "string"
+                                                            },
+                                                            {
+                                                                "bsonType": "int"
+                                                            },
+                                                            {
+                                                                "bsonType": "double"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "minItems":1
+                                                }
+                                            ]
+                                        },
+                                        "minProperties": 1
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            "minItems": 1
+                        },
+                        "environment": {
+                            "bsonType": "object",
+                            "title": "environment variables",
+                            "description": "variables used to change the environment of the model",
+                            "additionalProperties": {
+                                "bsonType": "object",
+                                "title": "environment variable",
+                                "description": "a variable used to modify the environment of the model",
+                                "required": [
+                                    "description",
+                                    "value"
+                                ],
+                                "properties": {
+                                    "description": {
+                                        "bsonType": "string",
+                                        "title": "description",
+                                        "description": "a description of the variable",
+                                        "minLength": 1
+                                    },
+                                    "value": {
+                                        "title": "value",
+                                        "description": "value of the variable",
+                                        "oneOf": [
+                                            {
+                                                "bsonType": "string"
+                                            },
+                                            {
+                                                "bsonType": "int"
+                                            },
+                                            {
+                                                "bsonType": "double"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            "minProperties": 1
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "features": {
+                    "$ref": "feature-data.json"
+                }
+            },
+            "oneOf": [
+                {
+                    "properties": {
+                        "source": {
+                            "properties": {
+                                "selection": {
+                                    "items": {
+                                        "title": "channel data",
+                                        "description": "details on which channels were selected to generate the data",
+                                        "required": [
+                                            "population",
+                                            "structures",
+                                            "channels",
+                                            "timestamps"
+                                        ],
+                                        "properties": {
+                                            "population": {
+                                                "bsonType": "string",
+                                                "title": "population name",
+                                                "description": "name of the population used",
+                                                "minLength": 8,
+                                                "maxLength": 64
+                                            },
+                                            "structures": {
+                                                "bsonType": "array",
+                                                "title": "structure list",
+                                                "description": "list of selected structures",
+                                                "items": {
+                                                    "bsonType": "string",
+                                                    "title": "structure name",
+                                                    "description": "name of selected structure",
+                                                    "minLength": 1
+                                                },
+                                                "minItems": 1
+                                            },
+                                            "channels": {
+                                                "bsonType": "array",
+                                                "title": "channel list",
+                                                "description": "list of selected channels",
+                                                "items": {
+                                                    "bsonType": "string",
+                                                    "title": "channel name",
+                                                    "description": "name of selected channel",
+                                                    "minLength": 1
+                                                },
+                                                "minItems": 1
+                                            },
+                                            "timestamps": {
+                                                "bsonType": "array",
+                                                "title": "timestamp ranges",
+                                                "description": "list of timestamp ranges",
+                                                "items": {
+                                                    "bsonType": "object",
+                                                    "title": "timestamp range",
+                                                    "description": "range of the selected timestamps",
+                                                    "required": [
+                                                        "start",
+                                                        "end"
+                                                    ],
+                                                    "properties": {
+                                                        "start": {
+                                                            "bsonType": "long",
+                                                            "title": "start timestamp",
+                                                            "description": "start timestamp of the range"
+                                                        },
+                                                        "end": {
+                                                            "bsonType": "long",
+                                                            "title": "end timestamp",
+                                                            "description": "end timestamp of the range"
+                                                        },
+                                                        "excluded": {
+                                                            "bsonType": "array",
+                                                            "title": "excluded timestamps",
+                                                            "description": "list of excluded timestamps from the range",
+                                                            "items": {
+                                                                "bsonType": "long",
+                                                                "title": "excluded timestamp",
+                                                                "description": "the value of the excluded timestamp from the range"
+                                                            },
+                                                            "minItems": 1
+                                                        }
+                                                    },
+                                                    "additionalProperties": false
+                                                },
+                                                "minItems": 1
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "properties": {
+                        "source": {
+                            "properties": {
+                                "selection": {
+                                    "items": {
+                                        "title": "model data",
+                                        "description": "details on which models were selected to generate the data",
+                                        "required": [
+                                            "name"
+                                        ],
+                                        "properties": {
+                                            "name": {
+                                                "bsonType": "string",
+                                                "title": "model name",
+                                                "description": "name of the model used",
+                                                "minLength": 1
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    ]
 }
