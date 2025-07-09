@@ -863,7 +863,7 @@
                                         "required": [
                                             "sensor",
                                             "frequency",
-                                            "value"
+                                            "values"
                                         ],
                                         "properties": {
                                             "type": {
@@ -951,7 +951,7 @@
                                                     }
                                                 ]
                                             },
-                                            "value": {
+                                            "values": {
                                                 "allOf": [
                                                     {
                                                         "$ref": "#/definitions/vectorUnitValue"
