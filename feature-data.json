@@ -666,30 +666,78 @@
                                 ]
                             },
                             "modeShape": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/definitions/vectorUnitValue"
-                                    },
-                                    {
-                                        "$ref": "#/definitions/displacementUnits"
-                                    },
-                                    {
-                                        "title": "mode shape",
-                                        "description": "the mode shape of the eigen mode",
-                                        "properties": {
-                                            "value": {
+                                "bsonType": "object",
+                                "title": "mode shape",
+                                "description": "the mode shape of the eigen mode",
+                                "required": [
+                                    "coordinates",
+                                    "values"
+                                ],
+                                "properties": {
+                                    "coordinates": {
+                                        "allOf": [
+                                            {
+                                                "$ref": "#/definitions/coordinates"
+                                            },
+                                            {
                                                 "properties": {
-                                                    "vector": {
-                                                        "items": {
-                                                            "$ref": "#/definitions/complex"
+                                                    "global": {
+                                                        "properties": {
+                                                            "translational": {
+                                                                "patternProperties": {
+                                                                    "^x|y|z$": {
+                                                                        "allOf": [
+                                                                            {
+                                                                                "$ref": "#/definitions/vector"
+                                                                            },
+                                                                            {
+                                                                                "properties": {
+                                                                                    "vector": {
+                                                                                        "items": {
+                                                                                            "$ref": "#/definitions/real"
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
+                                                            }
                                                         }
                                                     }
                                                 }
                                             }
-                                        },
-                                        "additionalProperties": false
+                                        ]
+                                    },
+                                    "values": {
+                                        "allOf": [
+                                            {
+                                                "$ref": "#/definitions/spatial"
+                                            },
+                                            {
+                                                "patternProperties": {
+                                                    "^x|y|z$": {
+                                                        "allOf": [
+                                                            {
+                                                                "$ref": "#/definitions/vector"
+                                                            },
+                                                            {
+                                                                "properties": {
+                                                                    "vector": {
+                                                                        "items": {
+                                                                            "$ref": "#/definitions/complex"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        ]
                                     }
-                                ]
+                                },
+                                "additionalProperties": false
                             },
                             "dampingRatio": {
                                 "allOf": [
