@@ -912,14 +912,8 @@
                                                                     "global": {
                                                                         "properties": {
                                                                             "translational": {
-                                                                                "properties": {
-                                                                                    "x": {
-                                                                                        "$ref": "#/definitions/real"
-                                                                                    },
-                                                                                    "y": {
-                                                                                        "$ref": "#/definitions/real"
-                                                                                    },
-                                                                                    "z": {
+                                                                                "patternProperties": {
+                                                                                    "^x|y|z$": {
                                                                                         "$ref": "#/definitions/real"
                                                                                     }
                                                                                 }
@@ -1030,40 +1024,8 @@
                                                                     "global": {
                                                                         "properties": {
                                                                             "translational": {
-                                                                                "properties": {
-                                                                                    "x": {
-                                                                                        "allOf": [
-                                                                                            {
-                                                                                                "$ref": "#/definitions/vector"
-                                                                                            },
-                                                                                            {
-                                                                                                "properties": {
-                                                                                                    "vector": {
-                                                                                                        "items": {
-                                                                                                            "$ref": "#/definitions/real"
-                                                                                                        }
-                                                                                                    }
-                                                                                                }
-                                                                                            }
-                                                                                        ]
-                                                                                    },
-                                                                                    "y": {
-                                                                                        "allOf": [
-                                                                                            {
-                                                                                                "$ref": "#/definitions/vector"
-                                                                                            },
-                                                                                            {
-                                                                                                "properties": {
-                                                                                                    "vector": {
-                                                                                                        "items": {
-                                                                                                            "$ref": "#/definitions/real"
-                                                                                                        }
-                                                                                                    }
-                                                                                                }
-                                                                                            }
-                                                                                        ]
-                                                                                    },
-                                                                                    "z": {
+                                                                                "patternProperties": {
+                                                                                    "^x|y|z$": {
                                                                                         "allOf": [
                                                                                             {
                                                                                                 "$ref": "#/definitions/vector"
@@ -1096,40 +1058,10 @@
                                                                 "properties": {
                                                                     "unit": {
                                                                         "$ref": "#/definitions/allUnits"
-                                                                    },
-                                                                    "x": {
-                                                                        "allOf": [
-                                                                            {
-                                                                                "$ref": "#/definitions/vector"
-                                                                            },
-                                                                            {
-                                                                                "properties": {
-                                                                                    "vector": {
-                                                                                        "items": {
-                                                                                            "$ref": "#/definitions/number"
-                                                                                        }
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        ]
-                                                                    },
-                                                                    "y": {
-                                                                        "allOf": [
-                                                                            {
-                                                                                "$ref": "#/definitions/vector"
-                                                                            },
-                                                                            {
-                                                                                "properties": {
-                                                                                    "vector": {
-                                                                                        "items": {
-                                                                                            "$ref": "#/definitions/number"
-                                                                                        }
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        ]
-                                                                    },
-                                                                    "z": {
+                                                                    }
+                                                                },
+                                                                "patternProperties": {
+                                                                    "^x|y|z$": {
                                                                         "allOf": [
                                                                             {
                                                                                 "$ref": "#/definitions/vector"
