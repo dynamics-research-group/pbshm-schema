@@ -1139,11 +1139,8 @@
                                         "left",
                                         "right"
                                     ],
-                                    "properties": {
-                                        "left": {
-                                            "$ref": "#/definitions/face"
-                                        },
-                                        "right": {
+                                    "patternProperties": {
+                                        "^left|right$": {
                                             "$ref": "#/definitions/face"
                                         }
                                     }
@@ -1199,22 +1196,8 @@
                                             }
                                         },
                                         "faces": {
-                                            "properties": {
-                                                "left": {
-                                                    "properties": {
-                                                        "dimensions": {
-                                                            "required": [
-                                                                "thickness"
-                                                            ],
-                                                            "properties": {
-                                                                "thickness": {
-                                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                },
-                                                "right": {
+                                            "patternProperties": {
+                                                "^left|right$": {
                                                     "properties": {
                                                         "dimensions": {
                                                             "required": [
@@ -1256,26 +1239,8 @@
                                             }
                                         },
                                         "faces": {
-                                            "properties": {
-                                                "left": {
-                                                    "properties": {
-                                                        "dimensions": {
-                                                            "required": [
-                                                                "width",
-                                                                "height"
-                                                            ],
-                                                            "properties": {
-                                                                "width": {
-                                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
-                                                                },
-                                                                "height": {
-                                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                },
-                                                "right": {
+                                            "patternProperties": {
+                                                "^left|right$": {
                                                     "properties": {
                                                         "dimensions": {
                                                             "required": [
@@ -1317,22 +1282,8 @@
                                             }
                                         },
                                         "faces": {
-                                            "properties": {
-                                                "left": {
-                                                    "properties": {
-                                                        "dimensions": {
-                                                            "required": [
-                                                                "radius"
-                                                            ],
-                                                            "properties": {
-                                                                "radius": {
-                                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                },
-                                                "right": {
+                                            "patternProperties": {
+                                                "^left|right$": {
                                                     "properties": {
                                                         "dimensions": {
                                                             "required": [
@@ -1613,25 +1564,8 @@
                                             }
                                         },
                                         "faces": {
-                                            "properties": {
-                                                "left": {
-                                                    "properties": {
-                                                        "dimensions": {
-                                                            "additionalProperties": {
-                                                                "oneOf": [
-                                                                    {
-                                                                        "$ref": "model-irreducible-element-data.json#/definitions/linear"
-                                                                    },
-                                                                    {
-                                                                        "$ref": "model-irreducible-element-data.json#/definitions/angular"
-                                                                    }
-                                                                ]
-                                                            },
-                                                            "minProperties": 2
-                                                        }
-                                                    }
-                                                },
-                                                "right": {
+                                            "patternProperties": {
+                                                "^left|right$": {
                                                     "properties": {
                                                         "dimensions": {
                                                             "additionalProperties": {
