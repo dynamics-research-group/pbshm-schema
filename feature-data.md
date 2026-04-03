@@ -10,9 +10,14 @@ There are currently five supported feature types: eigen mode, statistical, spect
 |`type`|Root `type` of this feature.<br>Type Tree: `eigenMode` |`object`|[`rootTypes`](#root-types)|yes|
 |`variant`|Variant of eigen mode|`string`|`acceleration`, `velocity`, `displacement`, `strain`, `rotation`|yes|
 |`naturalFrequency`|Natural frequency of the eigen mode<br>Accepted units: `fHz`, `pHz`, `nHz`, `µHz`, `mHz`, `cHz`, `dHz`, `Hz`, `daHz`, `hHz`, `kHz`, `MHz`, `GHz`, `THz`, `PHz`, `other`|`object`|[`unitValue`](#unit-value) with scalar of `int`, `long`, `double` values|yes|
-|`modeShape`|Mode shape of the eigen mode<br>Accepted units: `mm`, `cm`, `m`, `km`, `other`|`object`|[`unitValue`](#unit-value) with [`vector`](#vector) of [`complexNumber`](#complex-number) values|yes|
-|`dampingRatio`|Damping ratio of the eigen mode|`int`, `long`, `double`|any real value between -1 and 1|yes|
+|`modeShape`|Mode shape of the eigen mode|`object`|[`modeShape`](#mode-shape)|yes|
+|`dampingRatio`|Damping ratio of the eigen mode|`int`, `long`, `double`|any real value between -1 and 1|no|
 
+#### [Mode Shape](#mode-shape)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`coordinates`|Coordinates of the mode shape points|`object`|[`coordinates`](#coordinates) with [`vector`](#vector) of `int`, `long`, `double` values|yes|
+|`values`|Values of the mode shape points<br>Accepted units: `mm`, `cm`, `m`, `km`, `other`|`object`|[`spatial`](#spatial) with [`vector`](#vector) of [`complexNumber`](#complex-number) values|yes|
 
 ### [Statistical](#feature-statistical)
 |Property|Description|Type|Values|Required|
