@@ -273,7 +273,6 @@
             "title": "spatial object",
             "description": "the XYZ values",
             "required": [
-                "unit",
                 "x",
                 "y",
                 "z"
@@ -322,6 +321,11 @@
                                 },
                                 {
                                     "$ref": "#/definitions/displacementUnits"
+                                },
+                                {
+                                    "required": [
+                                        "unit"
+                                    ]
                                 }
                             ]
                         }
@@ -1055,6 +1059,9 @@
                                                                 "$ref": "#/definitions/spatial"
                                                             },
                                                             {
+                                                                "required": [
+                                                                    "unit"
+                                                                ],
                                                                 "properties": {
                                                                     "unit": {
                                                                         "$ref": "#/definitions/allUnits"
