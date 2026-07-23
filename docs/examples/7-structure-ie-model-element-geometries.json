@@ -1,0 +1,2792 @@
+{
+    "version": "1.4.0",
+    "name": "element-geometry-examples",
+    "population": "documentation",
+    "timestamp": 1588007841000000000,
+    "models": {
+        "irreducibleElement": {
+            "type": "free",
+            "elements": [
+                {
+                    "name": "solid-beam-rectangular",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "beam"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "beam",
+                                "type": {
+                                    "name": "rectangular"
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 1.5
+                            },
+                            "width": {
+                                "axis": "y",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "shell-beam-rectangular",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "beam"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "shell",
+                            "type": {
+                                "name": "beam",
+                                "type": {
+                                    "name": "rectangular"
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 1.5
+                            },
+                            "thickness": {
+                                "axis": "yz",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.05
+                            },
+                            "width": {
+                                "axis": "y",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "solid-beam-circular",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "beam"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "beam",
+                                "type": {
+                                    "name": "circular"
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 1.5
+                            },
+                            "radius": {
+                                "axis": "yz",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.25
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "shell-beam-circular",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "beam"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "shell",
+                            "type": {
+                                "name": "beam",
+                                "type": {
+                                    "name": "circular"
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 1.5
+                            },
+                            "thickness": {
+                                "axis": "yz",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.05
+                            },
+                            "radius": {
+                                "axis": "yz",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.25
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "solid-beam-other",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "beam"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "beam",
+                                "type": {
+                                    "name": "other"
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 1.5
+                            },
+                            "example": {
+                                "axis": "yz",
+                                "source": "measured",
+                                "unit": "degrees",
+                                "value": 90
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "shell-beam-other",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "beam"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "shell",
+                            "type": {
+                                "name": "beam",
+                                "type": {
+                                    "name": "other"
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 1.5
+                            },
+                            "thickness": {
+                                "axis": "yz",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.05
+                            },
+                            "example": {
+                                "axis": "yz",
+                                "source": "measured",
+                                "unit": "degrees",
+                                "value": 90
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "solid-beam-i-beam",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "beam"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "beam",
+                                "type": {
+                                    "name": "i-beam"
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 1.5
+                            },
+                            "width": {
+                                "axis": "y",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "webThickness": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "flangeThickness": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "solid-beam-t-beam",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "beam"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "beam",
+                                "type": {
+                                    "name": "t-beam"
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 1.5
+                            },
+                            "width": {
+                                "axis": "y",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "webThickness": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "flangeThickness": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "solid-beam-c-beam",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "beam"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "beam",
+                                "type": {
+                                    "name": "c-beam"
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 1.5
+                            },
+                            "width": {
+                                "axis": "y",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "webThickness": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "flangeThickness": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "solid-beam-l-beam",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "beam"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "beam",
+                                "type": {
+                                    "name": "l-beam"
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 1.5
+                            },
+                            "width": {
+                                "axis": "y",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "thickness": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "angle": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "degrees",
+                                "value": 90
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "solid-beam-y-beam",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "beam"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "beam",
+                                "type": {
+                                    "name": "y-beam"
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 1.5
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "baseWidth": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "topWidth": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "solid-beam-ye-beam",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "beam"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "beam",
+                                "type": {
+                                    "name": "ye-beam"
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 1.5
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "baseWidth": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "topWidth": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "solid-beam-m-beam",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "beam"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "beam",
+                                "type": {
+                                    "name": "m-beam"
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 1.5
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "baseWidth": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "topWidth": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "solid-beam-u-beam",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "beam"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "beam",
+                                "type": {
+                                    "name": "u-beam"
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 1.5
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "baseWidth": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "topWidth": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "openingWidth": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "solid-beam-um-beam",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "beam"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "beam",
+                                "type": {
+                                    "name": "um-beam"
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 1.5
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "baseWidth": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "topWidth": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "openingWidth": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "solid-plate-rectangular",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "plate"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "plate",
+                                "type": {
+                                    "name": "rectangular"
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "thickness": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.25
+                            },
+                            "width": {
+                                "axis": "y",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 1.5
+                            },
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 2.5
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "solid-plate-circular",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "plate"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "plate",
+                                "type": {
+                                    "name": "circular"
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "thickness": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.25
+                            },
+                            "radius": {
+                                "axis": "xy",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 1.5
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "solid-plate-other",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "plate"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "plate",
+                                "type": {
+                                    "name": "other"
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "thickness": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.25
+                            },
+                            "example": {
+                                "axis": "xy",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 1.5
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "solid-translate-cuboid",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 1.5
+                            },
+                            "width": {
+                                "axis": "y",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "shell-translate-cuboid",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "shell",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "thickness": {
+                                "axis": "yz",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.01
+                            },
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 1.5
+                            },
+                            "width": {
+                                "axis": "y",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.5
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "solid-translate-sphere",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "sphere"
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "radius": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 2
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "shell-translate-sphere",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "shell",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "sphere"
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "thickness": {
+                                "axis": "yz",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.01
+                            },
+                            "radius": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 2
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "solid-translate-cylinder",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cylinder"
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "radius": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 2.0
+                            },
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 2.0
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "shell-translate-cylinder",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "shell",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cylinder"
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "thickness": {
+                                "axis": "yz",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.01
+                            },
+                            "radius": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 2.0
+                            },
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 2.0
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "solid-translate-aerofoil",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "aerofoil"
+                                }
+                            }
+                        },
+                        "profile": {
+                            "type": "naca-four-digit-series",
+                            "value": "0000",
+                            "dimensions": {
+                                "chordLength": {
+                                    "axis": "y",
+                                    "source": "measured",
+                                    "unit": "m",
+                                    "value": 3.75
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 2.0
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "shell-translate-aerofoil",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "shell",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "aerofoil"
+                                }
+                            }
+                        },
+                        "profile": {
+                            "type": "naca-four-digit-series",
+                            "value": "0000",
+                            "dimensions": {
+                                "chordLength": {
+                                    "axis": "y",
+                                    "source": "measured",
+                                    "unit": "m",
+                                    "value": 3.75
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "thickness": {
+                                "axis": "yz",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.01
+                            },
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 2.0
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "solid-translate-other",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "other"
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "example1": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 2
+                            },
+                            "example2": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 2.0
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "shell-translate-other",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "shell",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "other"
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "thickness": {
+                                "axis": "yz",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 0.01
+                            },
+                            "example2": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 2.0
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "solid-translate-and-scale-cuboid",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translateAndScale",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        },
+                        "bounding": {
+                            "type": "cuboid",
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            },
+                            "width": {
+                                "axis": "y",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            }
+                        },
+                        "faces": {
+                            "left": {
+                                "dimensions": {
+                                    "width": {
+                                        "axis": "y",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 5.0
+                                    },
+                                    "height": {
+                                        "axis": "z",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 5.0
+                                    }
+                                },
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    }
+                                }
+                            },
+                            "right": {
+                                "dimensions": {
+                                    "width": {
+                                        "axis": "y",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 4.0
+                                    },
+                                    "height": {
+                                        "axis": "z",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 4.0
+                                    }
+                                },
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    }
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "shell-translate-and-scale-cuboid",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "shell",
+                            "type": {
+                                "name": "translateAndScale",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        },
+                        "bounding": {
+                            "type": "cuboid",
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            },
+                            "width": {
+                                "axis": "y",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            }
+                        },
+                        "faces": {
+                            "left": {
+                                "dimensions": {
+                                    "thickness": {
+                                        "axis": "yz",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 0.01
+                                    },
+                                    "width": {
+                                        "axis": "y",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 5.0
+                                    },
+                                    "height": {
+                                        "axis": "z",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 5.0
+                                    }
+                                },
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    }
+                                }
+                            },
+                            "right": {
+                                "dimensions": {
+                                    "thickness": {
+                                        "axis": "yz",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 0.01
+                                    },
+                                    "width": {
+                                        "axis": "y",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 4.0
+                                    },
+                                    "height": {
+                                        "axis": "z",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 4.0
+                                    }
+                                },
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    }
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "solid-translate-and-scale-cylinder",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translateAndScale",
+                                "type": {
+                                    "name": "cylinder"
+                                }
+                            }
+                        },
+                        "bounding": {
+                            "type": "cuboid",
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            },
+                            "width": {
+                                "axis": "y",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            }
+                        },
+                        "faces": {
+                            "left": {
+                                "dimensions": {
+                                    "radius": {
+                                        "axis": "yz",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 2.5
+                                    }
+                                },
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    }
+                                }
+                            },
+                            "right": {
+                                "dimensions": {
+                                    "radius": {
+                                        "axis": "yz",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 2.0
+                                    }
+                                },
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    }
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "shell-translate-and-scale-cylinder",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "shell",
+                            "type": {
+                                "name": "translateAndScale",
+                                "type": {
+                                    "name": "cylinder"
+                                }
+                            }
+                        },
+                        "bounding": {
+                            "type": "cuboid",
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            },
+                            "width": {
+                                "axis": "y",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            }
+                        },
+                        "faces": {
+                            "left": {
+                                "dimensions": {
+                                    "thickness": {
+                                        "axis": "yz",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 0.01
+                                    },
+                                    "radius": {
+                                        "axis": "yz",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 2.5
+                                    }
+                                },
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    }
+                                }
+                            },
+                            "right": {
+                                "dimensions": {
+                                    "thickness": {
+                                        "axis": "yz",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 0.01
+                                    },
+                                    "radius": {
+                                        "axis": "yz",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 2.0
+                                    }
+                                },
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    }
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "solid-translate-and-scale-aerofoil",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "wing"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translateAndScale",
+                                "type": {
+                                    "name": "aerofoil"
+                                }
+                            }
+                        },
+                        "bounding": {
+                            "type": "cuboid",
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            },
+                            "width": {
+                                "axis": "y",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            }
+                        },
+                        "faces": {
+                            "left": {
+                                "profile": {
+                                    "type": "naca-four-digit-series",
+                                    "value": "0000",
+                                    "dimensions": {
+                                        "chordLength": {
+                                            "axis": "y",
+                                            "source": "measured",
+                                            "unit": "m",
+                                            "value": 5.0
+                                        }
+                                    }
+                                },
+                                "dimensions": {},
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    }
+                                }
+                            },
+                            "right": {
+                                "profile": {
+                                    "type": "naca-four-digit-series",
+                                    "value": "0000",
+                                    "dimensions": {
+                                        "chordLength": {
+                                            "axis": "y",
+                                            "source": "measured",
+                                            "unit": "m",
+                                            "value": 5.0
+                                        }
+                                    }
+                                },
+                                "dimensions": {},
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    }
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "shell-translate-and-scale-aerofoil",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "wing"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "shell",
+                            "type": {
+                                "name": "translateAndScale",
+                                "type": {
+                                    "name": "aerofoil"
+                                }
+                            }
+                        },
+                        "bounding": {
+                            "type": "cuboid",
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            },
+                            "width": {
+                                "axis": "y",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            }
+                        },
+                        "faces": {
+                            "left": {
+                                "profile": {
+                                    "type": "naca-four-digit-series",
+                                    "value": "0000",
+                                    "dimensions": {
+                                        "chordLength": {
+                                            "axis": "y",
+                                            "source": "measured",
+                                            "unit": "m",
+                                            "value": 5.0
+                                        }
+                                    }
+                                },
+                                "dimensions": {
+                                    "thickness": {
+                                        "axis": "yz",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 0.01
+                                    }
+                                },
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    }
+                                }
+                            },
+                            "right": {
+                                "profile": {
+                                    "type": "naca-four-digit-series",
+                                    "value": "0000",
+                                    "dimensions": {
+                                        "chordLength": {
+                                            "axis": "y",
+                                            "source": "measured",
+                                            "unit": "m",
+                                            "value": 5.0
+                                        }
+                                    }
+                                },
+                                "dimensions": {
+                                    "thickness": {
+                                        "axis": "yz",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 0.01
+                                    }
+                                },
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    }
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "solid-translate-and-scale-compound-cuboid",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "aerofoil"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translateAndScale",
+                                "type": {
+                                    "name": "compound"
+                                }
+                            }
+                        },
+                        "bounding": {
+                            "type": "cuboid",
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            },
+                            "width": {
+                                "axis": "y",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            }
+                        },
+                        "faces": {
+                            "left": {
+                                "type": "cuboid",
+                                "dimensions": {
+                                    "width": {
+                                        "axis": "y",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 5.0
+                                    },
+                                    "height": {
+                                        "axis": "z",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 5.0
+                                    }
+                                },
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    }
+                                }
+                            },
+                            "right": {
+                                "type": "aerofoil",
+                                "profile": {
+                                    "type": "naca-four-digit-series",
+                                    "value": "0000",
+                                    "dimensions": {
+                                        "chordLength": {
+                                            "axis": "y",
+                                            "source": "measured",
+                                            "unit": "m",
+                                            "value": 5.0
+                                        }
+                                    }
+                                },
+                                "dimensions": {},
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    }
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "shell-translate-and-scale-compound-cuboid",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "aerofoil"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "shell",
+                            "type": {
+                                "name": "translateAndScale",
+                                "type": {
+                                    "name": "compound"
+                                }
+                            }
+                        },
+                        "bounding": {
+                            "type": "cuboid",
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            },
+                            "width": {
+                                "axis": "y",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            }
+                        },
+                        "faces": {
+                            "left": {
+                                "type": "cuboid",
+                                "dimensions": {
+                                    "thickness": {
+                                        "axis": "yz",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 0.01
+                                    },
+                                    "width": {
+                                        "axis": "y",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 5.0
+                                    },
+                                    "height": {
+                                        "axis": "z",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 5.0
+                                    }
+                                },
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    }
+                                }
+                            },
+                            "right": {
+                                "type": "aerofoil",
+                                "profile": {
+                                    "type": "naca-four-digit-series",
+                                    "value": "0000",
+                                    "dimensions": {
+                                        "chordLength": {
+                                            "axis": "y",
+                                            "source": "measured",
+                                            "unit": "m",
+                                            "value": 5.0
+                                        }
+                                    }
+                                },
+                                "dimensions": {
+                                    "thickness": {
+                                        "axis": "yz",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 0.01
+                                    }
+                                },
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    }
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "solid-translate-and-scale-compound-cylinder",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "aerofoil"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translateAndScale",
+                                "type": {
+                                    "name": "compound"
+                                }
+                            }
+                        },
+                        "bounding": {
+                            "type": "cuboid",
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            },
+                            "width": {
+                                "axis": "y",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            }
+                        },
+                        "faces": {
+                            "left": {
+                                "type": "cylinder",
+                                "dimensions": {
+                                    "radius": {
+                                        "axis": "yz",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 2.5
+                                    }
+                                },
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    }
+                                }
+                            },
+                            "right": {
+                                "type": "aerofoil",
+                                "profile": {
+                                    "type": "naca-four-digit-series",
+                                    "value": "0000",
+                                    "dimensions": {
+                                        "chordLength": {
+                                            "axis": "y",
+                                            "source": "measured",
+                                            "unit": "m",
+                                            "value": 4.0
+                                        }
+                                    }
+                                },
+                                "dimensions": {},
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    }
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "shell-translate-and-scale-compound-cylinder",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "aerofoil"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "shell",
+                            "type": {
+                                "name": "translateAndScale",
+                                "type": {
+                                    "name": "compound"
+                                }
+                            }
+                        },
+                        "bounding": {
+                            "type": "cuboid",
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            },
+                            "width": {
+                                "axis": "y",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            }
+                        },
+                        "faces": {
+                            "left": {
+                                "type": "cylinder",
+                                "dimensions": {
+                                    "thickness": {
+                                        "axis": "yz",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 0.01
+                                    },
+                                    "radius": {
+                                        "axis": "yz",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 2.5
+                                    }
+                                },
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    }
+                                }
+                            },
+                            "right": {
+                                "type": "aerofoil",
+                                "profile": {
+                                    "type": "naca-four-digit-series",
+                                    "value": "0000",
+                                    "dimensions": {
+                                        "chordLength": {
+                                            "axis": "y",
+                                            "source": "measured",
+                                            "unit": "m",
+                                            "value": 4.0
+                                        }
+                                    }
+                                },
+                                "dimensions": {
+                                    "thickness": {
+                                        "axis": "yz",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 0.01
+                                    }
+                                },
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    }
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "solid-translate-and-scale-compound-other",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "aerofoil"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translateAndScale",
+                                "type": {
+                                    "name": "compound"
+                                }
+                            }
+                        },
+                        "bounding": {
+                            "type": "cuboid",
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            },
+                            "width": {
+                                "axis": "y",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            }
+                        },
+                        "faces": {
+                            "left": {
+                                "type": "other",
+                                "dimensions": {
+                                    "example": {
+                                        "axis": "y",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 5.0
+                                    }
+                                },
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    }
+                                }
+                            },
+                            "right": {
+                                "type": "aerofoil",
+                                "profile": {
+                                    "type": "naca-four-digit-series",
+                                    "value": "0000",
+                                    "dimensions": {
+                                        "chordLength": {
+                                            "axis": "y",
+                                            "source": "measured",
+                                            "unit": "m",
+                                            "value": 4.0
+                                        }
+                                    }
+                                },
+                                "dimensions": {},
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    }
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "shell-translate-and-scale-compound-other",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "aerofoil"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "shell",
+                            "type": {
+                                "name": "translateAndScale",
+                                "type": {
+                                    "name": "compound"
+                                }
+                            }
+                        },
+                        "bounding": {
+                            "type": "cuboid",
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            },
+                            "width": {
+                                "axis": "y",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            }
+                        },
+                        "faces": {
+                            "left": {
+                                "type": "other",
+                                "dimensions": {
+                                    "thickness": {
+                                        "axis": "yz",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 0.01
+                                    },
+                                    "example": {
+                                        "axis": "y",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 5.0
+                                    }
+                                },
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    }
+                                }
+                            },
+                            "right": {
+                                "type": "aerofoil",
+                                "profile": {
+                                    "type": "naca-four-digit-series",
+                                    "value": "0000",
+                                    "dimensions": {
+                                        "chordLength": {
+                                            "axis": "y",
+                                            "source": "measured",
+                                            "unit": "m",
+                                            "value": 4.0
+                                        }
+                                    }
+                                },
+                                "dimensions": {
+                                    "thickness": {
+                                        "axis": "yz",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 0.01
+                                    }
+                                },
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    }
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "solid-translate-and-scale-other",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translateAndScale",
+                                "type": {
+                                    "name": "other"
+                                }
+                            }
+                        },
+                        "bounding": {
+                            "type": "cuboid",
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            },
+                            "width": {
+                                "axis": "y",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            }
+                        },
+                        "faces": {
+                            "left": {
+                                "dimensions": {
+                                    "example1": {
+                                        "axis": "yz",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 5.0
+                                    },
+                                    "example2": {
+                                        "axis": "y",
+                                        "source": "measured",
+                                        "unit": "degrees",
+                                        "value": 90
+                                    }
+                                },
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    }
+                                }
+                            },
+                            "right": {
+                                "dimensions": {
+                                    "example1": {
+                                        "axis": "yz",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 4.0
+                                    },
+                                    "example2": {
+                                        "axis": "y",
+                                        "source": "measured",
+                                        "unit": "degrees",
+                                        "value": 180
+                                    }
+                                },
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    }
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                },
+                {
+                    "name": "shell-translate-and-scale-other",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "shell",
+                            "type": {
+                                "name": "translateAndScale",
+                                "type": {
+                                    "name": "other"
+                                }
+                            }
+                        },
+                        "bounding": {
+                            "type": "cuboid",
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            },
+                            "width": {
+                                "axis": "y",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 5.0
+                            }
+                        },
+                        "faces": {
+                            "left": {
+                                "dimensions": {
+                                    "thickness": {
+                                        "axis": "yz",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 0.01
+                                    },
+                                    "example1": {
+                                        "axis": "yz",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 5.0
+                                    },
+                                    "example2": {
+                                        "axis": "y",
+                                        "source": "measured",
+                                        "unit": "degrees",
+                                        "value": 90
+                                    }
+                                },
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.0
+                                    }
+                                }
+                            },
+                            "right": {
+                                "dimensions": {
+                                    "thickness": {
+                                        "axis": "yz",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 0.01
+                                    },
+                                    "example1": {
+                                        "axis": "yz",
+                                        "source": "measured",
+                                        "unit": "m",
+                                        "value": 4.0
+                                    },
+                                    "example2": {
+                                        "axis": "y",
+                                        "source": "measured",
+                                        "unit": "degrees",
+                                        "value": 180
+                                    }
+                                },
+                                "translational": {
+                                    "y": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    },
+                                    "z": {
+                                        "unit": "m",
+                                        "value": 0.5
+                                    }
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "m",
+                                "value": 10.0
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
