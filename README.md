@@ -9,7 +9,7 @@ A structure object must contain the [properties](#structure-properties) required
 ### [Structure Properties](#structure-properties)
 |Property|Description|Type|
 |---|-----|---|
-|`version`|Version of the PBSHM Schema that the document is compliant against. Accepted values: `1.0`, `1.0.1`, `1.1.0`, `1.1.1`, `1.2.1`, `1.3.0`, `1.4.0`|`string`|
+|`version`|Version of the PBSHM Schema that the document is compliant against. Accepted values: `1.0`, `1.0.1`, `1.1.0`, `1.1.1`, `1.2.1`, `1.3.0`, `1.3.1`, `1.4.0`|`string`|
 |`name`|Name of the structure, must be unique within the population (length greater than 1 character)|`string`|
 |`population`|Name of the population that the structure is part of, must be unique within the PBSHM database (length between 1 and 64 characters)|`string`|
 
