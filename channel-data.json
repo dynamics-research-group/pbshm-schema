@@ -52,10 +52,9 @@
                                 },
                                 {
                                     "bsonType": "object",
-                                    "additionalProperties": false,
                                     "minProperties": 1,
-                                    "properties": {
-                                        "min": {
+                                    "patternProperties": {
+                                        "^(min|max|mean|std)$": {
                                             "oneOf": [
                                                 {
                                                     "bsonType": "int"
@@ -63,47 +62,10 @@
                                                 {
                                                     "bsonType": "double"
                                                 }
-                                            ],
-                                            "title": "minimum value",
-                                            "description": "minimum channel value over the observed time period"
-                                        },
-                                        "max": {
-                                            "oneOf": [
-                                                {
-                                                    "bsonType": "int"
-                                                },
-                                                {
-                                                    "bsonType": "double"
-                                                }
-                                            ],
-                                            "title": "maximum value",
-                                            "description": "maximum channel value over the observed time period"
-                                        },
-                                        "mean": {
-                                            "oneOf": [
-                                                {
-                                                    "bsonType": "int"
-                                                },
-                                                {
-                                                    "bsonType": "double"
-                                                }
-                                            ],
-                                            "title": "mean value",
-                                            "description": "mean channel value over the observed time period"
-                                        },
-                                        "std": {
-                                            "oneOf": [
-                                                {
-                                                    "bsonType": "int"
-                                                },
-                                                {
-                                                    "bsonType": "double"
-                                                }
-                                            ],
-                                            "title": "standard deviation value",
-                                            "description": "standard deviation channel value over the observed time period"
+                                            ]
                                         }
-                                    }
+                                    },
+                                    "additionalProperties": false
                                 }
                             ]
                         }
