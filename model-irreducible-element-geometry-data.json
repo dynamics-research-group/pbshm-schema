@@ -106,32 +106,14 @@
                         "y",
                         "z"
                     ],
-                    "properties": {
-                        "y": {
+                    "patternProperties": {
+                        "^(y|z)$": {
                             "allOf": [
                                 {
                                     "$ref": "model-irreducible-element-data.json#/definitions/axis"
                                 },
                                 {
                                     "$ref": "model-irreducible-element-data.json#/definitions/linear"
-                                },
-                                {
-                                    "title": "y",
-                                    "description": "the y translation value within the coordinate space"
-                                }
-                            ]
-                        },
-                        "z": {
-                            "allOf": [
-                                {
-                                    "$ref": "model-irreducible-element-data.json#/definitions/axis"
-                                },
-                                {
-                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
-                                },
-                                {
-                                    "title": "z",
-                                    "description": "the z translation value within the coordinate space"
                                 }
                             ]
                         }
