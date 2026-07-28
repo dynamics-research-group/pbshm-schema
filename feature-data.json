@@ -172,41 +172,35 @@
                                     "$ref": "#/definitions/number"
                                 },
                                 {
-                                    "allOf": [
+                                    "properties": {
+                                        "vector": {
+                                            "items": {
+                                                "$ref": "#/definitions/number"
+                                            }
+                                        }
+                                    },
+                                    "oneOf": [
                                         {
-                                            "oneOf": [
+                                            "allOf": [
                                                 {
-                                                    "allOf": [
-                                                        {
-                                                            "$ref": "#/definitions/vector"
-                                                        },
-                                                        {
-                                                            "title": "numberical vector",
-                                                            "description": "a vector of numberical values"
-                                                        }
-                                                    ]
+                                                    "$ref": "#/definitions/vector"
                                                 },
                                                 {
-                                                    "allOf": [
-                                                        {
-                                                            "$ref": "#/definitions/matrix"
-                                                        },
-                                                        {
-                                                            "title": "numberical matrix",
-                                                            "description": "a matrix of numberical values"
-                                                        }
-                                                    ]
+                                                    "title": "numberical vector",
+                                                    "description": "a vector of numberical values"
                                                 }
                                             ]
                                         },
                                         {
-                                            "properties": {
-                                                "vector": {
-                                                    "items": {
-                                                        "$ref": "#/definitions/number"
-                                                    }
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#/definitions/matrix"
+                                                },
+                                                {
+                                                    "title": "numberical matrix",
+                                                    "description": "a matrix of numberical values"
                                                 }
-                                            }
+                                            ]
                                         }
                                     ]
                                 }
