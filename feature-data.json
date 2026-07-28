@@ -655,7 +655,7 @@
                                                         "properties": {
                                                             "translational": {
                                                                 "patternProperties": {
-                                                                    "^x|y|z$": {
+                                                                    "^(x|y|z)$": {
                                                                         "allOf": [
                                                                             {
                                                                                 "$ref": "#/definitions/vector"
@@ -686,7 +686,7 @@
                                             },
                                             {
                                                 "patternProperties": {
-                                                    "^x|y|z$": {
+                                                    "^(x|y|z)$": {
                                                         "allOf": [
                                                             {
                                                                 "$ref": "#/definitions/vector"
@@ -884,7 +884,7 @@
                                                                         "properties": {
                                                                             "translational": {
                                                                                 "patternProperties": {
-                                                                                    "^x|y|z$": {
+                                                                                    "^(x|y|z)$": {
                                                                                         "$ref": "#/definitions/real"
                                                                                     }
                                                                                 }
@@ -996,7 +996,7 @@
                                                                         "properties": {
                                                                             "translational": {
                                                                                 "patternProperties": {
-                                                                                    "^x|y|z$": {
+                                                                                    "^(x|y|z)$": {
                                                                                         "allOf": [
                                                                                             {
                                                                                                 "$ref": "#/definitions/vector"
@@ -1035,7 +1035,7 @@
                                                                     }
                                                                 },
                                                                 "patternProperties": {
-                                                                    "^x|y|z$": {
+                                                                    "^(x|y|z)$": {
                                                                         "allOf": [
                                                                             {
                                                                                 "$ref": "#/definitions/vector"
