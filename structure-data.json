@@ -7,7 +7,8 @@
     "required": [
         "version",
         "name",
-        "population"
+        "population",
+        "health"
     ],
     "properties": {
         "version": {
@@ -15,7 +16,7 @@
             "title": "version number",
             "description": "the version of the schema that the document is compliant to",
             "enum": [
-                "1.4.0"
+                "1.4.1"
             ]
         },
         "name": {
@@ -30,6 +31,50 @@
             "description": "the unique name of the population of structures",
             "minLength": 8,
             "maxLength": 64
+        },
+        "health": {
+            "bsonType": "object",
+            "title": "health state",
+            "description": "the health state the data belongs to",
+            "required": [
+                "state"
+            ],
+            "properties": {
+                "state": {
+                    "bsonType": "int",
+                    "title": "state number",
+                    "description": "the health state number"
+                }
+            },
+            "oneOf": [
+                {
+                    "properties": {
+                        "state": {
+                            "minimum": -1,
+                            "maximum": 0
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                {
+                    "required": [
+                        "description"
+                    ],
+                    "properties": {
+                        "state": {
+                            "minimum": 1,
+                            "maximum": 99
+                        },
+                        "description": {
+                            "bsonType": "string",
+                            "title": "state description",
+                            "description": "the description of the health state",
+                            "minLength": 1
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            ]
         }
     },
     "minProperties": 5,
@@ -172,7 +217,7 @@
                                                             }
                                                         ]
                                                     },
-                                                    "minItems":1
+                                                    "minItems": 1
                                                 }
                                             ]
                                         },
