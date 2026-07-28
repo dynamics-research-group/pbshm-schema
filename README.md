@@ -12,6 +12,13 @@ A structure object must contain the [properties](#structure-properties) required
 |`version`|Version of the PBSHM Schema that the document is compliant against. Accepted values: `1.0`, `1.0.1`, `1.1.0`, `1.1.1`, `1.2.1`, `1.3.0`, `1.3.1`, `1.4.0`|`string`|
 |`name`|Name of the structure, must be unique within the population (length greater than 1 character)|`string`|
 |`population`|Name of the population that the structure is part of, must be unique within the PBSHM database (length between 1 and 64 characters)|`string`|
+|`health`|Health state information that the data within the document belongs to|`object` - [health](#health)|
+
+#### [Health](#health)
+|Property|Description|Type|
+|---|-----|---|
+|`state`|Numerical health state: -1 is `unknown`, 0 is `healthy`, 1+ is `damaged`|`int`|
+|`description`|Description of the damage state (`state` with a value 1+)|`string`|
 
 
 ## [Knowledge Areas](#knowledge-areas)
