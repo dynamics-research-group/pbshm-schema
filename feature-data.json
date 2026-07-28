@@ -261,18 +261,6 @@
                     "bsonType": "string",
                     "title": "unit",
                     "description": "the unit the spatial values are based within"
-                },
-                "x": {
-                    "title": "x value",
-                    "description": "the x value in the spatial object"
-                },
-                "y": {
-                    "title": "y value",
-                    "description": "the y value in the spatial object"
-                },
-                "z": {
-                    "title": "z value",
-                    "description": "the z value in the spatial object"
                 }
             },
             "additionalProperties": false
