@@ -549,291 +549,409 @@
     "title": "feature data array",
     "description": "this is the array of feature data for this structure at the given selection",
     "items": {
-        "allOf": [
-            {
+        "bsonType": "object",
+        "required": [
+            "name",
+            "type"
+        ],
+        "properties": {
+            "name": {
+                "bsonType": "string",
+                "title": "feature name",
+                "description": "the unique feature name within the structure",
+                "minLength": 1,
+                "maxLength": 64
+            },
+            "type": {
                 "bsonType": "object",
+                "title": "feature type",
+                "description": "the feature type",
                 "required": [
-                    "name",
-                    "type"
+                    "name"
                 ],
                 "properties": {
                     "name": {
                         "bsonType": "string",
-                        "title": "feature name",
-                        "description": "the unique feature name within the structure",
+                        "title": "root feature type name",
+                        "description": "the name of the root type feature",
                         "minLength": 1,
                         "maxLength": 64
-                    },
-                    "type": {
-                        "bsonType": "object",
-                        "title": "feature type",
-                        "description": "the feature type",
-                        "required": [
-                            "name"
-                        ],
-                        "properties": {
-                            "name": {
-                                "bsonType": "string",
-                                "title": "root feature type name",
-                                "description": "the name of the root type feature",
-                                "minLength": 1,
-                                "maxLength": 64
-                            }
-                        }
                     }
                 }
-            },
+            }
+        },
+        "oneOf": [
             {
-                "oneOf": [
-                    {
-                        "title": "eigen mode feature",
-                        "description": "eigen mode feature object",
+                "title": "eigen mode feature",
+                "description": "eigen mode feature object",
+                "required": [
+                    "variant",
+                    "naturalFrequency",
+                    "modeShape"
+                ],
+                "properties": {
+                    "type": {
+                        "properties": {
+                            "name": {
+                                "enum": [
+                                    "eigenMode"
+                                ]
+                            }
+                        }
+                    },
+                    "variant": {
+                        "bsonType": "string",
+                        "title": "eigen mode variant",
+                        "description": "variant of eigen mode",
+                        "enum": [
+                            "acceleration",
+                            "velocity",
+                            "displacement",
+                            "strain",
+                            "rotation"
+                        ]
+                    },
+                    "naturalFrequency": {
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/unitValue"
+                            },
+                            {
+                                "$ref": "#/definitions/hzUnits"
+                            },
+                            {
+                                "title": "natural frequency",
+                                "description": "the natural frequency of the eigen mode",
+                                "properties": {
+                                    "value": {
+                                        "$ref": "#/definitions/real"
+                                    }
+                                },
+                                "additionalProperties": false
+                            }
+                        ]
+                    },
+                    "modeShape": {
+                        "bsonType": "object",
+                        "title": "mode shape",
+                        "description": "the mode shape of the eigen mode",
                         "required": [
-                            "variant",
-                            "naturalFrequency",
-                            "modeShape"
+                            "coordinates",
+                            "values"
                         ],
                         "properties": {
-                            "type": {
-                                "properties": {
-                                    "name": {
-                                        "enum": [
-                                            "eigenMode"
-                                        ]
-                                    }
-                                }
-                            },
-                            "variant": {
-                                "bsonType": "string",
-                                "title": "eigen mode variant",
-                                "description": "variant of eigen mode",
-                                "enum": [
-                                    "acceleration",
-                                    "velocity",
-                                    "displacement",
-                                    "strain",
-                                    "rotation"
-                                ]
-                            },
-                            "naturalFrequency": {
+                            "coordinates": {
                                 "allOf": [
                                     {
-                                        "$ref": "#/definitions/unitValue"
+                                        "$ref": "#/definitions/coordinates"
                                     },
                                     {
-                                        "$ref": "#/definitions/hzUnits"
-                                    },
-                                    {
-                                        "title": "natural frequency",
-                                        "description": "the natural frequency of the eigen mode",
                                         "properties": {
-                                            "value": {
-                                                "$ref": "#/definitions/real"
-                                            }
-                                        },
-                                        "additionalProperties": false
-                                    }
-                                ]
-                            },
-                            "modeShape": {
-                                "bsonType": "object",
-                                "title": "mode shape",
-                                "description": "the mode shape of the eigen mode",
-                                "required": [
-                                    "coordinates",
-                                    "values"
-                                ],
-                                "properties": {
-                                    "coordinates": {
-                                        "allOf": [
-                                            {
-                                                "$ref": "#/definitions/coordinates"
-                                            },
-                                            {
+                                            "global": {
                                                 "properties": {
-                                                    "global": {
-                                                        "properties": {
-                                                            "translational": {
-                                                                "patternProperties": {
-                                                                    "^(x|y|z)$": {
-                                                                        "allOf": [
-                                                                            {
-                                                                                "$ref": "#/definitions/vector"
-                                                                            },
-                                                                            {
-                                                                                "properties": {
-                                                                                    "vector": {
-                                                                                        "items": {
-                                                                                            "$ref": "#/definitions/real"
-                                                                                        }
-                                                                                    }
+                                                    "translational": {
+                                                        "patternProperties": {
+                                                            "^(x|y|z)$": {
+                                                                "allOf": [
+                                                                    {
+                                                                        "$ref": "#/definitions/vector"
+                                                                    },
+                                                                    {
+                                                                        "properties": {
+                                                                            "vector": {
+                                                                                "items": {
+                                                                                    "$ref": "#/definitions/real"
                                                                                 }
                                                                             }
-                                                                        ]
+                                                                        }
                                                                     }
-                                                                }
+                                                                ]
                                                             }
                                                         }
                                                     }
                                                 }
                                             }
-                                        ]
-                                    },
-                                    "values": {
-                                        "allOf": [
-                                            {
-                                                "$ref": "#/definitions/spatial"
-                                            },
-                                            {
-                                                "patternProperties": {
-                                                    "^(x|y|z)$": {
-                                                        "allOf": [
-                                                            {
-                                                                "$ref": "#/definitions/vector"
-                                                            },
-                                                            {
-                                                                "properties": {
-                                                                    "vector": {
-                                                                        "items": {
-                                                                            "$ref": "#/definitions/complex"
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        ]
-                                                    }
-                                                }
-                                            }
-                                        ]
+                                        }
                                     }
-                                },
-                                "additionalProperties": false
+                                ]
                             },
-                            "dampingRatio": {
+                            "values": {
                                 "allOf": [
                                     {
-                                        "$ref": "#/definitions/real"
+                                        "$ref": "#/definitions/spatial"
                                     },
                                     {
-                                        "title": "damping ratio",
-                                        "description": "the damping ratio of the eigen mode",
-                                        "minimum": -1,
-                                        "maximum": 1
+                                        "patternProperties": {
+                                            "^(x|y|z)$": {
+                                                "allOf": [
+                                                    {
+                                                        "$ref": "#/definitions/vector"
+                                                    },
+                                                    {
+                                                        "properties": {
+                                                            "vector": {
+                                                                "items": {
+                                                                    "$ref": "#/definitions/complex"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
                                     }
                                 ]
                             }
                         },
-                        "maxProperties": 6
+                        "additionalProperties": false
                     },
-                    {
-                        "title": "abstract feature",
-                        "description": "abstract feature object",
+                    "dampingRatio": {
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/real"
+                            },
+                            {
+                                "title": "damping ratio",
+                                "description": "the damping ratio of the eigen mode",
+                                "minimum": -1,
+                                "maximum": 1
+                            }
+                        ]
+                    }
+                },
+                "maxProperties": 6
+            },
+            {
+                "title": "abstract feature",
+                "description": "abstract feature object",
+                "properties": {
+                    "type": {
                         "properties": {
-                            "type": {
+                            "name": {
+                                "enum": [
+                                    "abstract"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "patternProperties": {
+                    "^(?!^(name|type)$).*$": {
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/numberUnitValue"
+                            },
+                            {
                                 "properties": {
-                                    "name": {
-                                        "enum": [
-                                            "abstract"
-                                        ]
+                                    "unit": {
+                                        "$ref": "#/definitions/allUnits"
                                     }
                                 }
                             }
-                        },
-                        "patternProperties": {
-                            "^(?!^(name|type)$).*$": {
+                        ]
+                    }
+                },
+                "additionalProperties": true,
+                "minProperties": 3
+            },
+            {
+                "allOf": [
+                    {
+                        "properties": {
+                            "type": {
+                                "required": [
+                                    "type"
+                                ],
+                                "properties": {
+                                    "type": {
+                                        "bsonType": "object",
+                                        "title": "secondary feature type",
+                                        "description": "the second level feature type",
+                                        "required": [
+                                            "name"
+                                        ],
+                                        "properties": {
+                                            "name": {
+                                                "bsonType": "string",
+                                                "title": "second feature type name",
+                                                "description": "the name of the second type feature",
+                                                "minLength": 1,
+                                                "maxLength": 64
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "oneOf": [
+                            {
                                 "allOf": [
                                     {
                                         "$ref": "#/definitions/numberUnitValue"
                                     },
                                     {
+                                        "title": "statistical feature",
+                                        "description": "statistical feature object",
                                         "properties": {
+                                            "type": {
+                                                "properties": {
+                                                    "name": {
+                                                        "enum": [
+                                                            "statistical"
+                                                        ]
+                                                    },
+                                                    "type": {
+                                                        "properties": {
+                                                            "name": {
+                                                                "enum": [
+                                                                    "mean",
+                                                                    "variance",
+                                                                    "skewness",
+                                                                    "kurtosis",
+                                                                    "other"
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
                                             "unit": {
                                                 "$ref": "#/definitions/allUnits"
                                             }
                                         }
                                     }
                                 ]
-                            }
-                        },
-                        "additionalProperties": true,
-                        "minProperties": 3
-                    },
-                    {
-                        "allOf": [
+                            },
                             {
+                                "title": "spectra feature",
+                                "description": "spectra feature object",
+                                "required": [
+                                    "sensor",
+                                    "frequency",
+                                    "values"
+                                ],
                                 "properties": {
                                     "type": {
-                                        "required": [
-                                            "type"
-                                        ],
                                         "properties": {
+                                            "name": {
+                                                "enum": [
+                                                    "spectra"
+                                                ]
+                                            },
                                             "type": {
-                                                "bsonType": "object",
-                                                "title": "secondary feature type",
-                                                "description": "the second level feature type",
-                                                "required": [
-                                                    "name"
-                                                ],
                                                 "properties": {
                                                     "name": {
-                                                        "bsonType": "string",
-                                                        "title": "second feature type name",
-                                                        "description": "the name of the second type feature",
-                                                        "minLength": 1,
-                                                        "maxLength": 64
+                                                        "enum": [
+                                                            "transmissibility",
+                                                            "frequencyResponseFunction",
+                                                            "coherence"
+                                                        ]
                                                     }
                                                 }
                                             }
                                         }
-                                    }
-                                }
-                            },
-                            {
-                                "oneOf": [
-                                    {
-                                        "allOf": [
-                                            {
-                                                "$ref": "#/definitions/numberUnitValue"
+                                    },
+                                    "sensor": {
+                                        "bsonType": "object",
+                                        "title": "sensor object",
+                                        "description": "details of the sensor used",
+                                        "required": [
+                                            "name",
+                                            "coordinates"
+                                        ],
+                                        "properties": {
+                                            "name": {
+                                                "bsonType": "string",
+                                                "title": "sensor name",
+                                                "description": "the unique name of the sensor used",
+                                                "minLength": 1,
+                                                "maxLength": 64
                                             },
-                                            {
-                                                "title": "statistical feature",
-                                                "description": "statistical feature object",
-                                                "properties": {
-                                                    "type": {
+                                            "coordinates": {
+                                                "allOf": [
+                                                    {
+                                                        "$ref": "#/definitions/coordinates"
+                                                    },
+                                                    {
                                                         "properties": {
-                                                            "name": {
-                                                                "enum": [
-                                                                    "statistical"
-                                                                ]
-                                                            },
-                                                            "type": {
+                                                            "global": {
                                                                 "properties": {
-                                                                    "name": {
-                                                                        "enum": [
-                                                                            "mean",
-                                                                            "variance",
-                                                                            "skewness",
-                                                                            "kurtosis",
-                                                                            "other"
-                                                                        ]
+                                                                    "translational": {
+                                                                        "patternProperties": {
+                                                                            "^(x|y|z)$": {
+                                                                                "$ref": "#/definitions/real"
+                                                                            }
+                                                                        }
                                                                     }
                                                                 }
                                                             }
                                                         }
-                                                    },
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    },
+                                    "frequency": {
+                                        "allOf": [
+                                            {
+                                                "$ref": "#/definitions/vectorUnitValue"
+                                            },
+                                            {
+                                                "$ref": "#/definitions/hzUnits"
+                                            },
+                                            {
+                                                "properties": {
+                                                    "value": {
+                                                        "properties": {
+                                                            "vector": {
+                                                                "items": {
+                                                                    "$ref": "#/definitions/real"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            }
+                                        ]
+                                    },
+                                    "values": {
+                                        "allOf": [
+                                            {
+                                                "$ref": "#/definitions/vectorUnitValue"
+                                            },
+                                            {
+                                                "properties": {
                                                     "unit": {
                                                         "$ref": "#/definitions/allUnits"
+                                                    },
+                                                    "value": {
+                                                        "properties": {
+                                                            "vector": {
+                                                                "items": {
+                                                                    "$ref": "#/definitions/number"
+                                                                }
+                                                            }
+                                                        }
                                                     }
                                                 }
                                             }
                                         ]
-                                    },
+                                    }
+                                },
+                                "maxProperties": 5
+                            },
+                            {
+                                "allOf": [
                                     {
-                                        "title": "spectra feature",
-                                        "description": "spectra feature object",
+                                        "title": "spatial feature",
+                                        "description": "spatial feature object",
                                         "required": [
-                                            "sensor",
-                                            "frequency",
+                                            "variant",
+                                            "coordinates",
                                             "values"
                                         ],
                                         "properties": {
@@ -841,253 +959,129 @@
                                                 "properties": {
                                                     "name": {
                                                         "enum": [
-                                                            "spectra"
+                                                            "spatial"
                                                         ]
                                                     },
                                                     "type": {
                                                         "properties": {
                                                             "name": {
                                                                 "enum": [
-                                                                    "transmissibility",
-                                                                    "frequencyResponseFunction",
-                                                                    "coherence"
+                                                                    "displacement",
+                                                                    "strain",
+                                                                    "reaction",
+                                                                    "influence"
                                                                 ]
                                                             }
                                                         }
                                                     }
                                                 }
                                             },
-                                            "sensor": {
-                                                "bsonType": "object",
-                                                "title": "sensor object",
-                                                "description": "details of the sensor used",
-                                                "required": [
-                                                    "name",
-                                                    "coordinates"
-                                                ],
-                                                "properties": {
-                                                    "name": {
-                                                        "bsonType": "string",
-                                                        "title": "sensor name",
-                                                        "description": "the unique name of the sensor used",
-                                                        "minLength": 1,
-                                                        "maxLength": 64
+                                            "variant": {
+                                                "bsonType": "string",
+                                                "title": "spatial variant",
+                                                "description": "variant of the spatial feature"
+                                            },
+                                            "coordinates": {
+                                                "allOf": [
+                                                    {
+                                                        "$ref": "#/definitions/coordinates"
                                                     },
-                                                    "coordinates": {
-                                                        "allOf": [
-                                                            {
-                                                                "$ref": "#/definitions/coordinates"
-                                                            },
-                                                            {
+                                                    {
+                                                        "properties": {
+                                                            "global": {
                                                                 "properties": {
-                                                                    "global": {
-                                                                        "properties": {
-                                                                            "translational": {
-                                                                                "patternProperties": {
-                                                                                    "^(x|y|z)$": {
-                                                                                        "$ref": "#/definitions/real"
+                                                                    "translational": {
+                                                                        "patternProperties": {
+                                                                            "^(x|y|z)$": {
+                                                                                "allOf": [
+                                                                                    {
+                                                                                        "$ref": "#/definitions/vector"
+                                                                                    },
+                                                                                    {
+                                                                                        "properties": {
+                                                                                            "vector": {
+                                                                                                "items": {
+                                                                                                    "$ref": "#/definitions/real"
+                                                                                                }
+                                                                                            }
+                                                                                        }
                                                                                     }
-                                                                                }
+                                                                                ]
                                                                             }
                                                                         }
                                                                     }
                                                                 }
                                                             }
-                                                        ]
-                                                    }
-                                                },
-                                                "additionalProperties": false
-                                            },
-                                            "frequency": {
-                                                "allOf": [
-                                                    {
-                                                        "$ref": "#/definitions/vectorUnitValue"
-                                                    },
-                                                    {
-                                                        "$ref": "#/definitions/hzUnits"
-                                                    },
-                                                    {
-                                                        "properties": {
-                                                            "value": {
-                                                                "properties": {
-                                                                    "vector": {
-                                                                        "items": {
-                                                                            "$ref": "#/definitions/real"
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        },
-                                                        "additionalProperties": false
+                                                        }
                                                     }
                                                 ]
                                             },
                                             "values": {
                                                 "allOf": [
                                                     {
-                                                        "$ref": "#/definitions/vectorUnitValue"
+                                                        "$ref": "#/definitions/spatial"
                                                     },
                                                     {
+                                                        "required": [
+                                                            "unit"
+                                                        ],
                                                         "properties": {
                                                             "unit": {
                                                                 "$ref": "#/definitions/allUnits"
-                                                            },
-                                                            "value": {
-                                                                "properties": {
-                                                                    "vector": {
-                                                                        "items": {
-                                                                            "$ref": "#/definitions/number"
+                                                            }
+                                                        },
+                                                        "patternProperties": {
+                                                            "^(x|y|z)$": {
+                                                                "allOf": [
+                                                                    {
+                                                                        "$ref": "#/definitions/vector"
+                                                                    },
+                                                                    {
+                                                                        "properties": {
+                                                                            "vector": {
+                                                                                "items": {
+                                                                                    "$ref": "#/definitions/number"
+                                                                                }
+                                                                            }
                                                                         }
                                                                     }
-                                                                }
+                                                                ]
                                                             }
                                                         }
                                                     }
                                                 ]
                                             }
-                                        },
-                                        "maxProperties": 5
+                                        }
                                     },
                                     {
-                                        "allOf": [
+                                        "oneOf": [
                                             {
-                                                "title": "spatial feature",
-                                                "description": "spatial feature object",
-                                                "required": [
-                                                    "variant",
-                                                    "coordinates",
-                                                    "values"
-                                                ],
                                                 "properties": {
-                                                    "type": {
-                                                        "properties": {
-                                                            "name": {
-                                                                "enum": [
-                                                                    "spatial"
-                                                                ]
-                                                            },
-                                                            "type": {
-                                                                "properties": {
-                                                                    "name": {
-                                                                        "enum": [
-                                                                            "displacement",
-                                                                            "strain",
-                                                                            "reaction",
-                                                                            "influence"
-                                                                        ]
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    },
                                                     "variant": {
-                                                        "bsonType": "string",
-                                                        "title": "spatial variant",
-                                                        "description": "variant of the spatial feature"
-                                                    },
-                                                    "coordinates": {
-                                                        "allOf": [
-                                                            {
-                                                                "$ref": "#/definitions/coordinates"
-                                                            },
-                                                            {
-                                                                "properties": {
-                                                                    "global": {
-                                                                        "properties": {
-                                                                            "translational": {
-                                                                                "patternProperties": {
-                                                                                    "^(x|y|z)$": {
-                                                                                        "allOf": [
-                                                                                            {
-                                                                                                "$ref": "#/definitions/vector"
-                                                                                            },
-                                                                                            {
-                                                                                                "properties": {
-                                                                                                    "vector": {
-                                                                                                        "items": {
-                                                                                                            "$ref": "#/definitions/real"
-                                                                                                        }
-                                                                                                    }
-                                                                                                }
-                                                                                            }
-                                                                                        ]
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
-                                                    "values": {
-                                                        "allOf": [
-                                                            {
-                                                                "$ref": "#/definitions/spatial"
-                                                            },
-                                                            {
-                                                                "required": [
-                                                                    "unit"
-                                                                ],
-                                                                "properties": {
-                                                                    "unit": {
-                                                                        "$ref": "#/definitions/allUnits"
-                                                                    }
-                                                                },
-                                                                "patternProperties": {
-                                                                    "^(x|y|z)$": {
-                                                                        "allOf": [
-                                                                            {
-                                                                                "$ref": "#/definitions/vector"
-                                                                            },
-                                                                            {
-                                                                                "properties": {
-                                                                                    "vector": {
-                                                                                        "items": {
-                                                                                            "$ref": "#/definitions/number"
-                                                                                        }
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        ]
-                                                                    }
-                                                                }
-                                                            }
+                                                        "enum": [
+                                                            "static"
                                                         ]
                                                     }
-                                                }
+                                                },
+                                                "maxProperties": 5
                                             },
                                             {
-                                                "oneOf": [
-                                                    {
-                                                        "properties": {
-                                                            "variant": {
-                                                                "enum": [
-                                                                    "static"
-                                                                ]
-                                                            }
-                                                        },
-                                                        "maxProperties": 5
+                                                "required": [
+                                                    "timestamp"
+                                                ],
+                                                "properties": {
+                                                    "variant": {
+                                                        "enum": [
+                                                            "dynamic"
+                                                        ]
                                                     },
-                                                    {
-                                                        "required": [
-                                                            "timestamp"
-                                                        ],
-                                                        "properties": {
-                                                            "variant": {
-                                                                "enum": [
-                                                                    "dynamic"
-                                                                ]
-                                                            },
-                                                            "timestamp": {
-                                                                "bsonType": "long",
-                                                                "title": "spatial timestamp",
-                                                                "description": "timestamp of dynamic spatial feature, stored in nanoseconds since epoch"
-                                                            }
-                                                        },
-                                                        "maxProperties": 6
+                                                    "timestamp": {
+                                                        "bsonType": "long",
+                                                        "title": "spatial timestamp",
+                                                        "description": "timestamp of dynamic spatial feature, stored in nanoseconds since epoch"
                                                     }
-                                                ]
+                                                },
+                                                "maxProperties": 6
                                             }
                                         ]
                                     }
