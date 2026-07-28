@@ -23,52 +23,37 @@
                 "real",
                 "imaginary"
             ],
-            "allOf": [
+            "properties": {
+                "real": {
+                    "title": "complex number real portion",
+                    "description": "real portion of a complex number"
+                },
+                "imaginary": {
+                    "title": "complex number imaginary portion",
+                    "description": "imaginary portion of a complex number"
+                }
+            },
+            "oneOf": [
                 {
-                    "properties": {
-                        "real": {
-                            "title": "complex number real portion",
-                            "description": "real portion of a complex number"
-                        },
-                        "imaginary": {
-                            "title": "complex number imaginary portion",
-                            "description": "imaginary portion of a complex number"
+                    "patternProperties": {
+                        "^(real|imaginary)$": {
+                            "bsonType": "int"
                         }
                     }
                 },
                 {
-                    "oneOf": [
-                        {
-                            "properties": {
-                                "real": {
-                                    "bsonType": "int"
-                                },
-                                "imaginary": {
-                                    "bsonType": "int"
-                                }
-                            }
-                        },
-                        {
-                            "properties": {
-                                "real": {
-                                    "bsonType": "long"
-                                },
-                                "imaginary": {
-                                    "bsonType": "long"
-                                }
-                            }
-                        },
-                        {
-                            "properties": {
-                                "real": {
-                                    "bsonType": "double"
-                                },
-                                "imaginary": {
-                                    "bsonType": "double"
-                                }
-                            }
+                    "patternProperties": {
+                        "^(real|imaginary)$": {
+                            "bsonType": "long"
                         }
-                    ]
+                    }
+                },
+                {
+                    "patternProperties": {
+                        "^(real|imaginary)$": {
+                            "bsonType": "double"
+                        }
+                    }
                 }
             ],
             "additionalProperties": false
