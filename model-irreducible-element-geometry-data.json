@@ -131,84 +131,78 @@
                 "value",
                 "dimensions"
             ],
-            "allOf": [
-                {
-                    "properties": {
-                        "type": {
-                            "bsonType": "string",
-                            "title": "aerofoil type",
-                            "description": "the type of the aerofoil profile represented"
-                        },
-                        "value": {
-                            "bsonType": "string",
-                            "title": "aerofoil value",
-                            "description": "the value of the aerofoil profile"
-                        },
-                        "dimensions": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/dimension"
-                                },
-                                {
-                                    "required": [
-                                        "chordLength"
-                                    ],
-                                    "properties": {
-                                        "chordLength": {
-                                            "allOf": [
-                                                {
-                                                    "$ref": "#/definitions/measurement"
-                                                },
-                                                {
-                                                    "$ref": "model-irreducible-element-data.json#/definitions/linear"
-                                                }
-                                            ]
-                                        },
-                                        "twistAngle": {
-                                            "allOf": [
-                                                {
-                                                    "$ref": "#/definitions/measurement"
-                                                },
-                                                {
-                                                    "$ref": "model-irreducible-element-data.json#/definitions/angular"
-                                                }
-                                            ]
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
+            "properties": {
+                "type": {
+                    "bsonType": "string",
+                    "title": "aerofoil type",
+                    "description": "the type of the aerofoil profile represented"
                 },
-                {
-                    "oneOf": [
+                "value": {
+                    "bsonType": "string",
+                    "title": "aerofoil value",
+                    "description": "the value of the aerofoil profile"
+                },
+                "dimensions": {
+                    "allOf": [
                         {
-                            "properties": {
-                                "type": {
-                                    "enum": [
-                                        "naca-four-digit-series"
-                                    ]
-                                },
-                                "value": {
-                                    "minLength": 4,
-                                    "maxLength": 4
-                                }
-                            }
+                            "$ref": "#/definitions/dimension"
                         },
                         {
+                            "required": [
+                                "chordLength"
+                            ],
                             "properties": {
-                                "type": {
-                                    "enum": [
-                                        "naca-five-digit-series"
+                                "chordLength": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/definitions/measurement"
+                                        },
+                                        {
+                                            "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                        }
                                     ]
                                 },
-                                "value": {
-                                    "minLength": 5,
-                                    "maxLength": 5
+                                "twistAngle": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/definitions/measurement"
+                                        },
+                                        {
+                                            "$ref": "model-irreducible-element-data.json#/definitions/angular"
+                                        }
+                                    ]
                                 }
                             }
                         }
                     ]
+                }
+            },
+            "oneOf": [
+                {
+                    "properties": {
+                        "type": {
+                            "enum": [
+                                "naca-four-digit-series"
+                            ]
+                        },
+                        "value": {
+                            "minLength": 4,
+                            "maxLength": 4
+                        }
+                    }
+                },
+                {
+                    "properties": {
+                        "type": {
+                            "enum": [
+                                "naca-five-digit-series"
+                            ]
+                        },
+                        "value": {
+                            "minLength": 5,
+                            "maxLength": 5
+                        }
+                    }
                 }
             ]
         }
