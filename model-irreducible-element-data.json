@@ -349,31 +349,14 @@
                 "unit"
             ],
             "properties": {
-                "minimum": {
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/number"
-                        },
-                        {
-                            "title": "minimum",
-                            "description": "the minimum value for the degree of freedom"
-                        }
-                    ]
-                },
-                "maximum": {
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/number"
-                        },
-                        {
-                            "title": "maximum",
-                            "description": "the maximum value for the degree of freedom"
-                        }
-                    ]
-                },
                 "unit": {
                     "title": "unit",
                     "description": "the unit that the minimum and maximum are based in"
+                }
+            },
+            "patternProperties": {
+                "^(minimum|maximum)$":{
+                    "$ref": "#/definitions/number"
                 }
             }
         },
@@ -616,46 +599,14 @@
                                                     "bsonType": "object",
                                                     "title": "translational",
                                                     "description": "the x, y and z values for translational degrees of freedom",
-                                                    "properties": {
-                                                        "x": {
+                                                    "patternProperties": {
+                                                        "^(x|y|z)$": {
                                                             "allOf": [
                                                                 {
                                                                     "$ref": "#/definitions/degreeOfFreedom"
                                                                 },
                                                                 {
                                                                     "$ref": "#/definitions/linear"
-                                                                },
-                                                                {
-                                                                    "title": "x",
-                                                                    "description": "the x translation value within the coordinate space"
-                                                                }
-                                                            ]
-                                                        },
-                                                        "y": {
-                                                            "allOf": [
-                                                                {
-                                                                    "$ref": "#/definitions/degreeOfFreedom"
-                                                                },
-                                                                {
-                                                                    "$ref": "#/definitions/linear"
-                                                                },
-                                                                {
-                                                                    "title": "y",
-                                                                    "description": "the y translation value within the coordinate space"
-                                                                }
-                                                            ]
-                                                        },
-                                                        "z": {
-                                                            "allOf": [
-                                                                {
-                                                                    "$ref": "#/definitions/degreeOfFreedom"
-                                                                },
-                                                                {
-                                                                    "$ref": "#/definitions/linear"
-                                                                },
-                                                                {
-                                                                    "title": "z",
-                                                                    "description": "the z translation value within the coordinate space"
                                                                 }
                                                             ]
                                                         }
@@ -667,46 +618,14 @@
                                                     "bsonType": "object",
                                                     "title": "rotational",
                                                     "description": "the alpha, beta and gamma values for the rotational degrees of freedom",
-                                                    "properties": {
-                                                        "alpha": {
+                                                    "patternProperties": {
+                                                        "^(alpha|beta|gamma)$": {
                                                             "allOf": [
                                                                 {
                                                                     "$ref": "#/definitions/degreeOfFreedom"
                                                                 },
                                                                 {
                                                                     "$ref": "#/definitions/angular"
-                                                                },
-                                                                {
-                                                                    "title": "alpha",
-                                                                    "description": "the alpha rotation value within the coordinate space"
-                                                                }
-                                                            ]
-                                                        },
-                                                        "beta": {
-                                                            "allOf": [
-                                                                {
-                                                                    "$ref": "#/definitions/degreeOfFreedom"
-                                                                },
-                                                                {
-                                                                    "$ref": "#/definitions/angular"
-                                                                },
-                                                                {
-                                                                    "title": "beta",
-                                                                    "description": "the beta rotation value within the coordinate space"
-                                                                }
-                                                            ]
-                                                        },
-                                                        "gamma": {
-                                                            "allOf": [
-                                                                {
-                                                                    "$ref": "#/definitions/degreeOfFreedom"
-                                                                },
-                                                                {
-                                                                    "$ref": "#/definitions/angular"
-                                                                },
-                                                                {
-                                                                    "title": "gamma",
-                                                                    "description": "the gamma rotation value within the coordinate space"
                                                                 }
                                                             ]
                                                         }
