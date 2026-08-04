@@ -152,46 +152,14 @@
                 "beta",
                 "gamma"
             ],
-            "properties": {
-                "alpha": {
+            "patternProperties": {
+                "^(alpha|beta|gamma)$": {
                     "allOf": [
                         {
                             "$ref": "#/definitions/axis"
                         },
                         {
                             "$ref": "#/definitions/angular"
-                        },
-                        {
-                            "title": "alpha",
-                            "description": "the alpha rotation value within the coordinate space"
-                        }
-                    ]
-                },
-                "beta": {
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/axis"
-                        },
-                        {
-                            "$ref": "#/definitions/angular"
-                        },
-                        {
-                            "title": "beta",
-                            "description": "the beta rotation value within the coordinate space"
-                        }
-                    ]
-                },
-                "gamma": {
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/axis"
-                        },
-                        {
-                            "$ref": "#/definitions/angular"
-                        },
-                        {
-                            "title": "gamma",
-                            "description": "the gamma rotation value within the coordinate space"
                         }
                     ]
                 }
