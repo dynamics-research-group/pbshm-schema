@@ -119,46 +119,14 @@
                 "y",
                 "z"
             ],
-            "properties": {
-                "x": {
+            "patternProperties": {
+                "^(x|y|z)$": {
                     "allOf": [
                         {
                             "$ref": "#/definitions/axis"
                         },
                         {
                             "$ref": "#/definitions/linear"
-                        },
-                        {
-                            "title": "x",
-                            "description": "the x translation value within the coordinate space"
-                        }
-                    ]
-                },
-                "y": {
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/axis"
-                        },
-                        {
-                            "$ref": "#/definitions/linear"
-                        },
-                        {
-                            "title": "y",
-                            "description": "the y translation value within the coordinate space"
-                        }
-                    ]
-                },
-                "z": {
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/axis"
-                        },
-                        {
-                            "$ref": "#/definitions/linear"
-                        },
-                        {
-                            "title": "z",
-                            "description": "the z translation value within the coordinate space"
                         }
                     ]
                 }
