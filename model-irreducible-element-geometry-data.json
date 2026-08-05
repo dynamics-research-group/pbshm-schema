@@ -17,16 +17,6 @@
                 }
             }
         },
-        "number": {
-            "oneOf": [
-                {
-                    "bsonType": "int"
-                },
-                {
-                    "bsonType": "double"
-                }
-            ]
-        },
         "measurement": {
             "bsonType": "object",
             "title": "measurement",
@@ -67,7 +57,7 @@
                 "value": {
                     "allOf": [
                         {
-                            "$ref": "#/definitions/number"
+                            "$ref": "model-irreducible-element-data.json#/definitions/number"
                         },
                         {
                             "title": "value",

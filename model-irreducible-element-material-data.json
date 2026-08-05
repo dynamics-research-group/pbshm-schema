@@ -17,16 +17,6 @@
                 }
             }
         },
-        "number": {
-            "oneOf": [
-                {
-                    "bsonType": "int"
-                },
-                {
-                    "bsonType": "double"
-                }
-            ]
-        },
         "condition": {
             "bsonType": "object",
             "required": [
@@ -42,7 +32,7 @@
                 "value": {
                     "allOf": [
                         {
-                            "$ref": "#/definitions/number"
+                            "$ref": "model-irreducible-element-data.json#/definitions/number"
                         },
                         {
                             "title": "value",
@@ -68,7 +58,7 @@
         "single": {
             "properties": {
                 "value": {
-                    "$ref": "#/definitions/number"
+                    "$ref": "model-irreducible-element-data.json#/definitions/number"
                 }
             }
         },
@@ -157,7 +147,7 @@
                             "value": {
                                 "allOf": [
                                     {
-                                        "$ref": "#/definitions/number"
+                                        "$ref": "model-irreducible-element-data.json#/definitions/number"
                                     },
                                     {
                                         "title": "value",
