@@ -12,31 +12,6 @@
                 }
             ]
         },
-        "axis": {
-            "bsonType": "object",
-            "required": [
-                "unit",
-                "value"
-            ],
-            "properties": {
-                "unit": {
-                    "title": "unit",
-                    "description": "the unit that the value is based in"
-                },
-                "value": {
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/number"
-                        },
-                        {
-                            "title": "value",
-                            "description": "the value for the axis"
-                        }
-                    ]
-                }
-            },
-            "additionalProperties": false
-        },
         "linear": {
             "properties": {
                 "unit": {
@@ -51,27 +26,6 @@
                 }
             }
         },
-        "translation": {
-            "bsonType": "object",
-            "required": [
-                "x",
-                "y",
-                "z"
-            ],
-            "patternProperties": {
-                "^(x|y|z)$": {
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/axis"
-                        },
-                        {
-                            "$ref": "#/definitions/linear"
-                        }
-                    ]
-                }
-            },
-            "additionalProperties": false
-        },
         "angular": {
             "properties": {
                 "unit": {
@@ -83,39 +37,6 @@
                     ]
                 }
             }
-        },
-        "position": {
-            "bsonType": "object",
-            "title": "coordinates",
-            "description": "the coordinates of the relationship",
-            "required": [
-                "global"
-            ],
-            "properties": {
-                "global": {
-                    "bsonType": "object",
-                    "title": "global coordinates",
-                    "description": "translational movements within the coordinate space",
-                    "required": [
-                        "translational"
-                    ],
-                    "properties": {
-                        "translational": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/translation"
-                                },
-                                {
-                                    "title": "global translation",
-                                    "description": "values for the x, y and z translations within the coordinate space"
-                                }
-                            ]
-                        }
-                    },
-                    "additionalProperties": false
-                }
-            },
-            "additionalProperties": false
         },
         "nature": {
             "bsonType": "object",
@@ -203,60 +124,7 @@
                                 ]
                             },
                             "coordinates": {
-                                "bsonType": "object",
-                                "title": "coordinates",
-                                "description": "the coordinates of the element",
-                                "required": [
-                                    "global"
-                                ],
-                                "properties": {
-                                    "global": {
-                                        "bsonType": "object",
-                                        "title": "global coordinates",
-                                        "description": "translational and rotational movements within the coordinate space",
-                                        "required": [
-                                            "translational"
-                                        ],
-                                        "properties": {
-                                            "translational": {
-                                                "allOf": [
-                                                    {
-                                                        "$ref": "#/definitions/translation"
-                                                    },
-                                                    {
-                                                        "title": "global translation",
-                                                        "description": "values for the x, y and z translations within the coordinate space"
-                                                    }
-                                                ]
-                                            },
-                                            "rotational": {
-                                                "bsonType": "object",
-                                                "title": "global rotation",
-                                                "description": "values for the alpha, beta and gamma rotations within the coordinate space",
-                                                "required": [
-                                                    "alpha",
-                                                    "beta",
-                                                    "gamma"
-                                                ],
-                                                "patternProperties": {
-                                                    "^(alpha|beta|gamma)$": {
-                                                        "allOf": [
-                                                            {
-                                                                "$ref": "#/definitions/axis"
-                                                            },
-                                                            {
-                                                                "$ref": "#/definitions/angular"
-                                                            }
-                                                        ]
-                                                    }
-                                                },
-                                                "additionalProperties": false
-                                            }
-                                        },
-                                        "additionalProperties": false
-                                    }
-                                },
-                                "additionalProperties": false
+                                "$ref": "model-irreducible-element-coordinates-data.json"
                             },
                             "contextual": {
                                 "$ref": "model-irreducible-element-contextual-data.json"
@@ -357,7 +225,18 @@
                                 ]
                             },
                             "coordinates": {
-                                "$ref": "#/definitions/position"
+                                "allOf": [
+                                    {
+                                        "$ref": "model-irreducible-element-coordinates-data.json#/definitions/coordinates"
+                                    },
+                                    {
+                                        "properties": {
+                                            "global": {
+                                                "additionalProperties": false
+                                            }
+                                        }
+                                    }
+                                ]
                             },
                             "elements": {
                                 "items": {
@@ -437,7 +316,18 @@
                                             ]
                                         },
                                         "coordinates": {
-                                            "$ref": "#/definitions/position"
+                                            "allOf": [
+                                                {
+                                                    "$ref": "model-irreducible-element-coordinates-data.json#/definitions/coordinates"
+                                                },
+                                                {
+                                                    "properties": {
+                                                        "global": {
+                                                            "additionalProperties": false
+                                                        }
+                                                    }
+                                                }
+                                            ]
                                         }
                                     },
                                     "additionalProperties": false
@@ -495,7 +385,18 @@
                                             "minLength": 1
                                         },
                                         "coordinates": {
-                                            "$ref": "#/definitions/position"
+                                            "allOf": [
+                                                {
+                                                    "$ref": "model-irreducible-element-coordinates-data.json#/definitions/coordinates"
+                                                },
+                                                {
+                                                    "properties": {
+                                                        "global": {
+                                                            "additionalProperties": false
+                                                        }
+                                                    }
+                                                }
+                                            ]
                                         }
                                     },
                                     "additionalProperties": false
@@ -643,7 +544,18 @@
                                 ]
                             },
                             "coordinates": {
-                                "$ref": "#/definitions/position"
+                                "allOf": [
+                                    {
+                                        "$ref": "model-irreducible-element-coordinates-data.json#/definitions/coordinates"
+                                    },
+                                    {
+                                        "properties": {
+                                            "global": {
+                                                "additionalProperties": false
+                                            }
+                                        }
+                                    }
+                                ]
                             },
                             "elements": {
                                 "items": {

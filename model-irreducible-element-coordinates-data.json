@@ -1,0 +1,113 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "https://github.com/dynamics-research-group/pbshm-schema/model-irreducible-element-coordinates-data.json",
+    "definitions": {
+        "axis": {
+            "bsonType": "object",
+            "required": [
+                "unit",
+                "value"
+            ],
+            "properties": {
+                "unit": {
+                    "title": "unit",
+                    "description": "the unit that the value is based in"
+                },
+                "value": {
+                    "allOf": [
+                        {
+                            "$ref": "model-irreducible-element-data.json#/definitions/number"
+                        },
+                        {
+                            "title": "value",
+                            "description": "the value for the axis"
+                        }
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "coordinates": {
+            "bsonType": "object",
+            "title": "coordinates",
+            "description": "coordinates of the object within the model space",
+            "required": [
+                "global"
+            ],
+            "properties": {
+                "global": {
+                    "bsonType": "object",
+                    "title": "global coordinates",
+                    "description": "details of the movements within the global coordinate space",
+                    "required": [
+                        "translational"
+                    ],
+                    "properties": {
+                        "translational": {
+                            "bsonType": "object",
+                            "title": "translational movements",
+                            "required": [
+                                "x",
+                                "y",
+                                "z"
+                            ],
+                            "patternProperties": {
+                                "^(x|y|z)$": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/definitions/axis"
+                                        },
+                                        {
+                                            "$ref": "model-irreducible-element-data.json#/definitions/linear"
+                                        }
+                                    ]
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    }
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "allOf": [
+        {
+            "$ref": "#/definitions/coordinates"
+        },
+        {
+            "properties": {
+                "global": {
+                    "properties": {
+                        "translational": {
+                            "minProperties": 3
+                        },
+                        "rotational": {
+                            "bsonType": "object",
+                            "title": "rotational movements",
+                            "required": [
+                                "alpha",
+                                "beta",
+                                "gamma"
+                            ],
+                            "patternProperties": {
+                                "^(alpha|beta|gamma)$": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/definitions/axis"
+                                        },
+                                        {
+                                            "$ref": "model-irreducible-element-data.json#/definitions/angular"
+                                        }
+                                    ]
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            }
+        }
+    ]
+}
