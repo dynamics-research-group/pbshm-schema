@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "id": "https://github.com/dynamics-research-group/pbshm-schema/model-irreducible-element-coordinates-data.json",
     "definitions": {
-        "axis": {
+        "physicalQuantity": {
             "bsonType": "object",
             "required": [
                 "unit",
@@ -20,7 +20,7 @@
                         },
                         {
                             "title": "value",
-                            "description": "the value for the axis"
+                            "description": "the value of units"
                         }
                     ]
                 }
@@ -55,7 +55,7 @@
                                 "^(x|y|z)$": {
                                     "allOf": [
                                         {
-                                            "$ref": "#/definitions/axis"
+                                            "$ref": "#/definitions/physicalQuantity"
                                         },
                                         {
                                             "$ref": "model-irreducible-element-data.json#/definitions/linear"
@@ -94,7 +94,7 @@
                                 "^(alpha|beta|gamma)$": {
                                     "allOf": [
                                         {
-                                            "$ref": "#/definitions/axis"
+                                            "$ref": "#/definitions/physicalQuantity"
                                         },
                                         {
                                             "$ref": "model-irreducible-element-data.json#/definitions/angular"
