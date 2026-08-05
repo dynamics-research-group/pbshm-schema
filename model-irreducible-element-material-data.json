@@ -2,32 +2,6 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "id": "https://github.com/dynamics-research-group/pbshm-schema/model-irreducible-element-material-data.json",
     "definitions": {
-        "condition": {
-            "bsonType": "object",
-            "required": [
-                "unit",
-                "value"
-            ],
-            "properties": {
-                "unit": {
-                    "bsonType": "string",
-                    "title": "unit",
-                    "description": "unit that the value of the material property is based in"
-                },
-                "value": {
-                    "allOf": [
-                        {
-                            "$ref": "model-irreducible-element-data.json#/definitions/number"
-                        },
-                        {
-                            "title": "value",
-                            "description": "value of the material property based in the selected unit"
-                        }
-                    ]
-                }
-            },
-            "additionalProperties": false
-        },
         "unit": {
             "required": [
                 "unit"
@@ -78,7 +52,7 @@
                                     "temperature": {
                                         "allOf": [
                                             {
-                                                "$ref": "#/definitions/condition"
+                                                "$ref": "model-irreducible-element-coordinates-data.json#/definitions/physicalQuantity"
                                             },
                                             {
                                                 "title": "temperature",
@@ -99,7 +73,7 @@
                                     "humidity": {
                                         "allOf": [
                                             {
-                                                "$ref": "#/definitions/condition"
+                                                "$ref": "model-irreducible-element-coordinates-data.json#/definitions/physicalQuantity"
                                             },
                                             {
                                                 "title": "humidity",
@@ -116,7 +90,7 @@
                                     }
                                 },
                                 "additionalProperties": {
-                                    "$ref": "#/definitions/condition"
+                                    "$ref": "model-irreducible-element-coordinates-data.json#/definitions/physicalQuantity"
                                 },
                                 "minProperties": 1
                             },
@@ -125,7 +99,7 @@
                                 "title": "parameters",
                                 "description": "parameters conditions for the given material property value",
                                 "additionalProperties": {
-                                    "$ref": "#/definitions/condition"
+                                    "$ref": "model-irreducible-element-coordinates-data.json#/definitions/physicalQuantity"
                                 },
                                 "minProperties": 1
                             },
