@@ -110,7 +110,7 @@
                         "^(y|z)$": {
                             "allOf": [
                                 {
-                                    "$ref": "model-irreducible-element-data.json#/definitions/axis"
+                                    "$ref": "model-irreducible-element-coordinates-data.json#/definitions/physicalQuantity"
                                 },
                                 {
                                     "$ref": "model-irreducible-element-data.json#/definitions/linear"
