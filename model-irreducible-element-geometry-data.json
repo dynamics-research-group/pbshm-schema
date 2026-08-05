@@ -51,6 +51,7 @@
                     ]
                 },
                 "unit": {
+                    "bsonType": "string",
                     "title": "unit",
                     "description": "the unit that the value is based in"
                 },

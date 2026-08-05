@@ -15,7 +15,6 @@
         "linear": {
             "properties": {
                 "unit": {
-                    "bsonType": "string",
                     "enum": [
                         "mm",
                         "cm",
@@ -29,7 +28,6 @@
         "angular": {
             "properties": {
                 "unit": {
-                    "bsonType": "string",
                     "enum": [
                         "degrees",
                         "radians",
@@ -62,6 +60,7 @@
             ],
             "properties": {
                 "unit": {
+                    "bsonType": "string",
                     "title": "unit",
                     "description": "the unit that the minimum and maximum are based in"
                 }
