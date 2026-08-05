@@ -53,7 +53,7 @@
                 }
             }
         },
-        "degreeOfFreedom": {
+        "physicalQuantityBounds": {
             "bsonType": "object",
             "required": [
                 "minimum",
@@ -484,7 +484,7 @@
                                                             "^(x|y|z)$": {
                                                                 "allOf": [
                                                                     {
-                                                                        "$ref": "#/definitions/degreeOfFreedom"
+                                                                        "$ref": "#/definitions/physicalQuantityBounds"
                                                                     },
                                                                     {
                                                                         "$ref": "#/definitions/linear"
@@ -503,7 +503,7 @@
                                                             "^(alpha|beta|gamma)$": {
                                                                 "allOf": [
                                                                     {
-                                                                        "$ref": "#/definitions/degreeOfFreedom"
+                                                                        "$ref": "#/definitions/physicalQuantityBounds"
                                                                     },
                                                                     {
                                                                         "$ref": "#/definitions/angular"
