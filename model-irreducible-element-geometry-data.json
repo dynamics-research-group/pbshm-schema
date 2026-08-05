@@ -5,7 +5,7 @@
         "type": {
             "bsonType": "object",
             "title": "type",
-            "description": "type of geometrical element",
+            "description": "type tree node",
             "required": [
                 "name"
             ],
@@ -13,7 +13,7 @@
                 "name": {
                     "bsonType": "string",
                     "title": "name",
-                    "description": "name of the geometrical type"
+                    "description": "name of the selected node in the type tree"
                 }
             }
         },

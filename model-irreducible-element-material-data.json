@@ -2,21 +2,6 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "id": "https://github.com/dynamics-research-group/pbshm-schema/model-irreducible-element-material-data.json",
     "definitions": {
-        "type": {
-            "bsonType": "object",
-            "title": "type",
-            "description": "material type of element",
-            "required": [
-                "name"
-            ],
-            "properties": {
-                "name": {
-                    "bsonType": "string",
-                    "title": "name",
-                    "description": "name of the material type"
-                }
-            }
-        },
         "condition": {
             "bsonType": "object",
             "required": [
@@ -480,7 +465,7 @@
                 "type": {
                     "allOf": [
                         {
-                            "$ref": "#/definitions/type"
+                            "$ref": "model-irreducible-element-geometry-data.json#/definitions/type"
                         },
                         {
                             "oneOf": [
@@ -496,7 +481,7 @@
                                                 {
                                                     "allOf": [
                                                         {
-                                                            "$ref": "#/definitions/type"
+                                                            "$ref": "model-irreducible-element-geometry-data.json#/definitions/type"
                                                         },
                                                         {
                                                             "properties": {
@@ -508,7 +493,7 @@
                                                                 "type": {
                                                                     "allOf": [
                                                                         {
-                                                                            "$ref": "#/definitions/type"
+                                                                            "$ref": "model-irreducible-element-geometry-data.json#/definitions/type"
                                                                         },
                                                                         {
                                                                             "properties": {
@@ -531,7 +516,7 @@
                                                 {
                                                     "allOf": [
                                                         {
-                                                            "$ref": "#/definitions/type"
+                                                            "$ref": "model-irreducible-element-geometry-data.json#/definitions/type"
                                                         },
                                                         {
                                                             "properties": {
@@ -563,7 +548,7 @@
                                         "type": {
                                             "allOf": [
                                                 {
-                                                    "$ref": "#/definitions/type"
+                                                    "$ref": "model-irreducible-element-geometry-data.json#/definitions/type"
                                                 },
                                                 {
                                                     "properties": {
@@ -595,7 +580,7 @@
                                         "type": {
                                             "allOf": [
                                                 {
-                                                    "$ref": "#/definitions/type"
+                                                    "$ref": "model-irreducible-element-geometry-data.json#/definitions/type"
                                                 },
                                                 {
                                                     "properties": {
@@ -626,7 +611,7 @@
                                         "type": {
                                             "allOf": [
                                                 {
-                                                    "$ref": "#/definitions/type"
+                                                    "$ref": "model-irreducible-element-geometry-data.json#/definitions/type"
                                                 },
                                                 {
                                                     "properties": {
@@ -657,7 +642,7 @@
                                         "type": {
                                             "allOf": [
                                                 {
-                                                    "$ref": "#/definitions/type"
+                                                    "$ref": "model-irreducible-element-geometry-data.json#/definitions/type"
                                                 },
                                                 {
                                                     "properties": {
@@ -735,7 +720,7 @@
                 "type": {
                     "allOf": [
                         {
-                            "$ref": "#/definitions/type"
+                            "$ref": "model-irreducible-element-geometry-data.json#/definitions/type"
                         },
                         {
                             "properties": {
