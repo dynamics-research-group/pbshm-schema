@@ -52,10 +52,9 @@
                                 },
                                 {
                                     "bsonType": "object",
-                                    "additionalProperties": false,
                                     "minProperties": 1,
-                                    "properties": {
-                                        "min": {
+                                    "patternProperties": {
+                                        "^(min|max|mean|std)$": {
                                             "oneOf": [
                                                 {
                                                     "bsonType": "int"
@@ -63,47 +62,10 @@
                                                 {
                                                     "bsonType": "double"
                                                 }
-                                            ],
-                                            "title": "minimum value",
-                                            "description": "minimum channel value over the observed time period"
-                                        },
-                                        "max": {
-                                            "oneOf": [
-                                                {
-                                                    "bsonType": "int"
-                                                },
-                                                {
-                                                    "bsonType": "double"
-                                                }
-                                            ],
-                                            "title": "maximum value",
-                                            "description": "maximum channel value over the observed time period"
-                                        },
-                                        "mean": {
-                                            "oneOf": [
-                                                {
-                                                    "bsonType": "int"
-                                                },
-                                                {
-                                                    "bsonType": "double"
-                                                }
-                                            ],
-                                            "title": "mean value",
-                                            "description": "mean channel value over the observed time period"
-                                        },
-                                        "std": {
-                                            "oneOf": [
-                                                {
-                                                    "bsonType": "int"
-                                                },
-                                                {
-                                                    "bsonType": "double"
-                                                }
-                                            ],
-                                            "title": "standard deviation value",
-                                            "description": "standard deviation channel value over the observed time period"
+                                            ]
                                         }
-                                    }
+                                    },
+                                    "additionalProperties": false
                                 }
                             ]
                         }
@@ -252,39 +214,77 @@
                         "$ref": "#/definitions/channelUnitObject"
                     },
                     {
-                        "title": "angular displacement channel",
-                        "description": "angular displacement channel data",
-                        "properties": {
-                            "type": {
-                                "enum": [
-                                    "angularDisplacement"
-                                ]
+                        "oneOf": [
+                            {
+                                "title": "angular displacement channel",
+                                "description": "angular displacement channel data",
+                                "properties": {
+                                    "type": {
+                                        "enum": [
+                                            "angularDisplacement"
+                                        ]
+                                    }
+                                }
                             },
-                            "unit": {
-                                "enum": [
-                                    "degrees",
-                                    "radians",
-                                    "other"
-                                ]
+                            {
+                                "title": "tilt channel",
+                                "description": "tilt channel data",
+                                "properties": {
+                                    "type": {
+                                        "enum": [
+                                            "tilt"
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "title": "direction channel",
+                                "description": "direction channel data",
+                                "properties": {
+                                    "type": {
+                                        "enum": [
+                                            "direction"
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "title": "pitch channel",
+                                "description": "pitch channel data",
+                                "properties": {
+                                    "type": {
+                                        "enum": [
+                                            "pitch"
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "title": "yaw channel",
+                                "description": "yaw channel data",
+                                "properties": {
+                                    "type": {
+                                        "enum": [
+                                            "yaw"
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "title": "roll channel",
+                                "description": "roll channel data",
+                                "properties": {
+                                    "type": {
+                                        "enum": [
+                                            "roll"
+                                        ]
+                                    }
+                                }
                             }
-                        }
-                    }
-                ]
-            },
-            {
-                "allOf": [
-                    {
-                        "$ref": "#/definitions/channelUnitObject"
+                        ]
                     },
                     {
-                        "title": "tilt channel",
-                        "description": "tilt channel data",
                         "properties": {
-                            "type": {
-                                "enum": [
-                                    "tilt"
-                                ]
-                            },
                             "unit": {
                                 "enum": [
                                     "degrees",
@@ -326,52 +326,33 @@
                         "$ref": "#/definitions/channelUnitObject"
                     },
                     {
-                        "title": "tension channel",
-                        "description": "tension channel data",
-                        "properties": {
-                            "type": {
-                                "enum": [
-                                    "tension"
-                                ]
+                        "oneOf": [
+                            {
+                                "title": "tension channel",
+                                "description": "tension channel data",
+                                "properties": {
+                                    "type": {
+                                        "enum": [
+                                            "tension"
+                                        ]
+                                    }
+                                }
                             },
-                            "unit": {
-                                "enum": [
-                                    "fN",
-                                    "pN",
-                                    "nN",
-                                    "μN",
-                                    "mN",
-                                    "cN",
-                                    "dN",
-                                    "N",
-                                    "daN",
-                                    "hN",
-                                    "kN",
-                                    "MN",
-                                    "GN",
-                                    "TN",
-                                    "PN",
-                                    "other"
-                                ]
+                            {
+                                "title": "load channel",
+                                "description": "load channel data",
+                                "properties": {
+                                    "type": {
+                                        "enum": [
+                                            "load"
+                                        ]
+                                    }
+                                }
                             }
-                        }
-                    }
-                ]
-            },
-            {
-                "allOf": [
-                    {
-                        "$ref": "#/definitions/channelUnitObject"
+                        ]
                     },
                     {
-                        "title": "load channel",
-                        "description": "load channel data",
                         "properties": {
-                            "type": {
-                                "enum": [
-                                    "load"
-                                ]
-                            },
                             "unit": {
                                 "enum": [
                                     "fN",
@@ -504,31 +485,6 @@
                         "$ref": "#/definitions/channelUnitObject"
                     },
                     {
-                        "title": "direction channel",
-                        "description": "direction channel data",
-                        "properties": {
-                            "type": {
-                                "enum": [
-                                    "direction"
-                                ]
-                            },
-                            "unit": {
-                                "enum": [
-                                    "degrees",
-                                    "radians",
-                                    "other"
-                                ]
-                            }
-                        }
-                    }
-                ]
-            },
-            {
-                "allOf": [
-                    {
-                        "$ref": "#/definitions/channelUnitObject"
-                    },
-                    {
                         "title": "pressure channel",
                         "description": "pressure channel data",
                         "properties": {
@@ -599,139 +555,44 @@
                         "$ref": "#/definitions/channelUnitObject"
                     },
                     {
-                        "title": "pitch channel",
-                        "description": "pitch channel data",
-                        "properties": {
-                            "type": {
-                                "enum": [
-                                    "pitch"
-                                ]
+                        "oneOf": [
+                            {
+                                "title": "pitch rate channel",
+                                "description": "pitch rate channel data",
+                                "properties": {
+                                    "type": {
+                                        "enum": [
+                                            "pitchRate"
+                                        ]
+                                    }
+                                }
                             },
-                            "unit": {
-                                "enum": [
-                                    "degrees",
-                                    "radians",
-                                    "other"
-                                ]
+                            {
+                                "title": "yaw rate channel",
+                                "description": "yaw rate channel data",
+                                "properties": {
+                                    "type": {
+                                        "enum": [
+                                            "yawRate"
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "title": "roll rate channel",
+                                "description": "roll rate channel data",
+                                "properties": {
+                                    "type": {
+                                        "enum": [
+                                            "rollRate"
+                                        ]
+                                    }
+                                }
                             }
-                        }
-                    }
-                ]
-            },
-            {
-                "allOf": [
-                    {
-                        "$ref": "#/definitions/channelUnitObject"
+                        ]
                     },
                     {
-                        "title": "yaw channel",
-                        "description": "yaw channel data",
                         "properties": {
-                            "type": {
-                                "enum": [
-                                    "yaw"
-                                ]
-                            },
-                            "unit": {
-                                "enum": [
-                                    "degrees",
-                                    "radians",
-                                    "other"
-                                ]
-                            }
-                        }
-                    }
-                ]
-            },
-            {
-                "allOf": [
-                    {
-                        "$ref": "#/definitions/channelUnitObject"
-                    },
-                    {
-                        "title": "roll channel",
-                        "description": "roll channel data",
-                        "properties": {
-                            "type": {
-                                "enum": [
-                                    "roll"
-                                ]
-                            },
-                            "unit": {
-                                "enum": [
-                                    "degrees",
-                                    "radians",
-                                    "other"
-                                ]
-                            }
-                        }
-                    }
-                ]
-            },
-            {
-                "allOf": [
-                    {
-                        "$ref": "#/definitions/channelUnitObject"
-                    },
-                    {
-                        "title": "pitch rate channel",
-                        "description": "pitch rate channel data",
-                        "properties": {
-                            "type": {
-                                "enum": [
-                                    "pitchRate"
-                                ]
-                            },
-                            "unit": {
-                                "enum": [
-                                    "degrees/s",
-                                    "radians/s",
-                                    "other"
-                                ]
-                            }
-                        }
-                    }
-                ]
-            },
-            {
-                "allOf": [
-                    {
-                        "$ref": "#/definitions/channelUnitObject"
-                    },
-                    {
-                        "title": "yaw rate channel",
-                        "description": "yaw rate channel data",
-                        "properties": {
-                            "type": {
-                                "enum": [
-                                    "yawRate"
-                                ]
-                            },
-                            "unit": {
-                                "enum": [
-                                    "degrees/s",
-                                    "radians/s",
-                                    "other"
-                                ]
-                            }
-                        }
-                    }
-                ]
-            },
-            {
-                "allOf": [
-                    {
-                        "$ref": "#/definitions/channelUnitObject"
-                    },
-                    {
-                        "title": "roll rate channel",
-                        "description": "roll rate channel data",
-                        "properties": {
-                            "type": {
-                                "enum": [
-                                    "rollRate"
-                                ]
-                            },
                             "unit": {
                                 "enum": [
                                     "degrees/s",

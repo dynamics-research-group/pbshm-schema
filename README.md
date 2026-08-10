@@ -29,14 +29,14 @@ Each area of knowledge within the PBSHM Schema resides within a data domain. The
 |Property|Description|Type|Details|
 |---|-----|---|---|
 |`timestamp`|Timestamp of when the associated monitoring data was recorded, stored in UTC nanoseconds since UNIX epoch|`long`|-|
-|`channels`|Raw sensor data information|`array`|[channel-data](channel-data.md)|
-|`models`|Model data information|`object`|[model-data](model-data.md)|
+|`channels`|Raw sensor data information|`array`|[channel-data](docs/channel-data.md#channel)|
+|`models`|Model data information|`object`|[model-data](docs/model-data.md#model)|
 
 ### [System Domain](#system-domain)
 |Property|Description|Type|Details|
 |---|-----|---|---|
 |`source`|Details on the sources used to generate the associated data|`object`|[`source`](#source)|
-|`features`|Processed feature data information|`array`|[feature-data](feature-data.md)|
+|`features`|Processed feature data information|`array`|[feature-data](docs/feature-data.md#feature)|
 
 #### [Source](#source)
 |Property|Description|Type|Values|Required|
