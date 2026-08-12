@@ -1,0 +1,852 @@
+{
+    "version": "1.4.0",
+    "name": "relationship-examples",
+    "population": "documentation",
+    "timestamp": 1588007841000000000,
+    "models": {
+        "irreducibleElement": {
+            "type": "grounded",
+            "relationships": [
+                {
+                    "name": "perfect-relationship",
+                    "type": "perfect",
+                    "coordinates": {
+                        "global": {
+                            "translational": {
+                                "x": {
+                                    "unit": "mm",
+                                    "value": 5
+                                },
+                                "y": {
+                                    "unit": "mm",
+                                    "value": 5
+                                },
+                                "z": {
+                                    "unit": "mm",
+                                    "value": 0
+                                }
+                            }
+                        }
+                    },
+                    "elements": [
+                        {
+                            "name": "name-of-first-element-in-relationship"
+                        },
+                        {
+                            "name": "name-of-second-element-in-relationship"
+                        }
+                    ]
+                },
+                {
+                    "name": "connection-relationship",
+                    "type": "connection",
+                    "elements": [
+                        {
+                            "name": "static-bolted-element",
+                            "nature": {
+                                "name": "static",
+                                "nature": {
+                                    "name": "bolted"
+                                }
+                            },
+                            "coordinates": {
+                                "global": {
+                                    "translational": {
+                                        "x": {
+                                            "unit": "mm",
+                                            "value": 5
+                                        },
+                                        "y": {
+                                            "unit": "mm",
+                                            "value": 5
+                                        },
+                                        "z": {
+                                            "unit": "mm",
+                                            "value": 0
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "name": "static-welded-element",
+                            "nature": {
+                                "name": "static",
+                                "nature": {
+                                    "name": "welded"
+                                }
+                            },
+                            "coordinates": {
+                                "global": {
+                                    "translational": {
+                                        "x": {
+                                            "unit": "mm",
+                                            "value": 5
+                                        },
+                                        "y": {
+                                            "unit": "mm",
+                                            "value": 1
+                                        },
+                                        "z": {
+                                            "unit": "mm",
+                                            "value": 0
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "name": "static-adhesive-element",
+                            "nature": {
+                                "name": "static",
+                                "nature": {
+                                    "name": "adhesive"
+                                }
+                            },
+                            "coordinates": {
+                                "global": {
+                                    "translational": {
+                                        "x": {
+                                            "unit": "mm",
+                                            "value": 5
+                                        },
+                                        "y": {
+                                            "unit": "mm",
+                                            "value": 9
+                                        },
+                                        "z": {
+                                            "unit": "mm",
+                                            "value": 0
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "name": "static-other-element",
+                            "nature": {
+                                "name": "static",
+                                "nature": {
+                                    "name": "other"
+                                }
+                            },
+                            "coordinates": {
+                                "global": {
+                                    "translational": {
+                                        "x": {
+                                            "unit": "mm",
+                                            "value": 1
+                                        },
+                                        "y": {
+                                            "unit": "mm",
+                                            "value": 5
+                                        },
+                                        "z": {
+                                            "unit": "mm",
+                                            "value": 0
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "joint-static-bolted-relationship",
+                    "type": "joint",
+                    "nature": {
+                        "name": "static",
+                        "nature": {
+                            "name": "bolted"
+                        }
+                    },
+                    "elements": [
+                        {
+                            "name": "name-of-first-element-in-relationship",
+                            "coordinates": {
+                                "global": {
+                                    "translational": {
+                                        "x": {
+                                            "unit": "mm",
+                                            "value": 5
+                                        },
+                                        "y": {
+                                            "unit": "mm",
+                                            "value": 2
+                                        },
+                                        "z": {
+                                            "unit": "mm",
+                                            "value": 0
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "name": "name-of-second-element-in-relationship",
+                            "coordinates": {
+                                "global": {
+                                    "translational": {
+                                        "x": {
+                                            "unit": "mm",
+                                            "value": 5
+                                        },
+                                        "y": {
+                                            "unit": "mm",
+                                            "value": 2
+                                        },
+                                        "z": {
+                                            "unit": "mm",
+                                            "value": 0
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "joint-static-welded-relationship",
+                    "type": "joint",
+                    "nature": {
+                        "name": "static",
+                        "nature": {
+                            "name": "welded"
+                        }
+                    },
+                    "elements": [
+                        {
+                            "name": "name-of-first-element-in-relationship",
+                            "coordinates": {
+                                "global": {
+                                    "translational": {
+                                        "x": {
+                                            "unit": "mm",
+                                            "value": 3
+                                        },
+                                        "y": {
+                                            "unit": "mm",
+                                            "value": 10
+                                        },
+                                        "z": {
+                                            "unit": "mm",
+                                            "value": 0
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "name": "name-of-second-element-in-relationship",
+                            "coordinates": {
+                                "global": {
+                                    "translational": {
+                                        "x": {
+                                            "unit": "mm",
+                                            "value": 3
+                                        },
+                                        "y": {
+                                            "unit": "mm",
+                                            "value": 10
+                                        },
+                                        "z": {
+                                            "unit": "mm",
+                                            "value": 0
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "joint-static-adhesive-relationship",
+                    "type": "joint",
+                    "nature": {
+                        "name": "static",
+                        "nature": {
+                            "name": "adhesive"
+                        }
+                    },
+                    "elements": [
+                        {
+                            "name": "name-of-first-element-in-relationship",
+                            "coordinates": {
+                                "global": {
+                                    "translational": {
+                                        "x": {
+                                            "unit": "mm",
+                                            "value": 0
+                                        },
+                                        "y": {
+                                            "unit": "mm",
+                                            "value": 8
+                                        },
+                                        "z": {
+                                            "unit": "mm",
+                                            "value": 3
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "name": "name-of-second-element-in-relationship",
+                            "coordinates": {
+                                "global": {
+                                    "translational": {
+                                        "x": {
+                                            "unit": "mm",
+                                            "value": 0
+                                        },
+                                        "y": {
+                                            "unit": "mm",
+                                            "value": 8
+                                        },
+                                        "z": {
+                                            "unit": "mm",
+                                            "value": 3
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "joint-static-other-relationship",
+                    "type": "joint",
+                    "nature": {
+                        "name": "static",
+                        "nature": {
+                            "name": "other"
+                        }
+                    },
+                    "elements": [
+                        {
+                            "name": "name-of-first-element-in-relationship",
+                            "coordinates": {
+                                "global": {
+                                    "translational": {
+                                        "x": {
+                                            "unit": "mm",
+                                            "value": 15
+                                        },
+                                        "y": {
+                                            "unit": "mm",
+                                            "value": 0
+                                        },
+                                        "z": {
+                                            "unit": "mm",
+                                            "value": 5
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "name": "name-of-second-element-in-relationship",
+                            "coordinates": {
+                                "global": {
+                                    "translational": {
+                                        "x": {
+                                            "unit": "mm",
+                                            "value": 15
+                                        },
+                                        "y": {
+                                            "unit": "mm",
+                                            "value": 0
+                                        },
+                                        "z": {
+                                            "unit": "mm",
+                                            "value": 5
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "joint-dynamic-hinge-relationship",
+                    "type": "joint",
+                    "nature": {
+                        "name": "dynamic",
+                        "nature": {
+                            "name": "hinge"
+                        }
+                    },
+                    "degreesOfFreedom": {
+                        "global": {
+                            "rotational": {
+                                "gamma": {
+                                    "unit": "degrees",
+                                    "minimum": 0,
+                                    "maximum": 360
+                                }
+                            }
+                        }
+                    },
+                    "elements": [
+                        {
+                            "name": "name-of-first-element-in-relationship",
+                            "coordinates": {
+                                "global": {
+                                    "translational": {
+                                        "x": {
+                                            "unit": "mm",
+                                            "value": 7
+                                        },
+                                        "y": {
+                                            "unit": "mm",
+                                            "value": 9
+                                        },
+                                        "z": {
+                                            "unit": "mm",
+                                            "value": 5
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "name": "name-of-second-element-in-relationship",
+                            "coordinates": {
+                                "global": {
+                                    "translational": {
+                                        "x": {
+                                            "unit": "mm",
+                                            "value": 7
+                                        },
+                                        "y": {
+                                            "unit": "mm",
+                                            "value": 9
+                                        },
+                                        "z": {
+                                            "unit": "mm",
+                                            "value": 5
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "joint-dynamic-ball-and-socket-relationship",
+                    "type": "joint",
+                    "nature": {
+                        "name": "dynamic",
+                        "nature": {
+                            "name": "ballAndSocket"
+                        }
+                    },
+                    "degreesOfFreedom": {
+                        "global": {
+                            "rotational": {
+                                "alpha": {
+                                    "unit": "degrees",
+                                    "minimum": 0,
+                                    "maximum": 360
+                                },
+                                "beta": {
+                                    "unit": "degrees",
+                                    "minimum": 90,
+                                    "maximum": 270
+                                }
+                            }
+                        }
+                    },
+                    "elements": [
+                        {
+                            "name": "name-of-first-element-in-relationship",
+                            "coordinates": {
+                                "global": {
+                                    "translational": {
+                                        "x": {
+                                            "unit": "mm",
+                                            "value": 11
+                                        },
+                                        "y": {
+                                            "unit": "mm",
+                                            "value": 0
+                                        },
+                                        "z": {
+                                            "unit": "mm",
+                                            "value": 5
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "name": "name-of-second-element-in-relationship",
+                            "coordinates": {
+                                "global": {
+                                    "translational": {
+                                        "x": {
+                                            "unit": "mm",
+                                            "value": 11
+                                        },
+                                        "y": {
+                                            "unit": "mm",
+                                            "value": 0
+                                        },
+                                        "z": {
+                                            "unit": "mm",
+                                            "value": 5
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "joint-dynamic-pinned-relationship",
+                    "type": "joint",
+                    "nature": {
+                        "name": "dynamic",
+                        "nature": {
+                            "name": "pinned"
+                        }
+                    },
+                    "degreesOfFreedom": {
+                        "global": {
+                            "rotational": {
+                                "beta": {
+                                    "unit": "degrees",
+                                    "minimum": 0,
+                                    "maximum": 360
+                                }
+                            }
+                        }
+                    },
+                    "elements": [
+                        {
+                            "name": "name-of-first-element-in-relationship",
+                            "coordinates": {
+                                "global": {
+                                    "translational": {
+                                        "x": {
+                                            "unit": "mm",
+                                            "value": 4
+                                        },
+                                        "y": {
+                                            "unit": "mm",
+                                            "value": 3
+                                        },
+                                        "z": {
+                                            "unit": "mm",
+                                            "value": 2
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "name": "name-of-second-element-in-relationship",
+                            "coordinates": {
+                                "global": {
+                                    "translational": {
+                                        "x": {
+                                            "unit": "mm",
+                                            "value": 4
+                                        },
+                                        "y": {
+                                            "unit": "mm",
+                                            "value": 3
+                                        },
+                                        "z": {
+                                            "unit": "mm",
+                                            "value": 2
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "joint-dynamic-expansion-relationship",
+                    "type": "joint",
+                    "nature": {
+                        "name": "dynamic",
+                        "nature": {
+                            "name": "expansion"
+                        }
+                    },
+                    "degreesOfFreedom": {
+                        "global": {
+                            "translational": {
+                                "x": {
+                                    "unit": "mm",
+                                    "minimum": -10,
+                                    "maximum": 10
+                                },
+                                "y": {
+                                    "unit": "mm",
+                                    "minimum": -2,
+                                    "maximum": 2
+                                },
+                                "z": {
+                                    "unit": "mm",
+                                    "minimum": -2,
+                                    "maximum": 2
+                                }
+                            }
+                        }
+                    },
+                    "elements": [
+                        {
+                            "name": "name-of-first-element-in-relationship",
+                            "coordinates": {
+                                "global": {
+                                    "translational": {
+                                        "x": {
+                                            "unit": "mm",
+                                            "value": 4
+                                        },
+                                        "y": {
+                                            "unit": "mm",
+                                            "value": 3
+                                        },
+                                        "z": {
+                                            "unit": "mm",
+                                            "value": 0
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "name": "name-of-second-element-in-relationship",
+                            "coordinates": {
+                                "global": {
+                                    "translational": {
+                                        "x": {
+                                            "unit": "mm",
+                                            "value": 4
+                                        },
+                                        "y": {
+                                            "unit": "mm",
+                                            "value": 3
+                                        },
+                                        "z": {
+                                            "unit": "mm",
+                                            "value": 0
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "joint-dynamic-ball-bearing-relationship",
+                    "type": "joint",
+                    "nature": {
+                        "name": "dynamic",
+                        "nature": {
+                            "name": "ballBearing"
+                        }
+                    },
+                    "degreesOfFreedom": {
+                        "global": {
+                            "translational": {
+                                "x": {
+                                    "unit": "mm",
+                                    "minimum": -10,
+                                    "maximum": 10
+                                },
+                                "y": {
+                                    "unit": "mm",
+                                    "minimum": -10,
+                                    "maximum": 10
+                                }
+                            },
+                            "rotational": {
+                                "alpha": {
+                                    "unit": "degrees",
+                                    "minimum": 90,
+                                    "maximum": 270
+                                },
+                                "beta": {
+                                    "unit": "degrees",
+                                    "minimum": 90,
+                                    "maximum": 270
+                                }
+                            }
+                        }
+                    },
+                    "elements": [
+                        {
+                            "name": "name-of-first-element-in-relationship",
+                            "coordinates": {
+                                "global": {
+                                    "translational": {
+                                        "x": {
+                                            "unit": "mm",
+                                            "value": 2
+                                        },
+                                        "y": {
+                                            "unit": "mm",
+                                            "value": 0
+                                        },
+                                        "z": {
+                                            "unit": "mm",
+                                            "value": 9
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "name": "name-of-second-element-in-relationship",
+                            "coordinates": {
+                                "global": {
+                                    "translational": {
+                                        "x": {
+                                            "unit": "mm",
+                                            "value": 2
+                                        },
+                                        "y": {
+                                            "unit": "mm",
+                                            "value": 0
+                                        },
+                                        "z": {
+                                            "unit": "mm",
+                                            "value": 9
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "joint-dynamic-other-relationship",
+                    "type": "joint",
+                    "nature": {
+                        "name": "dynamic",
+                        "nature": {
+                            "name": "other"
+                        }
+                    },
+                    "degreesOfFreedom": {
+                        "global": {
+                            "translational": {
+                                "x": {
+                                    "unit": "mm",
+                                    "minimum": -50,
+                                    "maximum": 50
+                                },
+                                "y": {
+                                    "unit": "mm",
+                                    "minimum": -50,
+                                    "maximum": 50
+                                },
+                                "z": {
+                                    "unit": "mm",
+                                    "minimum": -50,
+                                    "maximum": 50
+                                }
+                            },
+                            "rotational": {
+                                "alpha": {
+                                    "unit": "degrees",
+                                    "minimum": 90,
+                                    "maximum": 270
+                                },
+                                "beta": {
+                                    "unit": "degrees",
+                                    "minimum": 90,
+                                    "maximum": 270
+                                },
+                                "gamma": {
+                                    "unit": "degrees",
+                                    "minimum": 90,
+                                    "maximum": 270
+                                }
+                            }
+                        }
+                    },
+                    "elements": [
+                        {
+                            "name": "name-of-first-element-in-relationship",
+                            "coordinates": {
+                                "global": {
+                                    "translational": {
+                                        "x": {
+                                            "unit": "mm",
+                                            "value": 0
+                                        },
+                                        "y": {
+                                            "unit": "mm",
+                                            "value": 0
+                                        },
+                                        "z": {
+                                            "unit": "mm",
+                                            "value": 0
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "name": "name-of-second-element-in-relationship",
+                            "coordinates": {
+                                "global": {
+                                    "translational": {
+                                        "x": {
+                                            "unit": "mm",
+                                            "value": 0
+                                        },
+                                        "y": {
+                                            "unit": "mm",
+                                            "value": 0
+                                        },
+                                        "z": {
+                                            "unit": "mm",
+                                            "value": 0
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "boundary-relationship",
+                    "type": "boundary",
+                    "coordinates": {
+                        "global": {
+                            "translational": {
+                                "x": {
+                                    "unit": "mm",
+                                    "value": 1
+                                },
+                                "y": {
+                                    "unit": "mm",
+                                    "value": 2
+                                },
+                                "z": {
+                                    "unit": "mm",
+                                    "value": 3
+                                }
+                            }
+                        }
+                    },
+                    "elements": [
+                        {
+                            "name": "name-of-first-element-in-relationship"
+                        },
+                        {
+                            "name": "name-of-second-element-in-relationship"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
