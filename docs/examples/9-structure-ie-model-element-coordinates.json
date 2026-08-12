@@ -1,0 +1,121 @@
+{
+    "version": "1.4.0",
+    "name": "element-coordinates-examples",
+    "population": "documentation",
+    "timestamp": 1588007841000000000,
+    "models": {
+        "irreducibleElement": {
+            "type": "free",
+            "elements": [
+                {
+                    "name": "global-translational",
+                    "type": "regular",
+                    "coordinates": {
+                        "global": {
+                            "translational": {
+                                "x": {
+                                    "unit": "mm",
+                                    "value": 5
+                                },
+                                "y": {
+                                    "unit": "mm",
+                                    "value": 10
+                                },
+                                "z": {
+                                    "unit": "mm",
+                                    "value": 15
+                                }
+                            }
+                        }
+                    },
+                    "contextual": {
+                        "type": "block"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal",
+                            "type": {
+                                "name": "ferrousAlloy",
+                                "type": {
+                                    "name": "steel"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "global-translational-rotational",
+                    "type": "regular",
+                    "coordinates": {
+                        "global": {
+                            "translational": {
+                                "x": {
+                                    "unit": "mm",
+                                    "value": 5
+                                },
+                                "y": {
+                                    "unit": "mm",
+                                    "value": 10
+                                },
+                                "z": {
+                                    "unit": "mm",
+                                    "value": 15
+                                }
+                            },
+                            "rotational": {
+                                "alpha": {
+                                    "unit": "degrees",
+                                    "value": 90
+                                },
+                                "beta": {
+                                    "unit": "degrees",
+                                    "value": 180
+                                },
+                                "gamma": {
+                                    "unit": "degrees",
+                                    "value": 270
+                                }
+                            }
+                        }
+                    },
+                    "contextual": {
+                        "type": "block"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal",
+                            "type": {
+                                "name": "ferrousAlloy",
+                                "type": {
+                                    "name": "steel"
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
