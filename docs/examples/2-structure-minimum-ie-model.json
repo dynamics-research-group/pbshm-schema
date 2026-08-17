@@ -1,0 +1,36 @@
+{
+    "version": "1.4.0",
+    "name": "minimum-model-example",
+    "population": "documentation",
+    "timestamp": 1588007841000000000,
+    "models": {
+        "irreducibleElement": {
+            "type": "free",
+            "elements": [
+                {
+                    "name": "regular-element",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "beam"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "beam",
+                                "type": {
+                                    "name": "rectangular"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

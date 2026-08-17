@@ -1,0 +1,33 @@
+{
+    "version": "1.4.0",
+    "name": "minimum-features-example",
+    "population": "documentation",
+    "source": {
+        "timestamp": {
+            "stored": 1588007836000000000
+        },
+        "selection": [
+            {
+                "name": "name-of-first-structure-in-source"
+            }
+        ],
+        "environment": {
+            "key": {
+                "description": "description of the environment variable",
+                "value": "variable value"
+            }
+        }
+    },
+    "features": [
+        {
+            "name": "abstract-power-curve",
+            "type": {
+                "name": "abstract"
+            },
+            "power": {
+                "unit": "kW",
+                "value": 7.0
+            }
+        }
+    ]
+}
