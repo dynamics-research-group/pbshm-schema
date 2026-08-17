@@ -41,11 +41,3 @@ db = client[database]
 db.create_collection(collection, validator={
     "$jsonSchema": schema
 })
-
-# Create Unique Index
-db[collection].create_index([
-    ("population", pymongo.ASCENDING),
-    ("name", pymongo.ASCENDING),
-    ("timestamp", pymongo.ASCENDING),
-    ("channels.name", pymongo.ASCENDING)
-], unique=True)
