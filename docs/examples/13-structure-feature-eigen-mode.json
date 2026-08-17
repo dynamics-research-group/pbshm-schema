@@ -1,0 +1,618 @@
+{
+    "version": "1.4.0",
+    "name": "feature-eidge-mode-examples",
+    "population": "documentation",
+    "source": {
+        "timestamp": {
+            "stored": 1588007836000000000
+        },
+        "selection": [
+            {
+                "name": "name-of-first-structure-in-source"
+            }
+        ],
+        "environment": {
+            "key": {
+                "description": "description of the environment variable",
+                "value": "variable value"
+            }
+        }
+    },
+    "features": [
+        {
+            "name": "eigen-mode-acceleration",
+            "type": {
+                "name": "eigenMode"
+            },
+            "variant": "acceleration",
+            "naturalFrequency": {
+                "unit": "Hz",
+                "value": 10.2
+            },
+            "modeShape": {
+                "coordinates": {
+                    "global": {
+                        "translational": {
+                            "unit": "mm",
+                            "x": {
+                                "indices": {
+                                    "start": 0,
+                                    "end": 5
+                                },
+                                "vector": [
+                                    1,
+                                    2,
+                                    3,
+                                    4,
+                                    5
+                                ]
+                            },
+                            "y": {
+                                "indices": {
+                                    "start": 0,
+                                    "end": 5
+                                },
+                                "vector": [
+                                    0,
+                                    0,
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            "z": {
+                                "indices": {
+                                    "start": 0,
+                                    "end": 5
+                                },
+                                "vector": [
+                                    9,
+                                    5,
+                                    3,
+                                    1,
+                                    0
+                                ]
+                            }
+                        }
+                    }
+                },
+                "values": {
+                    "x": {
+                        "indices": {
+                            "start": 0,
+                            "end": 5
+                        },
+                        "vector": [
+                            {
+                                "real": 1.0,
+                                "imaginary": 0.6
+                            },
+                            {
+                                "real": 2.0,
+                                "imaginary": 4.6
+                            },
+                            {
+                                "real": 14.6,
+                                "imaginary": 2.0
+                            },
+                            {
+                                "real": 5.4,
+                                "imaginary": 8.6
+                            },
+                            {
+                                "real": 6.2,
+                                "imaginary": 4.5
+                            }
+                        ]
+                    },
+                    "y": {
+                        "indices": {
+                            "start": 0,
+                            "end": 5
+                        },
+                        "vector": [
+                            {
+                                "real": 6.0,
+                                "imaginary": 0.5
+                            },
+                            {
+                                "real": 24.0,
+                                "imaginary": 4.3
+                            },
+                            {
+                                "real": 8.6,
+                                "imaginary": 2.7
+                            },
+                            {
+                                "real": 4.2,
+                                "imaginary": 8.1
+                            },
+                            {
+                                "real": 9.3,
+                                "imaginary": 4.4
+                            }
+                        ]
+                    },
+                    "z": {
+                        "indices": {
+                            "start": 0,
+                            "end": 5
+                        },
+                        "vector": [
+                            {
+                                "real": 1.0,
+                                "imaginary": 5.5
+                            },
+                            {
+                                "real": 5.0,
+                                "imaginary": 2.3
+                            },
+                            {
+                                "real": 2.6,
+                                "imaginary": 9.7
+                            },
+                            {
+                                "real": 1.2,
+                                "imaginary": 5.1
+                            },
+                            {
+                                "real": 4.3,
+                                "imaginary": 3.4
+                            }
+                        ]
+                    }
+                }
+            },
+            "dampingRatio": 0.8
+        },
+        {
+            "name": "eigen-mode-velocity",
+            "type": {
+                "name": "eigenMode"
+            },
+            "variant": "velocity",
+            "naturalFrequency": {
+                "unit": "Hz",
+                "value": 10.2
+            },
+            "modeShape": {
+                "coordinates": {
+                    "global": {
+                        "translational": {
+                            "unit": "mm",
+                            "x": {
+                                "indices": {
+                                    "start": 0,
+                                    "end": 3
+                                },
+                                "vector": [
+                                    1,
+                                    2,
+                                    3
+                                ]
+                            },
+                            "y": {
+                                "indices": {
+                                    "start": 0,
+                                    "end": 3
+                                },
+                                "vector": [
+                                    9,
+                                    5,
+                                    3
+                                ]
+                            },
+                            "z": {
+                                "indices": {
+                                    "start": 0,
+                                    "end": 3
+                                },
+                                "vector": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        }
+                    }
+                },
+                "values": {
+                    "x": {
+                        "indices": {
+                            "start": 0,
+                            "end": 3
+                        },
+                        "vector": [
+                            {
+                                "real": 1.0,
+                                "imaginary": 0.8
+                            },
+                            {
+                                "real": 14.6,
+                                "imaginary": 2.8
+                            },
+                            {
+                                "real": 6.2,
+                                "imaginary": 4.8
+                            }
+                        ]
+                    },
+                    "y": {
+                        "indices": {
+                            "start": 0,
+                            "end": 3
+                        },
+                        "vector": [
+                            {
+                                "real": 24.0,
+                                "imaginary": 4.32
+                            },
+                            {
+                                "real": 8.6,
+                                "imaginary": 2.72
+                            },
+                            {
+                                "real": 4.2,
+                                "imaginary": 8.12
+                            }
+                        ]
+                    },
+                    "z": {
+                        "indices": {
+                            "start": 0,
+                            "end": 3
+                        },
+                        "vector": [
+                            {
+                                "real": 2.6,
+                                "imaginary": 9.76
+                            },
+                            {
+                                "real": 1.2,
+                                "imaginary": 5.16
+                            },
+                            {
+                                "real": 4.3,
+                                "imaginary": 3.46
+                            }
+                        ]
+                    }
+                }
+            },
+            "dampingRatio": 0.8
+        },
+        {
+            "name": "eigen-mode-displacement",
+            "type": {
+                "name": "eigenMode"
+            },
+            "variant": "displacement",
+            "naturalFrequency": {
+                "unit": "Hz",
+                "value": 10.2
+            },
+            "modeShape": {
+                "coordinates": {
+                    "global": {
+                        "translational": {
+                            "unit": "mm",
+                            "x": {
+                                "indices": {
+                                    "start": 0,
+                                    "end": 2
+                                },
+                                "vector": [
+                                    1,
+                                    8
+                                ]
+                            },
+                            "y": {
+                                "indices": {
+                                    "start": 0,
+                                    "end": 2
+                                },
+                                "vector": [
+                                    9,
+                                    3
+                                ]
+                            },
+                            "z": {
+                                "indices": {
+                                    "start": 0,
+                                    "end": 2
+                                },
+                                "vector": [
+                                    0,
+                                    4
+                                ]
+                            }
+                        }
+                    }
+                },
+                "values": {
+                    "x": {
+                        "indices": {
+                            "start": 0,
+                            "end": 2
+                        },
+                        "vector": [
+                            {
+                                "real": 6.22,
+                                "imaginary": 4.51
+                            },
+                            {
+                                "real": 9.22,
+                                "imaginary": 4.51
+                            }
+                        ]
+                    },
+                    "y": {
+                        "indices": {
+                            "start": 0,
+                            "end": 2
+                        },
+                        "vector": [
+                            {
+                                "real": 4.92,
+                                "imaginary": 8.11
+                            },
+                            {
+                                "real": 9.22,
+                                "imaginary": 4.51
+                            }
+                        ]
+                    },
+                    "z": {
+                        "indices": {
+                            "start": 0,
+                            "end": 2
+                        },
+                        "vector": [
+                            {
+                                "real": 4.32,
+                                "imaginary": 3.41
+                            },
+                            {
+                                "real": 9.22,
+                                "imaginary": 4.51
+                            }
+                        ]
+                    }
+                }
+            },
+            "dampingRatio": 1.0
+        },
+        {
+            "name": "eigen-mode-strain",
+            "type": {
+                "name": "eigenMode"
+            },
+            "variant": "strain",
+            "naturalFrequency": {
+                "unit": "Hz",
+                "value": 5.5
+            },
+            "modeShape": {
+                "coordinates": {
+                    "global": {
+                        "translational": {
+                            "unit": "mm",
+                            "x": {
+                                "indices": {
+                                    "start": 0,
+                                    "end": 2
+                                },
+                                "vector": [
+                                    0,
+                                    0
+                                ]
+                            },
+                            "y": {
+                                "indices": {
+                                    "start": 0,
+                                    "end": 2
+                                },
+                                "vector": [
+                                    4,
+                                    9
+                                ]
+                            },
+                            "z": {
+                                "indices": {
+                                    "start": 0,
+                                    "end": 2
+                                },
+                                "vector": [
+                                    2,
+                                    3
+                                ]
+                            }
+                        }
+                    }
+                },
+                "values": {
+                    "x": {
+                        "indices": {
+                            "start": 0,
+                            "end": 2
+                        },
+                        "vector": [
+                            {
+                                "real": 1.08,
+                                "imaginary": 0.62
+                            },
+                            {
+                                "real": 6.28,
+                                "imaginary": 4.52
+                            }
+                        ]
+                    },
+                    "y": {
+                        "indices": {
+                            "start": 0,
+                            "end": 2
+                        },
+                        "vector": [
+                            {
+                                "real": 6.5,
+                                "imaginary": 0.53
+                            },
+                            {
+                                "real": 24.5,
+                                "imaginary": 4.33
+                            }
+                        ]
+                    },
+                    "z": {
+                        "indices": {
+                            "start": 0,
+                            "end": 2
+                        },
+                        "vector": [
+                            {
+                                "real": 1.24,
+                                "imaginary": 5.11
+                            },
+                            {
+                                "real": 4.34,
+                                "imaginary": 3.41
+                            }
+                        ]
+                    }
+                }
+            },
+            "dampingRatio": 0.8
+        },
+        {
+            "name": "eigen-mode-rotation",
+            "type": {
+                "name": "eigenMode"
+            },
+            "variant": "rotation",
+            "naturalFrequency": {
+                "unit": "Hz",
+                "value": 2.9
+            },
+            "modeShape": {
+                "coordinates": {
+                    "global": {
+                        "translational": {
+                            "unit": "mm",
+                            "x": {
+                                "indices": {
+                                    "start": 0,
+                                    "end": 4
+                                },
+                                "vector": [
+                                    3,
+                                    8,
+                                    54,
+                                    36
+                                ]
+                            },
+                            "y": {
+                                "indices": {
+                                    "start": 0,
+                                    "end": 5
+                                },
+                                "vector": [
+                                    8,
+                                    23,
+                                    5,
+                                    35
+                                ]
+                            },
+                            "z": {
+                                "indices": {
+                                    "start": 0,
+                                    "end": 5
+                                },
+                                "vector": [
+                                    5,
+                                    8,
+                                    25,
+                                    6
+                                ]
+                            }
+                        }
+                    }
+                },
+                "values": {
+                    "x": {
+                        "indices": {
+                            "start": 0,
+                            "end": 4
+                        },
+                        "vector": [
+                            {
+                                "real": 1.08,
+                                "imaginary": 0.63
+                            },
+                            {
+                                "real": 2.28,
+                                "imaginary": 4.63
+                            },
+                            {
+                                "real": 14.68,
+                                "imaginary": 2.03
+                            },
+                            {
+                                "real": 5.48,
+                                "imaginary": 8.63
+                            }
+                        ]
+                    },
+                    "y": {
+                        "indices": {
+                            "start": 0,
+                            "end": 4
+                        },
+                        "vector": [
+                            {
+                                "real": 6.09,
+                                "imaginary": 0.56
+                            },
+                            {
+                                "real": 8.69,
+                                "imaginary": 2.76
+                            },
+                            {
+                                "real": 4.29,
+                                "imaginary": 8.16
+                            },
+                            {
+                                "real": 9.39,
+                                "imaginary": 4.46
+                            }
+                        ]
+                    },
+                    "z": {
+                        "indices": {
+                            "start": 0,
+                            "end": 4
+                        },
+                        "vector": [
+                            {
+                                "real": 1.02,
+                                "imaginary": 5.58
+                            },
+                            {
+                                "real": 5.02,
+                                "imaginary": 2.38
+                            },
+                            {
+                                "real": 1.22,
+                                "imaginary": 5.18
+                            },
+                            {
+                                "real": 4.32,
+                                "imaginary": 3.48
+                            }
+                        ]
+                    }
+                }
+            },
+            "dampingRatio": 0.9
+        }
+    ]
+}

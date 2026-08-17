@@ -1,0 +1,67 @@
+{
+    "version": "1.4.0",
+    "name": "feature-abstract-examples",
+    "population": "documentation",
+    "source": {
+        "timestamp": {
+            "stored": 1588007836000000000
+        },
+        "selection": [
+            {
+                "name": "name-of-first-structure-in-source"
+            }
+        ],
+        "environment": {
+            "key": {
+                "description": "description of the environment variable",
+                "value": "variable value"
+            }
+        }
+    },
+    "features": [
+        {
+            "name": "abstract-power-curve",
+            "type": {
+                "name": "abstract"
+            },
+            "windSpeed": {
+                "unit": "m/s",
+                "value": {
+                    "indices": {
+                        "start": 0,
+                        "end": 5
+                    },
+                    "vector": [
+                        0,
+                        10,
+                        20,
+                        30,
+                        40
+                    ]
+                }
+            },
+            "power": {
+                "unit": "GW",
+                "value": {
+                    "columns": 5,
+                    "indices": {
+                        "start": 0,
+                        "end": 10
+                    },
+                    "vector": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        0,
+                        0.8,
+                        1.9,
+                        2.95,
+                        3.90
+                    ]
+                }
+            }
+        }
+    ]
+}
