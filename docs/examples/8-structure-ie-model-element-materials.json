@@ -1,7 +1,10 @@
 {
-    "version": "1.4.0",
+    "version": "1.4.1",
     "name": "element-materials-examples",
     "population": "documentation",
+    "health": {
+        "state": 0
+    },
     "timestamp": 1588007841000000000,
     "models": {
         "irreducibleElement": {

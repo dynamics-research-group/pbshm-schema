@@ -1,7 +1,10 @@
 {
-    "version": "1.4.0",
+    "version": "1.4.1",
     "name": "feature-abstract-examples",
     "population": "documentation",
+    "health": {
+        "state": 0
+    },
     "source": {
         "timestamp": {
             "stored": 1588007836000000000
