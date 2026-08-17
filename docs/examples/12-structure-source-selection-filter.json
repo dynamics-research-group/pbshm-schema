@@ -1,0 +1,75 @@
+{
+    "version": "1.4.0",
+    "name": "source-selection-filter-examples",
+    "population": "documentation",
+    "source": {
+        "timestamp": {
+            "generated": 1588007836000000000,
+            "stored": 1588007836000000000
+        },
+        "selection": [
+            {
+                "population": "documentation",
+                "structures": [
+                    "name-of-first-structure-in-source",
+                    "name-of-second-structure-in-source"
+                ],
+                "channels": [
+                    "channel-name"
+                ],
+                "timestamps": [
+                    {
+                        "start": 1588007836000000000,
+                        "end": 1588007836000000002,
+                        "excluded": [
+                            1588007836000000001
+                        ]
+                    }
+                ]
+            }
+        ],
+        "software": [
+            {
+                "name": "software-package-name",
+                "version": "version-number",
+                "source": "url-to-source-code",
+                "parameters": {
+                    "stringValueParameter": "value",
+                    "intValueParameter": 12345,
+                    "doubleValueParameter": 12.45,
+                    "arrayValueParameter": [
+                        0,
+                        10,
+                        20
+                    ]
+                }
+            }
+        ],
+        "environment": {
+            "keyWithStringValue": {
+                "description": "description of the environment variable",
+                "value": "variable value"
+            },
+            "keyWithIntValue": {
+                "description": "description of the environment variable",
+                "value": 6549
+            },
+            "keyWithDoubleValue": {
+                "description": "description of the environment variable",
+                "value": 65.49
+            }
+        }
+    },
+    "features": [
+        {
+            "name": "feature-name",
+            "type": {
+                "name": "abstract"
+            },
+            "power": {
+                "unit": "kW",
+                "value": 7.0
+            }
+        }
+    ]
+}
