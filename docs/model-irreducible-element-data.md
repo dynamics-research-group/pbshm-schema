@@ -331,125 +331,73 @@ An element's material is either a single [reference material](#reference-materia
 
 #### [Properties Element Material](#properties-element-material)
 
-##### [Density Numerical Property Element Material](#density-numerical-property-element-material)
+##### [Density Property Element Material](#density-property-element-material)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`type`|type of the material property|`string`|`density`|yes|
-|`value`|value of the material property|`int`, `double`|any numerical value|yes|
+|`value`|value of the material property|`int`, `double`, `array`|a single numerical value, or an array of [`conditionalMaterialProperty`](#conditional-material-property) for values recorded under different conditions|yes|
 |`unit`|unit that the value of the material property is based in|`string`|`kg/m^3`, `g/cm^3`, `kg/L`, `g/mL`, `t/m^3`, `kg/dm^3`, `oz/cu in`, `other`|yes|
 
-##### [Thermal Expansion Coefficient Numerical Property Element Material](#thermal-expansion-coefficient-numerical-property-element-material)
+##### [Thermal Expansion Coefficient Property Element Material](#thermal-expansion-coefficient-property-element-material)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`type`|type of the material property|`string`|`linearThermalExpansionCoefficient`, `volumetricThermalExpansionCoefficient`|yes|
-|`value`|value of the material property|`int`, `double`|any numerical value|yes|
+|`value`|value of the material property|`int`, `double`, `array`|a single numerical value, or an array of [`conditionalMaterialProperty`](#conditional-material-property) for values recorded under different conditions|yes|
 |`unit`|unit that the value of the material property is based in|`string`|`K^-1`, `C^-1`, `F^-1`, `other`|yes|
 
-##### [Pressure Numerical Property Element Material](#pressure-numerical-property-element-material)
+##### [Pressure Property Element Material](#pressure-property-element-material)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`type`|type of the material property|`string`|`youngsModulus`, `shearModulus`, `compressiveStrength`, `shearStrength`, `ultimateTensileStrength`, `yieldStrength`, `0.1%ProofStress`, `fatigueStrengthCoefficient`|yes|
-|`value`|value of the material property|`int`, `double`|any numerical value|yes|
+|`value`|value of the material property|`int`, `double`, `array`|a single numerical value, or an array of [`conditionalMaterialProperty`](#conditional-material-property) for values recorded under different conditions|yes|
 |`unit`|unit that the value of the material property is based in|`string`|`GPa`, `MPa`, `kPa`, `Pa`, `Mpsi`, `ksi`, `psi`, `other`|yes|
 
-##### [Tensile Toughness Numerical Property Element Material](#tensile-toughness-numerical-property-element-material)
+##### [Tensile Toughness Property Element Material](#tensile-toughness-property-element-material)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`type`|type of the material property|`string`|`tensileToughness`|yes|
-|`value`|value of the material property|`int`, `double`|any numerical value|yes|
+|`value`|value of the material property|`int`, `double`, `array`|a single numerical value, or an array of [`conditionalMaterialProperty`](#conditional-material-property) for values recorded under different conditions|yes|
 |`unit`|unit that the value of the material property is based in|`string`|`GJ/m^3`, `MJ/m^3`, `kJ/m^3`, `J/m^3`, `ibf/in^3`, `other`|yes|
 
-##### [Fracture Toughness Numerical Property Element Material](#fracture-toughness-numerical-property-element-material)
+##### [Fracture Toughness Property Element Material](#fracture-toughness-property-element-material)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`type`|type of the material property|`string`|`fractureToughness`|yes|
-|`value`|value of the material property|`int`, `double`|any numerical value|yes|
+|`value`|value of the material property|`int`, `double`, `array`|a single numerical value, or an array of [`conditionalMaterialProperty`](#conditional-material-property) for values recorded under different conditions|yes|
 |`unit`|unit that the value of the material property is based in|`string`|`TPa/m^(1/2)`, `GPa/m^(1/2)`, `MPa/m^(1/2)`, `kPa/m^(1/2)`, `Pa/m^(1/2)`, `psi/in^(1/2)`, `other`|yes|
 
-##### [Density Conditional Property Element Material](#density-conditional-property-element-material)
-|Property|Description|Type|Values|Required|
-|---|-----|---|---|---|
-|`type`|type of the material property|`string`|`density`|yes|
-|`value`|value of the material property|`array`|[`conditionalMaterialProperty`](#conditional-material-property)|yes|
-|`unit`|unit that the value of the material property is based in|`string`|`kg/m^3`, `g/cm^3`, `kg/L`, `g/mL`, `t/m^3`, `kg/dm^3`, `oz/cu in`, `other`|yes|
-
-##### [Thermal Expansion Coefficient Conditional Property Element Material](#thermal-expansion-coefficient-conditional-property-element-material)
-|Property|Description|Type|Values|Required|
-|---|-----|---|---|---|
-|`type`|type of the material property|`string`|`linearThermalExpansionCoefficient`, `volumetricThermalExpansionCoefficient`|yes|
-|`value`|value of the material property|`array`|[`conditionalMaterialProperty`](#conditional-material-property)|yes|
-|`unit`|unit that the value of the material property is based in|`string`|`K^-1`, `C^-1`, `F^-1`, `other`|yes|
-
-##### [Pressure Conditional Property Element Material](#pressure-conditional-property-element-material)
-|Property|Description|Type|Values|Required|
-|---|-----|---|---|---|
-|`type`|type of the material property|`string`|`youngsModulus`, `shearModulus`, `compressiveStrength`, `shearStrength`, `ultimateTensileStrength`, `yieldStrength`, `0.1%ProofStress`, `fatigueStrengthCoefficient`|yes|
-|`value`|value of the material property|`array`|[`conditionalMaterialProperty`](#conditional-material-property)|yes|
-|`unit`|unit that the value of the material property is based in|`string`|`GPa`, `MPa`, `kPa`, `Pa`, `Mpsi`, `ksi`, `psi`, `other`|yes|
-
-##### [Tensile Toughness Conditional Property Element Material](#tensile-toughness-conditional-property-element-material)
-|Property|Description|Type|Values|Required|
-|---|-----|---|---|---|
-|`type`|type of the material property|`string`|`tensileToughness`|yes|
-|`value`|value of the material property|`array`|[`conditionalMaterialProperty`](#conditional-material-property)|yes|
-|`unit`|unit that the value of the material property is based in|`string`|`GJ/m^3`, `MJ/m^3`, `kJ/m^3`, `J/m^3`, `ibf/in^3`, `other`|yes|
-
-##### [Fracture Toughness Conditional Property Element Material](#fracture-toughness-conditional-property-element-material)
-|Property|Description|Type|Values|Required|
-|---|-----|---|---|---|
-|`type`|type of the material property|`string`|`fractureToughness`|yes|
-|`value`|value of the material property|`array`|[`conditionalMaterialProperty`](#conditional-material-property)|yes|
-|`unit`|unit that the value of the material property is based in|`string`|`TPa/m^(1/2)`, `GPa/m^(1/2)`, `MPa/m^(1/2)`, `kPa/m^(1/2)`, `Pa/m^(1/2)`, `psi/in^(1/2)`, `other`|yes|
-
-##### [Unit Free Numerical Property Element Material](#unit-free-numerical-property-element-material)
+##### [Unit Free Property Element Material](#unit-free-property-element-material)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`type`|type of the material property|`string`|`poissonsRatio`, `elongation`, `reductionInArea`, `fatigueStrengthExponent`, `fatigueDuctilityCoefficient`, `fatigueDuctilityExponent`|yes|
-|`value`|value of the material property|`int`, `double`|any numerical value|yes|
+|`value`|value of the material property|`int`, `double`, `array`|a single numerical value, or an array of [`conditionalMaterialProperty`](#conditional-material-property) for values recorded under different conditions|yes|
 
-##### [Unit Free Conditional Property Element Material](#unit-free-conditional-property-element-material)
+##### [Hardness Conditional Property Element Material](#hardness-conditional-property-element-material)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`type`|type of the material property|`string`|`poissonsRatio`, `elongation`, `reductionInArea`, `fatigueStrengthExponent`, `fatigueDuctilityCoefficient`, `fatigueDuctilityExponent`|yes|
-|`value`|value of the material property|`array`|[`conditionalMaterialProperty`](#conditional-material-property)|yes|
+|`type`|type of the material property|`string`|`vickersHardness`, `brinellHardness`|yes|
+|`value`|value of the material property|`array`|an array of [`hardnessConditionalMaterialProperty`](#hardness-conditional-material-property)|yes|
 
-##### [Vickers Hardness Conditional Property Element Material](#vickers-hardness-conditional-property-element-material)
-|Property|Description|Type|Values|Required|
-|---|-----|---|---|---|
-|`type`|type of the material property|`string`|`vickersHardness`|yes|
-|`value`|value of the material property|`array`|[`vickersHardnessConditionalMaterialProperty`](#vickers-hardness-conditional-material-property)|yes|
-
-##### [Vickers Hardness Conditional Material Property](#vickers-hardness-conditional-material-property)
+##### [Hardness Conditional Material Property](#hardness-conditional-material-property)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`environmental`|environmental conditions for the given material property value|`object`|[`environmentalConditionalMaterialProperty`](#environmental-conditional-material-property)|yes, if no `parameters`|
-|`parameters`|parameters conditions for the given material property value|`object`|[`parametersVickersHardnessConditionalMaterialProperty`](#parameters-vickers-hardness-conditional-material-property)|yes, if no `environmental`|
+|`parameters`|parameters conditions for the given material property value|`object`|if the calling object's `type` is `vickersHardness`, [`parametersVickersHardnessConditionalMaterialProperty`](#parameters-vickers-hardness-conditional-material-property); if `brinellHardness`, [`parametersBrinellHardnessConditionalMaterialProperty`](#parameters-brinell-hardness-conditional-material-property)|yes, if no `environmental`|
 |`value`|value of the material property with the given conditions|`int`, `double`|any numerical value|yes|
 
 ###### [Parameters Vickers Hardness Conditional Material Property](#parameters-vickers-hardness-conditional-material-property)
+Additional properties can be declared of type [`wildcardValue`](#wildcard-value).
+
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`_`||`object`|[`wildcardValue`](#wildcard-value)|no|
 |`load`||`object`|[`forceValue`](#force-value)|yes|
 |`duration`||`object`|[`durationValue`](#duration-value)|yes|
 
-##### [Brinell Hardness Conditional Property Element Material](#brinell-hardness-conditional-property-element-material)
-|Property|Description|Type|Values|Required|
-|---|-----|---|---|---|
-|`type`|type of the material property|`string`|`brinellHardness`|yes|
-|`value`|value of the material property|`array`|[`brinellHardnessConditionalMaterialProperty`](#brinell-hardness-conditional-material-property)|yes|
-
-##### [Brinell Hardness Conditional Material Property](#brinell-hardness-conditional-material-property)
-|Property|Description|Type|Values|Required|
-|---|-----|---|---|---|
-|`environmental`|environmental conditions for the given material property value|`object`|[`environmentalConditionalMaterialProperty`](#environmental-conditional-material-property)|yes, if no `parameters`|
-|`parameters`|parameters conditions for the given material property value|`object`|[`parametersBrinellHardnessConditionalMaterialProperty`](#parameters-brinell-hardness-conditional-material-property)|yes, if no `environmental`|
-|`value`|value of the material property with the given conditions|`int`, `double`|any numerical value|yes|
-
 ###### [Parameters Brinell Hardness Conditional Material Property](#parameters-brinell-hardness-conditional-material-property)
+Additional properties can be declared of type [`wildcardValue`](#wildcard-value).
+
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`_`||`object`|[`wildcardValue`](#wildcard-value)|no|
 |`diameter`||`object`|[`brinellHardnessParameterDiameterValue`](#brinell-hardness-parameter-diameter-value)|yes|
 |`ball`||`object`|[`brinellHardnessParameterBallValue`](#brinell-hardness-parameter-ball-value)|yes|
 |`force`||`object`|[`forceValue`](#force-value)|yes|
@@ -516,20 +464,16 @@ This is the shared shape of a `translateAndScale` face, used for the `cuboid`, `
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`environmental`|environmental conditions for the given material property value|`object`|[`environmentalConditionalMaterialProperty`](#environmental-conditional-material-property)|yes, if no `parameters`|
-|`parameters`|parameters conditions for the given material property value|`object`|[`parametersConditionalMaterialProperty`](#parameters-conditional-material-property)|yes, if no `environmental`|
+|`parameters`|parameters conditions for the given material property value|`object`|Additional properties can be declared of type [`wildcardValue`](#wildcard-value).|yes, if no `environmental`|
 |`value`|value of the material property with the given conditions|`int`, `double`|any numerical value|yes|
 
 ##### [Environmental Conditional Material Property](#environmental-conditional-material-property)
+Additional properties can be declared of type [`wildcardValue`](#wildcard-value).
+
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`temperature`|temperature that the test was conducted at|`object`|[`temperatureValue`](#temperature-value)|no|
 |`humidity`|humidity that the test was conducted at|`object`|[`percentageValue`](#percentage-value)|no|
-|`_`||`object`|[`wildcardValue`](#wildcard-value)|no|
-
-##### [Parameters Conditional Material Property](#parameters-conditional-material-property)
-|Property|Description|Type|Values|Required|
-|---|-----|---|---|---|
-|`_`||`object`|[`wildcardValue`](#wildcard-value)|no|
 
 # [Relationships](#relationships)
 
