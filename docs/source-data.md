@@ -15,7 +15,7 @@
 ## [Channel Selection](#channel-selection)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`population`|Name of the population used|`string`|Minimum Length: 1, Maximum Length: 64|yes|
+|`population`|Name of the population used|`string`|Minimum Length: 8, Maximum Length: 64|yes|
 |`structures`|List of selected structures in the population|`array`|`string`|yes|
 |`channels`|List of selected channels on the structures|`array`|`string`|yes|
 |`timestamps`|List of the timestamp ranges|`array`|[`timestampRange`](#timestamp-range)|yes|
@@ -38,7 +38,7 @@
 |`name`|Name of the software used|`string`|Minimum Length: 1|yes|
 |`version`|Version of the software used|`string`|Minimum Length: 1|yes|
 |`source`|URL to access to source code of the software|`string`|Minimum Length: 1|no|
-|`parameters`|Dictionary of software parameters used|`object`|[`softwareParemeters`](#software-parameters)|no|
+|`parameters`|Dictionary of software parameters used|`object`|[`softwareParameters`](#software-parameters)|no|
 
 ### [Software Parameters](#software-parameters)
 |Property|Description|Type|Values|Required|

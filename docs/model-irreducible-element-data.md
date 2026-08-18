@@ -46,19 +46,19 @@
 
 ### [Element Geometry](#element-geometry)
 
-#### [Beam Rectangular Element Geometry](#beam-rectangular-element-geometry)
+#### [Solid Beam Rectangular Element Geometry](#solid-beam-rectangular-element-geometry)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`type`|type of geometrical element|`object`|[`typeBeamRectangularElementGeometry`](#type-beam-rectangular-element-geometry)|yes|
+|`type`|type of geometrical element|`object`|[`typeSolidBeamRectangularElementGeometry`](#type-solid-beam-rectangular-element-geometry)|yes|
 |`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|no|
-|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsBeamRectangularElementGeometry`](#dimensions-beam-rectangular-element-geometry)|no|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsSolidBeamRectangularElementGeometry`](#dimensions-solid-beam-rectangular-element-geometry)|no|
 
-##### [Type Beam Rectangular Element Geometry](#type-beam-rectangular-element-geometry)
+##### [Type Solid Beam Rectangular Element Geometry](#type-solid-beam-rectangular-element-geometry)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`name`|name of the geometrical type|`string`|`beam` -> `rectangular`|yes|
+|`name`|name of the geometrical type|`string`|`solid` -> `beam` -> `rectangular`|yes|
 
-##### [Dimensions Beam Rectangular Element Geometry](#dimensions-beam-rectangular-element-geometry)
+##### [Dimensions Solid Beam Rectangular Element Geometry](#dimensions-solid-beam-rectangular-element-geometry)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
@@ -66,80 +66,213 @@
 |`width`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
 |`height`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
 
-#### [Beam Circular Element Geometry](#beam-circular-element-geometry)
+#### [Shell Beam Rectangular Element Geometry](#shell-beam-rectangular-element-geometry)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`type`|type of geometrical element|`object`|[`typeBeamCircularElementGeometry`](#type-beam-circular-element-geometry)|yes|
+|`type`|type of geometrical element|`object`|[`typeShellBeamRectangularElementGeometry`](#type-shell-beam-rectangular-element-geometry)|yes|
 |`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|no|
-|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsBeamCircularElementGeometry`](#dimensions-beam-circular-element-geometry)|no|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsShellBeamRectangularElementGeometry`](#dimensions-shell-beam-rectangular-element-geometry)|no|
 
-##### [Type Beam Circular Element Geometry](#type-beam-circular-element-geometry)
+##### [Type Shell Beam Rectangular Element Geometry](#type-shell-beam-rectangular-element-geometry)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`name`|name of the geometrical type|`string`|`beam` -> `circular`|yes|
+|`name`|name of the geometrical type|`string`|`shell` -> `beam` -> `rectangular`|yes|
 
-##### [Dimensions Beam Circular Element Geometry](#dimensions-beam-circular-element-geometry)
+##### [Dimensions Shell Beam Rectangular Element Geometry](#dimensions-shell-beam-rectangular-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
+|`length`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+|`width`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+|`height`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+|`thickness`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+
+#### [Solid Beam Circular Element Geometry](#solid-beam-circular-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`type`|type of geometrical element|`object`|[`typeSolidBeamCircularElementGeometry`](#type-solid-beam-circular-element-geometry)|yes|
+|`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|no|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsSolidBeamCircularElementGeometry`](#dimensions-solid-beam-circular-element-geometry)|no|
+
+##### [Type Solid Beam Circular Element Geometry](#type-solid-beam-circular-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`name`|name of the geometrical type|`string`|`solid` -> `beam` -> `circular`|yes|
+
+##### [Dimensions Solid Beam Circular Element Geometry](#dimensions-solid-beam-circular-element-geometry)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
 |`length`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
 |`radius`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
 
-#### [Beam I-beam Element Geometry](#beam-ibeam-element-geometry)
+#### [Shell Beam Circular Element Geometry](#shell-beam-circular-element-geometry)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`type`|type of geometrical element|`object`|[`typeBeamI-beamElementGeometry`](#type-beam-ibeam-element-geometry)|yes|
+|`type`|type of geometrical element|`object`|[`typeShellBeamCircularElementGeometry`](#type-shell-beam-circular-element-geometry)|yes|
 |`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|no|
-|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsBeamI-beamElementGeometry`](#dimensions-beam-ibeam-element-geometry)|no|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsShellBeamCircularElementGeometry`](#dimensions-shell-beam-circular-element-geometry)|no|
 
-##### [Type Beam I-beam Element Geometry](#type-beam-ibeam-element-geometry)
+##### [Type Shell Beam Circular Element Geometry](#type-shell-beam-circular-element-geometry)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`name`|name of the geometrical type|`string`|`beam` -> `i-beam`|yes|
+|`name`|name of the geometrical type|`string`|`shell` -> `beam` -> `circular`|yes|
 
-##### [Dimensions Beam I-beam Element Geometry](#dimensions-beam-ibeam-element-geometry)
+##### [Dimensions Shell Beam Circular Element Geometry](#dimensions-shell-beam-circular-element-geometry)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
 |`length`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
-|`d`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
-|`h`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
-|`s`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
-|`b`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
-|`t`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+|`radius`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+|`thickness`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
 
-#### [Beam Other Element Geometry](#beam-other-element-geometry)
+#### [Solid Beam I-beam Element Geometry](#solid-beam-i-beam-element-geometry)
+This section also covers the `t-beam` and `c-beam` profiles, which share the same dimensions.
+
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`type`|type of geometrical element|`object`|[`typeBeamOtherElementGeometry`](#type-beam-other-element-geometry)|yes|
+|`type`|type of geometrical element|`object`|[`typeSolidBeamIBeamElementGeometry`](#type-solid-beam-i-beam-element-geometry)|yes|
 |`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|no|
-|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsBeamOtherElementGeometry`](#dimensions-beam-other-element-geometry)|no|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsSolidBeamIBeamElementGeometry`](#dimensions-solid-beam-i-beam-element-geometry)|no|
 
-##### [Type Beam Other Element Geometry](#type-beam-other-element-geometry)
+##### [Type Solid Beam I-beam Element Geometry](#type-solid-beam-i-beam-element-geometry)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`name`|name of the geometrical type|`string`|`beam` -> `other`|yes|
+|`name`|name of the geometrical type|`string`|`solid` -> `beam` -> `i-beam`, `t-beam`, `c-beam`|yes|
 
-##### [Dimensions Beam Other Element Geometry](#dimensions-beam-other-element-geometry)
+##### [Dimensions Solid Beam I-beam Element Geometry](#dimensions-solid-beam-i-beam-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
+|`length`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+|`width`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+|`height`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+|`webThickness`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+|`flangeThickness`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+
+#### [Solid Beam L-beam Element Geometry](#solid-beam-l-beam-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`type`|type of geometrical element|`object`|[`typeSolidBeamLBeamElementGeometry`](#type-solid-beam-l-beam-element-geometry)|yes|
+|`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|no|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsSolidBeamLBeamElementGeometry`](#dimensions-solid-beam-l-beam-element-geometry)|no|
+
+##### [Type Solid Beam L-beam Element Geometry](#type-solid-beam-l-beam-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`name`|name of the geometrical type|`string`|`solid` -> `beam` -> `l-beam`|yes|
+
+##### [Dimensions Solid Beam L-beam Element Geometry](#dimensions-solid-beam-l-beam-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
+|`length`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+|`width`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+|`height`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+|`thickness`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+|`angle`|the axis, source, unit and value of the measurement|`object`|[`angularDimension`](#angular-dimension)|yes|
+
+#### [Solid Beam Y-beam Element Geometry](#solid-beam-y-beam-element-geometry)
+This section also covers the `ye-beam` and `m-beam` profiles, which share the same dimensions.
+
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`type`|type of geometrical element|`object`|[`typeSolidBeamYBeamElementGeometry`](#type-solid-beam-y-beam-element-geometry)|yes|
+|`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|no|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsSolidBeamYBeamElementGeometry`](#dimensions-solid-beam-y-beam-element-geometry)|no|
+
+##### [Type Solid Beam Y-beam Element Geometry](#type-solid-beam-y-beam-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`name`|name of the geometrical type|`string`|`solid` -> `beam` -> `y-beam`, `ye-beam`, `m-beam`|yes|
+
+##### [Dimensions Solid Beam Y-beam Element Geometry](#dimensions-solid-beam-y-beam-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
+|`length`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+|`height`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+|`baseWidth`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+|`topWidth`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+
+#### [Solid Beam U-beam Element Geometry](#solid-beam-u-beam-element-geometry)
+This section also covers the `um-beam` profile, which shares the same dimensions.
+
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`type`|type of geometrical element|`object`|[`typeSolidBeamUBeamElementGeometry`](#type-solid-beam-u-beam-element-geometry)|yes|
+|`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|no|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsSolidBeamUBeamElementGeometry`](#dimensions-solid-beam-u-beam-element-geometry)|no|
+
+##### [Type Solid Beam U-beam Element Geometry](#type-solid-beam-u-beam-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`name`|name of the geometrical type|`string`|`solid` -> `beam` -> `u-beam`, `um-beam`|yes|
+
+##### [Dimensions Solid Beam U-beam Element Geometry](#dimensions-solid-beam-u-beam-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
+|`length`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+|`height`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+|`baseWidth`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+|`topWidth`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+|`openingWidth`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+
+#### [Solid Beam Other Element Geometry](#solid-beam-other-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`type`|type of geometrical element|`object`|[`typeSolidBeamOtherElementGeometry`](#type-solid-beam-other-element-geometry)|yes|
+|`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|no|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsSolidBeamOtherElementGeometry`](#dimensions-solid-beam-other-element-geometry)|no|
+
+##### [Type Solid Beam Other Element Geometry](#type-solid-beam-other-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`name`|name of the geometrical type|`string`|`solid` -> `beam` -> `other`|yes|
+
+##### [Dimensions Solid Beam Other Element Geometry](#dimensions-solid-beam-other-element-geometry)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
 |`length`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
 |`*`|the axis, source, unit and value of the measurement|`object`|[`angularDimension`](#angular-dimension)|-|
 
-#### [Plate Rectangular Element Geometry](#plate-rectangular-element-geometry)
+#### [Shell Beam Other Element Geometry](#shell-beam-other-element-geometry)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`type`|type of geometrical element|`object`|[`typePlateRectangularElementGeometry`](#type-plate-rectangular-element-geometry)|yes|
+|`type`|type of geometrical element|`object`|[`typeShellBeamOtherElementGeometry`](#type-shell-beam-other-element-geometry)|yes|
 |`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|no|
-|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsPlateRectangularElementGeometry`](#dimensions-plate-rectangular-element-geometry)|no|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsShellBeamOtherElementGeometry`](#dimensions-shell-beam-other-element-geometry)|no|
 
-##### [Type Plate Rectangular Element Geometry](#type-plate-rectangular-element-geometry)
+##### [Type Shell Beam Other Element Geometry](#type-shell-beam-other-element-geometry)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`name`|name of the geometrical type|`string`|`plate` -> `rectangular`|yes|
+|`name`|name of the geometrical type|`string`|`shell` -> `beam` -> `other`|yes|
 
-##### [Dimensions Plate Rectangular Element Geometry](#dimensions-plate-rectangular-element-geometry)
+##### [Dimensions Shell Beam Other Element Geometry](#dimensions-shell-beam-other-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
+|`length`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+|`thickness`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+|`*`|the axis, source, unit and value of the measurement|`object`|[`angularDimension`](#angular-dimension)|-|
+
+#### [Solid Plate Rectangular Element Geometry](#solid-plate-rectangular-element-geometry)
+Plates only support the `solid` material mode; there is no `shell` plate geometry.
+
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`type`|type of geometrical element|`object`|[`typeSolidPlateRectangularElementGeometry`](#type-solid-plate-rectangular-element-geometry)|yes|
+|`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|no|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsSolidPlateRectangularElementGeometry`](#dimensions-solid-plate-rectangular-element-geometry)|no|
+
+##### [Type Solid Plate Rectangular Element Geometry](#type-solid-plate-rectangular-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`name`|name of the geometrical type|`string`|`solid` -> `plate` -> `rectangular`|yes|
+
+##### [Dimensions Solid Plate Rectangular Element Geometry](#dimensions-solid-plate-rectangular-element-geometry)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
@@ -147,38 +280,38 @@
 |`width`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
 |`length`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
 
-#### [Plate Circular Element Geometry](#plate-circular-element-geometry)
+#### [Solid Plate Circular Element Geometry](#solid-plate-circular-element-geometry)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`type`|type of geometrical element|`object`|[`typePlateCircularElementGeometry`](#type-plate-circular-element-geometry)|yes|
+|`type`|type of geometrical element|`object`|[`typeSolidPlateCircularElementGeometry`](#type-solid-plate-circular-element-geometry)|yes|
 |`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|no|
-|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsPlateCircularElementGeometry`](#dimensions-plate-circular-element-geometry)|no|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsSolidPlateCircularElementGeometry`](#dimensions-solid-plate-circular-element-geometry)|no|
 
-##### [Type Plate Circular Element Geometry](#type-plate-circular-element-geometry)
+##### [Type Solid Plate Circular Element Geometry](#type-solid-plate-circular-element-geometry)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`name`|name of the geometrical type|`string`|`plate` -> `circular`|yes|
+|`name`|name of the geometrical type|`string`|`solid` -> `plate` -> `circular`|yes|
 
-##### [Dimensions Plate Circular Element Geometry](#dimensions-plate-circular-element-geometry)
+##### [Dimensions Solid Plate Circular Element Geometry](#dimensions-solid-plate-circular-element-geometry)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
 |`thickness`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
 |`radius`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
 
-#### [Plate Other Element Geometry](#plate-other-element-geometry)
+#### [Solid Plate Other Element Geometry](#solid-plate-other-element-geometry)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`type`|type of geometrical element|`object`|[`typePlateOtherElementGeometry`](#type-plate-other-element-geometry)|yes|
+|`type`|type of geometrical element|`object`|[`typeSolidPlateOtherElementGeometry`](#type-solid-plate-other-element-geometry)|yes|
 |`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|no|
-|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsPlateOtherElementGeometry`](#dimensions-plate-other-element-geometry)|no|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsSolidPlateOtherElementGeometry`](#dimensions-solid-plate-other-element-geometry)|no|
 
-##### [Type Plate Other Element Geometry](#type-plate-other-element-geometry)
+##### [Type Solid Plate Other Element Geometry](#type-solid-plate-other-element-geometry)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`name`|name of the geometrical type|`string`|`plate` -> `other`|yes|
+|`name`|name of the geometrical type|`string`|`solid` -> `plate` -> `other`|yes|
 
-##### [Dimensions Plate Other Element Geometry](#dimensions-plate-other-element-geometry)
+##### [Dimensions Solid Plate Other Element Geometry](#dimensions-solid-plate-other-element-geometry)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
@@ -300,6 +433,45 @@
 |`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
 |`thickness`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
 |`radius`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+|`length`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+
+#### [Solid Translate Aerofoil Element Geometry](#solid-translate-aerofoil-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`type`|type of geometrical element|`object`|[`typeSolidTranslateAerofoilElementGeometry`](#type-solid-translate-aerofoil-element-geometry)|yes|
+|`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|no|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsSolidTranslateAerofoilElementGeometry`](#dimensions-solid-translate-aerofoil-element-geometry)|no|
+|`profile`|values to represent the profile of the named aerofoil|`object`|[`aerofoilProfile`](#aerofoil-profile)|yes|
+
+##### [Type Solid Translate Aerofoil Element Geometry](#type-solid-translate-aerofoil-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`name`|name of the geometrical type|`string`|`solid` -> `translate` -> `aerofoil`|yes|
+
+##### [Dimensions Solid Translate Aerofoil Element Geometry](#dimensions-solid-translate-aerofoil-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
+|`length`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+
+#### [Shell Translate Aerofoil Element Geometry](#shell-translate-aerofoil-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`type`|type of geometrical element|`object`|[`typeShellTranslateAerofoilElementGeometry`](#type-shell-translate-aerofoil-element-geometry)|yes|
+|`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|no|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsShellTranslateAerofoilElementGeometry`](#dimensions-shell-translate-aerofoil-element-geometry)|no|
+|`profile`|values to represent the profile of the named aerofoil|`object`|[`aerofoilProfile`](#aerofoil-profile)|yes|
+
+##### [Type Shell Translate Aerofoil Element Geometry](#type-shell-translate-aerofoil-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`name`|name of the geometrical type|`string`|`shell` -> `translate` -> `aerofoil`|yes|
+
+##### [Dimensions Shell Translate Aerofoil Element Geometry](#dimensions-shell-translate-aerofoil-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
+|`thickness`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
 |`length`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
 
 #### [Solid Translate Other Element Geometry](#solid-translate-other-element-geometry)
@@ -491,6 +663,153 @@
 |`thickness`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
 |`radius`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
 
+#### [Solid Translate And Scale Aerofoil Element Geometry](#solid-translate-and-scale-aerofoil-element-geometry)
+Unlike the other translate and scale profiles, each face carries its own aerofoil `profile` rather than a `dimensions` object; `dimensions` is still required on the face but carries no fields of its own for this profile.
+
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`type`|type of geometrical element|`object`|[`typeSolidTranslateAndScaleAerofoilElementGeometry`](#type-solid-translate-and-scale-aerofoil-element-geometry)|yes|
+|`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|yes, if `faces` or `dimensions` provided|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsSolidTranslateAndScaleAerofoilElementGeometry`](#dimensions-solid-translate-and-scale-aerofoil-element-geometry)|no|
+|`faces`|the faces that describe the translate and scale operations within the bounding|`object`|[`facesSolidTranslateAndScaleAerofoilElementGeometry`](#faces-solid-translate-and-scale-aerofoil-element-geometry)|yes, if `bounding` or `dimensions` provided|
+
+##### [Type Solid Translate And Scale Aerofoil Element Geometry](#type-solid-translate-and-scale-aerofoil-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`name`|name of the geometrical type|`string`|`solid` -> `translateAndScale` -> `aerofoil`|yes|
+
+##### [Dimensions Solid Translate And Scale Aerofoil Element Geometry](#dimensions-solid-translate-and-scale-aerofoil-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
+|`length`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+
+##### [Faces Solid Translate And Scale Aerofoil Element Geometry](#faces-solid-translate-and-scale-aerofoil-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`left`|the face of an element within the bounding|`object`|[`faceSolidTranslateAndScaleAerofoilElementGeometry`](#face-solid-translate-and-scale-aerofoil-element-geometry)|yes|
+|`right`|the face of an element within the bounding|`object`|[`faceSolidTranslateAndScaleAerofoilElementGeometry`](#face-solid-translate-and-scale-aerofoil-element-geometry)|yes|
+
+##### [Face Solid Translate And Scale Aerofoil Element Geometry](#face-solid-translate-and-scale-aerofoil-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsFaceSolidTranslateAndScaleAerofoilElementGeometry`](#dimensions-face-solid-translate-and-scale-aerofoil-element-geometry)|yes|
+|`translational`|values for the y and z translations within the coordinate space|`object`|[`faceTranslation`](#face-translation)|yes|
+|`profile`|values to represent the profile of the named aerofoil|`object`|[`aerofoilProfile`](#aerofoil-profile)|yes|
+
+###### [Dimensions Face Solid Translate And Scale Aerofoil Element Geometry](#dimensions-face-solid-translate-and-scale-aerofoil-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
+
+#### [Shell Translate And Scale Aerofoil Element Geometry](#shell-translate-and-scale-aerofoil-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`type`|type of geometrical element|`object`|[`typeShellTranslateAndScaleAerofoilElementGeometry`](#type-shell-translate-and-scale-aerofoil-element-geometry)|yes|
+|`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|yes, if `faces` or `dimensions` provided|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsShellTranslateAndScaleAerofoilElementGeometry`](#dimensions-shell-translate-and-scale-aerofoil-element-geometry)|no|
+|`faces`|the faces that describe the translate and scale operations within the bounding|`object`|[`facesShellTranslateAndScaleAerofoilElementGeometry`](#faces-shell-translate-and-scale-aerofoil-element-geometry)|yes, if `bounding` or `dimensions` provided|
+
+##### [Type Shell Translate And Scale Aerofoil Element Geometry](#type-shell-translate-and-scale-aerofoil-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`name`|name of the geometrical type|`string`|`shell` -> `translateAndScale` -> `aerofoil`|yes|
+
+##### [Dimensions Shell Translate And Scale Aerofoil Element Geometry](#dimensions-shell-translate-and-scale-aerofoil-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
+|`length`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+
+##### [Faces Shell Translate And Scale Aerofoil Element Geometry](#faces-shell-translate-and-scale-aerofoil-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`left`|the face of an element within the bounding|`object`|[`faceShellTranslateAndScaleAerofoilElementGeometry`](#face-shell-translate-and-scale-aerofoil-element-geometry)|yes|
+|`right`|the face of an element within the bounding|`object`|[`faceShellTranslateAndScaleAerofoilElementGeometry`](#face-shell-translate-and-scale-aerofoil-element-geometry)|yes|
+
+##### [Face Shell Translate And Scale Aerofoil Element Geometry](#face-shell-translate-and-scale-aerofoil-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsFaceShellTranslateAndScaleAerofoilElementGeometry`](#dimensions-face-shell-translate-and-scale-aerofoil-element-geometry)|yes|
+|`translational`|values for the y and z translations within the coordinate space|`object`|[`faceTranslation`](#face-translation)|yes|
+|`profile`|values to represent the profile of the named aerofoil|`object`|[`aerofoilProfile`](#aerofoil-profile)|yes|
+
+###### [Dimensions Face Shell Translate And Scale Aerofoil Element Geometry](#dimensions-face-shell-translate-and-scale-aerofoil-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
+|`thickness`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+
+#### [Solid Translate And Scale Compound Element Geometry](#solid-translate-and-scale-compound-element-geometry)
+The compound profile builds a shape out of two dissimilar faces. Each face declares its own `type` (independent of the element's own type tree) and provides the fields that go with it; exactly one of `left` or `right` must be `aerofoil`, and the other must not be.
+
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`type`|type of geometrical element|`object`|[`typeSolidTranslateAndScaleCompoundElementGeometry`](#type-solid-translate-and-scale-compound-element-geometry)|yes|
+|`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|yes, if `faces` or `dimensions` provided|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsSolidTranslateAndScaleCompoundElementGeometry`](#dimensions-solid-translate-and-scale-compound-element-geometry)|no|
+|`faces`|the faces that describe the translate and scale operations within the bounding|`object`|[`facesSolidTranslateAndScaleCompoundElementGeometry`](#faces-solid-translate-and-scale-compound-element-geometry)|yes, if `bounding` or `dimensions` provided|
+
+##### [Type Solid Translate And Scale Compound Element Geometry](#type-solid-translate-and-scale-compound-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`name`|name of the geometrical type|`string`|`solid` -> `translateAndScale` -> `compound`|yes|
+
+##### [Dimensions Solid Translate And Scale Compound Element Geometry](#dimensions-solid-translate-and-scale-compound-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
+|`length`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+
+##### [Faces Solid Translate And Scale Compound Element Geometry](#faces-solid-translate-and-scale-compound-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`left`|the face of an element within the bounding|`object`|[`faceSolidTranslateAndScaleCompoundElementGeometry`](#face-solid-translate-and-scale-compound-element-geometry)|yes|
+|`right`|the face of an element within the bounding|`object`|[`faceSolidTranslateAndScaleCompoundElementGeometry`](#face-solid-translate-and-scale-compound-element-geometry)|yes|
+
+##### [Face Solid Translate And Scale Compound Element Geometry](#face-solid-translate-and-scale-compound-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`type`|the type of shape represented within the face of the compound shape|`string`|`aerofoil`, `cuboid`, `cylinder`, `other`|yes|
+|`translational`|values for the y and z translations within the coordinate space|`object`|[`faceTranslation`](#face-translation)|yes|
+|`profile`|values to represent the profile of the named aerofoil, matching the [Dimensions Face Solid Translate And Scale Aerofoil Element Geometry](#dimensions-face-solid-translate-and-scale-aerofoil-element-geometry) shape|`object`|[`aerofoilProfile`](#aerofoil-profile)|only if `type` is `aerofoil`|
+|`dimensions`|dimension values to represent the shape of the face, matching the equivalent standalone profile's face dimensions ([cuboid](#dimensions-face-solid-translate-and-scale-cuboid-element-geometry), [cylinder](#dimensions-face-solid-translate-and-scale-cylinder-element-geometry), or a wildcard for `other`)|`object`|see `type`|only if `type` is `cuboid`, `cylinder`, or `other`|
+
+#### [Shell Translate And Scale Compound Element Geometry](#shell-translate-and-scale-compound-element-geometry)
+As with the other shell translate and scale profiles, each face's `dimensions` must also include `thickness` alongside whatever fields its `type` requires.
+
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`type`|type of geometrical element|`object`|[`typeShellTranslateAndScaleCompoundElementGeometry`](#type-shell-translate-and-scale-compound-element-geometry)|yes|
+|`bounding`|measurement value to represent the bounding the element resides within|`object`|[`cuboidBounding`](#cuboid-bounding)|yes, if `faces` or `dimensions` provided|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsShellTranslateAndScaleCompoundElementGeometry`](#dimensions-shell-translate-and-scale-compound-element-geometry)|no|
+|`faces`|the faces that describe the translate and scale operations within the bounding|`object`|[`facesShellTranslateAndScaleCompoundElementGeometry`](#faces-shell-translate-and-scale-compound-element-geometry)|yes, if `bounding` or `dimensions` provided|
+
+##### [Type Shell Translate And Scale Compound Element Geometry](#type-shell-translate-and-scale-compound-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`name`|name of the geometrical type|`string`|`shell` -> `translateAndScale` -> `compound`|yes|
+
+##### [Dimensions Shell Translate And Scale Compound Element Geometry](#dimensions-shell-translate-and-scale-compound-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
+|`length`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+
+##### [Faces Shell Translate And Scale Compound Element Geometry](#faces-shell-translate-and-scale-compound-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`left`|the face of an element within the bounding|`object`|[`faceShellTranslateAndScaleCompoundElementGeometry`](#face-shell-translate-and-scale-compound-element-geometry)|yes|
+|`right`|the face of an element within the bounding|`object`|[`faceShellTranslateAndScaleCompoundElementGeometry`](#face-shell-translate-and-scale-compound-element-geometry)|yes|
+
+##### [Face Shell Translate And Scale Compound Element Geometry](#face-shell-translate-and-scale-compound-element-geometry)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`type`|the type of shape represented within the face of the compound shape|`string`|`aerofoil`, `cuboid`, `cylinder`, `other`|yes|
+|`translational`|values for the y and z translations within the coordinate space|`object`|[`faceTranslation`](#face-translation)|yes|
+|`profile`|values to represent the profile of the named aerofoil|`object`|[`aerofoilProfile`](#aerofoil-profile)|only if `type` is `aerofoil`|
+|`dimensions`|dimension values to represent the shape of the face, requiring `thickness` plus whatever fields its `type` requires (matching the equivalent standalone shell profile's face dimensions)|`object`|see `type`|yes|
+
 #### [Solid Translate And Scale Other Element Geometry](#solid-translate-and-scale-other-element-geometry)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
@@ -565,43 +884,82 @@
 |`thickness`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
 
 ### [Element Material](#element-material)
+An element's material is either a single [reference material](#reference-material) or a [composite material](#composite-material) built out of a matrix of reference materials.
+
+#### [Reference Material](#reference-material)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`type`|material type of element|`object`|[`typeElementMaterial`](#type-element-material)|yes|
+|`type`|material type of element|`object`|[`typeReferenceMaterial`](#type-reference-material)|yes|
 |`symmetry`|symmetry of the material|`string`|`isotropic`|yes, if `properties` provided|
 |`properties`|array of material properties|`array`|[`propertiesElementMaterial`](#properties-element-material)|no|
 
-#### [Type Element Material](#type-element-material)
+##### [Type Reference Material](#type-reference-material)
 
-##### [Ferrous Alloy Type Element Material](#ferrous-alloy-type-element-material)
+###### [Ferrous Alloy Type Reference Material](#ferrous-alloy-type-reference-material)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`name`|name of the material type|`string`|`metal` -> `ferrousAlloy` -> `steel`, `iron`|yes|
 
-##### [Metal Type Element Material](#metal-type-element-material)
+###### [Metal Type Reference Material](#metal-type-reference-material)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`name`|name of the material type|`string`|`metal` -> `aluminiumAlloy`, `nickelAlloy`, `copperAlloy`, `titaniumAlloy`|yes|
 
-##### [Ceramic Type Element Material](#ceramic-type-element-material)
+###### [Ceramic Type Reference Material](#ceramic-type-reference-material)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`name`|name of the material type|`string`|`ceramic` -> `glass`, `clayProduct`, `refractory`, `abrasive`, `cement`, `advancedCeramic`|yes|
 
-##### [Polymer Type Element Material](#polymer-type-element-material)
+###### [Polymer Type Reference Material](#polymer-type-reference-material)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`name`|name of the material type|`string`|`polymer` -> `thermoplastic`, `thermoset`, `elastomer`|yes|
+|`name`|name of the material type|`string`|`polymer` -> `thermoplastic`, `thermoset`, `elastomer`, `resin`, `carbon`|yes|
 
-##### [Composite Type Element Material](#composite-type-element-material)
+###### [Wood Type Reference Material](#wood-type-reference-material)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`name`|name of the material type|`string`|`composite` -> `particle-reinforced`, `fibre-reinforced`, `structural`|yes|
+|`name`|name of the material type|`string`|`wood` -> `ash`, `oak`, `maple`, `birch`, `pine`|yes|
 
-##### [`other` Type Element Material](#other-type-element-material)
+###### [Rock Type Reference Material](#rock-type-reference-material)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`name`|name of the material type|`string`|`rock` -> `basalt`, `marble`, `granite`|yes|
+
+###### [Concrete Type Reference Material](#concrete-type-reference-material)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`name`|name of the material type|`string`|`concrete`|yes|
+
+###### [`other` Type Reference Material](#other-type-reference-material)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`name`|name of the material type|`string`|`other`|yes|
+
+#### [Composite Material](#composite-material)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`type`|material type of element|`object`|[`typeCompositeMaterial`](#type-composite-material)|yes|
+|`matrix`|matrix of reference materials that form the composite material|`object`|[`compositeMaterialMatrix`](#composite-material-matrix)|yes|
+|`properties`|array of material properties for the composite material as a whole|`array`|[`propertiesElementMaterial`](#properties-element-material)|no|
+
+##### [Type Composite Material](#type-composite-material)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`name`|name of the material type|`string`|`composite`|yes|
+
+##### [Composite Material Matrix](#composite-material-matrix)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`base`|the base reference material of the composite|`object`|[`referenceMaterial`](#reference-material)|yes|
+|`embedded`|the reference materials embedded within the base material, minimum 1 item|`array`|[`embeddedReferenceMaterial`](#embedded-reference-material)|yes|
+
+###### [Embedded Reference Material](#embedded-reference-material)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`type`|material type of element|`object`|[`typeReferenceMaterial`](#type-reference-material)|yes|
+|`symmetry`|symmetry of the material|`string`|`isotropic`|yes, if `properties` provided|
+|`properties`|array of material properties|`array`|[`propertiesElementMaterial`](#properties-element-material)|no|
+|`method`|method for embedding the reference material within the base material|`string`|`fibre`, `particle`, `woven`, `bar`|yes|
 
 #### [Properties Element Material](#properties-element-material)
 
@@ -763,6 +1121,20 @@
 |`y`|the y translation value within the coordinate space|`object`|[`linearValue`](#linear-value)|yes|
 |`z`|the z translation value within the coordinate space|`object`|[`linearValue`](#linear-value)|yes|
 
+### [Aerofoil Profile](#aerofoil-profile)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`type`|the type of the aerofoil profile represented|`string`|`naca-four-digit-series`, `naca-five-digit-series`|yes|
+|`value`|the value of the aerofoil profile|`string`|4 characters for `naca-four-digit-series`, 5 characters for `naca-five-digit-series`|yes|
+|`dimensions`|dimension values to represent the shape of the element|`object`|[`dimensionsAerofoilProfile`](#dimensions-aerofoil-profile)|yes|
+
+#### [Dimensions Aerofoil Profile](#dimensions-aerofoil-profile)
+|Property|Description|Type|Values|Required|
+|---|-----|---|---|---|
+|`_`|the axis, source, unit and value of the measurement|`object`|[`wildcardDimension`](#wildcard-dimension)|no|
+|`chordLength`|the axis, source, unit and value of the measurement|`object`|[`linearDimension`](#linear-dimension)|yes|
+|`twistAngle`|the axis, source, unit and value of the measurement|`object`|[`angularDimension`](#angular-dimension)|no|
+
 #### [Conditional Material Property](#conditional-material-property)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
@@ -835,6 +1207,8 @@
 |`global`|the degrees of freedom in the global coordinate space|`object`|[`globalDynamicJointRelationshipDegreesOfFreedom`](#global-dynamic-joint-relationship-degrees-of-freedom)|yes|
 
 ###### [Global Dynamic Joint Relationship Degrees Of Freedom](#global-dynamic-joint-relationship-degrees-of-freedom)
+At least one of `translational` or `rotational` must be provided.
+
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`translational`|the x, y and z values for translational degrees of freedom|`object`|[`boundedTranslationalCoordinates`](#bounded-translational-coordinates)|no|
@@ -849,7 +1223,7 @@
 |`elements`|the elements involved in the relationship|`array`|[`namedRelationshipElement`](#named-relationship-element)|yes|
 |`coordinates`|the coordinates of the relationship|`object`|[`relationshipCoordinates`](#relationship-coordinates)|no|
 
-## [Relationship Shared Objects](#relationship-objects)
+## [Relationship Shared Objects](#relationship-shared-objects)
 
 ### [Relationship Coordinates](#relationship-coordinates)
 |Property|Description|Type|Values|Required|
@@ -894,7 +1268,7 @@
 |---|-----|---|---|---|
 |`name`|the name of the nature|`string`|`hinge`, `ballAndSocket`, `pinned`, `expansion`, `ballBearing`, `other`|yes|
 
-# [Global Common Objects](#shared-objects)
+# [Global Common Objects](#global-common-objects)
 
 ## [Translational Coordinates](#translational-coordinates)
 |Property|Description|Type|Values|Required|
@@ -935,6 +1309,8 @@
 |`value`|the value for the measurement|`int`, `double`|any numerical value|yes|
 
 ### [Bounded Translational Coordinates](#bounded-translational-coordinates)
+At least one of `x`, `y` or `z` must be provided.
+
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`x`|the x translation value within the coordinate space|`object`|[`boundedLinearValue`](#bounded-linear-value)|no|
@@ -942,13 +1318,15 @@
 |`z`|the z translation value within the coordinate space|`object`|[`boundedLinearValue`](#bounded-linear-value)|no|
 
 ### [Bounded Rotational Coordinates](#bounded-rotational-coordinates)
+At least one of `alpha`, `beta` or `gamma` must be provided.
+
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`alpha`|the alpha rotation value within the coordinate space|`object`|[`boundedAngularValue`](#bounded-angular-value)|no|
 |`beta`|the beta rotation value within the coordinate space|`object`|[`boundedAngularValue`](#bounded-angular-value)|no|
 |`gamma`|the gamma rotation value within the coordinate space|`object`|[`boundedAngularValue`](#bounded-angular-value)|no|
 
-# [Global Value Objects](#value-objects)
+# [Global Value Objects](#global-value-objects)
 
 ## [Linear Value](#linear-value)
 |Property|Description|Type|Values|Required|

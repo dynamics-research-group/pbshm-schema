@@ -52,7 +52,7 @@ A channel object contains the [properties](#channel-properties) required to repr
 |`text`|n/a|`string`|
 |`date`|n/a|`long`|
 ## [Value](#value)
-A value object contains the [properties](#value-properties) required to represent `value` data within a [channel object](#channel) which is not singular; `min`, `max`, `mean`, `std`. The [value object](#value) must have at least two properties set on the object, otherwise a singular `value` value should be used instead.
+A value object contains the [properties](#value-properties) required to represent `value` data within a [channel object](#channel) which is not singular; `min`, `max`, `mean`, `std`. The [value object](#value) must have at least one property set on the object, otherwise a singular `value` value should be used instead.
 
 ### [Value Properties](#value-properties)
 |Property|Description|Type|
