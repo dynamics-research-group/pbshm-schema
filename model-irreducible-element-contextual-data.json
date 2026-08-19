@@ -26,6 +26,9 @@
                 "fuselage",
                 "tower",
                 "wheel",
+                "nacelle",
+                "bearing",
+                "hub",
                 "other"
             ]
         }
