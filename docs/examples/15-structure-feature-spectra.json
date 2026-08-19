@@ -1,0 +1,194 @@
+{
+    "version": "1.4.1",
+    "name": "feature-spectra-examples",
+    "population": "documentation",
+    "health": {
+        "state": 0
+    },
+    "source": {
+        "timestamp": {
+            "stored": 1588007836000000000
+        },
+        "selection": [
+            {
+                "name": "name-of-first-structure-in-source"
+            }
+        ],
+        "environment": {
+            "key": {
+                "description": "description of the environment variable",
+                "value": "variable value"
+            }
+        }
+    },
+    "features": [
+        {
+            "name": "spectra-transmissibility",
+            "type": {
+                "name": "spectra",
+                "type": {
+                    "name": "transmissibility"
+                }
+            },
+            "sensor": {
+                "name": "spectra-sensor",
+                "coordinates": {
+                    "global": {
+                        "translational": {
+                            "unit": "mm",
+                            "x": 15,
+                            "y": 15,
+                            "z": 0
+                        }
+                    }
+                }
+            },
+            "frequency": {
+                "unit": "Hz",
+                "value": {
+                    "indices": {
+                        "start": 0,
+                        "end": 3
+                    },
+                    "vector": [
+                        5.27,
+                        5.47,
+                        4.98
+                    ]
+                }
+            },
+            "values": {
+                "unit": "mm",
+                "value": {
+                    "indices": {
+                        "start": 0,
+                        "end": 3
+                    },
+                    "vector": [
+                        3.38,
+                        {
+                            "real": 3.0,
+                            "imaginary": 0.85
+                        },
+                        {
+                            "real": 2,
+                            "imaginary": 4
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "spectra-frequency-response-function",
+            "type": {
+                "name": "spectra",
+                "type": {
+                    "name": "frequencyResponseFunction"
+                }
+            },
+            "sensor": {
+                "name": "spectra-sensor",
+                "coordinates": {
+                    "global": {
+                        "translational": {
+                            "unit": "mm",
+                            "x": 0,
+                            "y": 25,
+                            "z": 25
+                        }
+                    }
+                }
+            },
+            "frequency": {
+                "unit": "Hz",
+                "value": {
+                    "indices": {
+                        "start": 0,
+                        "end": 4
+                    },
+                    "vector": [
+                        4.27,
+                        5.38,
+                        3.49,
+                        4.194
+                    ]
+                }
+            },
+            "values": {
+                "unit": "mm",
+                "value": {
+                    "indices": {
+                        "start": 0,
+                        "end": 4
+                    },
+                    "vector": [
+                        {
+                            "real": 2.0,
+                            "imaginary": 0.95
+                        },
+                        4,
+                        {
+                            "real": 1,
+                            "imaginary": 3
+                        },
+                        4.5
+                    ]
+                }
+            }
+        },
+        {
+            "name": "spectra-coherence",
+            "type": {
+                "name": "spectra",
+                "type": {
+                    "name": "coherence"
+                }
+            },
+            "sensor": {
+                "name": "spectra-sensor",
+                "coordinates": {
+                    "global": {
+                        "translational": {
+                            "unit": "mm",
+                            "x": 35,
+                            "y": 0,
+                            "z": 35
+                        }
+                    }
+                }
+            },
+            "frequency": {
+                "unit": "Hz",
+                "value": {
+                    "indices": {
+                        "start": 0,
+                        "end": 2
+                    },
+                    "vector": [
+                        4.988,
+                        4.987
+                    ]
+                }
+            },
+            "values": {
+                "unit": "mm",
+                "value": {
+                    "indices": {
+                        "start": 0,
+                        "end": 2
+                    },
+                    "vector": [
+                        {
+                            "real": 9.0,
+                            "imaginary": 0.95
+                        },
+                        {
+                            "real": 9,
+                            "imaginary": 3
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

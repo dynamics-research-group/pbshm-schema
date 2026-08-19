@@ -1,0 +1,17 @@
+{
+    "version": "1.4.1",
+    "name": "minimum-channels-example",
+    "population": "documentation",
+    "health": {
+        "state": 0
+    },
+    "timestamp": 1588007841000000000,
+    "channels": [
+        {
+            "name": "acceleration-singular",
+            "type": "acceleration",
+            "unit": "g",
+            "value": 10.5
+        }
+    ]
+}

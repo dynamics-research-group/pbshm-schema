@@ -1,0 +1,122 @@
+{
+    "version": "1.4.1",
+    "name": "model-grounded-example",
+    "population": "documentation",
+    "health": {
+        "state": 0
+    },
+    "timestamp": 1588007841000000000,
+    "models": {
+        "irreducibleElement": {
+            "type": "grounded",
+            "elements": [
+                {
+                    "name": "ground-element",
+                    "type": "ground"
+                },
+                {
+                    "name": "regular-element",
+                    "type": "regular",
+                    "coordinates": {
+                        "global": {
+                            "translational": {
+                                "x": {
+                                    "unit": "mm",
+                                    "value": 0
+                                },
+                                "y": {
+                                    "unit": "mm",
+                                    "value": 0
+                                },
+                                "z": {
+                                    "unit": "mm",
+                                    "value": 0
+                                }
+                            },
+                            "rotational": {
+                                "alpha": {
+                                    "unit": "degrees",
+                                    "value": 0
+                                },
+                                "beta": {
+                                    "unit": "degrees",
+                                    "value": 0
+                                },
+                                "gamma": {
+                                    "unit": "degrees",
+                                    "value": 0
+                                }
+                            }
+                        }
+                    },
+                    "contextual": {
+                        "type": "beam"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "beam",
+                                "type": {
+                                    "name": "rectangular"
+                                }
+                            }
+                        },
+                        "dimensions": {
+                            "length": {
+                                "axis": "x",
+                                "source": "measured",
+                                "unit": "mm",
+                                "value": 1500
+                            },
+                            "width": {
+                                "axis": "y",
+                                "source": "measured",
+                                "unit": "mm",
+                                "value": 500
+                            },
+                            "height": {
+                                "axis": "z",
+                                "source": "measured",
+                                "unit": "mm",
+                                "value": 500
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal",
+                            "type": {
+                                "name": "ferrousAlloy",
+                                "type": {
+                                    "name": "steel"
+                                }
+                            }
+                        },
+                        "symmetry": "isotropic",
+                        "properties": [
+                            {
+                                "type": "poissonsRatio",
+                                "value": 0.2
+                            }
+                        ]
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "name": "boundary-relationship",
+                    "type": "boundary",
+                    "elements": [
+                        {
+                            "name": "ground-element"
+                        },
+                        {
+                            "name": "regular-element"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -1,21 +1,24 @@
 {
-    "version": "1.2.0",
-    "name": "test-structure",
-    "population": "ie-population",
-    "timestamp": 1588007840000000000,
+    "version": "1.4.1",
+    "name": "minimum-model-example",
+    "population": "documentation",
+    "health": {
+        "state": 0
+    },
+    "timestamp": 1588007841000000000,
     "models": {
         "irreducibleElement": {
             "type": "free",
             "elements": [
                 {
-                    "name": "first-element",
+                    "name": "regular-element",
                     "type": "regular",
                     "contextual": {
                         "type": "beam"
                     },
                     "geometry": {
-                        "type":{
-                            "name":"solid",
+                        "type": {
+                            "name": "solid",
                             "type": {
                                 "name": "beam",
                                 "type": {

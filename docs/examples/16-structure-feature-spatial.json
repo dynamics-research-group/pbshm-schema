@@ -1,0 +1,730 @@
+{
+    "version": "1.4.1",
+    "name": "feature-spatial-examples",
+    "population": "documentation",
+    "health": {
+        "state": 0
+    },
+    "source": {
+        "timestamp": {
+            "stored": 1588007836000000000
+        },
+        "selection": [
+            {
+                "name": "name-of-first-structure-in-source"
+            }
+        ],
+        "environment": {
+            "key": {
+                "description": "description of the environment variable",
+                "value": "variable value"
+            }
+        }
+    },
+    "features": [
+        {
+            "name": "spatial-displacement-static",
+            "type": {
+                "name": "spatial",
+                "type": {
+                    "name": "displacement"
+                }
+            },
+            "variant": "static",
+            "coordinates": {
+                "global": {
+                    "translational": {
+                        "unit": "mm",
+                        "x": {
+                            "indices": {
+                                "start": 0,
+                                "end": 3
+                            },
+                            "vector": [
+                                10,
+                                15,
+                                20
+                            ]
+                        },
+                        "y": {
+                            "indices": {
+                                "start": 0,
+                                "end": 3
+                            },
+                            "vector": [
+                                25,
+                                50,
+                                27
+                            ]
+                        },
+                        "z": {
+                            "indices": {
+                                "start": 0,
+                                "end": 3
+                            },
+                            "vector": [
+                                0,
+                                50,
+                                100
+                            ]
+                        }
+                    }
+                }
+            },
+            "values": {
+                "unit": "kW",
+                "x": {
+                    "indices": {
+                        "start": 0,
+                        "end": 3
+                    },
+                    "vector": [
+                        3.56,
+                        {
+                            "real": 45.65,
+                            "imaginary": 0.345
+                        },
+                        43.8
+                    ]
+                },
+                "y": {
+                    "indices": {
+                        "start": 0,
+                        "end": 3
+                    },
+                    "vector": [
+                        34.78,
+                        34.5,
+                        34
+                    ]
+                },
+                "z": {
+                    "indices": {
+                        "start": 0,
+                        "end": 3
+                    },
+                    "vector": [
+                        {
+                            "real": 45.65,
+                            "imaginary": 0.345
+                        },
+                        10,
+                        11.0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "spatial-displacement-dynamic",
+            "type": {
+                "name": "spatial",
+                "type": {
+                    "name": "displacement"
+                }
+            },
+            "variant": "dynamic",
+            "timestamp": 1588007841000000000,
+            "coordinates": {
+                "global": {
+                    "translational": {
+                        "unit": "mm",
+                        "x": {
+                            "indices": {
+                                "start": 0,
+                                "end": 3
+                            },
+                            "vector": [
+                                10,
+                                15,
+                                20
+                            ]
+                        },
+                        "y": {
+                            "indices": {
+                                "start": 0,
+                                "end": 3
+                            },
+                            "vector": [
+                                25,
+                                50,
+                                27
+                            ]
+                        },
+                        "z": {
+                            "indices": {
+                                "start": 0,
+                                "end": 3
+                            },
+                            "vector": [
+                                0,
+                                50,
+                                100
+                            ]
+                        }
+                    }
+                }
+            },
+            "values": {
+                "unit": "kW",
+                "x": {
+                    "indices": {
+                        "start": 0,
+                        "end": 3
+                    },
+                    "vector": [
+                        3.56,
+                        {
+                            "real": 45.65,
+                            "imaginary": 0.345
+                        },
+                        43.8
+                    ]
+                },
+                "y": {
+                    "indices": {
+                        "start": 0,
+                        "end": 3
+                    },
+                    "vector": [
+                        34.78,
+                        34.5,
+                        34
+                    ]
+                },
+                "z": {
+                    "indices": {
+                        "start": 0,
+                        "end": 3
+                    },
+                    "vector": [
+                        {
+                            "real": 45.65,
+                            "imaginary": 0.345
+                        },
+                        10,
+                        11.0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "spatial-strain-static",
+            "type": {
+                "name": "spatial",
+                "type": {
+                    "name": "strain"
+                }
+            },
+            "variant": "static",
+            "coordinates": {
+                "global": {
+                    "translational": {
+                        "unit": "mm",
+                        "x": {
+                            "indices": {
+                                "start": 0,
+                                "end": 2
+                            },
+                            "vector": [
+                                10,
+                                15
+                            ]
+                        },
+                        "y": {
+                            "indices": {
+                                "start": 0,
+                                "end": 2
+                            },
+                            "vector": [
+                                50,
+                                27
+                            ]
+                        },
+                        "z": {
+                            "indices": {
+                                "start": 0,
+                                "end": 2
+                            },
+                            "vector": [
+                                50,
+                                100
+                            ]
+                        }
+                    }
+                }
+            },
+            "values": {
+                "unit": "kW",
+                "x": {
+                    "indices": {
+                        "start": 0,
+                        "end": 2
+                    },
+                    "vector": [
+                        43.8,
+                        345.8
+                    ]
+                },
+                "y": {
+                    "indices": {
+                        "start": 0,
+                        "end": 2
+                    },
+                    "vector": [
+                        34,
+                        35.20
+                    ]
+                },
+                "z": {
+                    "indices": {
+                        "start": 0,
+                        "end": 2
+                    },
+                    "vector": [
+                        10,
+                        11.0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "spatial-strain-dynamic",
+            "type": {
+                "name": "spatial",
+                "type": {
+                    "name": "strain"
+                }
+            },
+            "variant": "dynamic",
+            "timestamp": 1588007841000000000,
+            "coordinates": {
+                "global": {
+                    "translational": {
+                        "unit": "mm",
+                        "x": {
+                            "indices": {
+                                "start": 0,
+                                "end": 2
+                            },
+                            "vector": [
+                                10,
+                                15
+                            ]
+                        },
+                        "y": {
+                            "indices": {
+                                "start": 0,
+                                "end": 2
+                            },
+                            "vector": [
+                                50,
+                                27
+                            ]
+                        },
+                        "z": {
+                            "indices": {
+                                "start": 0,
+                                "end": 2
+                            },
+                            "vector": [
+                                50,
+                                100
+                            ]
+                        }
+                    }
+                }
+            },
+            "values": {
+                "unit": "kW",
+                "x": {
+                    "indices": {
+                        "start": 0,
+                        "end": 2
+                    },
+                    "vector": [
+                        43.8,
+                        345.8
+                    ]
+                },
+                "y": {
+                    "indices": {
+                        "start": 0,
+                        "end": 2
+                    },
+                    "vector": [
+                        34,
+                        35.20
+                    ]
+                },
+                "z": {
+                    "indices": {
+                        "start": 0,
+                        "end": 2
+                    },
+                    "vector": [
+                        10,
+                        11.0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "spatial-reaction-static",
+            "type": {
+                "name": "spatial",
+                "type": {
+                    "name": "reaction"
+                }
+            },
+            "variant": "static",
+            "coordinates": {
+                "global": {
+                    "translational": {
+                        "unit": "mm",
+                        "x": {
+                            "indices": {
+                                "start": 0,
+                                "end": 1
+                            },
+                            "vector": [
+                                20
+                            ]
+                        },
+                        "y": {
+                            "indices": {
+                                "start": 0,
+                                "end": 1
+                            },
+                            "vector": [
+                                27
+                            ]
+                        },
+                        "z": {
+                            "indices": {
+                                "start": 0,
+                                "end": 1
+                            },
+                            "vector": [
+                                100
+                            ]
+                        }
+                    }
+                }
+            },
+            "values": {
+                "unit": "kW",
+                "x": {
+                    "indices": {
+                        "start": 0,
+                        "end": 1
+                    },
+                    "vector": [
+                        {
+                            "real": 45.65,
+                            "imaginary": 0.345
+                        }
+                    ]
+                },
+                "y": {
+                    "indices": {
+                        "start": 0,
+                        "end": 1
+                    },
+                    "vector": [
+                        34
+                    ]
+                },
+                "z": {
+                    "indices": {
+                        "start": 0,
+                        "end": 1
+                    },
+                    "vector": [
+                        11.0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "spatial-reaction-dynamic",
+            "type": {
+                "name": "spatial",
+                "type": {
+                    "name": "reaction"
+                }
+            },
+            "variant": "dynamic",
+            "timestamp": 1588007841000000000,
+            "coordinates": {
+                "global": {
+                    "translational": {
+                        "unit": "mm",
+                        "x": {
+                            "indices": {
+                                "start": 0,
+                                "end": 1
+                            },
+                            "vector": [
+                                20
+                            ]
+                        },
+                        "y": {
+                            "indices": {
+                                "start": 0,
+                                "end": 1
+                            },
+                            "vector": [
+                                27
+                            ]
+                        },
+                        "z": {
+                            "indices": {
+                                "start": 0,
+                                "end": 1
+                            },
+                            "vector": [
+                                100
+                            ]
+                        }
+                    }
+                }
+            },
+            "values": {
+                "unit": "kW",
+                "x": {
+                    "indices": {
+                        "start": 0,
+                        "end": 1
+                    },
+                    "vector": [
+                        {
+                            "real": 45.65,
+                            "imaginary": 0.345
+                        }
+                    ]
+                },
+                "y": {
+                    "indices": {
+                        "start": 0,
+                        "end": 1
+                    },
+                    "vector": [
+                        34
+                    ]
+                },
+                "z": {
+                    "indices": {
+                        "start": 0,
+                        "end": 1
+                    },
+                    "vector": [
+                        11.0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "spatial-influence-static",
+            "type": {
+                "name": "spatial",
+                "type": {
+                    "name": "influence"
+                }
+            },
+            "variant": "static",
+            "coordinates": {
+                "global": {
+                    "translational": {
+                        "unit": "mm",
+                        "x": {
+                            "indices": {
+                                "start": 0,
+                                "end": 4
+                            },
+                            "vector": [
+                                20,
+                                25,
+                                30,
+                                45
+                            ]
+                        },
+                        "y": {
+                            "indices": {
+                                "start": 0,
+                                "end": 4
+                            },
+                            "vector": [
+                                25,
+                                50,
+                                27,
+                                52
+                            ]
+                        },
+                        "z": {
+                            "indices": {
+                                "start": 0,
+                                "end": 4
+                            },
+                            "vector": [
+                                0,
+                                50,
+                                100,
+                                150
+                            ]
+                        }
+                    }
+                }
+            },
+            "values": {
+                "unit": "kW",
+                "x": {
+                    "indices": {
+                        "start": 0,
+                        "end": 4
+                    },
+                    "vector": [
+                        3.56,
+                        {
+                            "real": 45.65,
+                            "imaginary": 0.345
+                        },
+                        43.8,
+                        50
+                    ]
+                },
+                "y": {
+                    "indices": {
+                        "start": 0,
+                        "end": 4
+                    },
+                    "vector": [
+                        34.78,
+                        34.5,
+                        34,
+                        35.02
+                    ]
+                },
+                "z": {
+                    "indices": {
+                        "start": 0,
+                        "end": 4
+                    },
+                    "vector": [
+                        {
+                            "real": 45.65,
+                            "imaginary": 0.345
+                        },
+                        10,
+                        11.0,
+                        {
+                            "real": 45.65,
+                            "imaginary": 0.421
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "spatial-influence-dynamic",
+            "type": {
+                "name": "spatial",
+                "type": {
+                    "name": "influence"
+                }
+            },
+            "variant": "dynamic",
+            "timestamp": 1588007841000000000,
+            "coordinates": {
+                "global": {
+                    "translational": {
+                        "unit": "mm",
+                        "x": {
+                            "indices": {
+                                "start": 0,
+                                "end": 4
+                            },
+                            "vector": [
+                                20,
+                                25,
+                                30,
+                                45
+                            ]
+                        },
+                        "y": {
+                            "indices": {
+                                "start": 0,
+                                "end": 4
+                            },
+                            "vector": [
+                                25,
+                                50,
+                                27,
+                                52
+                            ]
+                        },
+                        "z": {
+                            "indices": {
+                                "start": 0,
+                                "end": 4
+                            },
+                            "vector": [
+                                0,
+                                50,
+                                100,
+                                150
+                            ]
+                        }
+                    }
+                }
+            },
+            "values": {
+                "unit": "kW",
+                "x": {
+                    "indices": {
+                        "start": 0,
+                        "end": 4
+                    },
+                    "vector": [
+                        3.56,
+                        {
+                            "real": 45.65,
+                            "imaginary": 0.345
+                        },
+                        43.8,
+                        50
+                    ]
+                },
+                "y": {
+                    "indices": {
+                        "start": 0,
+                        "end": 4
+                    },
+                    "vector": [
+                        34.78,
+                        34.5,
+                        34,
+                        35.02
+                    ]
+                },
+                "z": {
+                    "indices": {
+                        "start": 0,
+                        "end": 4
+                    },
+                    "vector": [
+                        {
+                            "real": 45.65,
+                            "imaginary": 0.345
+                        },
+                        10,
+                        11.0,
+                        {
+                            "real": 45.65,
+                            "imaginary": 0.421
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

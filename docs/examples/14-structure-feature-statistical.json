@@ -1,0 +1,308 @@
+{
+    "version": "1.4.1",
+    "name": "feature-statistical-examples",
+    "population": "documentation",
+    "health": {
+        "state": 0
+    },
+    "source": {
+        "timestamp": {
+            "stored": 1588007836000000000
+        },
+        "selection": [
+            {
+                "name": "name-of-first-structure-in-source"
+            }
+        ],
+        "environment": {
+            "key": {
+                "description": "description of the environment variable",
+                "value": "variable value"
+            }
+        }
+    },
+    "features": [
+        {
+            "name": "statistical-mean-single",
+            "type": {
+                "name": "statistical",
+                "type": {
+                    "name": "mean"
+                }
+            },
+            "unit": "m/s",
+            "value": 10.5
+        },
+        {
+            "name": "statistical-mean-vector",
+            "type": {
+                "name": "statistical",
+                "type": {
+                    "name": "mean"
+                }
+            },
+            "unit": "m/s",
+            "value": {
+                "indices": {
+                    "start": 0,
+                    "end": 3
+                },
+                "vector": [
+                    5,
+                    15,
+                    25
+                ]
+            }
+        },
+        {
+            "name": "statistical-mean-matrix",
+            "type": {
+                "name": "statistical",
+                "type": {
+                    "name": "mean"
+                }
+            },
+            "unit": "m/s",
+            "value": {
+                "columns": 3,
+                "indices": {
+                    "start": 0,
+                    "end": 6
+                },
+                "vector": [
+                    5,
+                    15,
+                    25,
+                    2.5,
+                    12.5,
+                    22.5
+                ]
+            }
+        },
+        {
+            "name": "statistical-variance-single",
+            "type": {
+                "name": "statistical",
+                "type": {
+                    "name": "variance"
+                }
+            },
+            "unit": "GN",
+            "value": 0.8
+        },
+        {
+            "name": "statistical-variance-vector",
+            "type": {
+                "name": "statistical",
+                "type": {
+                    "name": "variance"
+                }
+            },
+            "unit": "GN",
+            "value": {
+                "indices": {
+                    "start": 0,
+                    "end": 2
+                },
+                "vector": [
+                    0.5,
+                    0.7
+                ]
+            }
+        },
+        {
+            "name": "statistical-variance-matrix",
+            "type": {
+                "name": "statistical",
+                "type": {
+                    "name": "variance"
+                }
+            },
+            "unit": "GN",
+            "value": {
+                "columns": 2,
+                "indices": {
+                    "start": 0,
+                    "end": 4
+                },
+                "vector": [
+                    0.5,
+                    0.7,
+                    0.4,
+                    0.3
+                ]
+            }
+        },
+        {
+            "name": "statistical-skewness-single",
+            "type": {
+                "name": "statistical",
+                "type": {
+                    "name": "skewness"
+                }
+            },
+            "unit": "GPa",
+            "value": 0
+        },
+        {
+            "name": "statistical-skewness-vector",
+            "type": {
+                "name": "statistical",
+                "type": {
+                    "name": "skewness"
+                }
+            },
+            "unit": "GPa",
+            "value": {
+                "indices": {
+                    "start": 0,
+                    "end": 3
+                },
+                "vector": [
+                    0,
+                    0.7,
+                    -0.443
+                ]
+            }
+        },
+        {
+            "name": "statistical-skewness-matrix",
+            "type": {
+                "name": "statistical",
+                "type": {
+                    "name": "skewness"
+                }
+            },
+            "unit": "GPa",
+            "value": {
+                "columns": 3,
+                "indices": {
+                    "start": 0,
+                    "end": 6
+                },
+                "vector": [
+                    0,
+                    0.7,
+                    -0.443,
+                    0,
+                    0.638,
+                    -0.2487
+                ]
+            }
+        },
+        {
+            "name": "statistical-kurtosis-single",
+            "type": {
+                "name": "statistical",
+                "type": {
+                    "name": "kurtosis"
+                }
+            },
+            "unit": "kHz",
+            "value": 5.87
+        },
+        {
+            "name": "statistical-kurtosis-vector",
+            "type": {
+                "name": "statistical",
+                "type": {
+                    "name": "kurtosis"
+                }
+            },
+            "unit": "kHz",
+            "value": {
+                "indices": {
+                    "start": 0,
+                    "end": 4
+                },
+                "vector": [
+                    5.87,
+                    34.8,
+                    125.4,
+                    9.5
+                ]
+            }
+        },
+        {
+            "name": "statistical-kurtosis-matrix",
+            "type": {
+                "name": "statistical",
+                "type": {
+                    "name": "kurtosis"
+                }
+            },
+            "unit": "kHz",
+            "value": {
+                "columns": 4,
+                "indices": {
+                    "start": 0,
+                    "end": 8
+                },
+                "vector": [
+                    5.87,
+                    34.8,
+                    125.4,
+                    9.5,
+                    45.8,
+                    12.5,
+                    93.4,
+                    23.59
+                ]
+            }
+        },
+        {
+            "name": "statistical-other-single",
+            "type": {
+                "name": "statistical",
+                "type": {
+                    "name": "other"
+                }
+            },
+            "unit": "pΩ",
+            "value": 0.396
+        },
+        {
+            "name": "statistical-other-vector",
+            "type": {
+                "name": "statistical",
+                "type": {
+                    "name": "other"
+                }
+            },
+            "unit": "pΩ",
+            "value": {
+                "indices": {
+                    "start": 0,
+                    "end": 2
+                },
+                "vector": [
+                    0.396,
+                    0.098
+                ]
+            }
+        },
+        {
+            "name": "statistical-other-matrix",
+            "type": {
+                "name": "statistical",
+                "type": {
+                    "name": "other"
+                }
+            },
+            "unit": "pΩ",
+            "value": {
+                "columns": 2,
+                "indices": {
+                    "start": 0,
+                    "end": 4
+                },
+                "vector": [
+                    0.396,
+                    0.098,
+                    0.1,
+                    0.006
+                ]
+            }
+        }
+    ]
+}

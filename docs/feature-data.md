@@ -3,7 +3,7 @@
 ## [Features](#features)
 There are currently five supported feature types: eigen mode, statistical, spectra, spatial, and abstract. Each type has it's own set of requirements for properties to ensure correct encapsulation of the associated feature data.
 
-### [Eigen Mode](#feature-eigen-mode)
+### [Eigen Mode](#eigen-mode)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`name`|Name of the feature, must be unique within the structure|`string`|Minimum Length: 1, Maximum Length: 64|yes|
@@ -17,24 +17,24 @@ There are currently five supported feature types: eigen mode, statistical, spect
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`coordinates`|Coordinates of the mode shape points|`object`|[`coordinates`](#coordinates) with [`vector`](#vector) of `int`, `long`, `double` values|yes|
-|`values`|Values of the mode shape points|`object`|[`spatial`](#spatial) with [`vector`](#vector) of [`complexNumber`](#complex-number) values|yes|
+|`values`|Values of the mode shape points|`object`|[`spatialValue`](#spatial-value) with [`vector`](#vector) of [`complexNumber`](#complex-number) values|yes|
 
-### [Statistical](#feature-statistical)
+### [Statistical](#statistical)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`name`|Name of the feature, must be unique within the structure|`string`|Minimum Length: 1, Maximum Length: 64|yes|
 |`type`|Root `type` of this feature.<br>Type Tree: `statistical` -> `mean`, `variance`, `skewness`, `kurtosis`, `other` |`object`|[`rootTypes`](#root-types)|yes|
-|`unit`|Unit the value is based within|`string`|any accepted [channelType](#channel-data.md#channel-types) unit|yes|
+|`unit`|Unit the value is based within|`string`|any accepted [channelType](channel-data.md#channel-types) unit|yes|
 |`value`|Value of the statistical feature|`int`, `long`, `double`, `object`|any scalar, [`vector`](#vector), or [`matrix`](#matrix) of numerical values (`int`, `long`, `double` or [`complexNumber`](#complex-number))|yes|
 
-### [Spectra](#feature-spectra)
+### [Spectra](#spectra)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`name`|Name of the feature, must be unique within the structure|`string`|Minimum Length: 1, Maximum Length: 64|yes|
 |`type`|Root `type` of this feature.<br>Type Tree: `spectra` -> `transmissibility`, `frequencyResponseFunction`, `coherence`|`object`|[`rootTypes`](#root-types)|yes|
 |`sensor`|Details of the sensor used|`object`|[`sensor`](#sensor)|yes|
 |`frequency`|Details of the associated frequencies<br>Accepted units: `fHz`, `pHz`, `nHz`, `µHz`, `mHz`, `cHz`, `dHz`, `Hz`, `daHz`, `hHz`, `kHz`, `MHz`, `GHz`, `THz`, `PHz`, `other`|`object`|[`unitValue`](#unit-value) with [`vector`](#vector) of `int`, `long`, `double` values|yes|
-|`value`|Value of the spectra feature<br>Accepted units: any accepted [channelType](#channel-data.md#channel-types) unit|`object`|[`unitValue`](#unit-value) with [`vector`](#vector) of `int`, `long`, `double` or [`complexNumber`](#complex-number) values|yes|
+|`values`|Values of the spectra feature<br>Accepted units: any accepted [channelType](channel-data.md#channel-types) unit|`object`|[`unitValue`](#unit-value) with [`vector`](#vector) of `int`, `long`, `double` or [`complexNumber`](#complex-number) values|yes|
 
 #### [Sensor](#sensor)
 |Property|Description|Type|Values|Required|
@@ -42,7 +42,7 @@ There are currently five supported feature types: eigen mode, statistical, spect
 |`name`|Name of the sensor, must reference a sensor used on the structure|`string`|Minimum Length: 1, Maximum Length: 64|yes|
 |`coordinates`|Coordinates of the sensor within the structure|`object`|[`coordinates`](#coordinates) with `int`, `long`, `double` values|yes|
 
-### [Spatial](#feature-spatial)
+### [Spatial](#spatial)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`name`|Name of the feature, must be unique within the structure|`string`|Minimum Length: 1, Maximum Length: 64|yes|
@@ -50,9 +50,9 @@ There are currently five supported feature types: eigen mode, statistical, spect
 |`variant`|Variant of the spatial feature|`string`|`static`, `dynamic`|yes|
 |`timestamp`|Timestamp of dynamic spatial feature|`long`|nanoseconds since epoch| only if `variant` set to dynamic|
 |`coordinates`|Coordinates of the spatial feature|`object`|[`coordinates`](#coordinates) with [`vector`](#vector) of `int`, `long`, `double` values|yes|
-|`values`|Values associated with the coordinates<br>Accepted units: any accepted [channelType](#channel-data.md#channel-types) unit|`object`|[`spatial`](#spatial) with [`vector`](#vector) of `int`, `long`, `double` or [`complexNumber`](#complex-number) values|yes|
+|`values`|Values associated with the coordinates<br>Accepted units: any accepted [channelType](channel-data.md#channel-types) unit|`object`|[`spatialValue`](#spatial-value) with [`vector`](#vector) of `int`, `long`, `double` or [`complexNumber`](#complex-number) values|yes|
 
-### [Abstract](#feature-abstract)
+### [Abstract](#abstract)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`name`|Name of the feature, must be unique within the structure|`string`|Minimum Length: 1, Maximum Length: 64|yes|
@@ -65,35 +65,30 @@ There are currently five supported feature types: eigen mode, statistical, spect
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`name`|Name of the root type|`string`|see calling object|yes|
-|`type`|The branches of the `type` tree|[branchTypes](#branch-types)|yes|
+|`type`|The branch of the `type` tree|`object`|[`branchTypes`](#branch-types)|yes, for `statistical`, `spectra`, and `spatial` feature types|
 
 #### [Branch Types](#branch-types)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`name`|Name of the root type|`string`|see calling object|yes|
+|`name`|Name of the branch type|`string`|see calling object|yes|
 
 ### [Coordinates](#coordinates)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`coordinates`|Coordinates of the object|`object`|[`globalCoordinateSpace`](#global-coordinate-space)|yes|
+|`global`|Coordinates within the global coordinate space|`object`|[`globalCoordinateSpace`](#global-coordinate-space)|yes|
 
 #### [Global Coordinate Space](#global-coordinate-space)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`coordinates`|Coordinates within the global coordinate space|`object`|[`translationalCoordinateSpace`](#translational-coordinate-space)|yes|
+|`translational`|`X`, `Y`, `Z` values within the coordinate space<br>Accepted units: `mm`, `cm`, `m`, `km`, `other`|`object`|[`spatialValue`](#spatial-value)|yes|
 
-##### [Translational Coordinate Space](#translational-coordinate-space)
-|Property|Description|Type|Values|Required|
-|---|-----|---|---|---|
-|`coordinates`|`X`, `Y`, `Z` values within the coordinate space<br>Accepted units: `mm`, `cm`, `m`, `km`, `other`|`object`|[`spatial`](#spatial)|yes|
-
-### [Spatial](#spatial)
+### [Spatial Value](#spatial-value)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`unit`|Unit that the spatial values are based within|`string`|see calling object|only if calling object defines accepted values|
-|`x`|Value of the spatial object in the A dimension|see calling object|see calling object|yes|
-|`y`|Value of the spatial object in the A dimension|see calling object|see calling object|yes|
-|`z`|Value of the spatial object in the A dimension|see calling object|see calling object|yes|
+|`x`|Value of the spatial object in the X dimension|see calling object|see calling object|yes|
+|`y`|Value of the spatial object in the Y dimension|see calling object|see calling object|yes|
+|`z`|Value of the spatial object in the Z dimension|see calling object|see calling object|yes|
 
 ### [Vector](#vector)
 |Property|Description|Type|Values|Required|

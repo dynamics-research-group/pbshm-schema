@@ -1,0 +1,626 @@
+{
+    "version": "1.4.1",
+    "name": "channel-examples",
+    "population": "documentation",
+    "health": {
+        "state": 0
+    },
+    "timestamp": 1588007841000000000,
+    "channels": [
+        {
+            "name": "acceleration-singular",
+            "type": "acceleration",
+            "unit": "g",
+            "value": 10.5
+        },
+        {
+            "name": "acceleration-object",
+            "type": "acceleration",
+            "unit": "g",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "velocity-singular",
+            "type": "velocity",
+            "unit": "m/s",
+            "value": 10.5
+        },
+        {
+            "name": "velocity-object",
+            "type": "velocity",
+            "unit": "m/s",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "displacement-singular",
+            "type": "displacement",
+            "unit": "mm",
+            "value": 10.5
+        },
+        {
+            "name": "displacement-object",
+            "type": "displacement",
+            "unit": "mm",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "angular-acceleration-singular",
+            "type": "angularAcceleration",
+            "unit": "degrees/s^2",
+            "value": 10.5
+        },
+        {
+            "name": "angular-acceleration-object",
+            "type": "angularAcceleration",
+            "unit": "degrees/s^2",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "angular-velocity-singular",
+            "type": "angularVelocity",
+            "unit": "degrees/s",
+            "value": 10.5
+        },
+        {
+            "name": "angular-velocity-object",
+            "type": "angularVelocity",
+            "unit": "degrees/s",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "angular-displacement-singular",
+            "type": "angularDisplacement",
+            "unit": "degrees",
+            "value": 10.5
+        },
+        {
+            "name": "angular-displacement-object",
+            "type": "angularDisplacement",
+            "unit": "degrees",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "tilt-singular",
+            "type": "tilt",
+            "unit": "degrees",
+            "value": 10.5
+        },
+        {
+            "name": "tilt-object",
+            "type": "tilt",
+            "unit": "degrees",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "strain-singular",
+            "type": "strain",
+            "unit": "nd",
+            "value": 10.5
+        },
+        {
+            "name": "strain-object",
+            "type": "strain",
+            "unit": "nd",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "tension-singular",
+            "type": "tension",
+            "unit": "N",
+            "value": 10.5
+        },
+        {
+            "name": "tension-object",
+            "type": "tension",
+            "unit": "N",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "load-singular",
+            "type": "load",
+            "unit": "N",
+            "value": 10.5
+        },
+        {
+            "name": "load-object",
+            "type": "load",
+            "unit": "N",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "structural-potential-hydrogen-singular",
+            "type": "structuralPotentialHydrogen",
+            "unit": "pH",
+            "value": 10.5
+        },
+        {
+            "name": "structural-potential-hydrogen-object",
+            "type": "structuralPotentialHydrogen",
+            "unit": "pH",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "temperature-singular",
+            "type": "temperature",
+            "unit": "C",
+            "value": 10.5
+        },
+        {
+            "name": "temperature-object",
+            "type": "temperature",
+            "unit": "C",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "humidity-singular",
+            "type": "humidity",
+            "unit": "%",
+            "value": 10.5
+        },
+        {
+            "name": "humidity-object",
+            "type": "humidity",
+            "unit": "%",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "speed-singular",
+            "type": "speed",
+            "unit": "mph",
+            "value": 10.5
+        },
+        {
+            "name": "speed-object",
+            "type": "speed",
+            "unit": "mph",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "direction-singular",
+            "type": "direction",
+            "unit": "degrees",
+            "value": 10.5
+        },
+        {
+            "name": "direction-object",
+            "type": "direction",
+            "unit": "degrees",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "pressure-singular",
+            "type": "pressure",
+            "unit": "Pa",
+            "value": 10.5
+        },
+        {
+            "name": "pressure-object",
+            "type": "pressure",
+            "unit": "Pa",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "altitude-singular",
+            "type": "altitude",
+            "unit": "feet",
+            "value": 10.5
+        },
+        {
+            "name": "altitude-object",
+            "type": "altitude",
+            "unit": "feet",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "pitch-singular",
+            "type": "pitch",
+            "unit": "degrees",
+            "value": 10.5
+        },
+        {
+            "name": "pitch-object",
+            "type": "pitch",
+            "unit": "degrees",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "yaw-singular",
+            "type": "yaw",
+            "unit": "degrees",
+            "value": 10.5
+        },
+        {
+            "name": "yaw-object",
+            "type": "yaw",
+            "unit": "degrees",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "roll-singular",
+            "type": "roll",
+            "unit": "degrees",
+            "value": 10.5
+        },
+        {
+            "name": "roll-object",
+            "type": "roll",
+            "unit": "degrees",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "pitch-rate-singular",
+            "type": "pitchRate",
+            "unit": "degrees/s",
+            "value": 10.5
+        },
+        {
+            "name": "pitch-rate-object",
+            "type": "pitchRate",
+            "unit": "degrees/s",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "yaw-rate-singular",
+            "type": "yawRate",
+            "unit": "degrees/s",
+            "value": 10.5
+        },
+        {
+            "name": "yaw-rate-object",
+            "type": "yawRate",
+            "unit": "degrees/s",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "roll-rate-singular",
+            "type": "rollRate",
+            "unit": "degrees/s",
+            "value": 10.5
+        },
+        {
+            "name": "roll-rate-object",
+            "type": "rollRate",
+            "unit": "degrees/s",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "current-singular",
+            "type": "current",
+            "unit": "A",
+            "value": 10.5
+        },
+        {
+            "name": "current-object",
+            "type": "current",
+            "unit": "A",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "charge-singular",
+            "type": "charge",
+            "unit": "C",
+            "value": 10.5
+        },
+        {
+            "name": "charge-object",
+            "type": "charge",
+            "unit": "C",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "power-singular",
+            "type": "power",
+            "unit": "W",
+            "value": 10.5
+        },
+        {
+            "name": "power-object",
+            "type": "power",
+            "unit": "W",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "reactive-power-singular",
+            "type": "reactivePower",
+            "unit": "VAr",
+            "value": 10.5
+        },
+        {
+            "name": "reactive-power-object",
+            "type": "reactivePower",
+            "unit": "VAr",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "voltage-singular",
+            "type": "voltage",
+            "unit": "V",
+            "value": 10.5
+        },
+        {
+            "name": "voltage-object",
+            "type": "voltage",
+            "unit": "V",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "resistance-singular",
+            "type": "resistance",
+            "unit": "Ω",
+            "value": 10.5
+        },
+        {
+            "name": "resistance-object",
+            "type": "resistance",
+            "unit": "Ω",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "capacitance-singular",
+            "type": "capacitance",
+            "unit": "F",
+            "value": 10.5
+        },
+        {
+            "name": "capacitance-object",
+            "type": "capacitance",
+            "unit": "F",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "inductance-singular",
+            "type": "inductance",
+            "unit": "H",
+            "value": 10.5
+        },
+        {
+            "name": "inductance-object",
+            "type": "inductance",
+            "unit": "H",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "frequency-singular",
+            "type": "frequency",
+            "unit": "Hz",
+            "value": 10.5
+        },
+        {
+            "name": "frequency-object",
+            "type": "frequency",
+            "unit": "Hz",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "conductance-singular",
+            "type": "conductance",
+            "unit": "S",
+            "value": 10.5
+        },
+        {
+            "name": "conductance-object",
+            "type": "conductance",
+            "unit": "S",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "magnetic-flux-singular",
+            "type": "magneticFlux",
+            "unit": "Wb",
+            "value": 10.5
+        },
+        {
+            "name": "magnetic-flux-object",
+            "type": "magneticFlux",
+            "unit": "Wb",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "magnetic-field-strength-singular",
+            "type": "magneticFieldStrength",
+            "unit": "T",
+            "value": 10.5
+        },
+        {
+            "name": "magnetic-field-strength-object",
+            "type": "magneticFieldStrength",
+            "unit": "T",
+            "value": {
+                "min": 10,
+                "max": 11,
+                "mean": 10.5,
+                "std": 0.5
+            }
+        },
+        {
+            "name": "integer",
+            "type": "integer",
+            "value": 10
+        },
+        {
+            "name": "double",
+            "type": "double",
+            "value": 10.5
+        },
+        {
+            "name": "text",
+            "type": "text",
+            "value": "value"
+        },
+        {
+            "name": "date",
+            "type": "date",
+            "value": 1588007841000000001
+        }
+    ]
+}

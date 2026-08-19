@@ -1,0 +1,1775 @@
+{
+    "version": "1.4.1",
+    "name": "element-materials-examples",
+    "population": "documentation",
+    "health": {
+        "state": 0
+    },
+    "timestamp": 1588007841000000000,
+    "models": {
+        "irreducibleElement": {
+            "type": "free",
+            "elements": [
+                {
+                    "name": "metal-ferrous-alloy-steel-density",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal",
+                            "type": {
+                                "name": "ferrousAlloy",
+                                "type": {
+                                    "name": "steel"
+                                }
+                            }
+                        },
+                        "symmetry": "isotropic",
+                        "properties": [
+                            {
+                                "type": "density",
+                                "unit": "kg/m^3",
+                                "value": 10
+                            },
+                            {
+                                "type": "density",
+                                "unit": "kg/m^3",
+                                "value": [
+                                    {
+                                        "environmental": {
+                                            "temperature": {
+                                                "unit": "C",
+                                                "value": 10
+                                            },
+                                            "humidity": {
+                                                "unit": "%",
+                                                "value": 50
+                                            }
+                                        },
+                                        "value": 10
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "metal-ferrous-alloy-iron-linear-thermal-expansion-coefficient",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal",
+                            "type": {
+                                "name": "ferrousAlloy",
+                                "type": {
+                                    "name": "iron"
+                                }
+                            }
+                        },
+                        "symmetry": "isotropic",
+                        "properties": [
+                            {
+                                "type": "linearThermalExpansionCoefficient",
+                                "unit": "C^-1",
+                                "value": 10
+                            },
+                            {
+                                "type": "linearThermalExpansionCoefficient",
+                                "unit": "C^-1",
+                                "value": [
+                                    {
+                                        "environmental": {
+                                            "temperature": {
+                                                "unit": "C",
+                                                "value": 10
+                                            },
+                                            "humidity": {
+                                                "unit": "%",
+                                                "value": 50
+                                            }
+                                        },
+                                        "value": 10
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "metal-aluminium-alloy-volumetric-thermal-expansion-coefficient",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal",
+                            "type": {
+                                "name": "aluminiumAlloy"
+                            }
+                        },
+                        "symmetry": "isotropic",
+                        "properties": [
+                            {
+                                "type": "volumetricThermalExpansionCoefficient",
+                                "unit": "C^-1",
+                                "value": 10
+                            },
+                            {
+                                "type": "volumetricThermalExpansionCoefficient",
+                                "unit": "C^-1",
+                                "value": [
+                                    {
+                                        "environmental": {
+                                            "temperature": {
+                                                "unit": "C",
+                                                "value": 10
+                                            },
+                                            "humidity": {
+                                                "unit": "%",
+                                                "value": 50
+                                            }
+                                        },
+                                        "value": 10
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "metal-nickel-alloy-youngs-modulus",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal",
+                            "type": {
+                                "name": "nickelAlloy"
+                            }
+                        },
+                        "symmetry": "isotropic",
+                        "properties": [
+                            {
+                                "type": "youngsModulus",
+                                "unit": "kPa",
+                                "value": 10
+                            },
+                            {
+                                "type": "youngsModulus",
+                                "unit": "kPa",
+                                "value": [
+                                    {
+                                        "environmental": {
+                                            "temperature": {
+                                                "unit": "C",
+                                                "value": 10
+                                            },
+                                            "humidity": {
+                                                "unit": "%",
+                                                "value": 50
+                                            }
+                                        },
+                                        "value": 10
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "metal-copper-alloy-shear-modulus",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal",
+                            "type": {
+                                "name": "copperAlloy"
+                            }
+                        },
+                        "symmetry": "isotropic",
+                        "properties": [
+                            {
+                                "type": "shearModulus",
+                                "unit": "kPa",
+                                "value": 10
+                            },
+                            {
+                                "type": "shearModulus",
+                                "unit": "kPa",
+                                "value": [
+                                    {
+                                        "environmental": {
+                                            "temperature": {
+                                                "unit": "C",
+                                                "value": 10
+                                            },
+                                            "humidity": {
+                                                "unit": "%",
+                                                "value": 50
+                                            }
+                                        },
+                                        "value": 10
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "metal-titanium-alloy-compressive-strength",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "metal",
+                            "type": {
+                                "name": "titaniumAlloy"
+                            }
+                        },
+                        "symmetry": "isotropic",
+                        "properties": [
+                            {
+                                "type": "compressiveStrength",
+                                "unit": "kPa",
+                                "value": 10
+                            },
+                            {
+                                "type": "compressiveStrength",
+                                "unit": "kPa",
+                                "value": [
+                                    {
+                                        "environmental": {
+                                            "temperature": {
+                                                "unit": "C",
+                                                "value": 10
+                                            },
+                                            "humidity": {
+                                                "unit": "%",
+                                                "value": 50
+                                            }
+                                        },
+                                        "value": 10
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "ceramic-glass-shear-strength",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "ceramic",
+                            "type": {
+                                "name": "glass"
+                            }
+                        },
+                        "symmetry": "isotropic",
+                        "properties": [
+                            {
+                                "type": "shearStrength",
+                                "unit": "kPa",
+                                "value": 10
+                            },
+                            {
+                                "type": "shearStrength",
+                                "unit": "kPa",
+                                "value": [
+                                    {
+                                        "environmental": {
+                                            "temperature": {
+                                                "unit": "C",
+                                                "value": 10
+                                            },
+                                            "humidity": {
+                                                "unit": "%",
+                                                "value": 50
+                                            }
+                                        },
+                                        "value": 10
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "ceramic-clay-product-ultimate-tensile-strength",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "ceramic",
+                            "type": {
+                                "name": "clayProduct"
+                            }
+                        },
+                        "symmetry": "isotropic",
+                        "properties": [
+                            {
+                                "type": "ultimateTensileStrength",
+                                "unit": "kPa",
+                                "value": 10
+                            },
+                            {
+                                "type": "ultimateTensileStrength",
+                                "unit": "kPa",
+                                "value": [
+                                    {
+                                        "environmental": {
+                                            "temperature": {
+                                                "unit": "C",
+                                                "value": 10
+                                            },
+                                            "humidity": {
+                                                "unit": "%",
+                                                "value": 50
+                                            }
+                                        },
+                                        "value": 10
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "ceramic-refractory-yield-strength",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "ceramic",
+                            "type": {
+                                "name": "refractory"
+                            }
+                        },
+                        "symmetry": "isotropic",
+                        "properties": [
+                            {
+                                "type": "yieldStrength",
+                                "unit": "kPa",
+                                "value": 10
+                            },
+                            {
+                                "type": "yieldStrength",
+                                "unit": "kPa",
+                                "value": [
+                                    {
+                                        "environmental": {
+                                            "temperature": {
+                                                "unit": "C",
+                                                "value": 10
+                                            },
+                                            "humidity": {
+                                                "unit": "%",
+                                                "value": 50
+                                            }
+                                        },
+                                        "value": 10
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "ceramic-abrasive-point-one-pc-proof-stress",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "ceramic",
+                            "type": {
+                                "name": "abrasive"
+                            }
+                        },
+                        "symmetry": "isotropic",
+                        "properties": [
+                            {
+                                "type": "0.1%ProofStress",
+                                "unit": "kPa",
+                                "value": 10
+                            },
+                            {
+                                "type": "0.1%ProofStress",
+                                "unit": "kPa",
+                                "value": [
+                                    {
+                                        "environmental": {
+                                            "temperature": {
+                                                "unit": "C",
+                                                "value": 10
+                                            },
+                                            "humidity": {
+                                                "unit": "%",
+                                                "value": 50
+                                            }
+                                        },
+                                        "value": 10
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "ceramic-cement-fatigue-strength-coefficient",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "ceramic",
+                            "type": {
+                                "name": "cement"
+                            }
+                        },
+                        "symmetry": "isotropic",
+                        "properties": [
+                            {
+                                "type": "fatigueStrengthCoefficient",
+                                "unit": "kPa",
+                                "value": 10
+                            },
+                            {
+                                "type": "fatigueStrengthCoefficient",
+                                "unit": "kPa",
+                                "value": [
+                                    {
+                                        "environmental": {
+                                            "temperature": {
+                                                "unit": "C",
+                                                "value": 10
+                                            },
+                                            "humidity": {
+                                                "unit": "%",
+                                                "value": 50
+                                            }
+                                        },
+                                        "value": 10
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "ceramic-advanced-ceramic-tensile-toughness",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "ceramic",
+                            "type": {
+                                "name": "advancedCeramic"
+                            }
+                        },
+                        "symmetry": "isotropic",
+                        "properties": [
+                            {
+                                "type": "tensileToughness",
+                                "unit": "kJ/m^3",
+                                "value": 10
+                            },
+                            {
+                                "type": "tensileToughness",
+                                "unit": "kJ/m^3",
+                                "value": [
+                                    {
+                                        "environmental": {
+                                            "temperature": {
+                                                "unit": "C",
+                                                "value": 10
+                                            },
+                                            "humidity": {
+                                                "unit": "%",
+                                                "value": 50
+                                            }
+                                        },
+                                        "value": 10
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "polymer-thermoplastic-fracture-toughness",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "polymer",
+                            "type": {
+                                "name": "thermoplastic"
+                            }
+                        },
+                        "symmetry": "isotropic",
+                        "properties": [
+                            {
+                                "type": "fractureToughness",
+                                "unit": "kPa/m^(1/2)",
+                                "value": 10
+                            },
+                            {
+                                "type": "fractureToughness",
+                                "unit": "kPa/m^(1/2)",
+                                "value": [
+                                    {
+                                        "environmental": {
+                                            "temperature": {
+                                                "unit": "C",
+                                                "value": 10
+                                            },
+                                            "humidity": {
+                                                "unit": "%",
+                                                "value": 50
+                                            }
+                                        },
+                                        "value": 10
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "polymer-thermoset-poissons-ratio",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "polymer",
+                            "type": {
+                                "name": "thermoset"
+                            }
+                        },
+                        "symmetry": "isotropic",
+                        "properties": [
+                            {
+                                "type": "poissonsRatio",
+                                "value": 30
+                            },
+                            {
+                                "type": "poissonsRatio",
+                                "value": [
+                                    {
+                                        "environmental": {
+                                            "temperature": {
+                                                "unit": "C",
+                                                "value": 10
+                                            },
+                                            "humidity": {
+                                                "unit": "%",
+                                                "value": 50
+                                            }
+                                        },
+                                        "value": 30
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "polymer-elastomer-elongation",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "polymer",
+                            "type": {
+                                "name": "elastomer"
+                            }
+                        },
+                        "symmetry": "isotropic",
+                        "properties": [
+                            {
+                                "type": "elongation",
+                                "value": 30
+                            },
+                            {
+                                "type": "elongation",
+                                "value": [
+                                    {
+                                        "environmental": {
+                                            "temperature": {
+                                                "unit": "C",
+                                                "value": 10
+                                            },
+                                            "humidity": {
+                                                "unit": "%",
+                                                "value": 50
+                                            }
+                                        },
+                                        "value": 30
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "polymer-resin-reduction-in-area",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "polymer",
+                            "type": {
+                                "name": "resin"
+                            }
+                        },
+                        "symmetry": "isotropic",
+                        "properties": [
+                            {
+                                "type": "reductionInArea",
+                                "value": 30
+                            },
+                            {
+                                "type": "reductionInArea",
+                                "value": [
+                                    {
+                                        "environmental": {
+                                            "temperature": {
+                                                "unit": "C",
+                                                "value": 10
+                                            },
+                                            "humidity": {
+                                                "unit": "%",
+                                                "value": 50
+                                            }
+                                        },
+                                        "value": 30
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "polymer-carbon-fatigue-strength-exponent",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "polymer",
+                            "type": {
+                                "name": "carbon"
+                            }
+                        },
+                        "symmetry": "isotropic",
+                        "properties": [
+                            {
+                                "type": "fatigueStrengthExponent",
+                                "value": 30
+                            },
+                            {
+                                "type": "fatigueStrengthExponent",
+                                "value": [
+                                    {
+                                        "environmental": {
+                                            "temperature": {
+                                                "unit": "C",
+                                                "value": 10
+                                            },
+                                            "humidity": {
+                                                "unit": "%",
+                                                "value": 50
+                                            }
+                                        },
+                                        "value": 30
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "wood-ash-fatigue-ductility-coefficient",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "wood",
+                            "type": {
+                                "name": "ash"
+                            }
+                        },
+                        "symmetry": "isotropic",
+                        "properties": [
+                            {
+                                "type": "fatigueDuctilityCoefficient",
+                                "value": 30
+                            },
+                            {
+                                "type": "fatigueDuctilityCoefficient",
+                                "value": [
+                                    {
+                                        "environmental": {
+                                            "temperature": {
+                                                "unit": "C",
+                                                "value": 10
+                                            },
+                                            "humidity": {
+                                                "unit": "%",
+                                                "value": 50
+                                            }
+                                        },
+                                        "value": 30
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "wood-oak-fatigue-ductility-exponent",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "wood",
+                            "type": {
+                                "name": "oak"
+                            }
+                        },
+                        "symmetry": "isotropic",
+                        "properties": [
+                            {
+                                "type": "fatigueDuctilityExponent",
+                                "value": 30
+                            },
+                            {
+                                "type": "fatigueDuctilityExponent",
+                                "value": [
+                                    {
+                                        "environmental": {
+                                            "temperature": {
+                                                "unit": "C",
+                                                "value": 10
+                                            },
+                                            "humidity": {
+                                                "unit": "%",
+                                                "value": 50
+                                            }
+                                        },
+                                        "value": 30
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "wood-maple-vickers-hardness",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "wood",
+                            "type": {
+                                "name": "maple"
+                            }
+                        },
+                        "symmetry": "isotropic",
+                        "properties": [
+                            {
+                                "type": "vickersHardness",
+                                "value": [
+                                    {
+                                        "environmental": {
+                                            "temperature": {
+                                                "unit": "C",
+                                                "value": 10
+                                            },
+                                            "humidity": {
+                                                "unit": "%",
+                                                "value": 50
+                                            }
+                                        },
+                                        "parameters": {
+                                            "load": {
+                                                "unit": "kgf",
+                                                "value": 10
+                                            },
+                                            "duration": {
+                                                "unit": "s",
+                                                "value": 60
+                                            }
+                                        },
+                                        "value": 30
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "wood-birch-brinell-hardness",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "wood",
+                            "type": {
+                                "name": "birch"
+                            }
+                        },
+                        "symmetry": "isotropic",
+                        "properties": [
+                            {
+                                "type": "brinellHardness",
+                                "value": [
+                                    {
+                                        "environmental": {
+                                            "temperature": {
+                                                "unit": "C",
+                                                "value": 10
+                                            },
+                                            "humidity": {
+                                                "unit": "%",
+                                                "value": 50
+                                            }
+                                        },
+                                        "parameters": {
+                                            "diameter": {
+                                                "unit": "mm",
+                                                "value": 5
+                                            },
+                                            "ball": {
+                                                "unit": "W",
+                                                "value": 0
+                                            },
+                                            "force": {
+                                                "unit": "kgf",
+                                                "value": 10
+                                            }
+                                        },
+                                        "value": 30
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "wood-pine",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "wood",
+                            "type": {
+                                "name": "pine"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "rock-basalt",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "rock",
+                            "type": {
+                                "name": "basalt"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "rock-marble",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "rock",
+                            "type": {
+                                "name": "marble"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "rock-granite",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "rock",
+                            "type": {
+                                "name": "granite"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "concrete",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "concrete"
+                        }
+                    }
+                },
+                {
+                    "name": "other",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "other"
+                        }
+                    }
+                },
+                {
+                    "name": "composite-fibre-basalt-reinforced-concrete",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "composite"
+                        },
+                        "matrix": {
+                            "base": {
+                                "type": {
+                                    "name": "concrete"
+                                },
+                                "symmetry": "isotropic",
+                                "properties": [
+                                    {
+                                        "type": "ultimateTensileStrength",
+                                        "unit": "MPa",
+                                        "value": 10
+                                    },
+                                    {
+                                        "type": "ultimateTensileStrength",
+                                        "unit": "MPa",
+                                        "value": [
+                                            {
+                                                "environmental": {
+                                                    "temperature": {
+                                                        "unit": "C",
+                                                        "value": 20
+                                                    },
+                                                    "humidity": {
+                                                        "unit": "%",
+                                                        "value": 50
+                                                    }
+                                                },
+                                                "value": 10
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            "embedded": [
+                                {
+                                    "method": "fibre",
+                                    "type": {
+                                        "name": "rock",
+                                        "type": {
+                                            "name": "basalt"
+                                        }
+                                    },
+                                    "symmetry": "isotropic",
+                                    "properties": [
+                                        {
+                                            "type": "ultimateTensileStrength",
+                                            "unit": "MPa",
+                                            "value": 3000
+                                        },
+                                        {
+                                            "type": "ultimateTensileStrength",
+                                            "unit": "MPa",
+                                            "value": [
+                                                {
+                                                    "environmental": {
+                                                        "temperature": {
+                                                            "unit": "C",
+                                                            "value": 20
+                                                        },
+                                                        "humidity": {
+                                                            "unit": "%",
+                                                            "value": 50
+                                                        }
+                                                    },
+                                                    "value": 3000
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "properties": [
+                            {
+                                "type": "ultimateTensileStrength",
+                                "unit": "GPa",
+                                "value": 15
+                            },
+                            {
+                                "type": "ultimateTensileStrength",
+                                "unit": "GPa",
+                                "value": [
+                                    {
+                                        "environmental": {
+                                            "temperature": {
+                                                "unit": "C",
+                                                "value": 20
+                                            },
+                                            "humidity": {
+                                                "unit": "%",
+                                                "value": 50
+                                            }
+                                        },
+                                        "value": 15
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "composite-particle-polymer-clay",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "composite"
+                        },
+                        "matrix": {
+                            "base": {
+                                "type": {
+                                    "name": "ceramic",
+                                    "type": {
+                                        "name": "clayProduct"
+                                    }
+                                },
+                                "symmetry": "isotropic",
+                                "properties": [
+                                    {
+                                        "type": "density",
+                                        "unit": "kg/m^3",
+                                        "value": 1500
+                                    },
+                                    {
+                                        "type": "density",
+                                        "unit": "kg/m^3",
+                                        "value": [
+                                            {
+                                                "environmental": {
+                                                    "temperature": {
+                                                        "unit": "C",
+                                                        "value": 20
+                                                    },
+                                                    "humidity": {
+                                                        "unit": "%",
+                                                        "value": 50
+                                                    }
+                                                },
+                                                "value": 1500
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            "embedded": [
+                                {
+                                    "method": "particle",
+                                    "type": {
+                                        "name": "metal",
+                                        "type": {
+                                            "name": "ferrousAlloy",
+                                            "type": {
+                                                "name": "iron"
+                                            }
+                                        }
+                                    },
+                                    "symmetry": "isotropic",
+                                    "properties": [
+                                        {
+                                            "type": "density",
+                                            "unit": "kg/m^3",
+                                            "value": 7800
+                                        },
+                                        {
+                                            "type": "density",
+                                            "unit": "kg/m^3",
+                                            "value": [
+                                                {
+                                                    "environmental": {
+                                                        "temperature": {
+                                                            "unit": "C",
+                                                            "value": 20
+                                                        },
+                                                        "humidity": {
+                                                            "unit": "%",
+                                                            "value": 50
+                                                        }
+                                                    },
+                                                    "value": 7800
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "properties": [
+                            {
+                                "type": "density",
+                                "unit": "kg/m^3",
+                                "value": 1650
+                            },
+                            {
+                                "type": "density",
+                                "unit": "kg/m^3",
+                                "value": [
+                                    {
+                                        "environmental": {
+                                            "temperature": {
+                                                "unit": "C",
+                                                "value": 20
+                                            },
+                                            "humidity": {
+                                                "unit": "%",
+                                                "value": 50
+                                            }
+                                        },
+                                        "value": 1650
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "composite-woven-carbon-fibre",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "composite"
+                        },
+                        "matrix": {
+                            "base": {
+                                "type": {
+                                    "name": "polymer",
+                                    "type": {
+                                        "name": "resin"
+                                    }
+                                },
+                                "symmetry": "isotropic",
+                                "properties": [
+                                    {
+                                        "type": "youngsModulus",
+                                        "unit": "MPa",
+                                        "value": 3100
+                                    },
+                                    {
+                                        "type": "youngsModulus",
+                                        "unit": "MPa",
+                                        "value": [
+                                            {
+                                                "environmental": {
+                                                    "temperature": {
+                                                        "unit": "C",
+                                                        "value": 20
+                                                    },
+                                                    "humidity": {
+                                                        "unit": "%",
+                                                        "value": 50
+                                                    }
+                                                },
+                                                "value": 3100
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            "embedded": [
+                                {
+                                    "method": "woven",
+                                    "type": {
+                                        "name": "polymer",
+                                        "type": {
+                                            "name": "carbon"
+                                        }
+                                    },
+                                    "symmetry": "isotropic",
+                                    "properties": [
+                                        {
+                                            "type": "youngsModulus",
+                                            "unit": "GPa",
+                                            "value": 100
+                                        },
+                                        {
+                                            "type": "youngsModulus",
+                                            "unit": "GPa",
+                                            "value": [
+                                                {
+                                                    "environmental": {
+                                                        "temperature": {
+                                                            "unit": "C",
+                                                            "value": 20
+                                                        },
+                                                        "humidity": {
+                                                            "unit": "%",
+                                                            "value": 50
+                                                        }
+                                                    },
+                                                    "value": 100
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "properties": [
+                            {
+                                "type": "youngsModulus",
+                                "unit": "GPa",
+                                "value": 300
+                            },
+                            {
+                                "type": "youngsModulus",
+                                "unit": "GPa",
+                                "value": [
+                                    {
+                                        "environmental": {
+                                            "temperature": {
+                                                "unit": "C",
+                                                "value": 20
+                                            },
+                                            "humidity": {
+                                                "unit": "%",
+                                                "value": 50
+                                            }
+                                        },
+                                        "value": 300
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "composite-bar-steel-reinforced-concrete",
+                    "type": "regular",
+                    "contextual": {
+                        "type": "other"
+                    },
+                    "geometry": {
+                        "type": {
+                            "name": "solid",
+                            "type": {
+                                "name": "translate",
+                                "type": {
+                                    "name": "cuboid"
+                                }
+                            }
+                        }
+                    },
+                    "material": {
+                        "type": {
+                            "name": "composite"
+                        },
+                        "matrix": {
+                            "base": {
+                                "type": {
+                                    "name": "concrete"
+                                },
+                                "symmetry": "isotropic",
+                                "properties": [
+                                    {
+                                        "type": "poissonsRatio",
+                                        "value": 0.2
+                                    },
+                                    {
+                                        "type": "poissonsRatio",
+                                        "value": [
+                                            {
+                                                "environmental": {
+                                                    "temperature": {
+                                                        "unit": "C",
+                                                        "value": 20
+                                                    },
+                                                    "humidity": {
+                                                        "unit": "%",
+                                                        "value": 50
+                                                    }
+                                                },
+                                                "value": 0.2
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            "embedded": [
+                                {
+                                    "method": "bar",
+                                    "type": {
+                                        "name": "metal",
+                                        "type": {
+                                            "name": "ferrousAlloy",
+                                            "type": {
+                                                "name": "steel"
+                                            }
+                                        }
+                                    },
+                                    "symmetry": "isotropic",
+                                    "properties": [
+                                        {
+                                            "type": "poissonsRatio",
+                                            "value": 0.2
+                                        },
+                                        {
+                                            "type": "poissonsRatio",
+                                            "value": [
+                                                {
+                                                    "environmental": {
+                                                        "temperature": {
+                                                            "unit": "C",
+                                                            "value": 20
+                                                        },
+                                                        "humidity": {
+                                                            "unit": "%",
+                                                            "value": 50
+                                                        }
+                                                    },
+                                                    "value": 0.2
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "properties": [
+                            {
+                                "type": "poissonsRatio",
+                                "value": 0.2
+                            },
+                            {
+                                "type": "poissonsRatio",
+                                "value": [
+                                    {
+                                        "environmental": {
+                                            "temperature": {
+                                                "unit": "C",
+                                                "value": 20
+                                            },
+                                            "humidity": {
+                                                "unit": "%",
+                                                "value": 50
+                                            }
+                                        },
+                                        "value": 0.2
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}
