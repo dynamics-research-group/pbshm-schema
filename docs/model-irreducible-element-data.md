@@ -1,7 +1,13 @@
 # [Irreducible Element](#irreducible-element)
+The original version (v1.1.0) of the specification and descriptors of each object in an Irreducible Element (IE) model were part of the paper by Brennan *et al.* 2025 ["Foundations of population-based SHM, Part V: Network, framework and database"](https://doi.org/10.1016/j.ymssp.2024.111602) (10.1016/j.ymssp.2024.111602). A short summary is provided below for key objects; however, the reader is encouraged to read the full specification in Section 4 of the paper.
+
+The documentation below is for the latest version of the schema (v1.4.1) so will differ slightly from the specification included in the paper outlined above; however, the general principles stay the same.
+
 # [Models](#models)
 
 ## [Free Model](#free-model)
+A `free` model describes a structure that is free from any external influences. It can only contain [`regular`](#regular-element) elements and [`perfect`](#perfect-relationship), [`connection`](#connection-relationship), and [`joint`](#joint-relationship) relationships.
+
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`type`|the type of the model|`string`|`free`|yes|
@@ -9,6 +15,8 @@
 |`relationships`|this is the array of relationships within the irreducible element model|`array`|[`perfect`](#perfect-relationship), [`connection`](#connection-relationship), [`joint`](#joint-relationship)|yes, if no `elements`|
 
 ## [Grounded Model](#grounded-model)
+A `grounded` model describes a structure that includes external influences as references in the model. It can contain the same elements ([`regular`](#regular-element)) and relationships ([`perfect`](#perfect-relationship), [`connection`](#connection-relationship), and [`joint`](#joint-relationship)) as a `free` model, but must also include at least one [`ground`](#ground-element) element and one [`boundary`](#boundary-relationship) relationship to be considered valid.
+
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`type`|the type of the model|`string`|`grounded`|yes|
@@ -18,6 +26,8 @@
 # [Elements](#elements)
 
 ## [Regular Element](#regular-element)
+A `regular` element represents a structurally-significant component in the modelled structure, regardless of scale.
+
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`name`|the unique element name within the model|`string`|Minimum Length: 1, Maximum Length: 64|yes|
@@ -415,6 +425,8 @@ Additional properties can be declared of type [`wildcardValue`](#wildcard-value)
 |`value`|value of the material property based in the selected unit|`int`, `double`|any numerical value|yes|
 
 ## [Ground Element](#ground-element)
+A `ground` element represents an external system to the structure being modelled. This could reference the physical ground, or it could be another structure that interacts with the modelled structure.
+
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`name`|the unique element name within the model|`string`|Minimum Length: 1, Maximum Length: 64|yes|
@@ -478,6 +490,8 @@ Additional properties can be declared of type [`wildcardValue`](#wildcard-value)
 # [Relationships](#relationships)
 
 ## [Perfect Relationship](#perfect-relationship)
+A `perfect` relationship models the interaction between two [`regular`](#regular-element) elements where they should be considered as the same component but have been divided to capture additional knowledge.
+
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`name`|the unique name of the relationship within the irreducible element model|`string`|Minimum Length: 1, Maximum Length: 64|yes|
@@ -487,6 +501,8 @@ Additional properties can be declared of type [`wildcardValue`](#wildcard-value)
 |`elements`|the elements involved in the relationship|`array`|[`namedRelationshipElement`](#named-relationship-element)|yes|
 
 ## [Connection Relationship](#connection-relationship)
+A `connection` relationship models the interaction between two or more [`regular`](#regular-element) elements which are held together by a non-structurally-significant component, which has therefore been omitted from the model.
+
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`name`|the unique name of the relationship within the irreducible element model|`string`|Minimum Length: 1, Maximum Length: 64|yes|
@@ -502,8 +518,11 @@ Additional properties can be declared of type [`wildcardValue`](#wildcard-value)
 |`coordinates`|the coordinates of the relationship|`object`|[`relationshipCoordinates`](#relationship-coordinates)|no|
 
 ## [Joint Relationship](#joint-relationship)
+A `joint` relationship models the interaction between two [`regular`](#regular-element) elements where the physics of the interaction are captured.
 
 ### [Static Joint](#static-joint)
+A `static` joint dictates that there is no movement between the two [`regular`](#regular-element) elements in the `joint` relationship.
+
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`name`|the unique name of the relationship within the irreducible element model|`string`|Minimum Length: 1, Maximum Length: 64|yes|
@@ -513,6 +532,8 @@ Additional properties can be declared of type [`wildcardValue`](#wildcard-value)
 |`elements`|the elements involved in the relationship|`array`|[`positionedRelationshipElement`](#positioned-relationship-element)|yes|
 
 ### [Dynamic Joint](#dynamic-joint)
+A `dynamic` joint dictates that there is movement between the two [`regular`](#regular-element) elements in the `joint` relationship.
+
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`name`|the unique name of the relationship within the irreducible element model|`string`|Minimum Length: 1, Maximum Length: 64|yes|
@@ -536,6 +557,8 @@ At least one of `translational` or `rotational` must be provided.
 |`rotational`|the alpha, beta and gamma values for the rotational degrees of freedom|`object`|[`boundedRotationalCoordinates`](#bounded-rotational-coordinates)|no|
 
 ## [Boundary Relationship](#boundary-relationship)
+A `boundary` relationship models the interaction between one [`regular`](#regular-element) element and one [`ground`](#ground-element) element to mark the boundary between the modelled structure and an external system.
+
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`name`|the unique name of the relationship within the irreducible element model|`string`|Minimum Length: 1, Maximum Length: 64|yes|
