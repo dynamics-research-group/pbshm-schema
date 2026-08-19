@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: "If you use this schema, please cite both the article from the preferred-citation and the software itself."
+title: "PBSHM Schema"
+authors:
+- family-names: "Brennan"
+  given-names: "Daniel S."
+  orcid: "https://orcid.org/0009-0001-7223-3431"
+- family-names: "Gosliga"
+  given-names: "Julian"
+- family-names: "O'Higgins"
+  given-names: "Connor"
+  orcid: "https://orcid.org/0000-0001-7034-005X"
+- family-names: "Cross"
+  given-names: "Elizabeth J."
+  orcid: "https://orcid.org/0000-0001-5204-1910"
+- family-names: "Worden"
+  given-names: "Keith"
+version: 1.4.1
+date-released: "2026-08-19"
+url: "https://github.com/dynamics-research-group/pbshm-schema"
+preferred-citation:
+  type: article
+  title: "Foundations of population-based SHM, Part V: Network, framework and database"
+  authors:
+  - family-names: "Brennan"
+    given-names: "Daniel S."
+    orcid: "https://orcid.org/0009-0001-7223-3431"
+  - family-names: "Gosliga"
+    given-names: "Julian"
+  - family-names: "Cross"
+    given-names: "Elizabeth J."
+    orcid: "https://orcid.org/0000-0001-5204-1910"
+  - family-names: "Worden"
+    given-names: "Keith"
+  journal: "Mechanical Systems and Signal Processing"
+  doi: "10.1016/j.ymssp.2024.111602"
+  year: 2025
+  volume: 223
