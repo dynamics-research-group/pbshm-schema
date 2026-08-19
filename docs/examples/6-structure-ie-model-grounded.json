@@ -17,9 +17,6 @@
                 {
                     "name": "regular-element",
                     "type": "regular",
-                    "contextual": {
-                        "type": "beam"
-                    },
                     "coordinates": {
                         "global": {
                             "translational": {
@@ -51,6 +48,9 @@
                                 }
                             }
                         }
+                    },
+                    "contextual": {
+                        "type": "beam"
                     },
                     "geometry": {
                         "type": {
