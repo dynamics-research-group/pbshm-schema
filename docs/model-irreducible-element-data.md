@@ -324,10 +324,10 @@ An element's material is either a single [reference material](#reference-materia
 ###### [Embedded Reference Material](#embedded-reference-material)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
+|`method`|method for embedding the reference material within the base material|`string`|`fibre`, `particle`, `woven`, `bar`|yes|
 |`type`|material type of element|`object`|[`typeReferenceMaterial`](#type-reference-material)|yes|
 |`symmetry`|symmetry of the material|`string`|`isotropic`|yes, if `properties` provided|
 |`properties`|array of material properties|`array`|[`propertiesElementMaterial`](#properties-element-material)|no|
-|`method`|method for embedding the reference material within the base material|`string`|`fibre`, `particle`, `woven`, `bar`|yes|
 
 #### [Properties Element Material](#properties-element-material)
 
@@ -335,36 +335,36 @@ An element's material is either a single [reference material](#reference-materia
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`type`|type of the material property|`string`|`density`|yes|
-|`value`|value of the material property|`int`, `double`, `array`|a single numerical value, or an array of [`conditionalMaterialProperty`](#conditional-material-property) for values recorded under different conditions|yes|
 |`unit`|unit that the value of the material property is based in|`string`|`kg/m^3`, `g/cm^3`, `kg/L`, `g/mL`, `t/m^3`, `kg/dm^3`, `oz/cu in`, `other`|yes|
+|`value`|value of the material property|`int`, `double`, `array`|a single numerical value, or an array of [`conditionalMaterialProperty`](#conditional-material-property) for values recorded under different conditions|yes|
 
 ##### [Thermal Expansion Coefficient Property Element Material](#thermal-expansion-coefficient-property-element-material)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`type`|type of the material property|`string`|`linearThermalExpansionCoefficient`, `volumetricThermalExpansionCoefficient`|yes|
-|`value`|value of the material property|`int`, `double`, `array`|a single numerical value, or an array of [`conditionalMaterialProperty`](#conditional-material-property) for values recorded under different conditions|yes|
 |`unit`|unit that the value of the material property is based in|`string`|`K^-1`, `C^-1`, `F^-1`, `other`|yes|
+|`value`|value of the material property|`int`, `double`, `array`|a single numerical value, or an array of [`conditionalMaterialProperty`](#conditional-material-property) for values recorded under different conditions|yes|
 
 ##### [Pressure Property Element Material](#pressure-property-element-material)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`type`|type of the material property|`string`|`youngsModulus`, `shearModulus`, `compressiveStrength`, `shearStrength`, `ultimateTensileStrength`, `yieldStrength`, `0.1%ProofStress`, `fatigueStrengthCoefficient`|yes|
-|`value`|value of the material property|`int`, `double`, `array`|a single numerical value, or an array of [`conditionalMaterialProperty`](#conditional-material-property) for values recorded under different conditions|yes|
 |`unit`|unit that the value of the material property is based in|`string`|`GPa`, `MPa`, `kPa`, `Pa`, `Mpsi`, `ksi`, `psi`, `other`|yes|
+|`value`|value of the material property|`int`, `double`, `array`|a single numerical value, or an array of [`conditionalMaterialProperty`](#conditional-material-property) for values recorded under different conditions|yes|
 
 ##### [Tensile Toughness Property Element Material](#tensile-toughness-property-element-material)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`type`|type of the material property|`string`|`tensileToughness`|yes|
-|`value`|value of the material property|`int`, `double`, `array`|a single numerical value, or an array of [`conditionalMaterialProperty`](#conditional-material-property) for values recorded under different conditions|yes|
 |`unit`|unit that the value of the material property is based in|`string`|`GJ/m^3`, `MJ/m^3`, `kJ/m^3`, `J/m^3`, `ibf/in^3`, `other`|yes|
+|`value`|value of the material property|`int`, `double`, `array`|a single numerical value, or an array of [`conditionalMaterialProperty`](#conditional-material-property) for values recorded under different conditions|yes|
 
 ##### [Fracture Toughness Property Element Material](#fracture-toughness-property-element-material)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
 |`type`|type of the material property|`string`|`fractureToughness`|yes|
-|`value`|value of the material property|`int`, `double`, `array`|a single numerical value, or an array of [`conditionalMaterialProperty`](#conditional-material-property) for values recorded under different conditions|yes|
 |`unit`|unit that the value of the material property is based in|`string`|`TPa/m^(1/2)`, `GPa/m^(1/2)`, `MPa/m^(1/2)`, `kPa/m^(1/2)`, `Pa/m^(1/2)`, `psi/in^(1/2)`, `other`|yes|
+|`value`|value of the material property|`int`, `double`, `array`|a single numerical value, or an array of [`conditionalMaterialProperty`](#conditional-material-property) for values recorded under different conditions|yes|
 
 ##### [Unit Free Property Element Material](#unit-free-property-element-material)
 |Property|Description|Type|Values|Required|
@@ -483,8 +483,8 @@ Additional properties can be declared of type [`wildcardValue`](#wildcard-value)
 |`name`|the unique name of the relationship within the irreducible element model|`string`|Minimum Length: 1, Maximum Length: 64|yes|
 |`description`|additional information on the relationship|`string`|*|no|
 |`type`|the type of relationship|`string`|`perfect`|yes|
-|`elements`|the elements involved in the relationship|`array`|[`namedRelationshipElement`](#named-relationship-element)|yes|
 |`coordinates`|the coordinates of the relationship|`object`|[`relationshipCoordinates`](#relationship-coordinates)|no|
+|`elements`|the elements involved in the relationship|`array`|[`namedRelationshipElement`](#named-relationship-element)|yes|
 
 ## [Connection Relationship](#connection-relationship)
 |Property|Description|Type|Values|Required|
@@ -509,8 +509,8 @@ Additional properties can be declared of type [`wildcardValue`](#wildcard-value)
 |`name`|the unique name of the relationship within the irreducible element model|`string`|Minimum Length: 1, Maximum Length: 64|yes|
 |`description`|additional information on the relationship|`string`|*|no|
 |`type`|the type of relationship|`string`|`joint`|yes|
-|`elements`|the elements involved in the relationship|`array`|[`positionedRelationshipElement`](#positioned-relationship-element)|yes|
 |`nature`|the nature of the relationship to the element|`object`|[`staticNature`](#static-nature)|yes|
+|`elements`|the elements involved in the relationship|`array`|[`positionedRelationshipElement`](#positioned-relationship-element)|yes|
 
 ### [Dynamic Joint](#dynamic-joint)
 |Property|Description|Type|Values|Required|
@@ -518,9 +518,9 @@ Additional properties can be declared of type [`wildcardValue`](#wildcard-value)
 |`name`|the unique name of the relationship within the irreducible element model|`string`|Minimum Length: 1, Maximum Length: 64|yes|
 |`description`|additional information on the relationship|`string`|*|no|
 |`type`|the type of relationship|`string`|`joint`|yes|
-|`elements`|the elements involved in the relationship|`array`|[`positionedRelationshipElement`](#positioned-relationship-element)|yes|
 |`nature`|the nature of the relationship to the element|`object`|[`dynamicNature`](#dynamic-nature)|yes|
 |`degreesOfFreedom`|the degrees of freedom within the relationship|`object`|[`dynamicJointRelationshipDegreesOfFreedom`](#dynamic-joint-relationship-degrees-of-freedom)|no|
+|`elements`|the elements involved in the relationship|`array`|[`positionedRelationshipElement`](#positioned-relationship-element)|yes|
 
 ##### [Dynamic Joint Relationship Degrees Of Freedom](#dynamic-joint-relationship-degrees-of-freedom)
 |Property|Description|Type|Values|Required|
@@ -541,8 +541,8 @@ At least one of `translational` or `rotational` must be provided.
 |`name`|the unique name of the relationship within the irreducible element model|`string`|Minimum Length: 1, Maximum Length: 64|yes|
 |`description`|additional information on the relationship|`string`|*|no|
 |`type`|the type of relationship|`string`|`boundary`|yes|
-|`elements`|the elements involved in the relationship|`array`|[`namedRelationshipElement`](#named-relationship-element)|yes|
 |`coordinates`|the coordinates of the relationship|`object`|[`relationshipCoordinates`](#relationship-coordinates)|no|
+|`elements`|the elements involved in the relationship|`array`|[`namedRelationshipElement`](#named-relationship-element)|yes|
 
 ## [Relationship Shared Objects](#relationship-shared-objects)
 
