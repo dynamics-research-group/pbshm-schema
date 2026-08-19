@@ -52,7 +52,7 @@ A `regular` element represents a structurally-significant component in the model
 ### [Element Contextual](#element-contextual)
 |Property|Description|Type|Values|Required|
 |---|-----|---|---|---|
-|`type`|the type of the element|`string`|`wall`, `slab`, `beam`, `cable`, `block`, `plate`, `column`, `deck`, `aerofoil`, `wing`, `fuselage`, `tower`, `wheel`, `other`|yes|
+|`type`|the type of the element|`string`|`wall`, `slab`, `beam`, `cable`, `block`, `plate`, `column`, `deck`, `aerofoil`, `wing`, `fuselage`, `tower`, `wheel`, `nacelle`, `bearing`, `hub`, `other`|yes|
 
 ### [Element Geometry](#element-geometry)
 Every element geometry object is built from the same three properties; the specific `type` tree and the `dimensions` fields it supports vary by the geometry type selected below.
